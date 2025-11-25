@@ -41,7 +41,7 @@ const projectData: Record<string, any> = {
     status: "Live",
     statusColor: "green",
     tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     demo: "https://flowcircle.app",
     problem:
       "Creative professionals were drowning in project chaos. Traditional tools like Asana and Trello felt too corporate—too many fields, too much structure. They needed something flexible that matched how creatives actually work: visual, intuitive, and fast.",
@@ -115,7 +115,7 @@ class ProjectSyncService {
     status: "Beta",
     statusColor: "yellow",
     tech: ["Python", "Claude AI", "Make.com", "Supabase", "Gmail API", "Cal.com"],
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     demo: "https://autoleadcloser.com",
     demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
     pricing: "Starting at $299/month for small agencies",
@@ -247,7 +247,7 @@ def score_lead(lead_data: dict) -> float:
     status: "In Development",
     statusColor: "blue",
     tech: ["Make.com", "n8n", "Zapier", "REST APIs"],
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     demo: "https://agencyautopilot.com",
     problem:
       "Service agencies were drowning in admin work. Every new client meant hours of manual setup: creating projects, sending welcome emails, setting up invoices, updating CRMs. Teams spent 20+ hours per week on tasks that should be automatic—time that should go to client work.",

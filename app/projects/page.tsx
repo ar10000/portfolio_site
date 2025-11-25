@@ -13,7 +13,7 @@ const projects = [
     tech: ["Next.js", "OpenAI", "TypeScript", "Tailwind CSS"],
     image: "/api/placeholder/600/400",
     link: "/projects/ai-chat-assistant",
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     featured: true,
   },
   {
@@ -24,7 +24,7 @@ const projects = [
     tech: ["React", "Python", "TensorFlow", "D3.js"],
     image: "/api/placeholder/600/400",
     link: "/projects/smart-analytics-dashboard",
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     featured: true,
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     tech: ["Next.js", "GPT-4", "Node.js", "MongoDB"],
     image: "/api/placeholder/600/400",
     link: "/projects/automated-content-generator",
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     featured: false,
   },
   {
@@ -46,7 +46,7 @@ const projects = [
     tech: ["Python", "Scikit-learn", "FastAPI", "PostgreSQL"],
     image: "/api/placeholder/600/400",
     link: "/projects/intelligent-recommendation-system",
-    github: "https://github.com",
+    github: "https://github.com/ar10000",
     featured: false,
   },
 ];

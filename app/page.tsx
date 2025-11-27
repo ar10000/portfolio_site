@@ -80,10 +80,31 @@ export default function Home() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg sm:text-xl lg:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-lg sm:text-xl lg:text-xl text-gray-400 mb-6 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
                 Stop waiting months for custom software. I build workflow automations, internal tools, and AI prototypes in days using modern stacks. No enterprise agency pricing, no six-month timelines.
               </motion.p>
+
+              {/* Trust Indicators */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap items-center gap-4 sm:gap-6 justify-center lg:justify-start mb-8 text-sm text-gray-500"
+              >
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-green-500/70" />
+                  <span>3 products shipped in 6 months</span>
+                </span>
+                <span className="hidden sm:inline text-gray-700">•</span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-green-500/70" />
+                  <span>72-hour average build time</span>
+                </span>
+                <span className="hidden sm:inline text-gray-700">•</span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-green-500/70" />
+                  <span>30-day warranty on all projects</span>
+                </span>
+              </motion.div>
 
               <motion.div
                 variants={itemVariants}

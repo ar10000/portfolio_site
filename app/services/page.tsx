@@ -24,12 +24,13 @@ const services = [
     color: "purple",
     icon: Brain,
     description:
-      "Stop losing leads to slow responses. I build AI tools that automate your biggest bottlenecks—qualifying leads, processing documents, handling support—so your team focuses on what matters.",
+      "Stop losing leads to slow responses. I build AI tools that automate your biggest bottlenecks—qualifying leads, processing documents, handling support—so your team focuses on what matters. I use modern AI stacks (Claude, GPT, or Gemini — whichever fits best) to build solutions faster and more affordably than traditional agencies, without sacrificing quality.",
     youGet: [
       "A working AI tool in 2-4 weeks, not months",
       "Integration with Claude, GPT, or Gemini—I pick the best fit",
       "Full deployment and documentation you can actually use",
       "Clear requirements mapped to real business outcomes",
+      "Complete handoff package: walkthrough video, documentation, and 30-day bug fix warranty",
     ],
     idealFor:
       "You have a specific problem AI can solve, and you need it done fast",
@@ -48,9 +49,10 @@ const services = [
       "Cut hours of manual work every week. I connect your tools with Make.com and n8n workflows that run in the background, so you never touch them again.",
     youGet: [
       "Your entire workflow automated in 1-2 weeks",
-      "All your tools connected—CRM, email, databases, payment processors",
+      "All your tools connected—CRM, email, databases, payment processors. I specialize in Make.com and n8n to create automations that connect your CRM, email, databases, and payment processors — no coding required on your end.",
       "30 days of support to make sure everything runs smoothly",
       "Training so your team knows how it works",
+      "Complete handoff package: walkthrough video, documentation, and 30-day bug fix warranty",
     ],
     idealFor: "You're drowning in repetitive tasks and need them gone yesterday",
     examples: [
@@ -71,6 +73,7 @@ const services = [
       "Core features that prove your concept",
       "A hosted demo you can share with investors or users",
       "Clean code and docs for when you're ready to scale",
+      "Complete handoff package: walkthrough video, documentation, and 30-day bug fix warranty",
     ],
     idealFor: "You have an idea and need to validate it with real users before committing to full development",
     examples: ["SaaS MVP", "Internal tools", "Proof-of-concept demos"],
@@ -135,6 +138,11 @@ const faqs = [
     question: "Do you provide hosting and maintenance?",
     answer:
       "I can set up hosting and provide initial deployment. For ongoing hosting and maintenance, we can discuss options based on your needs and budget.",
+  },
+  {
+    question: "What happens after you build it?",
+    answer:
+      "I don't just hand over code and disappear. Every project includes a complete handoff package: a walkthrough video showing how everything works, written documentation your team can reference, and a 30-day warranty where I fix any bugs for free. After that, I offer optional maintenance retainers starting at €500/month.",
   },
 ];
 
@@ -404,6 +412,44 @@ export default function ServicesPage() {
             );
           })}
         </div>
+
+        {/* Internal Tools Callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <div className="relative overflow-hidden rounded-xl border-2 border-gray-700/50 bg-gradient-to-br from-gray-900/80 via-gray-900/60 to-gray-900/80 backdrop-blur-sm">
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-50" />
+            
+            <div className="relative p-8 md:p-10">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">
+                    Need an Internal Tool?
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed max-w-3xl">
+                    I build custom dashboards, admin panels, and data management interfaces that your team can actually use. These aren't consumer-facing products — they're the internal tools that make your operations smoother.{" "}
+                    <span className="font-semibold text-white">Starting at €4k.</span>
+                  </p>
+                </div>
+                <Link href="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 rounded-lg font-semibold text-white transition-colors flex items-center gap-2 whitespace-nowrap"
+                  >
+                    Get Started
+                    <ArrowRight className="h-4 w-4" />
+                  </motion.button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Process Timeline */}
         <motion.section

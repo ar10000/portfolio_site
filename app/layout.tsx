@@ -14,11 +14,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://andrewryan.dev";
 
 export const metadata: Metadata = {
   title: {
-    default: "Andrew Ryan - AI Product Builder",
+    default: "Andrew Ryan - AI Solutions Developer | Custom AI Tools & Workflow Automation",
     template: "%s | Andrew Ryan",
   },
   description:
-    "AI automation specialist who turns ideas into working products in days, not months. From prototypes to production-ready tools.",
+    "AI Solutions Developer in Brussels. I build custom AI tools, workflow automations, and rapid prototypes for businesses in days, not months. No enterprise pricing, just fast, practical solutions.",
   keywords: [
     "AI product builder",
     "automation specialist",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Andrew Ryan - AI Product Builder",
     title: "Andrew Ryan - AI Product Builder",
     description:
-      "AI automation specialist who turns ideas into working products in days, not months.",
+      "AI Solutions Developer in Brussels. I build custom AI tools, workflow automations, and rapid prototypes for businesses in days, not months. No enterprise pricing, just fast, practical solutions.",
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Andrew Ryan - AI Product Builder",
     description:
-      "AI automation specialist who turns ideas into working products in days, not months.",
+      "AI Solutions Developer in Brussels. I build custom AI tools, workflow automations, and rapid prototypes for businesses in days, not months. No enterprise pricing, just fast, practical solutions.",
     images: [`${siteUrl}/og-image.jpg`],
     creator: "@AndrewR53368303",
   },

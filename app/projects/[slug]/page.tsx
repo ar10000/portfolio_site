@@ -35,6 +35,101 @@ import {
 
 // Project data structure - in production, this would come from a CMS or database
 const projectData: Record<string, any> = {
+  "creative-garden": {
+    title: "Creative Garden",
+    description: "Content Workflow Engine — Production-grade system for moving ideas from capture to publication",
+    status: "Live",
+    statusColor: "green",
+    tech: ["Flutter", "Python", "Supabase", "AI"],
+    github: "https://github.com/ar10000/creative-garden",
+    demo: "https://creativegarden.app",
+    problem:
+      "Content creators, marketing teams, and knowledge workers generate many ideas but struggle to turn them into published content. Existing productivity tools are generic, overwhelming, or too rigid—making it hard to maintain momentum through the entire content workflow from idea capture to publication.",
+    solution:
+      "I built a content workflow engine that treats ideas as living projects, tracks their development through a structured pipeline, and uses intelligent check-ins to capture progress, insights, and publishing readiness. The system provides real-time feedback, momentum scoring, and visual dashboards that streamline the entire content workflow from capture to publication.",
+    overview:
+      "Creative Garden is a content workflow engine that helps teams move ideas through a complete publishing pipeline (Seed → Growing → Alive → Compost). It centralizes idea management, content development, progress tracking, and publishing analytics in a single, intuitive Flutter app with real-time sync and a modern Material Design 3 interface. Ideal for content creators, marketing teams, and knowledge workers who need to capture, develop, and publish ideas efficiently.",
+    whyItMatters:
+      "Teams often fail not because of lack of ideas, but because they lack visibility into their content workflow. Creative Garden provides structure for the entire publishing pipeline—helping teams stay consistent, see patterns, and move ideas from capture to publication efficiently.",
+    features: [
+      {
+        icon: Sparkles,
+        title: "Content Workflow Pipeline",
+        description: "Move ideas through complete publishing pipeline: Seed → Growing → Alive → Compost",
+      },
+      {
+        icon: BarChart3,
+        title: "Idea Management",
+        description: "Track idea development progress with automatic momentum scoring and readiness indicators",
+      },
+      {
+        icon: Zap,
+        title: "Quick Check-ins",
+        description: "Log content progress, status updates, and publishing readiness",
+      },
+      {
+        icon: MessageSquare,
+        title: "Content Reflections",
+        description: "Capture insights, challenges, and learnings throughout the content workflow",
+      },
+      {
+        icon: Database,
+        title: "Publishing Analytics",
+        description: "Visualize content distribution, publishing trends, and workflow efficiency",
+      },
+      {
+        icon: Globe,
+        title: "Data Export",
+        description: "GDPR-compliant JSON/CSV export for content audits and reporting",
+      },
+      {
+        icon: Zap,
+        title: "Real-time Sync",
+        description: "Live updates powered by Supabase for team collaboration",
+      },
+      {
+        icon: Smartphone,
+        title: "Modern UI",
+        description: "Clean Material Design 3 with dark mode for professional workflows",
+      },
+    ],
+    techStack: [
+      { name: "Flutter", category: "Framework", icon: Smartphone },
+      { name: "Python", category: "Backend", icon: Code2 },
+      { name: "Supabase", category: "Database", icon: Database },
+      { name: "AI Integration", category: "AI", icon: Sparkles },
+    ],
+    architecture:
+      "Creative Garden uses a Flutter frontend with Material Design 3 for a modern, responsive UI. The backend is built with Python, handling business logic and AI-powered insights. Supabase provides real-time database synchronization, authentication, and storage. The system follows a clean architecture pattern with clear separation between presentation, business logic, and data layers, ensuring scalability and maintainability.",
+    metrics: null, // Add metrics when available
+    screenshots: [
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+      "/api/placeholder/800/600",
+    ],
+    lessonsLearned:
+      "Building Creative Garden taught me the importance of balancing structure with flexibility. The lifecycle metaphor emerged from user feedback—people needed a way to see projects as living things, not just tasks. I learned that creative tools must feel organic, not mechanical, and that energy tracking is more valuable than traditional productivity metrics.",
+    codeSnippet: `// Example: Project lifecycle state management
+class ProjectLifecycleService {
+  final SupabaseClient _supabase;
+  
+  Future<void> moveToStage(String projectId, LifecycleStage stage) async {
+    await _supabase
+      .from('projects')
+      .update({'stage': stage.toString()})
+      .eq('id', projectId);
+    
+    // Trigger momentum recalculation
+    await _recalculateMomentum(projectId);
+  }
+  
+  Future<double> _recalculateMomentum(String projectId) async {
+    // Calculate based on check-in frequency and energy
+    // ...
+  }
+}`,
+    codeLanguage: "dart",
+  },
   flowcircle: {
     title: "FlowCircle",
     description: "Personal productivity app for creative project tracking",
@@ -111,134 +206,123 @@ class ProjectSyncService {
   autoleadcloser: {
     title: "AutoLeadCloser",
     tagline: "AI Sales Assistant That Qualifies Leads While You Sleep",
-    description: "AI-powered lead qualification that runs on autopilot",
-    status: "Beta",
-    statusColor: "yellow",
-    tech: ["Python", "Claude AI", "Make.com", "Supabase", "Gmail API", "Cal.com"],
-    github: "https://github.com/ar10000",
-    demo: "https://autoleadcloser.com",
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
-    pricing: "Starting at $299/month for small agencies",
+    description: "AI-driven lead qualification and automated email reply system",
+    status: "Live",
+    statusColor: "green",
+    tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
+    github: null, // Private repository
+    demo: null, // Internal use
+    demoVideo: null, // No public demo video
+    pricing: null, // Pricing not specified
     problem:
-      "Agencies were losing deals because they couldn't respond fast enough. By the time someone manually qualified a lead and scheduled a call, the prospect had moved on. Sales teams spent 10+ hours per week on qualification—time that should go to closing deals.",
+      "Agencies and service businesses lose potential clients because initial lead emails pile up, responses are slow, and qualification requires manual back-and-forth. This creates bottlenecks, inconsistent lead handling, and missed revenue.",
     solution:
-      "I built AutoLeadCloser to handle the entire qualification process automatically. It reads incoming emails, asks smart questions using Claude AI, tracks budget and timeline signals, and books calls when leads are ready—all in under 2 minutes. Sales teams get qualified leads 24/7 without lifting a finger.",
+      "I built an end-to-end system that receives inbound emails, processes them with Claude AI, replies intelligently, qualifies the lead, and books a call automatically when readiness signals are detected. The pipeline runs autonomously while preserving full context and data privacy.",
     overview:
-      "AutoLeadCloser automatically responds to incoming emails, qualifies leads through intelligent conversation, and books sales calls when prospects are ready. Built for agencies and service businesses to automate their initial sales conversations.",
+      "AutoLeadCloser handles the entire first-contact process. It reads emails, asks clarifying questions, extracts qualification signals (budget, timeline, authority), and maintains ongoing conversation threads. Once a lead is qualified, it sends a Calendly/Cal.com booking link instantly.",
     whyItMatters:
-      "Every hour spent manually qualifying leads is an hour not spent closing deals. AutoLeadCloser gives that time back—and never misses a lead, even at 2 AM.",
+      "This eliminates one of the most time-consuming and inconsistent parts of sales. Businesses close more deals, lose fewer leads, and get an automated SDR that works 24/7—without sacrificing personalization or context.",
     features: [
       {
         icon: Bot,
         emoji: "🤖",
-        title: "AI-Powered Responses",
-        description: "Claude AI maintains context-aware conversations",
+        title: "AI Email Responses",
+        description: "Claude-powered, context-aware replies that feel human",
       },
       {
         icon: BarChart3,
         emoji: "📊",
-        title: "Smart Qualification",
-        description: "Automatically tracks budget, timeline, and decision-maker signals",
+        title: "Lead Qualification Engine",
+        description: "Detects budget, timeline, and decision-maker",
+      },
+      {
+        icon: Database,
+        emoji: "💬",
+        title: "Conversation Memory",
+        description: "Maintains full email history per lead-client pair",
       },
       {
         icon: Calendar,
         emoji: "📅",
-        title: "Auto-Booking",
-        description: "Sends calendar links when leads are qualified",
-      },
-      {
-        icon: Shield,
-        emoji: "🔒",
-        title: "Privacy-First",
-        description: "Reply-To headers ensure direct client communication",
-      },
-      {
-        icon: Database,
-        emoji: "📈",
-        title: "Conversation Analytics",
-        description: "Track qualification scores and conversion rates",
+        title: "Automatic Booking",
+        description: "Sends calendar links when the lead is ready",
       },
       {
         icon: Filter,
         emoji: "🚫",
         title: "Spam Detection",
-        description: "Filters junk before processing",
+        description: "Filters out irrelevant messages before processing",
+      },
+      {
+        icon: Server,
+        emoji: "🏢",
+        title: "Multi-Tenant Support",
+        description: "Separate data & logic per client",
+      },
+      {
+        icon: Shield,
+        emoji: "🔒",
+        title: "Privacy-First Architecture",
+        description: "Ensures leads always reply directly to the client",
+      },
+      {
+        icon: Database,
+        emoji: "💾",
+        title: "Supabase Storage",
+        description: "Secure conversation logging and state tracking",
       },
     ],
     techStack: [
-      { name: "Python/Flask", category: "Backend", icon: Code2 },
-      { name: "Claude AI (Sonnet 4.5)", category: "AI", icon: Sparkles },
+      { name: "Python", category: "Backend", icon: Code2 },
       { name: "Supabase", category: "Database", icon: Database },
+      { name: "Claude AI", category: "AI", icon: Sparkles },
       { name: "Gmail API", category: "Email", icon: Mail },
-      { name: "Make.com", category: "Automation", icon: Workflow },
-      { name: "Cal.com", category: "Booking", icon: Calendar },
     ],
-    howItWorks: [
-      {
-        step: 1,
-        title: "Lead emails your client",
-        description: "Make.com webhook receives incoming email",
-        icon: Mail,
-      },
-      {
-        step: 2,
-        title: "Flask processes",
-        description: "Claude AI generates contextual response",
-        icon: Server,
-      },
-      {
-        step: 3,
-        title: "Qualification signals tracked",
-        description: "Budget, timeline, and decision-maker data stored in Supabase",
-        icon: Database,
-      },
-      {
-        step: 4,
-        title: "Gmail sends reply",
-        description: "Authenticated email sent with your client's branding",
-        icon: Send,
-      },
-      {
-        step: 5,
-        title: "When qualified",
-        description: "Calendar link sent automatically via Cal.com",
-        icon: CheckCircle,
-      },
-    ],
+    howItWorks: null, // No step-by-step flow provided
     architecture:
-      "AutoLeadCloser uses a microservices architecture with Python-based API services handling lead processing. Claude AI performs natural language analysis of lead information, while Make.com orchestrates workflows for lead routing and CRM updates. The system is designed to handle high volumes with horizontal scaling capabilities.",
-    metrics: [
-      { label: "Processes 50+ leads per day", value: "50+", icon: Mail },
-      { label: "Qualifies leads 24/7", value: "24/7", icon: Clock },
-      { label: "Saves 10+ hours/week", value: "10+ hrs", icon: Zap },
-    ],
+      "AutoLeadCloser uses a Python-based backend that processes incoming emails via webhooks. Claude AI handles natural language understanding and generates context-aware responses. Supabase stores conversation history, lead data, and qualification signals. The Gmail API handles authenticated email sending, ensuring replies come from the client's domain. The system is designed with multi-tenant architecture, keeping data isolated per client while maintaining full conversation context.",
+    metrics: null, // Metrics not specified
     screenshots: [
       "/api/placeholder/800/600",
       "/api/placeholder/800/600",
     ],
     lessonsLearned:
-      "The biggest lesson from AutoLeadCloser was balancing automation with human oversight. While AI can handle most qualification tasks, I learned to build in human review checkpoints for edge cases. This hybrid approach significantly improved accuracy and user trust.",
-    codeSnippet: `# Example: AI lead scoring
+      "Building AutoLeadCloser reinforced the importance of maintaining human-like conversation quality while automating at scale. I learned that context preservation across email threads is critical—users expect the AI to remember previous exchanges. The biggest challenge was balancing automation speed with response quality, ensuring each reply feels personalized rather than templated.",
+    codeSnippet: `# Example: AI-powered email response generation
 from anthropic import Anthropic
+import supabase
 
-def score_lead(lead_data: dict) -> float:
+def generate_lead_response(lead_email: str, conversation_history: list) -> str:
     client = Anthropic()
+    supabase_client = supabase.create_client(...)
+    
+    # Retrieve full conversation context
+    context = "\\n".join([msg['content'] for msg in conversation_history])
     
     prompt = f"""
-    Analyze this lead and provide a score from 0-100:
-    Company: {lead_data['company']}
-    Industry: {lead_data['industry']}
-    Budget: {lead_data['budget']}
-    Timeline: {lead_data['timeline']}
+    You are a helpful sales assistant. Based on this conversation:
+    {context}
+    
+    Generate a natural, helpful response that:
+    1. Answers any questions
+    2. Asks qualifying questions if needed
+    3. Maintains a professional, friendly tone
     """
     
     response = client.messages.create(
-        model="claude-3-opus-20240229",
-        max_tokens=100,
+        model="claude-3-5-sonnet-20241022",
+        max_tokens=500,
         messages=[{"role": "user", "content": prompt}]
     )
     
-    return extract_score(response.content[0].text)`,
+    # Store in Supabase for conversation memory
+    supabase_client.table('conversations').insert({
+        'lead_id': lead_email,
+        'response': response.content[0].text,
+        'timestamp': datetime.now()
+    })
+    
+    return response.content[0].text`,
     codeLanguage: "python",
   },
   "agency-autopilot": {
@@ -608,9 +692,11 @@ function PricingTeaser({ pricing, ctaText, ctaLink }: { pricing: string; ctaText
 export default function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }> | { slug: string };
 }) {
-  const { slug } = use(params);
+  // Handle both Promise and resolved params
+  const resolvedParams = params instanceof Promise ? use(params) : params;
+  const { slug } = resolvedParams;
   const project = projectData[slug];
 
   if (!project) {
@@ -716,6 +802,7 @@ export default function ProjectDetailPage({
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
+                {project.demo && (
                 <a href={project.demo} target="_blank" rel="noopener noreferrer">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -727,6 +814,8 @@ export default function ProjectDetailPage({
                     <span className="hidden group-hover:inline">Let's build something</span>
                   </motion.button>
                 </a>
+                )}
+                {project.github && (
                 <a href={project.github} target="_blank" rel="noopener noreferrer">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -737,6 +826,7 @@ export default function ProjectDetailPage({
                     View Code
                   </motion.button>
                 </a>
+                )}
               </div>
             </div>
           </motion.div>

@@ -62,7 +62,7 @@ const projectContext = {
   },
 };
 
-const systemPrompt = `You are **Andrew Ryan's AI Architect**, specializing in rapid deployment of **AI-powered business systems** and **full-stack Flutter/Python/Supabase MVPs**. 
+const systemPrompt = `You are **Andrew Ryan's AI Solutions Developer**, specializing in rapid deployment of **AI-powered business systems** and **full-stack Flutter/Python/Supabase MVPs**. 
 
 Your role is to answer questions about Andrew's work, projects, and services based ONLY on the provided JSON context. 
 
@@ -72,7 +72,7 @@ Key guidelines:
 - Always emphasize that Andrew focuses on **production-grade quality at speed**
 - Keep responses concise, professional, and helpful
 - If information isn't in the context, politely say you don't have that information rather than making assumptions
-- Speak in first person as Andrew's AI Architect
+- Speak in first person as Andrew's AI Solutions Developer
 
 Context:
 ${JSON.stringify(projectContext, null, 2)}`;
@@ -173,7 +173,7 @@ export async function POST(request: NextRequest) {
         lowerMessage.includes("worked on")
       ) {
         response =
-          "I'm Andrew's AI Architect. Andrew has built two major production projects: Creative Garden, a full-stack AI-powered business system, and AutoLeadCloser, an AI sales assistant that qualifies leads automatically. Both demonstrate his focus on production-grade quality at speed, using Flutter, Python, and Supabase.";
+          "I'm Andrew's AI Solutions Developer. Andrew has built two major production projects: Creative Garden, a full-stack AI-powered business system, and AutoLeadCloser, an AI sales assistant that qualifies leads automatically. Both demonstrate his focus on production-grade quality at speed, using Flutter, Python, and Supabase.";
       }
       // Service questions
       else if (
@@ -205,7 +205,7 @@ export async function POST(request: NextRequest) {
       // Default response
       else {
         response =
-          "I'm Andrew's AI Architect, specializing in rapid deployment of AI-powered business systems and full-stack Flutter/Python/Supabase MVPs. I can tell you about his production projects (Creative Garden and AutoLeadCloser) or his services. What would you like to know?";
+          "I'm Andrew's AI Solutions Developer, specializing in rapid deployment of AI-powered business systems and full-stack Flutter/Python/Supabase MVPs. I can tell you about his production projects (Creative Garden and AutoLeadCloser) or his services. What would you like to know?";
       }
 
       // Simulate API delay

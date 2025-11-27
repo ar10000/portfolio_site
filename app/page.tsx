@@ -64,19 +64,25 @@ export default function Home() {
             >
               <motion.h1
                 variants={itemVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight"
               >
-                <span className="block">Go from AI idea to</span>
                 <span className="block bg-gradient-to-r from-purple-400 via-blue-500 to-blue-600 bg-clip-text text-transparent animate-gradient">
-                  deploy-ready system in days.
+                  AI Solutions Developer
                 </span>
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg sm:text-xl lg:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-xl sm:text-2xl lg:text-3xl text-white mb-4 max-w-2xl mx-auto lg:mx-0 leading-tight font-semibold"
               >
-                A Belgian AI Architect specializing in high-speed, scalable automation and robust MVPs for ambitious founders.
+                I turn AI into working tools for your business — fast.
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-lg sm:text-xl lg:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              >
+                Stop waiting months for custom software. I build workflow automations, internal tools, and AI prototypes in days using modern stacks. No enterprise agency pricing, no six-month timelines.
               </motion.p>
 
               <motion.div
@@ -196,7 +202,7 @@ export default function Home() {
                 {/* Title and Description */}
                 <h3 className="text-xl font-bold mb-2 text-white">Creative Garden</h3>
                 <p className="text-gray-400 text-sm mb-4">
-                  Production-grade AI-powered business system
+                  Content Workflow Engine — Production-grade system for moving ideas from capture to publication
                 </p>
 
                 {/* Tech Stack Tags */}

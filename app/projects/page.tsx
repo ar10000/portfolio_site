@@ -6,46 +6,48 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    id: "ai-chat-assistant",
-    title: "AI Chat Assistant",
+    id: "creative-garden",
+    title: "Creative Garden",
     description:
-      "An intelligent conversational AI built with advanced language models, featuring real-time responses and context awareness.",
-    tech: ["Next.js", "OpenAI", "TypeScript", "Tailwind CSS"],
+      "Content Workflow Engine — Production-grade system for moving ideas from capture to publication.",
+    tech: ["Flutter", "Python", "Supabase", "AI"],
     image: "/api/placeholder/600/400",
-    link: "/projects/ai-chat-assistant",
-    github: "https://github.com/ar10000",
+    link: "/projects/creative-garden",
+    github: "https://github.com/ar10000/creative-garden",
     featured: true,
+    demoVideoComingSoon: true,
   },
   {
-    id: "smart-analytics-dashboard",
-    title: "Smart Analytics Dashboard",
+    id: "autoleadcloser",
+    title: "AutoLeadCloser",
     description:
-      "A comprehensive analytics platform with AI-powered insights and predictive modeling capabilities.",
-    tech: ["React", "Python", "TensorFlow", "D3.js"],
+      "AI-driven lead qualification and automated email reply system that handles the entire first-contact process.",
+    tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
     image: "/api/placeholder/600/400",
-    link: "/projects/smart-analytics-dashboard",
-    github: "https://github.com/ar10000",
+    link: "/projects/autoleadcloser",
+    github: null, // Private repository
     featured: true,
+    demoVideoComingSoon: true,
   },
   {
-    id: "automated-content-generator",
-    title: "Automated Content Generator",
+    id: "flowcircle",
+    title: "FlowCircle",
     description:
-      "AI-driven content creation tool that generates high-quality articles, social media posts, and marketing copy.",
-    tech: ["Next.js", "GPT-4", "Node.js", "MongoDB"],
+      "Personal productivity app for creative project tracking with visual boards and real-time sync.",
+    tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
     image: "/api/placeholder/600/400",
-    link: "/projects/automated-content-generator",
+    link: "/projects/flowcircle",
     github: "https://github.com/ar10000",
     featured: false,
   },
   {
-    id: "intelligent-recommendation-system",
-    title: "Intelligent Recommendation System",
+    id: "agency-autopilot",
+    title: "Agency Autopilot",
     description:
-      "Machine learning-powered recommendation engine that personalizes user experiences across platforms.",
-    tech: ["Python", "Scikit-learn", "FastAPI", "PostgreSQL"],
+      "Complete workflow automation for service agencies, eliminating manual busywork with no-code/low-code automation.",
+    tech: ["Make.com", "n8n", "Zapier", "REST APIs"],
     image: "/api/placeholder/600/400",
-    link: "/projects/intelligent-recommendation-system",
+    link: "/projects/agency-autopilot",
     github: "https://github.com/ar10000",
     featured: false,
   },
@@ -132,6 +134,14 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
+                {project.demoVideoComingSoon && (
+                  <div className="mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs bg-blue-500/10 text-blue-400/70 rounded-full border border-blue-500/20">
+                      📹 Demo video coming soon
+                    </span>
+                  </div>
+                )}
+
                 <div className="flex items-center gap-4">
                   <Link
                     href={project.link}
@@ -140,14 +150,16 @@ export default function ProjectsPage() {
                     Learn More
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Github className="h-4 w-4" />
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

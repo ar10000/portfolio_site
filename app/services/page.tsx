@@ -60,7 +60,7 @@ const services = [
     ],
   },
   {
-    title: "Rapid Prototyping",
+    title: "Proof-of-Concept Sprint",
     price: "$2-3K MVPs",
     color: "pink",
     icon: Rocket,
@@ -72,7 +72,7 @@ const services = [
       "A hosted demo you can share with investors or users",
       "Clean code and docs for when you're ready to scale",
     ],
-    idealFor: "You have an idea and need to know if it's worth building",
+    idealFor: "You have an idea and need to validate it with real users before committing to full development",
     examples: ["SaaS MVP", "Internal tools", "Proof-of-concept demos"],
   },
 ];

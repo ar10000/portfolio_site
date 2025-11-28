@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
@@ -11,11 +12,11 @@ const projects = [
     description:
       "Content Workflow Engine — Production-grade system for moving ideas from capture to publication.",
     tech: ["Flutter", "Python", "Supabase", "AI"],
-    image: "/api/placeholder/600/400",
+    image: "/images/projects/creative-garden-thumb.jpg",
     link: "/projects/creative-garden",
     github: "https://github.com/ar10000/creative-garden",
     featured: true,
-    demoVideoComingSoon: true,
+    demoVideoComingSoon: false,
   },
   {
     id: "autoleadcloser",
@@ -23,11 +24,11 @@ const projects = [
     description:
       "AI-driven lead qualification and automated email reply system that handles the entire first-contact process.",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
-    image: "/api/placeholder/600/400",
+    image: "/images/projects/autoleadcloser-thumb.jpg",
     link: "/projects/autoleadcloser",
     github: null, // Private repository
     featured: true,
-    demoVideoComingSoon: true,
+    demoVideoComingSoon: false,
   },
   {
     id: "flowcircle",
@@ -35,7 +36,7 @@ const projects = [
     description:
       "Personal productivity app for creative project tracking with visual boards and real-time sync.",
     tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
-    image: "/api/placeholder/600/400",
+    image: "/images/projects/flowcircle-thumb.jpg",
     link: "/projects/flowcircle",
     github: "https://github.com/ar10000",
     featured: false,
@@ -46,7 +47,7 @@ const projects = [
     description:
       "Complete workflow automation for service agencies, eliminating manual busywork with no-code/low-code automation.",
     tech: ["Make.com", "n8n", "Zapier", "REST APIs"],
-    image: "/api/placeholder/600/400",
+    image: "/images/projects/agency-autopilot-thumb.jpg",
     link: "/projects/agency-autopilot",
     github: "https://github.com/ar10000",
     featured: false,
@@ -105,10 +106,19 @@ export default function ProjectsPage() {
               whileHover={{ y: -5 }}
               className="group relative overflow-hidden rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300"
             >
-              <div className="aspect-video bg-gradient-to-br from-purple-900/20 to-blue-900/20 flex items-center justify-center">
-                <div className="text-4xl font-bold text-gray-700">
-                  {project.title.charAt(0)}
-                </div>
+              <div className="aspect-video relative overflow-hidden bg-gray-900">
+                {/* Use regular img tag for better error handling */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to placeholder if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%230a0a0a' width='600' height='400'/%3E%3Crect fill='%231a1a1a' x='0' y='0' width='600' height='400'/%3E%3Cg opacity='0.3'%3E%3Ccircle cx='300' cy='150' r='40' fill='%233b82f6'/%3E%3Ccircle cx='300' cy='250' r='30' fill='%238b5cf6'/%3E%3C/g%3E%3Ctext x='300' y='200' font-family='system-ui' font-size='16' fill='%234b5563' text-anchor='middle' dominant-baseline='middle'%3EImage Placeholder%3C/text%3E%3C/svg%3E";
+                    target.onerror = null; // Prevent infinite loop
+                  }}
+                />
               </div>
 
               <div className="p-6">
@@ -134,13 +144,6 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
-                {project.demoVideoComingSoon && (
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs bg-blue-500/10 text-blue-400/70 rounded-full border border-blue-500/20">
-                      📹 Demo video coming soon
-                    </span>
-                  </div>
-                )}
 
                 <div className="flex items-center gap-4">
                   <Link

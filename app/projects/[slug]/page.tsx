@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { use, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft,
   ExternalLink,
@@ -103,9 +104,9 @@ const projectData: Record<string, any> = {
       "Creative Garden uses a Flutter frontend with Material Design 3 for a modern, responsive UI. The backend is built with Python, handling business logic and AI-powered insights. Supabase provides real-time database synchronization, authentication, and storage. The system follows a clean architecture pattern with clear separation between presentation, business logic, and data layers, ensuring scalability and maintainability.",
     metrics: null, // Add metrics when available
     screenshots: [
-      "/api/placeholder/800/600",
-      "/api/placeholder/800/600",
-      "/api/placeholder/800/600",
+      "/images/projects/creative-garden-1.jpg",
+      "/images/projects/creative-garden-2.jpg",
+      "/images/projects/creative-garden-3.jpg",
     ],
     lessonsLearned:
       "Building Creative Garden taught me the importance of balancing structure with flexibility. The lifecycle metaphor emerged from user feedback—people needed a way to see projects as living things, not just tasks. I learned that creative tools must feel organic, not mechanical, and that energy tracking is more valuable than traditional productivity metrics.",
@@ -210,7 +211,7 @@ class ProjectSyncService {
     status: "Live",
     statusColor: "green",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
-    github: null, // Private repository
+    github: "https://github.com/ar10000/AutoLeadCloser",
     demo: null, // Internal use
     demoVideo: null, // No public demo video
     pricing: null, // Pricing not specified
@@ -283,8 +284,8 @@ class ProjectSyncService {
       "AutoLeadCloser uses a Python-based backend that processes incoming emails via webhooks. Claude AI handles natural language understanding and generates context-aware responses. Supabase stores conversation history, lead data, and qualification signals. The Gmail API handles authenticated email sending, ensuring replies come from the client's domain. The system is designed with multi-tenant architecture, keeping data isolated per client while maintaining full conversation context.",
     metrics: null, // Metrics not specified
     screenshots: [
-      "/api/placeholder/800/600",
-      "/api/placeholder/800/600",
+      "/images/projects/autoleadcloser-1.jpg",
+      "/images/projects/autoleadcloser-2.jpg",
     ],
     lessonsLearned:
       "Building AutoLeadCloser reinforced the importance of maintaining human-like conversation quality while automating at scale. I learned that context preservation across email threads is critical—users expect the AI to remember previous exchanges. The biggest challenge was balancing automation speed with response quality, ensuring each reply feels personalized rather than templated.",
@@ -505,13 +506,34 @@ function CodeBlock({ code, language }: { code: string; language: string }) {
 function ImageGallery({ images }: { images: string[] }) {
   const [selectedImage, setSelectedImage] = useState(0);
 
-  return (
-    <div className="space-y-4">
-      <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20">
-          <ImageIcon className="h-16 w-16 text-gray-700" />
+  if (!images || images.length === 0) {
+    return (
+      <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <ImageIcon className="h-16 w-16 text-gray-700 mx-auto mb-2" />
+          <p className="text-gray-500 text-sm">No screenshots available</p>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Main image display */}
+      <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
+        <img
+          src={images[selectedImage]}
+          alt={`Screenshot ${selectedImage + 1}`}
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            // Fallback to placeholder if image doesn't exist
+            const target = e.target as HTMLImageElement;
+            target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect fill='%230a0a0a' width='800' height='600'/%3E%3Crect fill='%231a1a1a' x='0' y='0' width='800' height='600'/%3E%3Cg opacity='0.3'%3E%3Ccircle cx='400' cy='200' r='50' fill='%233b82f6'/%3E%3Ccircle cx='400' cy='400' r='40' fill='%238b5cf6'/%3E%3C/g%3E%3Ctext x='400' y='300' font-family='system-ui' font-size='18' fill='%234b5563' text-anchor='middle' dominant-baseline='middle'%3EImage Placeholder%3C/text%3E%3C/svg%3E";
+            target.onerror = null; // Prevent infinite loop
+          }}
+        />
+      </div>
+      {/* Thumbnail grid */}
       {images.length > 1 && (
         <div className="grid grid-cols-3 gap-2">
           {images.map((image, index) => (
@@ -524,9 +546,17 @@ function ImageGallery({ images }: { images: string[] }) {
                   : "border-gray-800 hover:border-gray-700"
               }`}
             >
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20">
-                <ImageIcon className="h-8 w-8 text-gray-700" />
-              </div>
+              <img
+                src={image}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback to placeholder if image doesn't exist
+                  const target = e.target as HTMLImageElement;
+                  target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%230a0a0a' width='200' height='150'/%3E%3Crect fill='%231a1a1a' x='0' y='0' width='200' height='150'/%3E%3Cg opacity='0.3'%3E%3Ccircle cx='100' cy='50' r='15' fill='%233b82f6'/%3E%3Ccircle cx='100' cy='100' r='12' fill='%238b5cf6'/%3E%3C/g%3E%3C/svg%3E";
+                  target.onerror = null; // Prevent infinite loop
+                }}
+              />
             </button>
           ))}
         </div>
@@ -815,17 +845,26 @@ export default function ProjectDetailPage({
                   </motion.button>
                 </a>
                 )}
-                {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 bg-gray-800 text-gray-300 rounded-lg font-semibold border border-gray-700 hover:bg-gray-700 transition-colors flex items-center gap-2"
+                {/* Always show GitHub button - either link or "Private Repository" */}
+                {project.github ? (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-6 py-3 bg-gray-800 text-gray-300 rounded-lg font-semibold border border-gray-700 hover:bg-gray-700 transition-colors flex items-center gap-2"
+                    >
+                      <Github className="h-5 w-5" />
+                      View Code
+                    </motion.button>
+                  </a>
+                ) : (
+                  <motion.div
+                    className="px-6 py-3 bg-gray-800/50 text-gray-500 rounded-lg font-semibold border border-gray-700/50 flex items-center gap-2 cursor-not-allowed"
+                    title="This repository is private"
                   >
                     <Github className="h-5 w-5" />
-                    View Code
-                  </motion.button>
-                </a>
+                    Private Repository
+                  </motion.div>
                 )}
               </div>
             </div>

@@ -52,21 +52,27 @@ export async function POST(request: NextRequest) {
     });
     */
 
-    // OPTION 2: Email Service (Resend, SendGrid, etc.)
-    // Uncomment and configure if using a service:
+    // OPTION 2: Email Service (Resend - Recommended)
+    // Uncomment and configure if using Resend:
     /*
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Portfolio <onboarding@resend.dev>",
-        to: ["your-email@example.com"],
-        subject: `New Contact Form Submission from ${name}`,
-        html: `...`,
-      }),
+    import { Resend } from "resend";
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    
+    await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>", // Use your verified domain in production
+      to: ["andrewryan763@gmail.com"],
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Project Type:</strong> ${projectType}</p>
+        <p><strong>Budget Range:</strong> ${budgetRange}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
+        ${file ? `<p><strong>File:</strong> ${file.name} (${file.size} bytes)</p>` : ""}
+      `,
+    });
     });
     */
 

@@ -580,6 +580,75 @@ function TechnicalDeepDive({
   );
 }
 
+// Engineering Notes component - combines code snippets and technical deep dive
+function EngineeringNotes({ 
+  codeSnippet, 
+  codeLanguage, 
+  technicalDeepDive,
+  isAutoLeadCloser = false 
+}: { 
+  codeSnippet?: string;
+  codeLanguage?: string;
+  technicalDeepDive?: string;
+  isAutoLeadCloser?: boolean;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (!codeSnippet && !technicalDeepDive) {
+    return null;
+  }
+
+  return (
+    <div className="border border-gray-800 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors ${
+          isOpen
+            ? isAutoLeadCloser
+              ? "bg-blue-500/10 border-b border-blue-500/30"
+              : "bg-purple-500/10 border-b border-purple-500/30"
+            : "bg-gray-900/50 hover:bg-gray-900/70"
+        }`}
+      >
+        <span className="font-semibold text-white">Engineering Notes</span>
+        {isOpen ? (
+          <ChevronUp className="h-5 w-5 text-gray-400" />
+        ) : (
+          <ChevronDown className="h-5 w-5 text-gray-400" />
+        )}
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-6 space-y-6">
+              {technicalDeepDive && (
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Technical Deep Dive</h4>
+                  <div className="prose prose-invert max-w-none text-gray-300 leading-relaxed whitespace-pre-line">
+                    {technicalDeepDive}
+                  </div>
+                </div>
+              )}
+              {codeSnippet && (
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Code Example</h4>
+                  <CodeBlock code={codeSnippet} language={codeLanguage || "typescript"} />
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 // Image gallery component
 function ImageGallery({ images }: { images: string[] }) {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -841,6 +910,7 @@ export default function ProjectDetailPage({
     "Screenshots",
     ...(project.pricing ? ["Pricing"] : []),
     "Lessons Learned",
+    ...((project.codeSnippet || project.technicalDeepDive) ? ["Engineering Notes"] : []),
   ];
 
   const StatusBadge = ({ status, color }: { status: string; color: string }) => {
@@ -1123,19 +1193,7 @@ export default function ProjectDetailPage({
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="p-6 rounded-lg border border-gray-800 bg-gray-900/50"
                 >
-                  <p className="text-gray-300 leading-relaxed">{project.architecture}</p>
-                  {project.codeSnippet && (
-                    <div className="mt-6">
-                      <CodeBlock code={project.codeSnippet} language={project.codeLanguage} />
-                    </div>
-                  )}
-                  {project.technicalDeepDive && (
-                    <TechnicalDeepDive
-                      title="Technical Deep Dive"
-                      content={project.technicalDeepDive}
-                      isAutoLeadCloser={isAutoLeadCloser}
-                    />
-                  )}
+                  <p className="text-gray-300 leading-relaxed text-lg">{project.architecture}</p>
                 </motion.div>
               </section>
             )}
@@ -1225,9 +1283,37 @@ export default function ProjectDetailPage({
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className={`p-6 rounded-lg border ${isAutoLeadCloser ? 'border-blue-500/30 bg-blue-500/5' : 'border-purple-500/30 bg-purple-500/5'}`}
               >
-                <p className="text-gray-300 leading-relaxed">{project.lessonsLearned}</p>
+                <p className="text-gray-300 leading-relaxed text-lg">{project.lessonsLearned}</p>
               </motion.div>
             </section>
+
+            {/* Engineering Notes */}
+            {(project.codeSnippet || project.technicalDeepDive) && (
+              <section id="engineering-notes" className="scroll-mt-24">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="text-3xl font-bold mb-6"
+                >
+                  Engineering Notes
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  <EngineeringNotes
+                    codeSnippet={project.codeSnippet}
+                    codeLanguage={project.codeLanguage}
+                    technicalDeepDive={project.technicalDeepDive}
+                    isAutoLeadCloser={isAutoLeadCloser}
+                  />
+                </motion.div>
+              </section>
+            )}
           </div>
 
           {/* Sticky Sidebar */}

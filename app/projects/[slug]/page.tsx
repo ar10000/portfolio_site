@@ -829,6 +829,13 @@ export default function ProjectDetailPage({
   // Handle both hyphen and underscore versions of slugs
   const project = projectData[slug] || projectData[slug.replace(/_/g, '-')] || projectData[slug.replace(/-/g, '_')];
 
+  // Debug: Log slug and project lookup
+  if (typeof window !== 'undefined') {
+    console.log('Slug:', slug);
+    console.log('Project found:', !!project);
+    console.log('Available slugs:', Object.keys(projectData));
+  }
+
   if (!project) {
     return (
       <div className="pt-24 px-4 sm:px-6 lg:px-8 pb-20">

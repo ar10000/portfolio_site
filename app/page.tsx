@@ -389,47 +389,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why I Build Fast Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* About Section */}
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl font-bold text-center mb-6"
+            className="text-3xl sm:text-4xl font-bold text-center mb-8"
           >
-            Why I Build Fast
+            About
           </motion.h2>
-          <motion.p
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-center text-gray-400 mb-12 max-w-3xl mx-auto text-lg leading-relaxed"
+            className="space-y-6 text-lg text-gray-300 leading-relaxed"
           >
-            I've learned that the best products come from shipping fast, getting feedback, and iterating. Waiting months to build the "perfect" solution usually means building the wrong thing. Here's how I work:
-          </motion.p>
+            <p>
+              I'm a full-stack AI builder and workflow automation expert specializing in rapid prototyping and production system deployment for agencies and founders. I deliver working solutions in 3-10 day cycles, focusing on reliability, maintainability, and measurable business outcomes.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
+            <p>
+              My approach prioritizes production-ready architecture from day one. Every system I build is designed for long-term operation with proper error handling, monitoring, and documentation. I don't ship prototypes that break under load—I deliver systems that scale with your business.
+            </p>
+
+            <p className="text-gray-400 italic border-l-4 border-purple-500/50 pl-6 py-2">
+              I've built and deployed production AI systems handling thousands of operations daily, automated workflows processing six-figure revenue streams, and rapid prototypes that became core business infrastructure. My clients trust me with €5k-€15k automation projects because I deliver systems that work reliably, scale predictably, and require minimal ongoing maintenance.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              {[
               {
-                icon: Sparkles,
-                title: "Ship First, Perfect Later",
-                description:
-                  "I get working solutions in your hands fast. You test with real users, I iterate based on feedback. This beats months of planning that misses the mark.",
+                icon: Code2,
+                title: "Full-Stack AI Builder",
+                description: "End-to-end development from AI model integration to production deployment",
               },
               {
-                icon: Code,
-                title: "Focus on What Matters",
-                description:
-                  "No feature bloat. No endless meetings. I build the core features that solve your problem, then we add more if needed. Simple, fast, effective.",
+                icon: Workflow,
+                title: "Workflow Automation Expert",
+                description: "Complex process automation with reliable error handling and monitoring",
               },
               {
                 icon: Zap,
-                title: "Learn by Doing",
-                description:
-                  "The best way to know if something works? Build it and see. I've shipped 3 products in the last 6 months. Each one taught me something that made the next one better.",
+                title: "Rapid Prototyping",
+                description: "3-10 day delivery cycles for agencies and founders who need results fast",
               },
             ].map((feature, index) => (
               <motion.div
@@ -437,16 +444,16 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
               >
-                <feature.icon className="h-12 w-12 text-purple-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
+                <feature.icon className="h-10 w-10 text-purple-400 mb-3" />
+                <h3 className="text-lg font-semibold mb-2 text-white">{feature.title}</h3>
+                <p className="text-gray-400 text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </div>
+          </motion.div>
         </div>
       </section>
     </div>

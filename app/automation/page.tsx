@@ -14,6 +14,11 @@ import {
   Clock,
   Workflow,
   Zap,
+  Shield,
+  MessageSquare,
+  FileText,
+  Calendar,
+  Settings,
 } from "lucide-react";
 
 const budgetRanges = [
@@ -622,24 +627,128 @@ export default function AutomationIntakePage() {
           </form>
         </motion.div>
 
-        {/* Trust Indicators */}
+        {/* Trust & Reliability Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+          className="mt-16"
         >
-          <div className="p-4 rounded-lg border border-gray-800 bg-gray-900/50">
-            <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
-            <p className="text-sm text-gray-400">24-hour response time</p>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-2 text-white">Trust & Reliability</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Professional service standards designed to ensure project success and long-term system reliability.
+            </p>
           </div>
-          <div className="p-4 rounded-lg border border-gray-800 bg-gray-900/50">
-            <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
-            <p className="text-sm text-gray-400">No obligation consultation</p>
-          </div>
-          <div className="p-4 rounded-lg border border-gray-800 bg-gray-900/50">
-            <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-2" />
-            <p className="text-sm text-gray-400">Production-ready solutions</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-green-500/10">
+                  <Shield className="h-6 w-6 text-green-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">30-Day Warranty</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                All implementations include a 30-day warranty covering bug fixes, system errors, and performance issues at no additional cost.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-blue-500/10">
+                  <MessageSquare className="h-6 w-6 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">Clear Communication</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Regular status updates, transparent progress reporting, and direct access to project documentation throughout the engagement.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-purple-500/10">
+                  <DollarSign className="h-6 w-6 text-purple-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">Fixed Pricing</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                All project costs are agreed upon upfront with no hidden fees or unexpected charges. Scope changes are discussed and approved before implementation.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-blue-500/10">
+                  <Calendar className="h-6 w-6 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">Weekly Updates</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Scheduled weekly progress reports with milestone tracking, completed deliverables, and upcoming tasks clearly documented.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-green-500/10">
+                  <CheckCircle className="h-6 w-6 text-green-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">Delivery Guarantee</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Projects are delivered according to agreed timelines with production-ready code, comprehensive documentation, and team training included.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-purple-500/10">
+                  <Settings className="h-6 w-6 text-purple-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">Maintenance Options</h3>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Optional support retainers available for ongoing monitoring, updates, and optimizations. Flexible monthly plans from €250-€750.
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </div>

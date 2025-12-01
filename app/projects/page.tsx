@@ -52,6 +52,18 @@ const projects = [
     github: "https://github.com/ar10000",
     featured: false,
   },
+  {
+    id: "portfolio-site",
+    title: "AI Product Builder Portfolio",
+    description:
+      "A modern, production-ready portfolio website showcasing AI-powered products and automation solutions.",
+    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Claude AI"],
+    image: "/images/projects/portfolio-site-thumb.jpg",
+    link: "/projects/portfolio-site",
+    github: "https://github.com/ar10000/portfolio_site",
+    featured: true,
+    demoVideoComingSoon: false,
+  },
 ];
 
 const containerVariants = {

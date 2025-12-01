@@ -407,6 +407,105 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
 }`,
     codeLanguage: "json",
   },
+  "portfolio-site": {
+    title: "AI Product Builder Portfolio",
+    description: "A modern, production-ready portfolio website showcasing AI-powered products and automation solutions",
+    status: "Live",
+    statusColor: "green",
+    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Claude AI", "GitHub API", "Vercel"],
+    github: "https://github.com/ar10000/portfolio_site",
+    demo: "https://andrewryan.dev",
+    problem:
+      "Developers and product builders need a way to showcase their technical capabilities, AI integration skills, and production-ready applications. Traditional portfolios are static, don't demonstrate automation capabilities, and fail to showcase the full range of technical skills including AI integration, API development, and modern web architecture.",
+    solution:
+      "I built a modern, production-ready portfolio that demonstrates technical expertise through its own implementation. It features an AI-powered chatbot, automated GitHub project syncing, dynamic content management, and showcases modern web development best practices. The portfolio itself serves as proof of capability in full-stack development, AI integration, and automated workflows.",
+    overview:
+      "This portfolio is a modern, production-ready website built with Next.js 14, TypeScript, and Tailwind CSS. It features an interactive AI chatbot powered by Claude AI, automated project synchronization from GitHub repositories, dynamic project pages with detailed case studies, and an admin dashboard for content management. The site demonstrates expertise in modern web development, AI integration, serverless architecture, and automated workflows—all while serving as a showcase of technical capabilities.",
+    whyItMatters:
+      "This portfolio demonstrates technical proficiency through its own implementation. It showcases the ability to build modern web applications, integrate AI capabilities, create automated workflows, and deploy production-ready systems. It serves as both a portfolio and a working example of the quality and capabilities I bring to every project.",
+    features: [
+      {
+        icon: Bot,
+        title: "Interactive AI Chatbot",
+        description: "Voice-enabled assistant powered by Claude AI for engaging visitor interaction",
+      },
+      {
+        icon: Workflow,
+        title: "Automated Project Management",
+        description: "Projects sync automatically from GitHub repositories, keeping the portfolio up-to-date",
+      },
+      {
+        icon: Sparkles,
+        title: "Smart Content Extraction",
+        description: "README files are parsed for project descriptions, automating content generation",
+      },
+      {
+        icon: Server,
+        title: "Dynamic Content Management",
+        description: "Admin dashboard allows content management without direct code changes",
+      },
+      {
+        icon: Smartphone,
+        title: "Modern UI/UX",
+        description: "Smooth animations, dark mode, and responsive design for an exceptional user experience",
+      },
+      {
+        icon: Zap,
+        title: "Performance Optimization",
+        description: "Optimized loading, lazy loading, and caching for fast performance",
+      },
+      {
+        icon: Shield,
+        title: "SEO & Accessibility",
+        description: "Implemented SEO best practices and WCAG AA compliance for broad reach and usability",
+      },
+      {
+        icon: Globe,
+        title: "Production Deployment",
+        description: "Deployed, optimized, and maintained on Vercel with CI/CD automation",
+      },
+    ],
+    techStack: [
+      { name: "Next.js 14", category: "Framework", icon: Code2 },
+      { name: "TypeScript", category: "Language", icon: Code2 },
+      { name: "Tailwind CSS", category: "Styling", icon: Sparkles },
+      { name: "Claude AI", category: "AI", icon: Bot },
+      { name: "GitHub API", category: "Integration", icon: Github },
+      { name: "Vercel", category: "Infrastructure", icon: Globe },
+    ],
+    architecture:
+      "The architecture leverages Next.js 14 with App Router for server-side rendering and API routes for backend logic. TypeScript ensures type safety throughout the codebase. Integrations include Anthropic Claude AI for chatbot functionality, GitHub API for repository data synchronization, and Resend for email services. Deployment is handled via Vercel with GitHub Actions for CI/CD automation, utilizing a serverless architecture for scalability and cost-effectiveness. Performance is optimized through image optimization, code splitting, lazy loading, and caching strategies.",
+    metrics: null,
+    screenshots: [
+      "/images/projects/portfolio-site-1.jpg",
+      "/images/projects/portfolio-site-2.jpg",
+      "/images/projects/portfolio-site-3.jpg",
+    ],
+    lessonsLearned:
+      "Building this portfolio reinforced the importance of demonstrating capabilities through the product itself. I learned that a portfolio should be more than a showcase—it should be a working example of your skills. The integration of AI, automation, and modern web technologies in the portfolio itself proves technical proficiency better than any description could. Performance optimization and SEO were critical for ensuring the portfolio reaches its intended audience effectively.",
+    codeSnippet: `// Example: AI chatbot integration with Claude
+import { Anthropic } from '@anthropic-ai/sdk';
+
+export async function POST(request: Request) {
+  const anthropic = new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+  });
+  
+  const message = await anthropic.messages.create({
+    model: 'claude-3-5-sonnet-20241022',
+    max_tokens: 1024,
+    messages: [
+      {
+        role: 'user',
+        content: userMessage,
+      },
+    ],
+  });
+  
+  return Response.json({ response: message.content });
+}`,
+    codeLanguage: "typescript",
+  },
 };
 
 // Sidebar navigation component

@@ -124,7 +124,7 @@ export default function Navigation() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1/2 bg-gradient-to-r from-purple-400 to-blue-500"
+                        className="absolute -bottom-1 left-0 w-full bg-gradient-to-r from-purple-400 to-blue-500"
                         style={{ height: "2px" }}
                         initial={false}
                         transition={{ duration: 300, ease: "easeInOut" }}

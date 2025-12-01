@@ -42,17 +42,6 @@ const projects = [
     featured: false,
   },
   {
-    id: "agency-autopilot",
-    title: "Agency Autopilot",
-    description:
-      "Complete workflow automation for service agencies, eliminating manual busywork with no-code/low-code automation.",
-    tech: ["Make.com", "n8n", "Zapier", "REST APIs"],
-    image: "/images/projects/agency-autopilot-thumb.jpg",
-    link: "/projects/agency-autopilot",
-    github: "https://github.com/ar10000",
-    featured: false,
-  },
-  {
     id: "portfolio-site",
     title: "AI Product Builder Portfolio",
     description:

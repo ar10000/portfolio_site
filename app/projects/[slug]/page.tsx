@@ -530,6 +530,56 @@ function CodeBlock({ code, language }: { code: string; language: string }) {
   );
 }
 
+// Technical Deep Dive collapsible component
+function TechnicalDeepDive({ 
+  title, 
+  content, 
+  isAutoLeadCloser = false 
+}: { 
+  title: string; 
+  content: string; 
+  isAutoLeadCloser?: boolean;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="mt-6 border border-gray-800 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors ${
+          isOpen
+            ? isAutoLeadCloser
+              ? "bg-blue-500/10 border-b border-blue-500/30"
+              : "bg-purple-500/10 border-b border-purple-500/30"
+            : "bg-gray-900/50 hover:bg-gray-900/70"
+        }`}
+      >
+        <span className="font-semibold text-white">{title}</span>
+        {isOpen ? (
+          <ChevronUp className="h-5 w-5 text-gray-400" />
+        ) : (
+          <ChevronDown className="h-5 w-5 text-gray-400" />
+        )}
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-6 prose prose-invert max-w-none text-gray-300 leading-relaxed whitespace-pre-line">
+              {content}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 // Image gallery component
 function ImageGallery({ images }: { images: string[] }) {
   const [selectedImage, setSelectedImage] = useState(0);

@@ -67,7 +67,7 @@ export default function Home() {
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight"
               >
                 <span className="block bg-gradient-to-r from-purple-400 via-blue-500 to-blue-600 bg-clip-text text-transparent animate-gradient">
-                  AI Solutions Developer
+                  AI Automation Consultant
                 </span>
               </motion.h1>
 
@@ -75,14 +75,14 @@ export default function Home() {
                 variants={itemVariants}
                 className="text-xl sm:text-2xl lg:text-3xl text-white mb-4 max-w-2xl mx-auto lg:mx-0 leading-tight font-semibold"
               >
-                I turn AI into working tools for your business — fast.
+                AI systems integration and workflow automation that delivers measurable ROI in weeks, not months.
               </motion.p>
 
               <motion.p
                 variants={itemVariants}
                 className="text-lg sm:text-xl lg:text-xl text-gray-400 mb-6 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               >
-                Stop waiting months for custom software. I build workflow automations, internal tools, and AI prototypes in days using modern stacks. No enterprise agency pricing, no six-month timelines.
+                I design and deploy production-ready AI systems, automate complex workflows, and build rapid prototypes for agencies and founders who need reliable solutions, fast execution, and clear business outcomes.
               </motion.p>
 
               {/* Trust Indicators */}
@@ -92,17 +92,17 @@ export default function Home() {
               >
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-green-500/70" />
-                  <span>3 products shipped in 6 months</span>
+                  <span>Production-ready systems</span>
                 </span>
                 <span className="hidden sm:inline text-gray-700">•</span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-green-500/70" />
-                  <span>72-hour average build time</span>
+                  <span>2-4 week delivery</span>
                 </span>
                 <span className="hidden sm:inline text-gray-700">•</span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-green-500/70" />
-                  <span>30-day warranty on all projects</span>
+                  <span>ROI-focused outcomes</span>
                 </span>
               </motion.div>
 
@@ -110,26 +110,24 @@ export default function Home() {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
               >
-                <Link href="/projects">
+                <Link href="https://calendly.com/andrewryan763/30min" target="_blank" rel="noopener noreferrer">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white flex items-center gap-2 shadow-lg shadow-purple-500/50 w-full sm:w-auto justify-center group"
-                    aria-label="View my projects"
+                    className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white flex items-center gap-2 shadow-lg shadow-purple-500/50 w-full sm:w-auto justify-center"
+                    aria-label="Book Blueprint Sprint"
                   >
-                    <span className="group-hover:hidden">View Projects</span>
-                    <span className="hidden group-hover:inline">Let's build something</span>
+                    Book Blueprint Sprint
                     <ArrowRight className="h-5 w-5" />
                   </motion.button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/projects">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-4 border-2 border-gray-700 rounded-lg font-semibold text-white hover:border-blue-500 transition-colors w-full sm:w-auto justify-center flex items-center gap-2"
                   >
-                    <Calendar className="h-5 w-5" />
-                    Book a Call
+                    View Case Studies
                   </motion.button>
                 </Link>
               </motion.div>

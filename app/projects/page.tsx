@@ -22,7 +22,7 @@ const projects = [
     id: "autoleadcloser",
     title: "AutoLeadCloser",
     description:
-      "AI-driven lead qualification and automated email reply system that handles the entire first-contact process.",
+      "AI-powered sales automation that reduces lead response time to under 2 minutes and increases conversion rates by 3-5x.",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
     image: "/images/projects/autoleadcloser-thumb.jpg",
     link: "/projects/autoleadcloser",

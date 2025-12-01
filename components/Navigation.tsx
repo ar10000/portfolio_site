@@ -121,16 +121,15 @@ export default function Navigation() {
                     >
                       {item.name}
                     </span>
-                    <motion.div
-                      className="absolute -bottom-1 left-0 w-full bg-gradient-to-r from-purple-400 to-blue-500"
-                      style={{ height: "2px" }}
-                      initial={false}
-                      animate={{
-                        scaleX: isActive ? 1 : 0,
-                        opacity: isActive ? 1 : 0,
-                      }}
-                      transition={{ duration: 300, ease: "easeInOut" }}
-                    />
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute -bottom-1 left-0 right-0 bg-gradient-to-r from-purple-400 to-blue-500"
+                        style={{ height: "2px" }}
+                        initial={false}
+                        transition={{ duration: 300, ease: "easeInOut" }}
+                      />
+                    )}
                   </Link>
                 );
               })}

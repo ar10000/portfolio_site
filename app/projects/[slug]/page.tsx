@@ -826,7 +826,8 @@ export default function ProjectDetailPage({
   // Handle both Promise and resolved params
   const resolvedParams = params instanceof Promise ? use(params) : params;
   const { slug } = resolvedParams;
-  const project = projectData[slug];
+  // Handle both hyphen and underscore versions of slugs
+  const project = projectData[slug] || projectData[slug.replace(/_/g, '-')] || projectData[slug.replace(/-/g, '_')];
 
   if (!project) {
     return (

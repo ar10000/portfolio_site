@@ -136,7 +136,7 @@ function FloatingLabelSelect({
   required?: boolean;
   error?: string;
 }) {
-  const isFocused = value.length > 0;
+  const hasValue = value.length > 0;
   const hasError = !!error;
 
   return (
@@ -151,7 +151,7 @@ function FloatingLabelSelect({
           hasError
             ? "border-red-500 focus:border-red-500"
             : "border-gray-800 focus:border-purple-500"
-        }`}
+        } ${hasValue ? "text-white" : "text-transparent"}`}
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'no-repeat',
@@ -159,7 +159,7 @@ function FloatingLabelSelect({
           backgroundSize: '12px',
         }}
       >
-        <option value="" disabled className="bg-gray-900 text-gray-500">
+        <option value="" disabled hidden>
           {label}
         </option>
         {options.map((option) => (
@@ -171,7 +171,7 @@ function FloatingLabelSelect({
       <label
         htmlFor={id}
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          isFocused
+          hasValue
             ? "top-2 text-xs text-gray-400"
             : "top-4 text-sm text-gray-500"
         } ${hasError ? "text-red-400" : ""}`}

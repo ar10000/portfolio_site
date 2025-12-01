@@ -42,6 +42,7 @@ function FloatingLabelInput({
   required = false,
   error,
   placeholder,
+  icon: Icon,
 }: {
   id: string;
   label: string;
@@ -51,12 +52,18 @@ function FloatingLabelInput({
   required?: boolean;
   error?: string;
   placeholder?: string;
+  icon?: any;
 }) {
   const hasValue = value.length > 0;
   const hasError = !!error;
 
   return (
     <div className="relative">
+      {Icon && (
+        <div className="absolute left-4 top-4 z-10 text-gray-500">
+          <Icon className="h-5 w-5" />
+        </div>
+      )}
       <input
         type={type}
         id={id}
@@ -64,7 +71,7 @@ function FloatingLabelInput({
         value={value}
         onChange={onChange}
         required={required}
-        className={`peer w-full px-4 pt-6 pb-2 bg-gray-900 border rounded-lg text-white placeholder-transparent focus:outline-none transition-colors ${
+        className={`peer w-full px-4 ${Icon ? "pl-12" : ""} pt-6 pb-2 bg-gray-900 border rounded-lg text-white placeholder-transparent focus:outline-none transition-colors ${
           hasError
             ? "border-red-500 focus:border-red-500"
             : "border-gray-800 focus:border-purple-500"
@@ -77,7 +84,7 @@ function FloatingLabelInput({
           hasValue
             ? "top-2 text-xs text-gray-400"
             : "top-4 text-sm text-gray-500"
-        } ${hasError ? "text-red-400" : ""}`}
+        } ${hasError ? "text-red-400" : ""} ${Icon ? "left-12" : ""}`}
       >
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}

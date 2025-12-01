@@ -10,7 +10,7 @@ const projects = [
     id: "creative-garden",
     title: "Creative Garden",
     description:
-      "Content Workflow Engine — Production-grade system for moving ideas from capture to publication.",
+      "Enterprise content workflow automation platform with real-time synchronization and AI-powered content intelligence.",
     tech: ["Flutter", "Python", "Supabase", "AI"],
     image: "/images/projects/creative-garden-thumb.jpg",
     link: "/projects/creative-garden",
@@ -34,7 +34,7 @@ const projects = [
     id: "flowcircle",
     title: "FlowCircle",
     description:
-      "Personal productivity app for creative project tracking with visual boards and real-time sync.",
+      "Multi-tenant project management platform with real-time synchronization and cross-platform deployment.",
     tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
     image: "/images/projects/flowcircle-thumb.jpg",
     link: "/projects/flowcircle",

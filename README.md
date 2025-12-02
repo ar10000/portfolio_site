@@ -1,70 +1,119 @@
-# AI Product Builder Portfolio
+# AI Automation Consultant Portfolio
 
-A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Showcasing AI-powered products and automation solutions.
+A production-ready portfolio website showcasing AI automation services, workflow solutions, and technical capabilities. Built with Next.js 14, TypeScript, and modern web technologies to demonstrate expertise in full-stack AI development and automation engineering.
 
-## 🚀 Features
+## Overview
 
-- **Next.js 14** with App Router for optimal performance
-- **TypeScript** for type safety and better developer experience
-- **Tailwind CSS** for rapid, responsive UI development
-- **Framer Motion** for smooth, performant animations
-- **Fully Responsive** design (mobile-first approach)
-- **Dark Mode** by default with modern glassmorphism effects
-- **SEO Optimized** with metadata, Open Graph, and sitemap
-- **Accessibility** compliant (WCAG AA standards)
-- **Fast Loading** with optimized images and lazy loading
-- **API Routes** for contact form and newsletter subscriptions
+This portfolio serves as both a business showcase and a working demonstration of technical capabilities. It positions the consultant as a full-stack AI builder specializing in rapid prototyping, workflow automation, and production system deployment for agencies and founders.
 
-## 📋 Tech Stack
+## Key Features
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: Vercel (recommended)
+### Business Pages
+- **Homepage**: Professional positioning as AI Automation Consultant with clear value proposition
+- **Projects**: Case studies highlighting production systems with business outcomes
+- **Services**: Three-tier service model (Blueprint Sprint, Implementation, Support Retainer)
+- **Pricing**: Transparent pricing structure with clear engagement models
+- **Automation Intake**: High-converting form for automation client qualification
+- **Contact**: Professional contact form with Calendly integration
 
-## 📁 Project Structure
+### Technical Features
+- **Next.js 14** with App Router for optimal performance and SEO
+- **TypeScript** for type safety and maintainability
+- **Tailwind CSS** for responsive, modern UI
+- **Framer Motion** for smooth animations and interactions
+- **Claude AI Integration** for interactive chatbot functionality
+- **Serverless Architecture** deployed on Vercel
+- **Production-Ready** with error handling, loading states, and monitoring
+
+## Tech Stack
+
+### Core Framework
+- **Next.js 14** (App Router) - Server-side rendering and API routes
+- **TypeScript** - Type-safe development
+- **React 18** - Component architecture
+
+### Styling & UI
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **Lucide React** - Icon system
+
+### Integrations
+- **Anthropic Claude AI** - Chatbot and AI features
+- **GitHub API** - Repository data synchronization
+- **Vercel** - Deployment and hosting platform
+
+### Architecture
+- **Serverless Functions** - API routes for form submissions
+- **Static Generation** - Optimized page performance
+- **Image Optimization** - Next.js Image component
+- **SEO Optimization** - Metadata, sitemap, robots.txt
+
+## Project Structure
 
 ```
 ├── app/
-│   ├── api/                    # API routes
-│   │   ├── contact/            # Contact form endpoint
-│   │   └── newsletter/         # Newsletter subscription endpoint
+│   ├── api/
+│   │   ├── contact/              # Contact form endpoint
+│   │   ├── automation/          # Automation intake form endpoint
+│   │   ├── newsletter/          # Newsletter subscription endpoint
+│   │   └── voice-ai/            # Claude AI chatbot endpoint
 │   ├── projects/
-│   │   ├── page.tsx            # Projects listing page
-│   │   └── [slug]/             # Dynamic project detail pages
+│   │   ├── page.tsx             # Projects listing page
+│   │   └── [slug]/              # Dynamic project detail pages
 │   │       └── page.tsx
 │   ├── services/
-│   │   └── page.tsx            # Services page
+│   │   └── page.tsx             # Services page
+│   ├── pricing/
+│   │   └── page.tsx             # Pricing page
+│   ├── automation/
+│   │   └── page.tsx             # Automation intake form
 │   ├── contact/
-│   │   └── page.tsx            # Contact page with form
-│   ├── layout.tsx              # Root layout (navigation, footer, metadata)
-│   ├── page.tsx                # Homepage
-│   ├── globals.css             # Global styles and animations
-│   ├── loading.tsx              # Loading state component
-│   ├── error.tsx               # Error boundary
-│   ├── not-found.tsx           # 404 page
-│   ├── sitemap.ts              # Dynamic sitemap generation
-│   └── robots.ts               # Robots.txt configuration
+│   │   └── page.tsx             # Contact page
+│   ├── layout.tsx              # Root layout with navigation
+│   └── page.tsx                # Homepage
 ├── components/
 │   ├── Navigation.tsx           # Sticky navigation bar
 │   ├── Footer.tsx              # Site footer
-│   ├── ProjectCard.tsx         # Reusable project card component
-│   └── VideoEmbed.tsx          # Video embed component
-├── animations/
-│   └── variants.ts             # Framer Motion animation variants
-├── hooks/
-│   ├── useScrollAnimation.ts   # Scroll-triggered animations
-│   └── useParallax.ts          # Parallax effects
+│   └── TechStackMarquee.tsx    # Scrolling tech stack display
 ├── .env.example                # Environment variables template
 ├── tailwind.config.ts          # Tailwind configuration
 ├── tsconfig.json               # TypeScript configuration
 └── package.json                # Dependencies
-
 ```
 
-## 🛠️ Setup Instructions
+## Services Offered
+
+### 1. Blueprint Sprint (€500)
+- 90-minute consultation call
+- Workflow mapping and documentation
+- Architecture design
+- Cost-efficiency analysis
+- Implementation timeline
+- Optional prototype
+
+### 2. Implementation (€2,000–€10,000)
+- Full system development
+- AI integrations (Claude, GPT, Gemini)
+- Workflow automation
+- Custom tool development
+- Team training and documentation
+
+### 3. Support Retainer (€250–€750/month)
+- 24/7 system monitoring
+- Updates and maintenance
+- Bug fixes and error resolution
+- Performance optimizations
+
+## Trust & Reliability Standards
+
+- **30-Day Warranty**: All implementations include warranty coverage
+- **Clear Communication**: Regular updates and transparent reporting
+- **Fixed Pricing**: No hidden fees, scope changes approved upfront
+- **Weekly Updates**: Scheduled progress reports with milestone tracking
+- **Delivery Guarantee**: On-time delivery with production-ready code
+- **Maintenance Options**: Flexible support retainers available
+
+## Setup Instructions
 
 ### Prerequisites
 
@@ -73,7 +122,7 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwi
 
 ### Installation
 
-1. **Clone the repository** (or use this as a template):
+1. **Clone the repository**:
    ```bash
    git clone <your-repo-url>
    cd portfolio-website
@@ -82,10 +131,6 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwi
 2. **Install dependencies**:
    ```bash
    npm install
-   # or
-   yarn install
-   # or
-   pnpm install
    ```
 
 3. **Set up environment variables**:
@@ -96,7 +141,8 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwi
    Edit `.env.local` and add your configuration:
    ```env
    NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-   NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX  # Optional: Google Analytics
+   ANTHROPIC_API_KEY=sk-ant-...  # For Claude AI chatbot
+   RESEND_API_KEY=re_...          # Optional: For email services
    ```
 
 4. **Run the development server**:
@@ -107,7 +153,7 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwi
 5. **Open your browser**:
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🚢 Deployment Guide (Vercel)
+## Deployment (Vercel)
 
 ### Quick Deploy
 
@@ -144,7 +190,7 @@ npm run build
 npm start
 ```
 
-## 🔧 Environment Variables
+## Environment Variables
 
 Create a `.env.local` file (or set in Vercel dashboard):
 
@@ -152,15 +198,14 @@ Create a `.env.local` file (or set in Vercel dashboard):
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=https://yourdomain.com
 
+# AI Integration
+ANTHROPIC_API_KEY=sk-ant-...  # Required for chatbot functionality
+
+# Email Service (Optional)
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+
 # Analytics (Optional)
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-
-# Email Service (for contact form)
-# RESEND_API_KEY=re_xxxxxxxxxxxxx
-# SENDGRID_API_KEY=SG.xxxxxxxxxxxxx
-
-# Database (Optional - for storing submissions)
-# DATABASE_URL=postgresql://user:password@localhost:5432/portfolio
 
 # Environment
 NODE_ENV=production
@@ -169,47 +214,69 @@ NODE_ENV=production
 ### Required Variables
 
 - `NEXT_PUBLIC_SITE_URL`: Your site's URL (for SEO and sitemap)
+- `ANTHROPIC_API_KEY`: For Claude AI chatbot functionality
 
 ### Optional Variables
 
+- `RESEND_API_KEY`: For sending emails from contact forms
 - `NEXT_PUBLIC_GA_ID`: Google Analytics tracking ID
-- `RESEND_API_KEY` or `SENDGRID_API_KEY`: For sending emails from contact form
-- `DATABASE_URL`: For storing form submissions (if needed)
 
-## 📝 Customization
+## Customization
 
 ### Update Content
 
 1. **Projects**: Edit `app/projects/page.tsx` and `app/projects/[slug]/page.tsx`
 2. **Services**: Edit `app/services/page.tsx`
-3. **Contact Info**: Edit `app/contact/page.tsx` and `components/Footer.tsx`
-4. **Navigation**: Edit `components/Navigation.tsx`
-5. **Metadata**: Edit `app/layout.tsx` for SEO
+3. **Pricing**: Edit `app/pricing/page.tsx`
+4. **Contact Info**: Edit `app/contact/page.tsx` and `components/Footer.tsx`
+5. **Navigation**: Edit `components/Navigation.tsx`
+6. **Metadata**: Edit `app/layout.tsx` for SEO
 
 ### Styling
 
 - **Colors**: Update `tailwind.config.ts` for theme colors
 - **Global Styles**: Edit `app/globals.css`
-- **Animations**: Modify `animations/variants.ts`
+- **Animations**: Modify component-level Framer Motion animations
 
 ### API Integration
 
-1. **Contact Form**: Update `app/api/contact/route.ts` to integrate with your email service
-2. **Newsletter**: Update `app/api/newsletter/route.ts` to connect to your email marketing platform
+1. **Contact Form**: Update `app/api/contact/route.ts` to integrate with email service
+2. **Automation Intake**: Update `app/api/automation/route.ts` for form submissions
+3. **Newsletter**: Update `app/api/newsletter/route.ts` to connect to email marketing platform
+4. **Voice AI**: Configure `app/api/voice-ai/route.ts` with your Anthropic API key
 
-## 🧪 Testing
+## Architecture Details
+
+### Frontend
+- **Next.js App Router**: Server components for optimal performance
+- **Client Components**: Interactive elements with React hooks
+- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
+- **Performance**: Image optimization, code splitting, lazy loading
+
+### Backend
+- **API Routes**: Serverless functions for form submissions and AI integration
+- **Type Safety**: Full TypeScript coverage for API endpoints
+- **Error Handling**: Comprehensive error boundaries and validation
+
+### Integrations
+- **Claude AI**: Anthropic API for chatbot functionality
+- **GitHub API**: Repository data synchronization (if needed)
+- **Email Services**: Resend integration for form submissions
+
+## Testing
 
 ### Manual Testing Checklist
 
-- [ ] All navigation links work
+- [ ] All navigation links work correctly
 - [ ] Contact form submits successfully
-- [ ] Newsletter subscription works
+- [ ] Automation intake form validates properly
 - [ ] All project pages load correctly
 - [ ] Responsive design works on mobile/tablet/desktop
-- [ ] Animations are smooth
+- [ ] Animations are smooth and performant
 - [ ] No console errors
 - [ ] Images load properly
 - [ ] External links open in new tabs
+- [ ] SEO metadata is correct
 
 ### Responsive Breakpoints
 
@@ -217,63 +284,34 @@ NODE_ENV=production
 - **Tablet**: 641px - 1024px
 - **Desktop**: 1025px+
 
-## 🎨 Features in Detail
+## Performance Optimization
 
-### Pages
+- **Static Generation**: Pre-rendered pages for fast loading
+- **Image Optimization**: Next.js Image component with lazy loading
+- **Code Splitting**: Automatic route-based code splitting
+- **Caching**: Optimized caching strategies for API routes
+- **Bundle Size**: Minimal dependencies for fast initial load
 
-- **Home (`/`)**: Hero section with animated gradient text, project showcase, and "Why I Build Fast" section
-- **Projects (`/projects`)**: Grid of all projects with filtering and search (future enhancement)
-- **Project Detail (`/projects/[slug]`)**: Individual project pages with full details, tech stack, and demos
-- **Services (`/services`)**: Three main service offerings with pricing and process
-- **Contact (`/contact`)**: Contact form with validation and Calendly integration
+## Security Considerations
 
-### Components
+- **Environment Variables**: Sensitive keys stored securely
+- **Input Validation**: All form inputs validated server-side
+- **API Rate Limiting**: Consider implementing rate limiting for production
+- **CORS**: Proper CORS configuration for API routes
+- **XSS Protection**: React's built-in XSS protection
 
-- **Navigation**: Sticky header with active section highlighting
-- **Footer**: Three-column layout with navigation, projects, and newsletter
-- **ProjectCard**: Reusable card component with hover effects
-- **VideoEmbed**: Responsive video player with lazy loading
+## License
 
-### Animations
+This project is private and proprietary.
 
-- Fade-in animations on scroll
-- Staggered children animations
-- Hover effects with scale and glow
-- Gradient text animations
-- Loading skeletons
-
-## 🔮 Future Enhancements
-
-- [ ] Blog section for AI/automation insights
-- [ ] Client testimonials section
-- [ ] Case studies with detailed metrics
-- [ ] Dark/light mode toggle (currently dark only)
-- [ ] Project filtering and search
-- [ ] Multi-language support
-- [ ] CMS integration (Sanity, Contentful)
-- [ ] Analytics dashboard
-- [ ] A/B testing for CTAs
-- [ ] Progressive Web App (PWA) support
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
+## Author
 
 **Andrew Ryan**
 
 - Portfolio: [andrewryan.dev](https://andrewryan.dev)
-- Email: contact@andrewryan.dev
+- Email: andrewryan763@gmail.com
 - Location: Lisbon, PT
-
-## 🙏 Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Animated with [Framer Motion](https://www.framer.com/motion/)
-- Icons from [Lucide](https://lucide.dev/)
 
 ---
 
-**Built with Next.js, Tailwind, and Claude AI** 🚀
+**Built with Next.js, TypeScript, Tailwind CSS, and Claude AI**

@@ -41,8 +41,9 @@ const itemVariants = {
 };
 
 const stats = [
-  { label: "3 Products Shipped", value: "3" },
-  { label: "72hr Average Build Time", value: "72hr" },
+  { label: "Production-Ready Systems", value: "Built" },
+  { label: "2-4 Week Delivery", value: "Fast" },
+  { label: "ROI-Focused Outcomes", value: "Guaranteed" },
 ];
 
 export default function Home() {
@@ -332,7 +333,7 @@ export default function Home() {
                       View Project
                     </motion.button>
                   </Link>
-                  <Link href="/projects/creative-garden" className="flex-1">
+                  <Link href="/projects/autoleadcloser" className="flex-1">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

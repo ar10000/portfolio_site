@@ -1210,27 +1210,52 @@ export default function ProjectDetailPage({
                 >
                   Results
                 </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {project.metrics.map((metric: any, index: number) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 text-center"
-                    >
-                      <metric.icon
-                        className={`h-8 w-8 mx-auto mb-3 ${
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {/* Handle both array and object formats */}
+                  {Array.isArray(project.metrics) ? (
+                    project.metrics.map((metric: any, index: number) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="p-6 rounded-lg border border-gray-800 bg-gray-900/50 text-center"
+                      >
+                        {metric.icon && (
+                          <metric.icon
+                            className={`h-8 w-8 mx-auto mb-3 ${
+                              isAutoLeadCloser ? "text-blue-400" : "text-purple-400"
+                            }`}
+                          />
+                        )}
+                        <div className="text-2xl font-bold text-white mb-1">
+                          {metric.value}
+                        </div>
+                        <div className="text-sm text-gray-400">{metric.label}</div>
+                      </motion.div>
+                    ))
+                  ) : (
+                    Object.entries(project.metrics).map(([label, value], index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="p-6 rounded-lg border border-gray-800 bg-gray-900/50"
+                      >
+                        <div className="text-sm font-semibold text-gray-400 mb-2">
+                          {label}
+                        </div>
+                        <div className={`text-lg font-bold ${
                           isAutoLeadCloser ? "text-blue-400" : "text-purple-400"
-                        }`}
-                      />
-                      <div className="text-2xl font-bold text-white mb-1">
-                        {metric.value}
-                      </div>
-                      <div className="text-sm text-gray-400">{metric.label}</div>
-                    </motion.div>
-                  ))}
+                        }`}>
+                          {value as string}
+                        </div>
+                      </motion.div>
+                    ))
+                  )}
                 </div>
               </section>
             )}

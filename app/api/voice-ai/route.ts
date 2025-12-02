@@ -1,81 +1,191 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Project context for the AI assistant
-const projectContext = {
+// Comprehensive context for the AI assistant
+const assistantContext = {
+  about: {
+    title: "AI Automation Consultant",
+    tagline: "AI systems integration and workflow automation that delivers measurable ROI in weeks, not months",
+    description: "I design and deploy production-ready AI systems, automate complex workflows, and build rapid prototypes for agencies and founders who need reliable solutions, fast execution, and clear business outcomes.",
+    focus: "Production-ready systems, 2-4 week delivery, ROI-focused outcomes",
+    location: "Lisbon, PT",
+  },
   projects: [
     {
       name: "Creative Garden",
-      description: "A production-grade AI-powered business system",
+      description: "Enterprise content workflow automation platform with real-time synchronization and AI-powered content intelligence",
       status: "Live",
-      tech: ["Flutter", "Python", "Supabase", "AI Integration"],
+      tech: ["Flutter", "Python", "Supabase", "AI"],
       highlights: [
-        "Full-stack MVP built with rapid deployment focus",
-        "Production-grade quality at speed",
-        "Demonstrates expertise in Flutter/Python/Supabase stack",
+        "Real-time team synchronization with sub-100ms update propagation",
+        "AI-powered content analysis using Claude AI",
+        "Multi-tenant architecture with data isolation",
+        "Production-grade infrastructure with 99.9% uptime SLA",
       ],
+      link: "/projects/creative-garden",
     },
     {
       name: "AutoLeadCloser",
-      description: "AI Sales Assistant That Qualifies Leads While You Sleep",
-      status: "Beta",
-      tech: ["Python", "Claude AI", "Make.com", "Supabase", "Gmail API", "Cal.com"],
+      description: "AI-powered sales automation that reduces lead response time to under 2 minutes and increases conversion rates by 3-5x",
+      status: "Live",
+      tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
       highlights: [
-        "Automatically responds to incoming emails and qualifies leads",
-        "Uses Claude AI for intelligent conversation",
-        "Books sales calls when prospects are ready",
-        "Processes 50+ leads per day, saves 10+ hours/week",
-        "Built for agencies and service businesses",
+        "Sub-2-minute response time (99% reduction from manual)",
+        "Automated lead qualification with AI",
+        "3-5x increase in conversion rates",
+        "24/7 automated assistant",
+        "70-85% reduction in cost per qualified lead",
       ],
+      link: "/projects/autoleadcloser",
+    },
+    {
+      name: "FlowCircle",
+      description: "Multi-tenant project management platform with real-time synchronization and cross-platform deployment",
+      status: "Live",
+      tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
+      highlights: [
+        "Real-time synchronization across all devices",
+        "Multi-tenant architecture with row-level security",
+        "Cross-platform deployment (web, mobile, desktop)",
+        "High performance with optimized database queries",
+      ],
+      link: "/projects/flowcircle",
+    },
+    {
+      name: "AI Product Builder Portfolio",
+      description: "A modern, production-ready portfolio website showcasing AI-powered products and automation solutions",
+      status: "Live",
+      tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Claude AI"],
+      highlights: [
+        "Interactive AI chatbot powered by Claude AI",
+        "Automated GitHub project syncing",
+        "Dynamic content management",
+        "Modern UI/UX with smooth animations",
+      ],
+      link: "/projects/portfolio-site",
     },
   ],
   services: [
     {
-      name: "Custom AI Tools",
-      price: "$5-10K projects",
-      description: "AI-powered tools that automate bottlenecks—qualifying leads, processing documents, handling support",
-      timeline: "2-4 weeks",
-      tech: "Claude, GPT, or Gemini integration",
+      name: "Blueprint Sprint",
+      price: "€500",
+      period: "one-time",
+      description: "Strategic planning and architecture design for your automation project",
+      timeline: "90-minute consultation",
+      includes: [
+        "90-minute consultation call",
+        "Workflow map",
+        "Architecture design document",
+        "Cost-efficiency plan",
+        "Implementation timeline",
+        "Optional prototype (additional cost)",
+      ],
+      link: "https://calendly.com/andrewryan763/30min",
     },
     {
-      name: "Workflow Automation",
-      price: "$2-5K setups",
-      description: "Make.com and n8n workflows that connect your tools and run in the background",
-      timeline: "1-2 weeks",
-      tech: "Make.com, n8n, Multi-API integration",
+      name: "Implementation",
+      price: "€2,000–€10,000",
+      period: "project-based",
+      description: "Full development and deployment of your automation solution",
+      timeline: "2-4 weeks typically",
+      includes: [
+        "Full build with production-ready code",
+        "AI integrations (Claude, GPT, or Gemini)",
+        "Automation workflows",
+        "Custom tools development",
+        "Team training and documentation",
+        "30-day warranty",
+      ],
+      link: "/contact",
     },
     {
-      name: "Rapid Prototyping",
-      price: "$2-3K MVPs",
-      description: "Working prototypes in 48-72 hours to validate ideas with real users",
-      timeline: "48-72 hours",
-      tech: "Full-stack Flutter/Python/Supabase MVPs",
+      name: "Support Retainer",
+      price: "€250–€750/month",
+      period: "monthly",
+      description: "Ongoing operational support to ensure system reliability and continuous optimization",
+      timeline: "Ongoing",
+      includes: [
+        "Proactive monitoring",
+        "Timely updates",
+        "Bug fixes",
+        "Strategic optimizations",
+      ],
+      link: "/contact",
     },
   ],
-  expertise: {
-    focus: "Production-grade quality at speed",
-    specialties: [
-      "Rapid deployment of AI-powered business systems",
-      "Full-stack Flutter/Python/Supabase MVPs",
-      "Production-grade quality at speed",
+  howWeWork: {
+    process: [
+      {
+        step: 1,
+        title: "Discovery Call",
+        description: "15-minute consultation to understand your needs and requirements",
+      },
+      {
+        step: 2,
+        title: "Proposal & Agreement",
+        description: "Detailed scope, timeline, and pricing with clear deliverables",
+      },
+      {
+        step: 3,
+        title: "Kickoff & Planning",
+        description: "Requirements gathering and project setup with architecture design",
+      },
+      {
+        step: 4,
+        title: "Development",
+        description: "Regular updates and iterative development with weekly progress reports",
+      },
+      {
+        step: 5,
+        title: "Delivery & Support",
+        description: "Complete handoff package with training, documentation, and 30-day warranty",
+      },
     ],
-    experience: "Two major production projects: Creative Garden and AutoLeadCloser",
+    approach: [
+      "Production-ready architecture from day one",
+      "Focus on reliability, maintainability, and measurable business outcomes",
+      "3-10 day delivery cycles for rapid prototyping",
+      "Clear communication with weekly updates",
+      "Fixed pricing with no hidden fees",
+      "30-day warranty on all implementations",
+    ],
+  },
+  trustAndReliability: [
+    "30-Day Warranty: Comprehensive coverage for bug fixes, system errors, and performance issues",
+    "Clear Communication: Regular status updates, transparent progress reporting, and direct access to documentation",
+    "Fixed Pricing: Project costs agreed upfront with no hidden fees",
+    "Weekly Updates: Scheduled progress reports with milestone tracking",
+    "Delivery Guarantee: Projects delivered according to agreed timelines with production-ready code",
+    "Maintenance Options: Optional support retainers from €250-€750/month",
+  ],
+  contact: {
+    email: "contact@andrewryan.dev",
+    calendly: "https://calendly.com/andrewryan763/30min",
+    contactForm: "/contact",
+    automationIntake: "/automation",
   },
 };
 
-const systemPrompt = `You are **Andrew Ryan's AI Solutions Developer**, specializing in rapid deployment of **AI-powered business systems** and **full-stack Flutter/Python/Supabase MVPs**. 
+const systemPrompt = `You are **Andrew Ryan's AI Assistant**, helping visitors learn about his AI automation consulting services, projects, pricing, and how he works.
 
-Your role is to answer questions about Andrew's work, projects, and services based ONLY on the provided JSON context. 
+Your role is to answer questions about:
+- What services Andrew provides and pricing
+- How the process works
+- Andrew's projects and case studies
+- Trust and reliability standards
+- How to get started
 
 Key guidelines:
-- Answer only based on the provided JSON context of Andrew's projects (Creative Garden, AutoLeadCloser) and services
-- If asked about Andrew's experience, cite the two major projects (Creative Garden and AutoLeadCloser) as production examples
-- Always emphasize that Andrew focuses on **production-grade quality at speed**
-- Keep responses concise, professional, and helpful
-- If information isn't in the context, politely say you don't have that information rather than making assumptions
-- Speak in first person as Andrew's AI Solutions Developer
+- Answer ONLY based on the provided JSON context
+- Keep responses concise, friendly, and professional (2-3 sentences max for voice, slightly longer for text)
+- Always speak in first person as Andrew's assistant
+- For pricing questions, provide specific amounts from the context
+- For process questions, reference the step-by-step process
+- For project questions, mention specific projects and their highlights
+- If asked about something not in the context, politely redirect to contact form or booking a call
+- Always end with a helpful next step (e.g., "Would you like to book a call?" or "Check out the pricing page for more details")
 
 Context:
-${JSON.stringify(projectContext, null, 2)}`;
+${JSON.stringify(assistantContext, null, 2)}`;
 
 export async function POST(request: NextRequest) {
   try {
@@ -113,7 +223,7 @@ export async function POST(request: NextRequest) {
               content: message,
             },
           ],
-          max_tokens: 200,
+          max_tokens: 300,
           temperature: 0.7,
         }),
       });
@@ -139,7 +249,7 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           model: process.env.ANTHROPIC_MODEL || "claude-3-5-sonnet-20241022",
-          max_tokens: 200,
+          max_tokens: 300,
           system: systemPrompt,
           messages: [
             {

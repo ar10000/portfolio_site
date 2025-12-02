@@ -7,12 +7,14 @@ import Link from "next/link";
 
 interface VoiceAIChatbotProps {
   position?: "bottom-right" | "bottom-left" | "top-right" | "top-left";
+  onOpenChange?: (isOpen: boolean) => void;
 }
 
 type ChatState = "idle" | "listening" | "processing" | "speaking" | "error";
 
 export default function VoiceAIChatbot({
   position = "bottom-right",
+  onOpenChange,
 }: VoiceAIChatbotProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [state, setState] = useState<ChatState>("idle");
@@ -261,9 +263,11 @@ export default function VoiceAIChatbot({
     } else if (state === "listening" || state === "processing") {
       stopListening();
     } else {
-      setIsOpen(!isOpen);
+      const newIsOpen = !isOpen;
+      setIsOpen(newIsOpen);
+      onOpenChange?.(newIsOpen);
       // Reset error state when opening
-      if (!isOpen) {
+      if (newIsOpen) {
         setError("");
         setShowTextInput(false);
         setTextInput("");
@@ -398,6 +402,7 @@ export default function VoiceAIChatbot({
                 <button
                   onClick={() => {
                     setIsOpen(false);
+                    onOpenChange?.(false);
                     stopListening();
                     stopSpeaking();
                   }}
@@ -538,7 +543,10 @@ export default function VoiceAIChatbot({
               exit={{ opacity: 0, scale: 0 }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={() => setIsOpen(true)}
+              onClick={() => {
+                setIsOpen(true);
+                onOpenChange?.(true);
+              }}
               className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-blue-600 shadow-lg shadow-purple-500/50 flex items-center justify-center text-white hover:shadow-xl transition-all"
               aria-label="Open voice assistant"
             >

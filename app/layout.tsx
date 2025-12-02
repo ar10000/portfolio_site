@@ -3,12 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import dynamic from "next/dynamic";
-
-// Dynamically import VoiceAIChatbot to avoid SSR issues
-const VoiceAIChatbot = dynamic(() => import("@/components/VoiceAIChatbot"), {
-  ssr: false,
-});
+import ChatAssistant from "@/components/ChatAssistant";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://andrewryan.dev";
 
@@ -115,7 +110,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <VoiceAIChatbot position="bottom-right" />
+        {/* Floating Chat Assistant - Available on all pages */}
+        <ChatAssistant variant="floating" />
       </body>
     </html>
   );

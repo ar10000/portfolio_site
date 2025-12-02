@@ -462,11 +462,11 @@ export default function ServicesPage() {
           <h2 className="text-3xl font-bold text-center mb-12">
             Typical Engagement <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">Flow</span>
           </h2>
-          <div className="relative">
+          <div className="relative overflow-visible">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-pink-500 hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-pink-500 hidden md:block z-0" />
             
-            <div className="space-y-8">
+            <div className="space-y-8 relative z-10">
               {processSteps.map((step, index) => (
                 <motion.div
                   key={index}

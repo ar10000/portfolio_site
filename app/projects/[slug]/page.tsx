@@ -797,7 +797,7 @@ function HowItWorks({ steps }: { steps: any[] }) {
       >
         How It Works
       </motion.h2>
-      <div className="relative">
+      <div className="relative overflow-visible">
         {steps.map((step, index) => (
           <motion.div
             key={index}
@@ -805,11 +805,11 @@ function HowItWorks({ steps }: { steps: any[] }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative flex items-start gap-4 mb-8 last:mb-0"
+            className="relative flex items-start gap-4 mb-8 last:mb-0 z-10"
           >
             {/* Connecting line */}
             {index < steps.length - 1 && (
-              <div className="absolute left-6 top-12 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-600" />
+              <div className="absolute left-6 top-12 w-0.5 h-[calc(100%+2rem)] bg-gradient-to-b from-blue-500 to-purple-600 z-0" />
             )}
             
             {/* Step number circle */}

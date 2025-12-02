@@ -25,6 +25,7 @@ export default function VoiceAIChatbot({
   const [showTextInput, setShowTextInput] = useState(false);
   const [textInput, setTextInput] = useState("");
   const [isSubmittingText, setIsSubmittingText] = useState(false);
+  const [inputMode, setInputMode] = useState<"voice" | "text">("voice");
 
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -63,27 +64,36 @@ export default function VoiceAIChatbot({
       setError("");
 
       try {
-        // Call LLM API with timeout
+        // Call LLM API with longer timeout for network reliability
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
         const llmResponse = await fetch("/api/voice-ai", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: transcript }),
           signal: controller.signal,
+        }).catch((fetchError) => {
+          // Handle fetch errors (network issues)
+          console.error("Fetch error:", fetchError);
+          throw new Error("network_error");
         });
 
         clearTimeout(timeoutId);
 
         if (!llmResponse.ok) {
-          throw new Error("Failed to get AI response");
+          const errorText = await llmResponse.text();
+          console.error("API response error:", errorText);
+          throw new Error("api_error");
         }
 
         const data = await llmResponse.json();
         
         if (data.error) {
-          throw new Error(data.error);
+          // Pass through specific error codes from API
+          setError(data.error);
+          setState("error");
+          return;
         }
 
         const responseText = data.response || "I'm sorry, I didn't get a response.";
@@ -94,13 +104,13 @@ export default function VoiceAIChatbot({
       } catch (err: any) {
         console.error("LLM API error:", err);
         
-        // Check if it's a timeout
+        // Check error type
         if (err.name === "AbortError" || err.message?.includes("timeout")) {
           setError("timeout");
-          setShowTextInput(true);
+        } else if (err.message === "network_error" || err.message?.includes("network") || err.message?.includes("fetch")) {
+          setError("network_error");
         } else {
           setError("api_error");
-          setShowTextInput(true);
         }
         setState("error");
       }
@@ -110,16 +120,26 @@ export default function VoiceAIChatbot({
       console.error("Speech recognition error:", event.error);
       
       // Handle different error types
-      if (event.error === "no-speech" || event.error === "audio-capture") {
+      if (event.error === "no-speech") {
+        // No speech detected - this is normal, just reset to idle
+        setState("idle");
+        setError("");
+      } else if (event.error === "audio-capture") {
         setError("voice_error");
+        setState("error");
       } else if (event.error === "network") {
+        // Network error from speech recognition service
         setError("network_error");
+        setState("error");
+      } else if (event.error === "not-allowed") {
+        setError("Microphone permission denied. Please allow microphone access.");
+        setState("error");
       } else {
-        setError("voice_error");
+        // Other errors - log but don't show error for minor issues
+        console.warn("Speech recognition error (non-critical):", event.error);
+        setState("idle");
+        setError("");
       }
-      
-      setShowTextInput(true);
-      setState("error");
     };
 
     recognition.onend = () => {
@@ -262,6 +282,9 @@ export default function VoiceAIChatbot({
       stopSpeaking();
     } else if (state === "listening" || state === "processing") {
       stopListening();
+    } else if (isOpen && inputMode === "voice" && state === "idle") {
+      // Start listening when chatbot is open, in voice mode, and idle
+      startListening();
     } else {
       const newIsOpen = !isOpen;
       setIsOpen(newIsOpen);
@@ -271,8 +294,25 @@ export default function VoiceAIChatbot({
         setError("");
         setShowTextInput(false);
         setTextInput("");
+        setInputMode("voice");
       }
     }
+  };
+
+  const handleModeToggle = () => {
+    const newMode = inputMode === "voice" ? "text" : "voice";
+    setInputMode(newMode);
+    setShowTextInput(newMode === "text");
+    
+    // Stop any ongoing voice operations when switching modes
+    if (newMode === "text") {
+      stopListening();
+      stopSpeaking();
+      setState("idle");
+    }
+    
+    // Clear error when switching modes
+    setError("");
   };
 
   const handleTextSubmit = async (e: React.FormEvent) => {
@@ -284,45 +324,54 @@ export default function VoiceAIChatbot({
     setError("");
     setTranscript(textInput);
 
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
-      const llmResponse = await fetch("/api/voice-ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: textInput }),
-        signal: controller.signal,
-      });
+        const llmResponse = await fetch("/api/voice-ai", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: textInput }),
+          signal: controller.signal,
+        }).catch((fetchError) => {
+          console.error("Fetch error:", fetchError);
+          throw new Error("network_error");
+        });
 
-      clearTimeout(timeoutId);
+        clearTimeout(timeoutId);
 
-      if (!llmResponse.ok) {
-        throw new Error("Failed to get AI response");
-      }
+        if (!llmResponse.ok) {
+          const errorText = await llmResponse.text();
+          console.error("API response error:", errorText);
+          throw new Error("api_error");
+        }
 
       const data = await llmResponse.json();
       
       if (data.error) {
-        throw new Error(data.error);
+        // Pass through specific error codes from API
+        setError(data.error);
+        setState("error");
+        return;
       }
 
       const responseText = data.response || "I'm sorry, I didn't get a response.";
       setResponse(responseText);
       setTextInput("");
-      setShowTextInput(false);
       setState("idle");
-    } catch (err: any) {
-      console.error("Text submission error:", err);
-      if (err.name === "AbortError" || err.message?.includes("timeout")) {
-        setError("timeout");
-      } else {
-        setError("api_error");
+      } catch (err: any) {
+        console.error("Text submission error:", err);
+        if (err.name === "AbortError" || err.message?.includes("timeout")) {
+          setError("timeout");
+        } else if (err.message === "network_error" || err.message?.includes("network") || err.message?.includes("fetch")) {
+          setError("network_error");
+        } else {
+          setError("api_error");
+        }
+        setState("error");
+      } finally {
+        setIsSubmittingText(false);
       }
-      setState("error");
-    } finally {
-      setIsSubmittingText(false);
-    }
   };
 
   const positionClasses = {
@@ -429,58 +478,68 @@ export default function VoiceAIChatbot({
                   </div>
                 )}
 
-                {/* Error Message with Text Input Fallback */}
-                {(error === "timeout" || error === "api_error" || error === "voice_error" || error === "network_error") && (
+                {/* Error Message */}
+                {(error === "timeout" || error === "api_error" || error === "voice_error" || error === "network_error" || error === "embeddings_missing" || error === "api_key_missing" || error.includes("Microphone") || error.includes("permission")) && (
                   <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4 space-y-3">
                     <p className="text-orange-400 text-sm font-medium">
-                      Oops! The Claude API is currently under heavy load. Please ask your question via text input, or book a call for guaranteed human attention.
+                      {error.includes("Microphone") || error.includes("permission")
+                        ? "Microphone permission denied. Please allow microphone access in your browser settings."
+                        : error === "embeddings_missing"
+                        ? "Knowledge base not set up yet. Please run the embedding script to generate embeddings.json first."
+                        : error === "api_key_missing"
+                        ? "API key not configured. Please set OPENAI_API_KEY in your environment variables."
+                        : error === "voice_error" 
+                        ? "Voice input isn't working. Switch to text mode to continue."
+                        : error === "network_error"
+                        ? "Network connection issue. Please check your internet connection and try again, or switch to text mode."
+                        : error === "timeout" || error === "api_error"
+                        ? "The API request failed. Please try again or switch to text mode."
+                        : error}
                     </p>
-                    {showTextInput && (
-                      <form onSubmit={handleTextSubmit} className="space-y-2">
-                        <textarea
-                          value={textInput}
-                          onChange={(e) => setTextInput(e.target.value)}
-                          placeholder="Type your question here..."
-                          rows={3}
-                          className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 resize-none"
-                          disabled={isSubmittingText}
-                        />
-                        <div className="flex items-center gap-2">
-                          <motion.button
-                            type="submit"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            disabled={!textInput.trim() || isSubmittingText}
-                            className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-                          >
-                            {isSubmittingText ? (
-                              <>
-                                <Loader2 className="h-4 w-4 animate-spin" />
-                                Sending...
-                              </>
-                            ) : (
-                              <>
-                                <Send className="h-4 w-4" />
-                                Send
-                              </>
-                            )}
-                          </motion.button>
-                          <Link
-                            href="/contact"
-                            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg font-semibold text-white text-sm hover:bg-gray-700 transition-colors flex items-center gap-2"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            <Calendar className="h-4 w-4" />
-                            Book Call
-                          </Link>
-                        </div>
-                      </form>
-                    )}
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => {
+                          setInputMode("text");
+                          setShowTextInput(true);
+                          setError("");
+                        }}
+                        className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white text-sm flex items-center gap-2"
+                      >
+                        <Send className="h-4 w-4" />
+                        Switch to Text
+                      </motion.button>
+                      {(error === "network_error" || error === "api_error" || error === "timeout") && (
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => {
+                            setError("");
+                            setState("idle");
+                            if (inputMode === "voice") {
+                              startListening();
+                            }
+                          }}
+                          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg font-semibold text-white text-sm hover:bg-gray-700 transition-colors flex items-center gap-2"
+                        >
+                          Try Again
+                        </motion.button>
+                      )}
+                      <Link
+                        href="/contact"
+                        className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg font-semibold text-white text-sm hover:bg-gray-700 transition-colors flex items-center gap-2"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Calendar className="h-4 w-4" />
+                        Book Call
+                      </Link>
+                    </div>
                   </div>
                 )}
 
                 {/* Generic error (fallback) */}
-                {error && error !== "timeout" && error !== "api_error" && error !== "voice_error" && error !== "network_error" && (
+                {error && !error.includes("Microphone") && !error.includes("permission") && error !== "timeout" && error !== "api_error" && error !== "voice_error" && error !== "network_error" && (
                   <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3">
                     <p className="text-red-400 text-sm">{error}</p>
                   </div>
@@ -495,45 +554,111 @@ export default function VoiceAIChatbot({
                 )}
               </div>
 
-              {/* Controls */}
-              <div className="border-t border-gray-800 p-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handleToggle}
-                  disabled={state === "processing"}
-                  className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${
-                    state === "listening"
-                      ? "bg-red-500 hover:bg-red-600"
-                      : state === "speaking"
-                      ? "bg-orange-500 hover:bg-orange-600"
-                      : state === "processing"
-                      ? "bg-gray-700 cursor-not-allowed"
-                      : "bg-gradient-to-r from-purple-500 to-blue-600 hover:shadow-lg hover:shadow-purple-500/50"
-                  }`}
-                >
-                  {state === "processing" ? (
-                    <>
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      Processing...
-                    </>
-                  ) : state === "speaking" ? (
-                    <>
-                      <Volume2 className="h-5 w-5" />
-                      Stop Speaking
-                    </>
-                  ) : state === "listening" ? (
-                    <>
-                      <MicOff className="h-5 w-5" />
-                      Stop Listening
-                    </>
-                  ) : (
-                    <>
-                      <Mic className="h-5 w-5" />
-                      Press to Speak
-                    </>
-                  )}
-                </motion.button>
+              {/* Mode Toggle */}
+              <div className="border-t border-gray-800 p-3">
+                <div className="flex gap-2 mb-3">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={handleModeToggle}
+                    className={`flex-1 px-3 py-2 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 ${
+                      inputMode === "voice"
+                        ? "bg-gradient-to-r from-purple-500 to-blue-600 text-white"
+                        : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                    }`}
+                  >
+                    <Mic className="h-4 w-4" />
+                    Voice
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={handleModeToggle}
+                    className={`flex-1 px-3 py-2 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2 ${
+                      inputMode === "text"
+                        ? "bg-gradient-to-r from-purple-500 to-blue-600 text-white"
+                        : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                    }`}
+                  >
+                    <Send className="h-4 w-4" />
+                    Text
+                  </motion.button>
+                </div>
+
+                {/* Voice Mode Controls */}
+                {inputMode === "voice" && (
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={handleToggle}
+                    disabled={state === "processing"}
+                    className={`w-full py-4 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 ${
+                      state === "listening"
+                        ? "bg-red-500 hover:bg-red-600"
+                        : state === "speaking"
+                        ? "bg-orange-500 hover:bg-orange-600"
+                        : state === "processing"
+                        ? "bg-gray-700 cursor-not-allowed"
+                        : "bg-gradient-to-r from-purple-500 to-blue-600 hover:shadow-lg hover:shadow-purple-500/50"
+                    }`}
+                  >
+                    {state === "processing" ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        Processing...
+                      </>
+                    ) : state === "speaking" ? (
+                      <>
+                        <Volume2 className="h-5 w-5" />
+                        Stop Speaking
+                      </>
+                    ) : state === "listening" ? (
+                      <>
+                        <MicOff className="h-5 w-5" />
+                        Stop Listening
+                      </>
+                    ) : (
+                      <>
+                        <Mic className="h-5 w-5" />
+                        Press to Speak
+                      </>
+                    )}
+                  </motion.button>
+                )}
+
+                {/* Text Mode Input */}
+                {inputMode === "text" && (
+                  <form onSubmit={handleTextSubmit} className="space-y-2">
+                    <textarea
+                      value={textInput}
+                      onChange={(e) => setTextInput(e.target.value)}
+                      placeholder="Type your question here..."
+                      rows={3}
+                      className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 resize-none"
+                      disabled={isSubmittingText}
+                      autoFocus
+                    />
+                    <motion.button
+                      type="submit"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      disabled={!textInput.trim() || isSubmittingText}
+                      className="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmittingText ? (
+                        <>
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
+                    </motion.button>
+                  </form>
+                )}
               </div>
             </motion.div>
           ) : (

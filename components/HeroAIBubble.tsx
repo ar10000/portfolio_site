@@ -52,12 +52,13 @@ export default function HeroAIBubble({ onOpenChat }: HeroAIBubbleProps) {
       exit={{ opacity: 0, y: 20, scale: 0.9 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="fixed bottom-24 right-6 z-40 max-w-sm"
+      className="fixed bottom-24 right-6 z-40 max-w-sm cursor-pointer"
+      onClick={onOpenChat}
     >
       <div className="relative">
         {/* Chat Bubble */}
         <motion.div
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
           className="bg-gray-900/95 backdrop-blur-md border border-purple-500/30 rounded-2xl shadow-2xl overflow-hidden"
         >
           {/* Header with gradient */}
@@ -72,7 +73,10 @@ export default function HeroAIBubble({ onOpenChat }: HeroAIBubbleProps) {
               </div>
             </div>
             <button
-              onClick={() => setIsVisible(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsVisible(false);
+              }}
               className="text-gray-400 hover:text-white transition-colors p-1"
               aria-label="Close"
             >
@@ -96,7 +100,7 @@ export default function HeroAIBubble({ onOpenChat }: HeroAIBubbleProps) {
             </AnimatePresence>
 
             {/* Action Buttons */}
-            <div className="flex gap-2">
+            <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

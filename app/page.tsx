@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
 import {
   ArrowRight,
   Sparkles,
@@ -18,8 +17,8 @@ import {
   Database,
 } from "lucide-react";
 import Link from "next/link";
-import HeroAIBubble from "@/components/HeroAIBubble";
-import VoiceAIChatbot from "@/components/VoiceAIChatbot";
+import ChatAssistant from "@/components/ChatAssistant";
+import AnimatedWords from "@/components/AnimatedWords";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,39 +49,8 @@ const stats = [
 ];
 
 export default function Home() {
-  const chatbotRef = useRef<{ setIsOpen: (open: boolean) => void } | null>(null);
-  const [showHeroBubble, setShowHeroBubble] = useState(true);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
-
-  const handleOpenChat = () => {
-    setIsChatbotOpen(true);
-    setShowHeroBubble(false);
-    // Small delay to ensure chatbot is rendered
-    setTimeout(() => {
-      const chatbotButton = document.querySelector('[aria-label="Open voice assistant"]') as HTMLElement;
-      if (chatbotButton) {
-        chatbotButton.click();
-      }
-    }, 100);
-  };
-
   return (
     <div className="pt-16">
-      {/* Hero AI Bubble */}
-      {showHeroBubble && !isChatbotOpen && (
-        <HeroAIBubble onOpenChat={handleOpenChat} />
-      )}
-
-      {/* Voice AI Chatbot */}
-      <VoiceAIChatbot 
-        position="bottom-right"
-        onOpenChange={(isOpen) => {
-          setIsChatbotOpen(isOpen);
-          if (isOpen) {
-            setShowHeroBubble(false);
-          }
-        }}
-      />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Grid Pattern Background */}
@@ -192,7 +160,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right Profile Image */}
+            {/* Right Animated Words Circle */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -201,10 +169,8 @@ export default function Home() {
             >
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl" />
-                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-sm bg-gray-900/50 flex items-center justify-center">
-                  <div className="w-full h-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center text-6xl font-bold text-gray-700">
-                    AI
-                  </div>
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-sm bg-gray-900/50">
+                  <AnimatedWords />
                 </div>
               </div>
             </motion.div>

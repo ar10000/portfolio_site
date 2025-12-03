@@ -3,172 +3,220 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, CheckCircle2, FileText } from "lucide-react";
 
 const projects = [
   {
-    id: "creative-garden",
-    title: "Creative Garden",
-    description:
-      "Enterprise content workflow automation platform with real-time synchronization and AI-powered content intelligence.",
-    tech: ["Flutter", "Python", "Supabase", "AI"],
-    image: "/images/projects/creative-garden-thumb.jpg",
-    link: "/projects/creative-garden",
-    github: "https://github.com/ar10000/creative-garden",
-    featured: true,
-    demoVideoComingSoon: false,
-  },
-  {
     id: "autoleadcloser",
     title: "AutoLeadCloser",
+    summary: "AI-powered email qualification system.",
     description:
-      "AI-powered sales automation that reduces lead response time to under 2 minutes and increases conversion rates by 3-5x.",
-    tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
-    image: "/images/projects/autoleadcloser-thumb.jpg",
-    link: "/projects/autoleadcloser",
-    github: null, // Private repository
-    featured: true,
-    demoVideoComingSoon: false,
+      "Automates lead qualification through email processing. Incoming emails trigger webhook handlers that extract qualification criteria using Claude AI. The system filters spam, evaluates budget, timeline, and decision authority, then routes qualified leads.",
+    image: "/images/projects/autoleadcloser.jpg", // Placeholder - user should add actual image
+    tech: ["Flask", "Python", "Claude AI", "Gmail API", "Supabase", "PostgreSQL"],
+    badge: { type: "demo", label: "Live Demo" },
+    demoUrl: null,
+    githubUrl: null,
+    status: "Production-ready prototype being tested",
+  },
+  {
+    id: "creative-garden",
+    title: "Creative Garden",
+    summary: "Flutter app for creative project management.",
+    description:
+      "Manages creative projects through a lifecycle system: Seed, Growing, Alive, Compost. Momentum scoring calculates project health based on check-in frequency and energy levels. Includes reflection tracking, analytics, and local caching for offline access.",
+    image: "/images/projects/creative-garden.jpg", // Placeholder - user should add actual image
+    tech: ["Flutter 3.22", "Dart", "Supabase", "PostgreSQL"],
+    badge: { type: "github", label: "GitHub" },
+    demoUrl: "https://creativegarden.app",
+    githubUrl: "https://github.com/ar10000/creative-garden",
+    status: "Production-ready",
   },
   {
     id: "flowcircle",
     title: "FlowCircle",
+    summary: "Minimalist clarity app for neurodivergent creatives.",
     description:
-      "Multi-tenant project management platform with real-time synchronization and cross-platform deployment.",
-    tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
-    image: "/images/projects/flowcircle-thumb.jpg",
-    link: "/projects/flowcircle",
-    github: "https://github.com/ar10000",
-    featured: false,
+      "A focused app for managing creative projects with minimal cognitive load. Built the authentication system, user profiles, and reflection engine structure. The UI emphasizes clarity and simplicity.",
+    image: "/images/projects/flowcircle.jpg", // Placeholder - user should add actual image
+    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
+    badge: { type: "case-study", label: "Case Study" },
+    demoUrl: null,
+    githubUrl: null,
+    status: "Early build focusing on foundations",
   },
   {
     id: "portfolio-site",
-    title: "AI Product Builder Portfolio",
+    title: "Portfolio Website",
+    summary: "Next.js portfolio with AI chatbot integration.",
     description:
-      "A modern, production-ready portfolio website showcasing AI-powered products and automation solutions.",
-    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Claude AI"],
-    image: "/images/projects/portfolio-site-thumb.jpg",
-    link: "/projects/portfolio-site",
-    github: "https://github.com/ar10000/portfolio_site",
-    featured: true,
-    demoVideoComingSoon: false,
+      "Portfolio site showcasing projects, services, and pricing. Includes an intake form for project inquiries. Integrated Claude AI chatbot for visitor interaction. Built with serverless API routes and structured error handling.",
+    image: "/images/projects/portfolio.jpg", // Placeholder - user should add actual image
+    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Claude AI"],
+    badge: { type: "demo", label: "Live Demo" },
+    demoUrl: null,
+    githubUrl: null,
+    status: "Production-ready",
   },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
 
 export default function ProjectsPage() {
   return (
     <div className="pt-24 px-4 sm:px-6 lg:px-8 pb-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            What I've <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Built</span>
-          </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Real products that solve real problems. Each one shipped fast and delivered measurable results.
+          <h1 className="text-5xl font-bold mb-4 text-white">Projects</h1>
+          <p className="text-gray-400 leading-[1.6] font-normal">
+            Technical work and system architecture.
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        {/* Grid Layout: 2 columns on desktop, 1 on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.id}
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="group relative overflow-hidden rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
             >
-              <div className="aspect-video relative overflow-hidden bg-gray-900">
-                {/* Use regular img tag for better error handling */}
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to placeholder if image doesn't exist
-                    const target = e.target as HTMLImageElement;
-                    target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%230a0a0a' width='600' height='400'/%3E%3Crect fill='%231a1a1a' x='0' y='0' width='600' height='400'/%3E%3Cg opacity='0.3'%3E%3Ccircle cx='300' cy='150' r='40' fill='%233b82f6'/%3E%3Ccircle cx='300' cy='250' r='30' fill='%238b5cf6'/%3E%3C/g%3E%3Ctext x='300' y='200' font-family='system-ui' font-size='16' fill='%234b5563' text-anchor='middle' dominant-baseline='middle'%3EImage Placeholder%3C/text%3E%3C/svg%3E";
-                    target.onerror = null; // Prevent infinite loop
-                  }}
-                />
+              {/* Purple glow effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl pointer-events-none -z-10" />
+
+              {/* Project Image - Large and prominent (300px+ height) */}
+              <div className="relative h-[300px] overflow-hidden bg-gray-800">
+                {project.image ? (
+                  <>
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} project preview`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                      onError={(e) => {
+                        // Fallback if image doesn't exist
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
+                        <FileText className="h-8 w-8 text-gray-600" />
+                      </div>
+                      <p className="text-sm text-gray-500">Image coming soon</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Badge in top-right corner */}
+                {project.badge && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-full border backdrop-blur-sm ${
+                        project.badge.type === "demo"
+                          ? "bg-green-500/20 text-green-400 border-green-500/30"
+                          : project.badge.type === "github"
+                          ? "bg-gray-800/80 text-gray-300 border-gray-700"
+                          : "bg-blue-500/20 text-blue-400 border-blue-500/30"
+                      }`}
+                    >
+                      {project.badge.type === "github" && <Github className="h-3 w-3" />}
+                      {project.badge.type === "demo" && <CheckCircle2 className="h-3 w-3" />}
+                      {project.badge.type === "case-study" && <FileText className="h-3 w-3" />}
+                      {project.badge.label}
+                    </span>
+                  </div>
+                )}
               </div>
 
+              {/* Card Content */}
               <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-2xl font-semibold">{project.title}</h3>
-                  {project.featured && (
-                    <span className="px-2 py-1 text-xs font-semibold bg-purple-500/20 text-purple-400 rounded">
-                      Featured
-                    </span>
-                  )}
-                </div>
+                {/* Title - Larger and bolder */}
+                <h2 className="text-2xl font-bold mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
+                  {project.title}
+                </h2>
+                <p className="text-gray-400 mb-4 leading-[1.6] font-normal">{project.summary}</p>
 
-                <p className="text-gray-400 mb-4">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Tech Tags - Pill-shaped with better spacing */}
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs bg-gray-800 text-gray-300 rounded-full"
+                      className="px-4 py-1.5 text-xs font-medium bg-gray-800/80 text-gray-300 rounded-full border border-gray-700 hover:border-purple-500/50 hover:text-purple-300 transition-colors duration-200"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-
-                <div className="flex items-center gap-4">
-                  <Link
-                    href={project.link}
-                    className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                {/* View Project Button - Gradient styling */}
+                <Link href={`/projects/${project.id}`}>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:from-purple-400 hover:to-blue-400 transition-all duration-300"
                   >
-                    Learn More
+                    View Project
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                    </a>
-                  )}
-                </div>
+                  </motion.button>
+                </Link>
+
+                {/* Optional: Demo/GitHub links */}
+                {(project.demoUrl || project.githubUrl) && (
+                  <div className="flex gap-3 mt-3">
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
+                      >
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Demo
+                        </motion.button>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1"
+                      >
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <Github className="h-4 w-4" />
+                          Code
+                        </motion.button>
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

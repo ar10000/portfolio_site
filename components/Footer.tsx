@@ -126,7 +126,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-8">
           {/* Column 1 - Navigation */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Navigation</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Navigation</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -147,7 +147,7 @@ export default function Footer() {
 
           {/* Column 2 - Latest Projects */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-xl font-bold text-white mb-4">
               Latest Projects
             </h3>
             <ul className="space-y-3">
@@ -174,7 +174,7 @@ export default function Footer() {
 
           {/* Column 3 - Connect */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Connect</h3>
             <div className="flex items-center gap-4 mb-6">
               {socialLinks.map((social) => (
                 <a
@@ -182,18 +182,19 @@ export default function Footer() {
                   href={social.href}
                   target={social.href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="p-2 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all group"
+                  className="p-2 rounded-lg border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all group relative"
                   aria-label={social.name}
                 >
-                  <social.icon className="h-5 w-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
+                  <div className="absolute inset-0 bg-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+                  <social.icon className="h-5 w-5 text-purple-400 group-hover:text-purple-300 relative drop-shadow-[0_0_8px_rgba(168,85,247,0.5)] transition-all" />
                 </a>
               ))}
             </div>
 
             {/* Newsletter Signup */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Stay Updated</h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <h3 className="text-xl font-bold text-white mb-4">Stay Updated</h3>
+              <p className="text-gray-400 text-sm mb-4 leading-[1.6] font-normal">
                 Get updates when I ship new tools and insights.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="flex gap-2">

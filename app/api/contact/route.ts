@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, projectType, budgetRange, message, file } = body;
+    const { name, email, message } = body;
 
     // Validate required fields
-    if (!name || !email || !projectType || !budgetRange || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: "All required fields must be filled" },
         { status: 400 }
@@ -81,10 +81,7 @@ export async function POST(request: NextRequest) {
     console.log("Contact form submission:", {
       name,
       email,
-      projectType,
-      budgetRange,
       message,
-      file: file?.name || "No file",
       timestamp: new Date().toISOString(),
     });
 

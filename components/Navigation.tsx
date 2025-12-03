@@ -140,9 +140,9 @@ export default function Navigation() {
             <div className="hidden md:flex items-center">
               <Link href="/contact">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white text-sm shadow-lg shadow-purple-500/50 min-h-[44px]"
+                  className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white text-sm shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 min-h-[44px] transition-all duration-300"
                   aria-label="Hire me - Go to contact page"
                 >
                   Hire Me

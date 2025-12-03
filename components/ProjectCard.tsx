@@ -126,47 +126,18 @@ export default function ProjectCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className={`group relative overflow-hidden rounded-xl border bg-gray-900/50 transition-all duration-300 ${
-        accentStyles.isCustom ? "" : accentStyles.border
-      } ${accentStyles.isCustom ? "" : "hover:border-opacity-100"}`}
-      style={
-        accentStyles.isCustom
-          ? {
-              borderColor: `${accentStyles.customColor}40`,
-            }
-          : undefined
-      }
-      onMouseEnter={(e) => {
-        if (accentStyles.isCustom && accentStyles.customColor) {
-          e.currentTarget.style.borderColor = accentStyles.customColor;
-          e.currentTarget.style.boxShadow = `0 10px 40px ${accentStyles.customColor}40`;
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (accentStyles.isCustom && accentStyles.customColor) {
-          e.currentTarget.style.borderColor = `${accentStyles.customColor}40`;
-          e.currentTarget.style.boxShadow = "none";
-        }
-      }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
+      whileHover={{ y: -12, transition: { duration: 0.3, ease: "easeOut" } }}
+      className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
     >
-      {/* Glow effect on hover */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${accentStyles.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl pointer-events-none`}
-        style={
-          accentStyles.isCustom && accentStyles.customColor
-            ? {
-                background: `linear-gradient(to bottom right, ${accentStyles.customColor}40, ${accentStyles.customColor}20)`,
-              }
-            : undefined
-        }
-      />
+      {/* Purple glow effect on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl pointer-events-none -z-10" />
 
-      {/* Project Thumbnail */}
-      <div className="relative aspect-video overflow-hidden bg-gray-800">
+      {/* Project Thumbnail - Larger and more prominent */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-gray-800 group-hover:scale-105 transition-transform duration-500 ease-out">
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 animate-pulse bg-gray-800" />
         )}
@@ -180,9 +151,9 @@ export default function ProjectCard({
             alt={`${title} project thumbnail`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className={`object-cover transition-opacity duration-300 ${
+            className={`object-cover transition-all duration-500 ease-out ${
               imageLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            } group-hover:scale-110`}
             onLoad={() => setImageLoaded(true)}
             onError={() => {
               setImageError(true);
@@ -192,8 +163,8 @@ export default function ProjectCard({
           />
         )}
         
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        {/* Overlay gradient - more subtle on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-300" />
         
         {/* Status Badge */}
         <div className="absolute top-4 right-4">
@@ -244,18 +215,7 @@ export default function ProjectCard({
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className={`w-full px-4 py-2.5 text-sm font-medium rounded-lg border transition-colors flex items-center justify-center gap-2 min-h-[44px] ${
-                accentStyles.isCustom
-                  ? "text-white border-gray-700 hover:border-gray-600"
-                  : `bg-gradient-to-r ${accentStyles.gradient} text-white border-transparent`
-              }`}
-              style={
-                accentStyles.isCustom && accentStyles.customColor
-                  ? {
-                      background: accentStyles.customColor,
-                    }
-                  : undefined
-              }
+              className={`w-full px-4 py-2.5 text-sm font-medium rounded-lg border transition-all duration-300 flex items-center justify-center gap-2 min-h-[44px] bg-gradient-to-r from-purple-500 to-blue-500 text-white border-transparent hover:from-purple-400 hover:to-blue-400 hover:shadow-lg hover:shadow-purple-500/50`}
               aria-label={`View details for ${title}`}
             >
               View Details
@@ -274,7 +234,7 @@ export default function ProjectCard({
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full px-4 py-2.5 text-sm font-medium bg-gray-800 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white transition-colors flex items-center justify-center gap-2 min-h-[44px]"
+                className="w-full px-4 py-2.5 text-sm font-medium bg-gray-800 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex items-center justify-center gap-2 min-h-[44px]"
               >
                 Live Demo
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />

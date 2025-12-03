@@ -87,7 +87,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#0a0a0a" />
       </head>
-      <body>
+      <body className="dot-grid-pattern">
         {/* Google Analytics - Uncomment and add your GA ID */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
@@ -106,7 +106,7 @@ export default function RootLayout({
           </>
         )}
         <Navigation />
-        <main id="main-content" className="min-h-screen" role="main">
+        <main id="main-content" className="min-h-screen relative" role="main">
           {children}
         </main>
         <Footer />

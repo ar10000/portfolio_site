@@ -2,8 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Mail, Calendar, Send, CheckCircle, Loader2, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Mail, Calendar, Send, CheckCircle, Loader2 } from "lucide-react";
 
 // Floating label input component
 function FloatingLabelInput({
@@ -243,43 +242,15 @@ export default function ContactPage() {
           </p>
         </motion.div>
 
-        {/* Pricing Context Box */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="mb-12 relative rounded-xl p-[2px] bg-gradient-to-r from-purple-500/50 via-blue-500/50 to-purple-500/50"
+          className="text-center text-gray-400 mb-12 leading-[1.6] font-normal"
         >
-          <div className="bg-gradient-to-br from-gray-900/95 to-gray-950/95 rounded-xl p-6">
-            <h2 className="text-2xl font-bold mb-4 text-white">How I Work</h2>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-start gap-3 text-gray-300 leading-[1.6] font-normal">
-                <span className="text-purple-400 mt-1">•</span>
-                <span><strong className="text-white">Free Fit Check:</strong> 15-minute call to discuss your project</span>
-              </li>
-              <li className="flex items-start gap-3 text-gray-300 leading-[1.6] font-normal">
-                <span className="text-purple-400 mt-1">•</span>
-                <span><strong className="text-white">Starter Build:</strong> €1,200 fixed for automation/AI tools</span>
-              </li>
-              <li className="flex items-start gap-3 text-gray-300 leading-[1.6] font-normal">
-                <span className="text-purple-400 mt-1">•</span>
-                <span><strong className="text-white">Hourly Work:</strong> €75/hour for ongoing development</span>
-              </li>
-              <li className="flex items-start gap-3 text-gray-300 leading-[1.6] font-normal">
-                <span className="text-purple-400 mt-1">•</span>
-                <span><strong className="text-white">Complete Systems:</strong> Starting at €4,500 for full platforms</span>
-              </li>
-            </ul>
-            <Link
-              href="/pricing"
-              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium"
-            >
-              View detailed pricing
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </motion.div>
+          Not sure where to start? Book a free 15-minute fit check to discuss your project.
+        </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -316,7 +287,7 @@ export default function ContactPage() {
                 required
                 rows={6}
                 error={errors.message}
-                placeholder="Tell me what you're trying to automate, what problem you're solving, or what you want to build."
+                placeholder="Tell me what problem you're solving or what you want to build."
               />
 
               <motion.button

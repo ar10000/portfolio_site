@@ -7,9 +7,7 @@ import {
   Linkedin,
   Twitter,
   Mail,
-  ArrowRight,
   CheckCircle2,
-  Clock,
   Code2,
 } from "lucide-react";
 import { useState } from "react";
@@ -17,24 +15,10 @@ import { useState } from "react";
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
-  { name: "Services", href: "/services" },
+  { name: "Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
 ];
 
-const latestProjects = [
-  {
-    name: "Creative Garden",
-    href: "/projects/creative-garden",
-    status: "Live",
-    statusColor: "green",
-  },
-  {
-    name: "AutoLeadCloser",
-    href: "/projects/autoleadcloser",
-    status: "Beta",
-    statusColor: "yellow",
-  },
-];
 
 const socialLinks = [
   {
@@ -95,29 +79,6 @@ export default function Footer() {
     }
   };
 
-  const StatusBadge = ({
-    status,
-    color,
-  }: {
-    status: string;
-    color: string;
-  }) => {
-    const colors = {
-      green: "bg-green-500/20 text-green-400 border-green-500/30",
-      yellow: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-      blue: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-    };
-    const Icon = status === "Live" ? CheckCircle2 : Clock;
-
-    return (
-      <span
-        className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-full border ${colors[color as keyof typeof colors]}`}
-      >
-        <Icon className="h-3 w-3" />
-        {status}
-      </span>
-    );
-  };
 
   return (
     <footer className="border-t border-gray-800 bg-black/50">
@@ -145,30 +106,22 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2 - Latest Projects */}
+          {/* Column 2 - Building My Client Portfolio */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">
-              Latest Projects
+              Building My Client Portfolio
             </h3>
-            <ul className="space-y-3">
-              {latestProjects.map((project) => (
-                <li key={project.href} className="flex items-center justify-between">
-                  <Link
-                    href={project.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm flex-1"
-                  >
-                    {project.name}
-                  </Link>
-                  <StatusBadge status={project.status} color={project.statusColor} />
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors text-sm mt-4"
-            >
-              View All Projects
-              <ArrowRight className="h-3 w-3" />
+            <p className="text-gray-300 text-sm mb-6 leading-[1.6] font-normal">
+              I'm offering fair rates (€75/hour, €1,200 starter builds) while building case studies and testimonials. Work with me now for technical quality at early-career pricing.
+            </p>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.02, filter: "brightness(1.1)" }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
+              >
+                Book Free Fit Check
+              </motion.button>
             </Link>
           </div>
 

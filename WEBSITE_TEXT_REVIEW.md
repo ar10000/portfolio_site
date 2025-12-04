@@ -32,8 +32,8 @@ Andrew Ryan
 I build revenue-generating AI tools and automations for your business — fast.
 
 **Stats Badges:**
-- Enterprise-Grade Architecture
-- Rapid Prototyping Cycle
+- Production-Ready Systems
+- 1–2 Week Turnaround
 
 **How I Work:**
 I work with fast, iterative prototypes. I own complete systems. I communicate clearly and keep architecture simple.
@@ -44,7 +44,7 @@ I work with fast, iterative prototypes. I own complete systems. I communicate cl
 What I Do
 
 **Target Audience Micro-copy:**
-Specialized solutions for High-Growth Startups and SMBs looking to automate operations.
+Practical automation for startups and small businesses.
 
 **Three Pillars:**
 
@@ -60,7 +60,7 @@ Specialized solutions for High-Growth Startups and SMBs looking to automate oper
 
 3. **Workflow Automation**
    - Description: Make.com, API orchestration, data flows
-   - Metric: "80%" - Time Saved
+   - Metric: "Automate Repetitive Work"
    - CTA: "Get Started" → /contact
 
 ### How I Work Section
@@ -544,7 +544,7 @@ I'll reply as soon as I can.
 - Mobile menu reflects this change
 
 ### Target Audience Micro-copy
-- Added to "What I Do" section on home page: "Specialized solutions for High-Growth Startups and SMBs looking to automate operations."
+- Added to "What I Do" section on home page: "Practical automation for startups and small businesses."
 - Added to "Services" page: "Practical AI and automation for startups and small businesses."
 
 ### New Sections Added

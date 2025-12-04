@@ -8,21 +8,12 @@ This portfolio website demonstrates modern web development practices with server
 
 ## Key Features
 
-### Pages
-- **Homepage**: Hero section, services overview, and project highlights
-- **Projects**: Dynamic project showcase with detailed case studies
-- **Services**: Service offerings and capabilities
-- **Pricing**: Transparent pricing structure
-- **Contact**: Contact form with email integration
-
-### Technical Features
-- **Next.js 14** with App Router for optimal performance and SEO
-- **TypeScript** for type safety and maintainability
-- **Tailwind CSS** for responsive, modern UI
-- **Framer Motion** for smooth animations and interactions
-- **Claude AI Integration** for interactive chatbot functionality
-- **Serverless Architecture** deployed on Vercel
-- **Production-Ready** with error handling, loading states, and monitoring
+- **AI Chatbot Integration**: Interactive chatbot powered by Claude AI
+- **Dynamic Project Pages**: Detailed case studies with technical deep-dives
+- **Responsive Design**: Mobile-first approach with smooth animations
+- **SEO Optimized**: Metadata, sitemap, and robots.txt configuration
+- **Performance Optimized**: Static generation, image optimization, code splitting
+- **Serverless API Routes**: Contact forms, newsletter, and AI endpoints
 
 ## Tech Stack
 
@@ -80,109 +71,6 @@ This portfolio website demonstrates modern web development practices with server
 └── package.json                # Dependencies
 ```
 
-## Key Features
-
-- **AI Chatbot Integration**: Interactive chatbot powered by Claude AI
-- **Dynamic Project Pages**: Detailed case studies with technical deep-dives
-- **Responsive Design**: Mobile-first approach with smooth animations
-- **SEO Optimized**: Metadata, sitemap, and robots.txt configuration
-- **Performance Optimized**: Static generation, image optimization, code splitting
-- **Serverless API Routes**: Contact forms, newsletter, and AI endpoints
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ and npm/yarn/pnpm
-- Git
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/ar10000/portfolio_site.git
-   cd portfolio_site
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**:
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Edit `.env.local` and configure:
-   ```env
-   NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-   ANTHROPIC_API_KEY=sk-ant-...  # For Claude AI chatbot
-   RESEND_API_KEY=re_...          # Optional: For email services
-   ```
-
-4. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## Deployment
-
-### Deploy to Vercel
-
-The easiest way to deploy is using [Vercel](https://vercel.com):
-
-1. Push your code to GitHub
-2. Import your repository to Vercel
-3. Configure environment variables in Vercel dashboard
-4. Deploy
-
-Vercel will automatically detect Next.js and configure the build settings.
-
-### Manual Build
-
-```bash
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-## Environment Variables
-
-Create a `.env.local` file (or set in Vercel dashboard):
-
-```env
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-
-# AI Integration
-ANTHROPIC_API_KEY=sk-ant-...  # Required for chatbot functionality
-
-# Email Service (Optional)
-RESEND_API_KEY=re_xxxxxxxxxxxxx
-
-# Analytics (Optional)
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-
-# Environment
-NODE_ENV=production
-```
-
-### Required Variables
-
-- `NEXT_PUBLIC_SITE_URL`: Your site's URL (for SEO and sitemap)
-- `ANTHROPIC_API_KEY`: For Claude AI chatbot functionality
-
-### Optional Variables
-
-- `RESEND_API_KEY`: For sending emails from contact forms
-- `NEXT_PUBLIC_GA_ID`: Google Analytics tracking ID
-
 ## Customization
 
 ### Update Content
@@ -207,30 +95,6 @@ NODE_ENV=production
 - **TypeScript**: Full type safety across the codebase
 - **Responsive Design**: Mobile-first with Tailwind CSS
 - **Performance**: Image optimization, code splitting, static generation
-
-## Tech Stack
-
-- **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **AI Integration**: Anthropic Claude AI
-- **Deployment**: Vercel (recommended)
-
-## Project Structure
-
-```
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   ├── projects/          # Project pages
-│   ├── services/          # Services page
-│   ├── pricing/           # Pricing page
-│   └── contact/           # Contact page
-├── components/            # React components
-├── public/               # Static assets
-└── knowledge/            # AI assistant knowledge base
-```
 
 ## License
 

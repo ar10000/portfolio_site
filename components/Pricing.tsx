@@ -205,7 +205,7 @@ export default function Pricing() {
                         : "bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:border-purple-500/50"
                     }`}
                   >
-                    {tier.ctaText || "Get Started"}
+                    {tier.ctaText || "Book Free Fit Check"}
                   </motion.button>
                 </Link>
               </div>

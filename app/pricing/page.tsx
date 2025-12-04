@@ -29,51 +29,7 @@ export default function PricingPage() {
       {/* Pricing Component */}
       <Pricing />
 
-      {/* How Pricing Works Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            How Pricing <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Works</span>
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Start Small",
-                description: "Every project starts with a 15-minute fit check. Then choose: a €1,200 fixed-scope starter build to test working together, or jump straight to hourly work.",
-              },
-              {
-                title: "Hourly for Flexibility",
-                description: "Most ongoing work uses hourly billing at €75/hour. This works well for AI systems, feature development, or projects where requirements evolve. Billed weekly.",
-              },
-              {
-                title: "Scale to Complete Systems",
-                description: "Once we've worked together on smaller projects, we can take on complete system builds. These start at €4,500 and scale based on architecture complexity.",
-              },
-            ].map((card, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.35, delay: index * 0.1, ease: "easeOut" }}
-                className="p-8 rounded-xl border border-gray-800 bg-gray-900/30 hover:border-purple-500/30 transition-all duration-300"
-              >
-                <h3 className="text-xl font-bold text-white mb-4">{card.title}</h3>
-                <p className="text-gray-300 leading-[1.6] font-normal">{card.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why This Pricing Section */}
+      {/* Why These Rates Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -84,11 +40,19 @@ export default function PricingPage() {
             className="p-8 rounded-xl border border-gray-800 bg-gray-900/30"
           >
             <h2 className="text-3xl font-bold mb-6 text-white">
-              Why This <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Pricing</span>
+              Why These <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Rates</span>
             </h2>
-            <p className="text-gray-300 leading-[1.6] font-normal">
-              I'm transparent about where I am in my career. I've built production systems with multi-tenant architecture, AI logic, and real integrations. But I'm still building my client portfolio. This pricing reflects strong technical skills without charging senior consultant rates for business process consulting I'm still learning.
-            </p>
+            <div className="space-y-4 text-gray-300 leading-[1.6] font-normal">
+              <p>
+                I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
+              </p>
+              <p>
+                What I'm still learning: scoping complex projects perfectly and business process consulting. That's why €75/hour reflects strong technical execution without charging senior consultant rates.
+              </p>
+              <p>
+                As I build case studies, rates will increase. Work with me now for technical quality at fair pricing.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -110,16 +74,8 @@ export default function PricingPage() {
           <div className="space-y-6">
             {[
               {
-                question: "Why no price brackets?",
-                answer: "Brackets create confusion and clients anchor to the low end. Fixed prices and \"starting at\" language set clear expectations.",
-              },
-              {
-                question: "What's included in the €1,200 starter build?",
-                answer: "A working automation, API integration, or AI tool delivered in 1–2 weeks. Scope is defined upfront. Source code and handoff session included.",
-              },
-              {
-                question: "Why €75/hour instead of €50 or €120?",
-                answer: "€75 reflects strong technical execution without charging for senior consulting experience I don't have yet. As I build client case studies, rates will increase.",
+                question: "How do we start working together?",
+                answer: "Book a free 15-minute fit check. We'll discuss your project, confirm we're aligned, and I'll send you a clear proposal or scope document within 24 hours.",
               },
               {
                 question: "Do you offer ongoing support?",
@@ -127,7 +83,7 @@ export default function PricingPage() {
               },
               {
                 question: "Can you handle complex systems?",
-                answer: "Yes. I've built multi-tenant systems, AI agents, and production apps. But these projects start at €4,500 and I recommend starting with a smaller build first.",
+                answer: "Yes. I've built multi-tenant systems, AI agents, and production apps. These projects start at €4,500 and I recommend starting with a smaller build first to establish trust.",
               },
             ].map((faq, index) => (
               <motion.div

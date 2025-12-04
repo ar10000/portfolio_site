@@ -16,6 +16,7 @@ interface ProjectCardProps {
   githubUrl?: string;
   projectUrl: string;
   accentColor: string;
+  impact?: string; // Business impact statement
   index?: number; // For staggered animations
 }
 
@@ -51,6 +52,7 @@ export default function ProjectCard({
   githubUrl,
   projectUrl,
   accentColor,
+  impact,
   index = 0,
 }: ProjectCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -179,6 +181,18 @@ export default function ProjectCard({
 
       {/* Card Content */}
       <div className="p-6">
+        {/* Impact Statement - Prominently displayed above title */}
+        {impact && (
+          <div className="mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 backdrop-blur-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-xs font-bold text-green-400 leading-tight">
+                {impact}
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* Title */}
         <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-500 transition-all duration-300">
           {title}
@@ -189,21 +203,21 @@ export default function ProjectCard({
           {description}
         </p>
 
-        {/* Tech Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        {/* Tech Tags - Visually secondary, smaller and more subdued */}
+        <div className="flex flex-wrap gap-1.5 mb-6 opacity-70">
           {tags.slice(0, 4).map((tag, tagIndex) => (
             <motion.span
               key={tag}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 + tagIndex * 0.05 }}
-              className="px-3 py-1 text-xs bg-gray-800 text-gray-300 rounded-full border border-gray-700"
+              className="px-2.5 py-0.5 text-xs bg-gray-800/50 text-gray-500 rounded-full border border-gray-800/50"
             >
               {tag}
             </motion.span>
           ))}
           {tags.length > 4 && (
-            <span className="px-3 py-1 text-xs bg-gray-800 text-gray-400 rounded-full border border-gray-700">
+            <span className="px-2.5 py-0.5 text-xs bg-gray-800/50 text-gray-500 rounded-full border border-gray-800/50">
               +{tags.length - 4}
             </span>
           )}

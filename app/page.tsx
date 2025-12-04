@@ -180,17 +180,27 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="text-4xl font-bold text-center mb-12 text-white"
+            className="text-4xl font-bold text-center mb-4 text-white"
           >
             What I <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Do</span>
           </motion.h2>
+          {/* Target Audience Micro-copy */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
+            className="text-sm text-gray-500 text-center mb-12 leading-relaxed font-normal max-w-2xl mx-auto"
+          >
+            Specialized solutions for High-Growth Startups and SMBs looking to automate operations.
+          </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whatIDo.map((item, index) => (
-              <motion.div
+            <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
@@ -201,7 +211,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
                   <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30 shadow-lg shadow-purple-500/20 group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
                     <item.icon className="h-8 w-8 text-purple-400 drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
-                  </div>
+                </div>
                 </div>
 
                 {/* Title */}
@@ -231,26 +241,26 @@ export default function Home() {
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
                       {item.metric}
-                    </span>
+                  </span>
                     <span className="text-sm text-gray-400 font-medium">{item.metricLabel}</span>
-                  </div>
+                </div>
                 </div>
 
                 {/* CTA Button */}
                 <Link href={item.ctaLink}>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:from-purple-400 hover:to-blue-400 transition-all duration-300"
-                  >
+                    >
                     {item.cta}
                     <ArrowRight className="h-4 w-4" />
-                  </motion.button>
-                </Link>
+                    </motion.button>
+                  </Link>
               </motion.div>
             ))}
-          </div>
-        </div>
+                </div>
+              </div>
       </section>
 
       {/* Gradient Divider */}
@@ -265,7 +275,7 @@ export default function Home() {
         <div className="relative max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="text-4xl font-bold text-center mb-12 text-white"
@@ -273,64 +283,64 @@ export default function Home() {
             How I <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Work</span>
           </motion.h2>
 
-          <div className="relative overflow-visible">
-            {[
-              {
-                number: 1,
-                icon: Zap,
-                title: "Fast, iterative prototypes",
-                description: "I build working systems quickly, iterate based on feedback, and ship improvements continuously.",
-              },
-              {
-                number: 2,
-                icon: Code2,
-                title: "Ownership of complete systems",
-                description: "I own the entire stack—front-end, backend, AI logic, integrations, and infrastructure.",
-              },
-              {
-                number: 3,
-                icon: Workflow,
-                title: "Clear communication and simple architecture",
-                description: "I communicate progress clearly and keep architecture simple, maintainable, and scalable.",
-              },
-            ].map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="relative flex items-start gap-6 mb-12 last:mb-0 z-10"
-              >
-                {/* Connecting line with arrow */}
-                {index < 2 && (
-                  <div className="absolute left-8 top-16 w-0.5 h-full bg-gradient-to-b from-purple-500 via-blue-500 to-purple-500 z-0">
-                    {/* Arrow at the bottom */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-blue-500" />
-                  </div>
-                )}
-                
-                {/* Numbered gradient circle */}
-                <div className="relative z-10 flex-shrink-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-xl" />
-                  <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/50 border-2 border-purple-400/30">
-                    {step.number}
-                  </div>
-                </div>
-                
-                {/* Step content */}
-                <div className="flex-1 pt-2">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-md" />
-                      <step.icon className="h-6 w-6 text-purple-400 relative drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" />
+          <div className="relative">
+            {/* Vertical timeline container */}
+            <div className="relative pl-8 md:pl-12">
+              {/* Main vertical connecting line - hidden on mobile, visible on desktop */}
+              <div className="hidden md:block absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-purple-500" />
+              
+              {[
+                {
+                  number: 1,
+                  icon: Zap,
+                  title: "Fast, iterative prototypes",
+                  description: "I build working systems quickly, iterate based on feedback, and ship improvements continuously.",
+                },
+                {
+                  number: 2,
+                  icon: Code2,
+                  title: "Ownership of complete systems",
+                  description: "I own the entire stack—front-end, backend, AI logic, integrations, and infrastructure.",
+                },
+                {
+                  number: 3,
+                  icon: Workflow,
+                  title: "Clear communication and simple architecture",
+                  description: "I communicate progress clearly and keep architecture simple, maintainable, and scalable.",
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                  className="relative flex items-start gap-6 mb-12 last:mb-0"
+                >
+                  {/* Step number circle on the left */}
+                  <div className="relative z-10 flex-shrink-0">
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-xl" />
+                    {/* Circle with number */}
+                    <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg shadow-purple-500/50 border-2 border-purple-400/30">
+                      {step.number}
                     </div>
-                    <h3 className="text-xl font-bold text-white">{step.title}</h3>
                   </div>
-                  <p className="text-gray-300 leading-[1.6] font-normal">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
+                  
+                  {/* Content on the right */}
+                  <div className="flex-1 pt-1 md:pt-2">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-md" />
+                        <step.icon className="h-5 w-5 md:h-6 md:w-6 text-purple-400 relative drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold text-white">{step.title}</h3>
+                    </div>
+                    <p className="text-gray-300 leading-[1.6] font-normal text-sm md:text-base">{step.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -378,6 +388,49 @@ export default function Home() {
       {/* Gradient Divider */}
       <div className="relative h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent mx-auto max-w-6xl" />
 
+      {/* Where I Am Section */}
+      <section className="py-28 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="p-8 rounded-xl border border-gray-800 bg-gray-900/30"
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
+              className="text-3xl font-bold mb-6 text-white"
+            >
+              Where I <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Am</span>
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
+              className="space-y-4 text-gray-300 leading-[1.6] font-normal"
+            >
+              <p>
+                I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real-world deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
+              </p>
+              <p>
+                What I'm still learning: scoping complex projects, estimating timelines perfectly, and business process consulting. That's why my rates (€75/hour) reflect strong technical execution without charging senior consultant rates for expertise I don't have yet.
+              </p>
+              <p>
+                As I build case studies and client testimonials, my rates will increase. Work with me now to get technical quality at fair pricing.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Gradient Divider */}
+      <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mx-auto max-w-6xl" />
+
       {/* Call to Action */}
       <section className="py-28 px-4 sm:px-6 lg:px-8 bg-gray-950/50">
         <div className="max-w-4xl mx-auto text-center">
@@ -416,7 +469,7 @@ export default function Home() {
                   Contact for Collaborations
                 </motion.button>
               </Link>
-            </div>
+          </div>
           </motion.div>
         </div>
       </section>

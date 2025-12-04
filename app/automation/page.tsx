@@ -22,10 +22,9 @@ import {
 } from "lucide-react";
 
 const budgetRanges = [
-  "€2,000 - €5,000",
-  "€5,000 - €10,000",
-  "€10,000 - €15,000",
-  "€15,000+",
+  "€1,200 (Starter Build)",
+  "€75/hour (Hourly Development)",
+  "Starting at €4,500 (Complete System)",
   "Not sure yet",
 ];
 
@@ -746,7 +745,7 @@ export default function AutomationIntakePage() {
                 <h3 className="text-lg font-semibold text-white">Maintenance Options</h3>
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Optional support retainers available for ongoing monitoring, updates, and optimizations. Flexible monthly plans from €250-€750.
+                Optional support available at €75/hour, billed based on actual hours used each month.
               </p>
             </motion.div>
           </div>

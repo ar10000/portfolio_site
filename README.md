@@ -91,17 +91,15 @@ This portfolio serves as both a business showcase and a working demonstration of
 - Implementation timeline
 - Optional prototype
 
-### 2. Implementation (€2,000–€10,000)
-- Full system development
-- AI integrations (Claude, GPT, Gemini)
-- Workflow automation
-- Custom tool development
-- Team training and documentation
+### 2. Implementation
+- Starter Build: €1,200 fixed for automation/AI tools (1–2 weeks)
+- Hourly Development: €75/hour for ongoing development (billed weekly)
+- Complete System: Starting at €4,500 for full platforms (delivered in phases)
 
-### 3. Support Retainer (€250–€750/month)
-- 24/7 system monitoring
-- Updates and maintenance
-- Bug fixes and error resolution
+### 3. Support
+- Available at €75/hour
+- Billed based on actual hours used each month
+- Ongoing monitoring, updates, and maintenance
 - Performance optimizations
 
 ## Trust & Reliability Standards

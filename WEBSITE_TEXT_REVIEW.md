@@ -2,7 +2,7 @@
 
 This document contains all user-facing text from the website, organized by page and section. Use this for expert review and refinement.
 
-**Last Updated:** Current as of latest website rewrite with calm, technical, minimal tone.
+**Last Updated:** Current as of latest website rewrite with calm, technical, minimal tone. Updated with new pricing structure (Free Fit Check, Starter Build, Hourly Development, Complete System).
 
 ---
 
@@ -15,7 +15,7 @@ This document contains all user-facing text from the website, organized by page 
 - Pricing
 - Contact
 
-**CTA Button:** "Hire Me"
+**CTA Button:** "Contact" (styled as primary gradient button)
 
 **Logo:** "Andrew Ryan"
 
@@ -29,36 +29,58 @@ This document contains all user-facing text from the website, organized by page 
 Andrew Ryan
 
 **Value Proposition:**
-I build end-to-end AI systems, automations, and tools for agencies, founders, and small teams.
+I build revenue-generating AI tools and automations for your business — fast.
+
+**Stats Badges:**
+- Enterprise-Grade Architecture
+- Rapid Prototyping Cycle
 
 **How I Work:**
-Fast prototypes. Complete system ownership. Clear communication. Simple architecture.
+I work with fast, iterative prototypes. I own complete systems. I communicate clearly and keep architecture simple.
 
 ### What I Do Section
 
 **Section Title:**
 What I Do
 
+**Target Audience Micro-copy:**
+Specialized solutions for High-Growth Startups and SMBs looking to automate operations.
+
 **Three Pillars:**
 
 1. **AI Systems & Agents**
-   - AI reasoning logic, automation systems, AI integrations
+   - Description: Automation, reasoning logic, AI integrations
+   - Metric: "24/7" - Automation
+   - CTA: "Explore AI Solutions" → /services
 
 2. **Full-Stack Development**
-   - Front-end, backend, infrastructure
+   - Description: Front-end, backend, infrastructure
+   - Metric: "100%" - Ownership
+   - CTA: "View Projects" → /projects
 
 3. **Workflow Automation**
-   - Make.com, n8n, API orchestration, data flows
+   - Description: Make.com, API orchestration, data flows
+   - Metric: "80%" - Time Saved
+   - CTA: "Get Started" → /contact
 
 ### How I Work Section
 
 **Section Title:**
 How I Work
 
-**Three Points:**
-- Fast, iterative prototypes
-- Complete system ownership
-- Clear communication and simple architecture
+**Timeline Format (Vertical with connecting lines):**
+
+1. **Fast, iterative prototypes**
+   - Icon: Zap
+   - Description: I build working systems quickly, iterate based on feedback, and ship improvements continuously.
+
+2. **Ownership of complete systems**
+   - Icon: Code2
+   - Description: I own the entire stack—front-end, backend, AI logic, integrations, and infrastructure.
+
+3. **Clear communication and simple architecture**
+   - Icon: Workflow
+   - Description: I communicate progress clearly and keep architecture simple, maintainable, and scalable.
 
 ### Recent Work Section
 
@@ -70,6 +92,18 @@ Recent Work
 - Creative Garden - Flutter project management app
 - FlowCircle - Clarity app for neurodivergent creatives
 - Portfolio platform - Next.js with AI chatbot
+
+### Where I Am Section
+
+**Section Title:**
+Where I Am
+
+**Content:**
+I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real-world deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
+
+What I'm still learning: scoping complex projects, estimating timelines perfectly, and business process consulting. That's why my rates (€75/hour) reflect strong technical execution without charging senior consultant rates for expertise I don't have yet.
+
+As I build case studies and client testimonials, my rates will increase. Work with me now to get technical quality at fair pricing.
 
 ### Call to Action Section
 
@@ -206,47 +240,54 @@ Services
 **Subtitle:**
 Three ways to work together.
 
-### Automation Blueprint Sprint
+**Target Audience Micro-copy:**
+Practical AI and automation for startups and small businesses.
+
+### Service 1: Starter Build
+
+**Price:** €1,200 (fixed)
 
 **Description:**
-1–2 week sprint. I map your workflows, identify automation opportunities, and design implementation plan. Fixed scope. Clear deliverables.
+Fixed-scope automation or AI tool delivered in 1–2 weeks.
 
 **Deliverables:**
-- Workflow diagram
-- System architecture
-- Recommended tools and integrations
-- Timeline, cost breakdown, next steps
+- Scope agreement
+- Workflow automation or API integration
+- Basic AI agent or tool
+- Source code
+- Handoff session
 
-### System Implementation
+### Service 2: Hourly Development
 
-**Description:**
-I build complete systems end-to-end. Includes front-end and backend. AI reasoning logic. API integrations. Automations and data flows. Agents and email/chat workflows. Dashboards and operational tools.
-
-**Details:**
-I ship systems quickly with clean architecture. All components work together. Code is organized and maintainable.
-
-**Components:**
-- Front-end + backend
-- AI reasoning logic
-- API integrations
-- Automations and data flows
-- Agents and email/chat workflows
-- Dashboards and operational tools
-
-### Ongoing Support & Optimization
+**Price:** €75/hour
 
 **Description:**
-Monthly retainer for ongoing support. Includes monitoring, improvements, new integrations, and maintenance of existing systems.
+Ongoing development for AI systems, full-stack features, or iterative improvements. Billed weekly.
 
 **Includes:**
-- Monitoring
-- Improvements
-- New integrations
-- Maintenance of existing systems
+- AI tools & automations
+- Full-stack development
+- Database & API design
+- Regular updates
+- Flexible scope
+
+### Service 3: Complete System Build
+
+**Price:** Starting at €4,500
+
+**Description:**
+End-to-end system with architecture, AI logic, integrations, and deployment. Delivered in phases.
+
+**Includes:**
+- System architecture
+- Multi-tenant design
+- AI reasoning logic
+- Production deployment
+- Documentation
 
 ### Call to Action
 
-**Button:** "Contact to discuss"
+**Button:** "Book Free Fit Check"
 
 ---
 
@@ -255,39 +296,126 @@ Monthly retainer for ongoing support. Includes monitoring, improvements, new int
 ### Header
 
 **Title:**
-Pricing
+Clear Pricing
 
 **Subtitle:**
-Clear pricing for each engagement type.
+Transparent pricing. Start with a fixed build or scale with hourly development.
 
-### Automation Blueprint Sprint
+### Tier 0: Free Fit Check
 
-**Price:** €750 – €1,500
-
-**Description:**
-Short sprint to understand your workflows and design automation or system architecture. Fixed price. Clear deliverables.
-
-### System Implementation
-
-**Price:** From €1,500 to €6,000 depending on scope
+**Price:** FREE
 
 **Description:**
-Full build of automation or AI system. Clear milestones throughout development. Clean handover with documentation. Flexible pricing based on complexity.
+15-minute call to ensure project alignment and budget compatibility. No-obligation, no free advice.
 
-### Monthly Support
+**Features:**
+- Quick Alignment Check
+- Budget Compatibility
+- No Obligation
 
-**Price:** €250 – €750/month
+**CTA Button:** "Book 15-Min Slot"
+**CTA Link:** /contact (update to Calendly link when available)
+
+### Tier 1: Starter Build
+
+**Price:** €1,200
 
 **Description:**
-Monthly support for updates, improvements, monitoring, and new features. For founders, agencies, or small teams who need long-term support.
+Fixed-scope automation or AI tool delivered in 1–2 weeks.
 
-### Note
+**Features:**
+- Scope agreement
+- Workflow automation or API integration
+- Basic AI agent or tool
+- Source code
+- Handoff session
 
-I only take on projects where I can deliver clear value and strong improvements.
+**CTA Button:** "Start Fixed Build"
+**CTA Link:** /contact
 
-### Call to Action
+### Tier 2: Hourly Development
 
-**Button:** "Contact to discuss"
+**Price:** €75/hour
+
+**Price Subtext:**
+Billed weekly. No minimum hours.
+
+**Description:**
+Ongoing development for AI systems, full-stack features, or iterative improvements.
+
+**Features:**
+- AI tools & automations
+- Full-stack development
+- Database & API work
+- Regular progress updates
+- Flexible scope
+
+**Badge:** "Most Flexible" (highlighted tier)
+
+**CTA Button:** "Discuss Hourly Work"
+**CTA Link:** /contact
+
+### Tier 3: Complete System
+
+**Price:** Starting at €4,500
+
+**Price Subtext:**
+Final cost based on scope. Delivered in phases.
+
+**Description:**
+End-to-end system with architecture, AI logic, integrations, and deployment.
+
+**Features:**
+- System architecture
+- Multi-tenant design
+- AI reasoning logic
+- Production deployment
+- Documentation
+
+**CTA Button:** "Request Estimate"
+**CTA Link:** /contact
+
+### How Pricing Works Section
+
+**Section Title:**
+How Pricing Works
+
+**Card 1: Start Small**
+Every project starts with a 15-minute fit check. Then choose: a €1,200 fixed-scope starter build to test working together, or jump straight to hourly work.
+
+**Card 2: Hourly for Flexibility**
+Most ongoing work uses hourly billing at €75/hour. This works well for AI systems, feature development, or projects where requirements evolve. Billed weekly.
+
+**Card 3: Scale to Complete Systems**
+Once we've worked together on smaller projects, we can take on complete system builds. These start at €4,500 and scale based on architecture complexity.
+
+### Why This Pricing Section
+
+**Content:**
+I'm transparent about where I am in my career. I've built production systems with multi-tenant architecture, AI logic, and real integrations. But I'm still building my client portfolio. This pricing reflects strong technical skills without charging senior consultant rates for business process consulting I'm still learning.
+
+### Common Questions Section
+
+**Section Title:**
+Common Questions
+
+**Q: Why no price brackets?**
+A: Brackets create confusion and clients anchor to the low end. Fixed prices and "starting at" language set clear expectations.
+
+**Q: What's included in the €1,200 starter build?**
+A: A working automation, API integration, or AI tool delivered in 1–2 weeks. Scope is defined upfront. Source code and handoff session included.
+
+**Q: Why €75/hour instead of €50 or €120?**
+A: €75 reflects strong technical execution without charging for senior consulting experience I don't have yet. As I build client case studies, rates will increase.
+
+**Q: Do you offer ongoing support?**
+A: Yes, at €75/hour. Billed based on actual hours used each month.
+
+**Q: Can you handle complex systems?**
+A: Yes. I've built multi-tenant systems, AI agents, and production apps. But these projects start at €4,500 and I recommend starting with a smaller build first.
+
+**CTA:**
+Ready to start? Book a free 15-minute fit check.
 
 ---
 
@@ -309,7 +437,20 @@ If you want to collaborate, discuss a project, or explore an automation idea, re
 - Message (required)
 
 **Message Placeholder:**
-Tell me what you want to build, what isn't working, or what you're trying to automate.
+Tell me what you're trying to automate, what problem you're solving, or what you want to build.
+
+### Pricing Context Box
+
+**Section Title:**
+How I Work
+
+**Content:**
+- **Free Fit Check:** 15-minute call to discuss your project
+- **Starter Build:** €1,200 fixed for automation/AI tools
+- **Hourly Work:** €75/hour for ongoing development
+- **Complete Systems:** Starting at €4,500 for full platforms
+
+**Link:** "View detailed pricing →" (/pricing)
 
 **Submit Button States:**
 - Default: "Send message"
@@ -383,3 +524,32 @@ I'll reply as soon as I can.
 **Document Generated:** For expert review and refinement
 **Tone:** Calm, clear, confident, grounded, minimal, technical
 **Style:** Short sentences, clean structure, no hype
+
+---
+
+## Important Notes
+
+### Pricing Implementation
+- The website uses a `components/Pricing.tsx` component with the new hybrid 4-tier model (Free Fit Check + 3 paid tiers)
+- There is also an `app/pricing/page.tsx` file with older pricing structure that may need to be updated to use the Pricing component
+- Current pricing component includes:
+  - Step 0: Free Fit Check (FREE)
+  - Step 1: Starter Build (€1,200 fixed)
+  - Step 2: Hourly Development (€75/hour, "Most Flexible")
+  - Step 3: Complete System (Starting at €4,500)
+
+### Navigation Updates
+- "Hire Me" button has been removed
+- "Contact" is now the primary CTA button with gradient styling
+- Mobile menu reflects this change
+
+### Target Audience Micro-copy
+- Added to "What I Do" section on home page: "Specialized solutions for High-Growth Startups and SMBs looking to automate operations."
+- Added to "Services" page: "Practical AI and automation for startups and small businesses."
+
+### New Sections Added
+- **"Where I Am" Section** on homepage: Transparent explanation of experience level, technical strengths, areas still learning, and pricing rationale
+- **"How Pricing Works" Section** on pricing page: Three cards explaining the pricing model
+- **"Why This Pricing" Section** on pricing page: Honest explanation of career stage and pricing rationale
+- **"Common Questions" Section** on pricing page: 5 Q&A pairs addressing pricing questions
+- **Pricing Context Box** on contact page: Quick reference to pricing tiers before the contact form

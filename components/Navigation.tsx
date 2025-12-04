@@ -102,9 +102,32 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
+                const isContact = item.name === "Contact";
+                
+                // Render Contact as a primary button
+                if (isContact) {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={(e) => handleSmoothScroll(e, item.href)}
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white text-sm shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 min-h-[44px] transition-all duration-300"
+                        aria-label="Contact - Go to contact page"
+                      >
+                        {item.name}
+                      </motion.button>
+                    </Link>
+                  );
+                }
+                
+                // Render other nav items as regular links
                 return (
                   <Link
                     key={item.href}
@@ -134,20 +157,6 @@ export default function Navigation() {
                   </Link>
                 );
               })}
-            </div>
-
-            {/* Desktop CTA Button */}
-            <div className="hidden md:flex items-center">
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white text-sm shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 min-h-[44px] transition-all duration-300"
-                  aria-label="Hire me - Go to contact page"
-                >
-                  Hire Me
-                </motion.button>
-              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -210,6 +219,32 @@ export default function Navigation() {
                 <nav className="flex-1 p-6 space-y-2">
                   {navItems.map((item) => {
                     const isActive = pathname === item.href;
+                    const isContact = item.name === "Contact";
+                    
+                    // Render Contact as a primary button
+                    if (isContact) {
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={(e) => {
+                            handleSmoothScroll(e, item.href);
+                            setMobileMenuOpen(false);
+                          }}
+                        >
+                          <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 min-h-[44px] transition-all duration-300"
+                            aria-label="Contact - Go to contact page"
+                          >
+                            {item.name}
+                          </motion.button>
+                        </Link>
+                      );
+                    }
+                    
+                    // Render other nav items as regular links
                     return (
                       <Link
                         key={item.href}
@@ -227,20 +262,6 @@ export default function Navigation() {
                     );
                   })}
                 </nav>
-
-                {/* Mobile CTA Button */}
-                <div className="p-6 border-t border-gray-800">
-                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg font-semibold text-white shadow-lg shadow-purple-500/50 min-h-[44px]"
-                      aria-label="Hire me - Go to contact page"
-                    >
-                      Hire Me
-                    </motion.button>
-                  </Link>
-                </div>
               </div>
             </motion.div>
           </>

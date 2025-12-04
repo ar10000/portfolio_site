@@ -4,22 +4,21 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const words = [
-  "AI",
-  "Automation",
-  "Workflows",
-  "Prototyping",
-  "Integration",
-  "Claude",
-  "GPT",
-  "Make.com",
-  "n8n",
-  "Python",
-  "Flutter",
-  "Supabase",
-  "Rapid Build",
-  "ROI",
-  "Production",
-  "Systems",
+  "AI Automation",
+  "Lead Qualification",
+  "Email Processing",
+  "Workflow Automation",
+  "API Integration",
+  "Multi-tenant Systems",
+  "Real-time Sync",
+  "Content Workflow",
+  "Data Models",
+  "Webhook Handling",
+  "Production Deployment",
+  "AI Agents",
+  "System Architecture",
+  "Automated Routing",
+  "Email Classification",
 ];
 
 export default function AnimatedWords() {

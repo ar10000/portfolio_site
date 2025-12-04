@@ -6,9 +6,9 @@
 
 **Title:** AI Automation Consultant
 
-**Tagline:** AI systems integration and workflow automation that delivers measurable ROI in weeks, not months
+**Tagline:** AI automation solutions that deliver measurable ROI in weeks, not months
 
-**Description:** I design and deploy production-ready AI systems, automate complex workflows, and build rapid prototypes for agencies and founders who need reliable solutions, fast execution, and clear business outcomes.
+**Description:** I build AI automation solutions including lead qualification systems, email processing automation, workflow automation, API integrations, multi-tenant systems, real-time synchronization, content workflow platforms, and production-ready AI agents. I deliver these solutions for agencies and founders who need reliable automation, fast execution, and clear business outcomes.
 
 **Focus Areas:**
 - Production-ready systems
@@ -17,48 +17,84 @@
 
 **Location:** Lisbon, PT
 
-**Expertise:**
-- Full-stack AI builder (Flutter, Python, Supabase)
-- Workflow automation expert (Make.com, n8n)
-- Rapid prototyping (3-10 day delivery cycles)
-- Production-ready architecture from day one
+**Solutions I Deliver:**
+- AI automation systems (lead qualification, email processing, automated routing)
+- Workflow automation (API orchestration, data flows, process automation)
+- Multi-tenant systems with real-time synchronization
+- Content workflow automation platforms
+- AI agents with reasoning logic
+- Production deployments with webhook handling
+- System architecture with data models
+- Full-stack development (1-2 weeks for starter builds)
 
 ## Services
 
-### Blueprint Sprint
-**Price:** €500 (one-time)
-**Timeline:** 90-minute consultation
-**Description:** Strategic planning and architecture design for your automation project
+### Tier 0: Free Fit Check
+**Price:** FREE
+**Timeline:** 15-minute call
+**Description:** 15-minute call to ensure project alignment and budget compatibility. No-obligation, no free advice.
 
 **What's Included:**
-- 90-minute consultation call - Deep dive into your requirements, constraints, and business objectives
-- Workflow map - Visual documentation of current processes and proposed automation flows
-- Architecture design document - Technical architecture document outlining system components and integrations
-- Cost-efficiency plan - ROI analysis and cost optimization recommendations
-- Implementation timeline - Detailed project timeline with milestones and deliverables
-- Optional prototype - Basic working prototype to validate approach (additional cost)
+- Quick Alignment Check
+- Budget Compatibility
+- No Obligation
+
+**CTA:** Book 15-Min Slot
+**Booking:** /contact (update to Calendly link when available)
+
+### Tier 1: Starter Build
+**Price:** €1,200
+**Timeline:** 1–2 weeks
+**Description:** Fixed-scope automation or AI tool delivered in 1–2 weeks.
+
+**What's Included:**
+- Scope agreement
+- Workflow automation or API integration
+- Basic AI agent or tool
+- Source code
+- Handoff session
 
 **Payment Terms:** 100% upfront
-**Booking:** https://calendly.com/andrewryan763/30min
-
-### Implementation
-**Price:** €2,000–€10,000 (project-based)
-**Timeline:** 2-4 weeks typically
-**Description:** Full development and deployment of your automation solution
-
-**What's Included:**
-- Full build with production-ready code - Complete development of your automation system
-- AI integrations (Claude, GPT, or Gemini) - Integration based on requirements
-- Automation workflows - End-to-end process automation with error handling and monitoring
-- Custom tools development - Tailored solutions built specifically for your business needs
-- Team training and documentation - Training sessions and comprehensive documentation
-- 30-day warranty - Comprehensive coverage for bug fixes, system errors, and performance issues
-
-**Payment Terms:** 50% upfront, 50% on delivery
+**CTA:** Start Fixed Build
 **Contact:** /contact
 
-### Support Retainer
-**Price:** €250–€750 per month
+### Tier 2: Hourly Development
+**Price:** €75/hour
+**Price Subtext:** Billed weekly. No minimum hours.
+**Timeline:** Ongoing
+**Description:** Ongoing development for AI systems, full-stack features, or iterative improvements.
+
+**What's Included:**
+- AI tools & automations
+- Full-stack development
+- Database & API design
+- Regular updates
+- Flexible scope
+
+**Payment Terms:** Billed weekly
+**CTA:** Discuss Hourly Work
+**Contact:** /contact
+**Status:** Most Flexible tier
+
+### Tier 3: Complete System Build
+**Price:** Starting at €4,500
+**Price Subtext:** Final cost based on scope. Delivered in phases.
+**Timeline:** 2-4 weeks typically (varies by scope)
+**Description:** End-to-end system with architecture, AI logic, integrations, and deployment.
+
+**What's Included:**
+- System architecture
+- Multi-tenant design
+- AI reasoning logic
+- Production deployment
+- Documentation
+
+**Payment Terms:** Custom (typically 50% upfront, 50% on delivery)
+**CTA:** Request Estimate
+**Contact:** /contact
+
+### Support Retainer (Optional)
+**Price:** €75/hour (billed based on actual hours used)
 **Timeline:** Ongoing
 **Description:** Ongoing operational support to ensure system reliability and continuous optimization
 
@@ -71,29 +107,19 @@
 **Payment Terms:** Monthly billing
 **Contact:** /contact
 
-### Proof-of-Concept Sprint
-**Price:** €2,000–€3,000 (one-time)
-**Timeline:** 48-72 hours
-**Description:** Test your idea before you invest thousands. Build a working prototype in 48-72 hours so you can validate with real users, not just hope it works.
-
-**What's Included:**
-- Working prototype in 48-72 hours
-- Core features that prove your concept
-- Hosted demo you can share with investors or users
-- Clean code and docs for when you're ready to scale
-- Complete handoff package: walkthrough video, documentation, and 30-day bug fix warranty
-
-**Ideal For:** Validating ideas with real users before committing to full development
-
 ## How We Work
 
-### Process (5 Steps)
+### Process (Hybrid Model)
 
-1. **Discovery Call** - 15-minute consultation to understand your needs and requirements
-2. **Proposal & Agreement** - Detailed scope, timeline, and pricing with clear deliverables
-3. **Kickoff & Planning** - Requirements gathering and project setup with architecture design
-4. **Development** - Regular updates and iterative development with weekly progress reports
-5. **Delivery & Support** - Complete handoff package with training, documentation, and 30-day warranty
+**Step 0: Free Fit Check** - 15-minute call to ensure project alignment and budget compatibility. No-obligation, no free advice.
+
+**Step 1: Starter Build** - Fixed-scope automation or AI tool (€1,200, delivered in 1–2 weeks).
+
+**Step 2: Hourly Development** - Ongoing development for AI systems, full-stack features, or iterative improvements (€75/hour, billed weekly).
+
+**Step 3: Complete System Build** - End-to-end system with architecture, AI logic, integrations, and deployment (starting at €4,500, delivered in phases).
+
+**Optional: Support Retainer** - Ongoing support at €75/hour, billed based on actual hours used each month.
 
 ### Approach
 
@@ -111,7 +137,7 @@
 - **Fixed Pricing:** Project costs agreed upfront with no hidden fees
 - **Weekly Updates:** Scheduled progress reports with milestone tracking
 - **Delivery Guarantee:** Projects delivered according to agreed timelines with production-ready code
-- **Maintenance Options:** Optional support retainers from €250-€750/month
+- **Maintenance Options:** Optional support at €75/hour, billed based on actual hours used
 
 ## Projects
 
@@ -202,25 +228,25 @@
 ## Frequently Asked Questions
 
 **Q: How long does a typical project take?**
-A: Blueprint Sprint: 90 minutes. Implementation: 2-4 weeks typically. Proof-of-Concept Sprint: 48-72 hours. Support Retainer: Ongoing monthly.
+A: Free Fit Check: 15 minutes. Starter Build: 1–2 weeks. Hourly Development: Ongoing, billed weekly. Complete System Build: 2-4 weeks typically (varies by scope), delivered in phases. Support Retainer: Ongoing, billed based on actual hours used.
 
 **Q: What's included in every project?**
 A: Every project includes production-ready code, complete documentation, walkthrough video, team training, and a 30-day bug fix warranty.
 
 **Q: How do I know which service I need?**
-A: Start with a Blueprint Sprint (€500) to map out your requirements and get a clear implementation plan. This helps determine the exact scope and cost.
+A: Start with a Free Fit Check (15-minute call, no obligation) to ensure project alignment. If we're a good fit, choose between a €1,200 starter build to test working together, or jump straight to hourly work at €75/hour. For larger projects, complete systems start at €4,500.
 
 **Q: Can I combine multiple services?**
-A: Yes. Many clients start with a Blueprint Sprint, proceed to Implementation, and then add a Support Retainer for ongoing maintenance.
+A: Yes. The pricing model is designed for progressive commitment: Start with a Free Fit Check, then choose a €1,200 starter build to test working together, or jump straight to hourly work at €75/hour. Once we've worked together on smaller projects, we can take on complete system builds starting at €4,500. Support is available at €75/hour, billed based on actual hours used.
 
-**Q: What if my project exceeds €10,000?**
-A: For larger projects, we break them into phases. Each phase is priced separately, allowing you to validate progress before committing to the next phase.
+**Q: What if my project exceeds the MVP pricing?**
+A: For larger projects, we use the Complete System Build tier starting at €4,500. We can break larger projects into phases, with each phase priced separately, allowing you to validate progress before committing to the next phase.
 
 **Q: Do you work with non-technical clients?**
 A: Absolutely! I specialize in working with business owners and teams who need technical solutions but don't have technical expertise. I handle all technical details and provide clear communication.
 
 **Q: What happens after you build it?**
-A: Every project includes a complete handoff package: walkthrough video, written documentation, and a 30-day warranty where I fix any bugs for free. After that, optional maintenance retainers start at €250/month.
+A: Every project includes a complete handoff package: walkthrough video, written documentation, and a 30-day warranty where I fix any bugs for free. After that, optional support is available at €75/hour, billed based on actual hours used.
 
 **Q: Can you integrate with my existing tools?**
 A: Yes! I specialize in connecting tools via APIs and automation platforms. Common integrations include CRMs, email platforms, databases, payment processors, and more.
@@ -240,9 +266,11 @@ A: I can set up hosting and provide initial deployment. For ongoing hosting and 
 
 ## Payment Terms
 
-- Blueprint Sprint: 100% upfront
-- Implementation: 50% upfront, 50% on delivery
-- Support Retainer: Monthly billing
+- Free Fit Check: FREE (no payment required)
+- Starter Build: 100% upfront (€1,200 fixed)
+- Hourly Development: Billed weekly (€75/hour, no minimum hours)
+- Complete System Build: Custom (typically 50% upfront, 50% on delivery, starting at €4,500)
+- Support Retainer: Billed based on actual hours used (€75/hour)
 
 ## What's Included in All Projects
 

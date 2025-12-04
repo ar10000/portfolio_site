@@ -1,20 +1,19 @@
-# AI Automation Consultant Portfolio
+# Portfolio Website
 
-A production-ready portfolio website showcasing AI automation services, workflow solutions, and technical capabilities. Built with Next.js 14, TypeScript, and modern web technologies to demonstrate expertise in full-stack AI development and automation engineering.
+A modern, production-ready portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features AI-powered chatbot integration, dynamic project showcases, and responsive design.
 
 ## Overview
 
-This portfolio serves as both a business showcase and a working demonstration of technical capabilities. It positions the consultant as a full-stack AI builder specializing in rapid prototyping, workflow automation, and production system deployment for agencies and founders.
+This portfolio website demonstrates modern web development practices with serverless architecture, AI integration, and optimized performance. Built as a showcase of technical capabilities in full-stack development, AI automation, and modern web technologies.
 
 ## Key Features
 
-### Business Pages
-- **Homepage**: Professional positioning as AI Automation Consultant with clear value proposition
-- **Projects**: Case studies highlighting production systems with business outcomes
-- **Services**: Three-tier service model (Blueprint Sprint, Implementation, Support Retainer)
-- **Pricing**: Transparent pricing structure with clear engagement models
-- **Automation Intake**: High-converting form for automation client qualification
-- **Contact**: Professional contact form with Calendly integration
+### Pages
+- **Homepage**: Hero section, services overview, and project highlights
+- **Projects**: Dynamic project showcase with detailed case studies
+- **Services**: Service offerings and capabilities
+- **Pricing**: Transparent pricing structure
+- **Contact**: Contact form with email integration
 
 ### Technical Features
 - **Next.js 14** with App Router for optimal performance and SEO
@@ -28,9 +27,9 @@ This portfolio serves as both a business showcase and a working demonstration of
 ## Tech Stack
 
 ### Core Framework
-- **Next.js 14** (App Router) - Server-side rendering and API routes
+- **Next.js 16** (App Router) - Server-side rendering and API routes
 - **TypeScript** - Type-safe development
-- **React 18** - Component architecture
+- **React 19** - Component architecture
 
 ### Styling & UI
 - **Tailwind CSS** - Utility-first CSS framework
@@ -81,37 +80,16 @@ This portfolio serves as both a business showcase and a working demonstration of
 └── package.json                # Dependencies
 ```
 
-## Services Offered
+## Key Features
 
-### 1. Blueprint Sprint (€500)
-- 90-minute consultation call
-- Workflow mapping and documentation
-- Architecture design
-- Cost-efficiency analysis
-- Implementation timeline
-- Optional prototype
+- **AI Chatbot Integration**: Interactive chatbot powered by Claude AI
+- **Dynamic Project Pages**: Detailed case studies with technical deep-dives
+- **Responsive Design**: Mobile-first approach with smooth animations
+- **SEO Optimized**: Metadata, sitemap, and robots.txt configuration
+- **Performance Optimized**: Static generation, image optimization, code splitting
+- **Serverless API Routes**: Contact forms, newsletter, and AI endpoints
 
-### 2. Implementation
-- Starter Build: €1,200 fixed for automation/AI tools (1–2 weeks)
-- Hourly Development: €75/hour for ongoing development (billed weekly)
-- Complete System: Starting at €4,500 for full platforms (delivered in phases)
-
-### 3. Support
-- Available at €75/hour
-- Billed based on actual hours used each month
-- Ongoing monitoring, updates, and maintenance
-- Performance optimizations
-
-## Trust & Reliability Standards
-
-- **30-Day Warranty**: All implementations include warranty coverage
-- **Clear Communication**: Regular updates and transparent reporting
-- **Fixed Pricing**: No hidden fees, scope changes approved upfront
-- **Weekly Updates**: Scheduled progress reports with milestone tracking
-- **Delivery Guarantee**: On-time delivery with production-ready code
-- **Maintenance Options**: Flexible support retainers available
-
-## Setup Instructions
+## Getting Started
 
 ### Prerequisites
 
@@ -122,8 +100,8 @@ This portfolio serves as both a business showcase and a working demonstration of
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
-   cd portfolio-website
+   git clone https://github.com/ar10000/portfolio_site.git
+   cd portfolio_site
    ```
 
 2. **Install dependencies**:
@@ -136,7 +114,7 @@ This portfolio serves as both a business showcase and a working demonstration of
    cp .env.example .env.local
    ```
    
-   Edit `.env.local` and add your configuration:
+   Edit `.env.local` and configure:
    ```env
    NEXT_PUBLIC_SITE_URL=https://yourdomain.com
    ANTHROPIC_API_KEY=sk-ant-...  # For Claude AI chatbot
@@ -151,32 +129,18 @@ This portfolio serves as both a business showcase and a working demonstration of
 5. **Open your browser**:
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Deployment (Vercel)
+## Deployment
 
-### Quick Deploy
+### Deploy to Vercel
 
-1. **Push your code to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
+The easiest way to deploy is using [Vercel](https://vercel.com):
 
-2. **Import to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will auto-detect Next.js settings
+1. Push your code to GitHub
+2. Import your repository to Vercel
+3. Configure environment variables in Vercel dashboard
+4. Deploy
 
-3. **Configure Environment Variables**:
-   - In Vercel dashboard, go to Project Settings → Environment Variables
-   - Add all variables from `.env.example`
-   - Redeploy after adding variables
-
-4. **Custom Domain** (optional):
-   - In Project Settings → Domains
-   - Add your custom domain
-   - Follow DNS configuration instructions
+Vercel will automatically detect Next.js and configure the build settings.
 
 ### Manual Build
 
@@ -223,12 +187,12 @@ NODE_ENV=production
 
 ### Update Content
 
-1. **Projects**: Edit `app/projects/page.tsx` and `app/projects/[slug]/page.tsx`
-2. **Services**: Edit `app/services/page.tsx`
-3. **Pricing**: Edit `app/pricing/page.tsx`
-4. **Contact Info**: Edit `app/contact/page.tsx` and `components/Footer.tsx`
-5. **Navigation**: Edit `components/Navigation.tsx`
-6. **Metadata**: Edit `app/layout.tsx` for SEO
+- **Projects**: Edit `app/projects/page.tsx` and `app/projects/[slug]/page.tsx`
+- **Services**: Edit `app/services/page.tsx`
+- **Pricing**: Edit `app/pricing/page.tsx` and `components/Pricing.tsx`
+- **Contact Info**: Edit `app/contact/page.tsx` and `components/Footer.tsx`
+- **Navigation**: Edit `components/Navigation.tsx`
+- **Metadata**: Edit `app/layout.tsx` for SEO
 
 ### Styling
 
@@ -236,80 +200,44 @@ NODE_ENV=production
 - **Global Styles**: Edit `app/globals.css`
 - **Animations**: Modify component-level Framer Motion animations
 
-### API Integration
+## Architecture
 
-1. **Contact Form**: Update `app/api/contact/route.ts` to integrate with email service
-2. **Automation Intake**: Update `app/api/automation/route.ts` for form submissions
-3. **Newsletter**: Update `app/api/newsletter/route.ts` to connect to email marketing platform
-4. **Voice AI**: Configure `app/api/voice-ai/route.ts` with your Anthropic API key
-
-## Architecture Details
-
-### Frontend
 - **Next.js App Router**: Server components for optimal performance
-- **Client Components**: Interactive elements with React hooks
-- **Responsive Design**: Mobile-first approach with Tailwind breakpoints
-- **Performance**: Image optimization, code splitting, lazy loading
+- **Serverless API Routes**: Form submissions and AI integration
+- **TypeScript**: Full type safety across the codebase
+- **Responsive Design**: Mobile-first with Tailwind CSS
+- **Performance**: Image optimization, code splitting, static generation
 
-### Backend
-- **API Routes**: Serverless functions for form submissions and AI integration
-- **Type Safety**: Full TypeScript coverage for API endpoints
-- **Error Handling**: Comprehensive error boundaries and validation
+## Tech Stack
 
-### Integrations
-- **Claude AI**: Anthropic API for chatbot functionality
-- **GitHub API**: Repository data synchronization (if needed)
-- **Email Services**: Resend integration for form submissions
+- **Framework**: Next.js 16 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **AI Integration**: Anthropic Claude AI
+- **Deployment**: Vercel (recommended)
 
-## Testing
+## Project Structure
 
-### Manual Testing Checklist
-
-- [ ] All navigation links work correctly
-- [ ] Contact form submits successfully
-- [ ] Automation intake form validates properly
-- [ ] All project pages load correctly
-- [ ] Responsive design works on mobile/tablet/desktop
-- [ ] Animations are smooth and performant
-- [ ] No console errors
-- [ ] Images load properly
-- [ ] External links open in new tabs
-- [ ] SEO metadata is correct
-
-### Responsive Breakpoints
-
-- **Mobile**: 320px - 640px
-- **Tablet**: 641px - 1024px
-- **Desktop**: 1025px+
-
-## Performance Optimization
-
-- **Static Generation**: Pre-rendered pages for fast loading
-- **Image Optimization**: Next.js Image component with lazy loading
-- **Code Splitting**: Automatic route-based code splitting
-- **Caching**: Optimized caching strategies for API routes
-- **Bundle Size**: Minimal dependencies for fast initial load
-
-## Security Considerations
-
-- **Environment Variables**: Sensitive keys stored securely
-- **Input Validation**: All form inputs validated server-side
-- **API Rate Limiting**: Consider implementing rate limiting for production
-- **CORS**: Proper CORS configuration for API routes
-- **XSS Protection**: React's built-in XSS protection
+```
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── projects/          # Project pages
+│   ├── services/          # Services page
+│   ├── pricing/           # Pricing page
+│   └── contact/           # Contact page
+├── components/            # React components
+├── public/               # Static assets
+└── knowledge/            # AI assistant knowledge base
+```
 
 ## License
 
-This project is private and proprietary.
+This project is private and proprietary. All rights reserved.
 
-## Author
-
-**Andrew Ryan**
-
-- Portfolio: [andrewryan.dev](https://andrewryan.dev)
-- Email: andrewryan763@gmail.com
-- Location: Lisbon, PT
+Unauthorized copying, modification, distribution, or use of this codebase is prohibited.
 
 ---
 
-**Built with Next.js, TypeScript, Tailwind CSS, and Claude AI**
+**Built with Next.js 16, React 19, TypeScript, and Tailwind CSS**

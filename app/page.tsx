@@ -37,18 +37,22 @@ const projects = [
   {
     name: "AutoLeadCloser",
     description: "AI email qualification system",
+    slug: "autoleadcloser",
   },
   {
     name: "Creative Garden",
     description: "Flutter productivity app",
+    slug: "creative-garden",
   },
   {
     name: "FlowCircle",
     description: "Clarity app for neurodivergent creatives",
+    slug: "flowcircle",
   },
   {
     name: "Portfolio platform",
     description: "Next.js + AI",
+    slug: "portfolio-site",
   },
 ];
 
@@ -232,23 +236,24 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
-                whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
-                className="group relative p-6 rounded-lg border border-gray-800 bg-gray-900/30 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300"
-              >
-                {/* Purple glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl pointer-events-none rounded-lg -z-10" />
-                
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                  {project.name}
-                </h3>
-                <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300 leading-[1.6] font-normal">{project.description}</p>
-              </motion.div>
+              <Link key={index} href={`/projects/${project.slug}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
+                  whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
+                  className="group relative p-6 rounded-lg border border-gray-800 bg-gray-900/30 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer"
+                >
+                  {/* Purple glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl pointer-events-none rounded-lg -z-10" />
+                  
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300 leading-[1.6] font-normal">{project.description}</p>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

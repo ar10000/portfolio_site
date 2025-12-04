@@ -4,65 +4,103 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ExternalLink, Github, CheckCircle2, FileText } from "lucide-react";
+import { useState } from "react";
 
 const projects = [
   {
     id: "autoleadcloser",
     title: "AutoLeadCloser",
-    summary: "AI-powered email qualification system.",
+    summary: "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
     description:
-      "Automates lead qualification through email processing. Incoming emails trigger webhook handlers that extract qualification criteria using Claude AI. The system filters spam, evaluates budget, timeline, and decision authority, then routes qualified leads.",
-    impact: "Reduced lead response time by 99% (from 2-24 hours to under 2 minutes)",
-    image: "/images/projects/autoleadcloser.jpg", // Placeholder - user should add actual image
+      "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
+    impact: null,
+    image: "/images/projects/autoleadcloser-thumb.jpg",
     tech: ["Flask", "Python", "Claude AI", "Gmail API", "Supabase", "PostgreSQL"],
-    badge: { type: "demo", label: "Live Demo" },
+    badge: { type: "case-study", label: "Prototype" },
     demoUrl: null,
     githubUrl: null,
-    status: "Production-ready prototype being tested",
+    status: "Production-ready prototype",
   },
   {
     id: "creative-garden",
     title: "Creative Garden",
-    summary: "Flutter app for creative project management.",
+    summary: "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
     description:
-      "Manages creative projects through a lifecycle system: Seed, Growing, Alive, Compost. Momentum scoring calculates project health based on check-in frequency and energy levels. Includes reflection tracking, analytics, and local caching for offline access.",
-    impact: "Automated 20+ hours of manual tracking per week",
-    image: "/images/projects/creative-garden.jpg", // Placeholder - user should add actual image
+      "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
+    impact: null,
+    image: "/images/projects/creative-garden-thumb.jpg",
     tech: ["Flutter 3.22", "Dart", "Supabase", "PostgreSQL"],
-    badge: { type: "github", label: "GitHub" },
+    badge: { type: "demo", label: "Production" },
     demoUrl: "https://creativegarden.app",
     githubUrl: "https://github.com/ar10000/creative-garden",
-    status: "Production-ready",
+    status: "Production",
   },
   {
     id: "flowcircle",
     title: "FlowCircle",
-    summary: "Minimalist clarity app for neurodivergent creatives.",
+    summary: "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
     description:
-      "A focused app for managing creative projects with minimal cognitive load. Built the authentication system, user profiles, and reflection engine structure. The UI emphasizes clarity and simplicity.",
-    impact: "Reduced cognitive load by 60% through simplified workflows",
-    image: "/images/projects/flowcircle.jpg", // Placeholder - user should add actual image
+      "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
+    impact: null,
+    image: null, // No image available yet
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
-    badge: { type: "case-study", label: "Case Study" },
+    badge: { type: "case-study", label: "In Development" },
     demoUrl: null,
     githubUrl: null,
-    status: "Early build focusing on foundations",
+    status: "In Development",
   },
   {
     id: "portfolio-site",
     title: "Portfolio Website",
-    summary: "Next.js portfolio with AI chatbot integration.",
+    summary: "Next.js 14 portfolio with AI chatbot, GitHub sync, and automated content management. Working example of technical capabilities.",
     description:
-      "Portfolio site showcasing projects, services, and pricing. Includes an intake form for project inquiries. Integrated Claude AI chatbot for visitor interaction. Built with serverless API routes and structured error handling.",
-    impact: "Increased engagement by 3x with AI-powered visitor assistance",
-    image: "/images/projects/portfolio.jpg", // Placeholder - user should add actual image
+      "Next.js 14 portfolio with AI chatbot, GitHub sync, and automated content management. Working example of technical capabilities.",
+    impact: null,
+    image: null, // No image available yet
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Claude AI"],
-    badge: { type: "demo", label: "Live Demo" },
+    badge: { type: "demo", label: "Live" },
     demoUrl: null,
     githubUrl: null,
-    status: "Production-ready",
+    status: "Live",
   },
 ];
+
+// Separate component for project image with error handling
+function ProjectImage({ project }: { project: typeof projects[0] }) {
+  const [imageError, setImageError] = useState(false);
+
+  if (!project.image || imageError) {
+    return (
+      <div className="relative h-[300px] overflow-hidden bg-gray-800">
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
+              <FileText className="h-8 w-8 text-gray-600" />
+            </div>
+            <p className="text-sm text-gray-500">Image coming soon</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative h-[300px] overflow-hidden bg-gray-800">
+      <Image
+        src={project.image}
+        alt={`${project.title} project preview`}
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+        onError={() => {
+          setImageError(true);
+        }}
+      />
+      {/* Gradient overlay on hover */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+    </div>
+  );
+}
 
 export default function ProjectsPage() {
   return (
@@ -97,34 +135,8 @@ export default function ProjectsPage() {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl pointer-events-none -z-10" />
 
               {/* Project Image - Large and prominent (300px+ height) */}
-              <div className="relative h-[300px] overflow-hidden bg-gray-800">
-                {project.image ? (
-                  <>
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} project preview`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                      onError={(e) => {
-                        // Fallback if image doesn't exist
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
-                  </>
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
-                        <FileText className="h-8 w-8 text-gray-600" />
-                      </div>
-                      <p className="text-sm text-gray-500">Image coming soon</p>
-                    </div>
-                  </div>
-                )}
-
+              <div className="relative">
+                <ProjectImage project={project} />
                 {/* Badge in top-right corner */}
                 {project.badge && (
                   <div className="absolute top-4 right-4 z-10">

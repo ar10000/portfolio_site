@@ -42,80 +42,78 @@ import {
 const projectData: Record<string, any> = {
   "creative-garden": {
     title: "Creative Garden",
-    description: "Enterprise content workflow automation platform with real-time synchronization and AI-powered content intelligence",
+    description: "Flutter app for managing creative projects through lifecycle stages. Features momentum scoring, offline caching, and GDPR-compliant data export.",
     status: "Live",
     statusColor: "green",
-    tech: ["Flutter", "Python", "Supabase", "AI"],
+    tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
     github: "https://github.com/ar10000/creative-garden",
     demo: "https://creativegarden.app",
+    heroSummary: "Flutter app for managing creative projects through lifecycle stages. Uses Supabase triggers for momentum scoring. Production-ready with offline caching and GDPR export.",
+    roleDuration: "Role: Full-stack AI Builder\nTimeline: 8 weeks\nTools: Flutter, Supabase, Dart, PostgreSQL",
     problem:
-      "Content teams lose productivity due to fragmented workflows, lack of visibility into content pipelines, and manual tracking across multiple tools. This results in delayed publications, inconsistent quality, and inability to scale content operations efficiently.",
+      "• Creative individuals struggle to maintain momentum across multiple projects\n• Hard to track which projects are active vs. stalled without clear structure\n• No good system for understanding project health based on activity patterns\n• Existing tools either too complex (project management) or too simple (to-do lists)",
     solution:
-      "Creative Garden is a production-grade content workflow automation platform that centralizes content lifecycle management, provides real-time team synchronization, and uses AI to analyze content readiness and workflow efficiency. The system automates content state transitions, tracks publishing metrics, and maintains data consistency across distributed teams.",
-    overview:
-      "Creative Garden is an enterprise content workflow platform that automates content lifecycle management from ideation to publication. The system provides real-time synchronization across team members, AI-powered content analysis, automated state management, and comprehensive publishing analytics. Built with multi-tenant architecture to support multiple organizations with isolated data and workflows.",
-    whyItMatters:
-      "Content operations require reliable systems that maintain data consistency, provide real-time collaboration, and scale with team growth. Creative Garden delivers production-grade infrastructure that eliminates workflow fragmentation, reduces manual overhead, and provides measurable insights into content pipeline performance.",
-    technicalDeepDive:
-      "Architecture: Flutter frontend with Material Design 3, Python backend services, Supabase for real-time database synchronization and authentication. Multi-tenant architecture with row-level security policies ensuring data isolation per organization.\n\nReal-time Sync: Supabase real-time subscriptions with PostgreSQL replication. Changes propagate to all connected clients within 100ms. Conflict resolution handled via operational transformation for concurrent edits.\n\nAI Pipeline: Python-based content analysis service using Claude AI for extracting content structure, readiness scoring, and workflow recommendations. Batch processing for analytics with async job queues.\n\nPerformance: Sub-200ms API response times, optimized database queries with proper indexing, lazy loading for large content sets, and efficient state management with Riverpod.\n\nReliability: Automated backups, transaction logging, error recovery mechanisms, and health monitoring. 99.9% uptime SLA with redundant database replicas.",
+      "The app manages creative projects through defined lifecycle stages: Seed (idea), Growing (in progress), Alive (active), Compost (archived). Momentum scoring calculates project health based on check-in frequency and energy levels. Users can reflect on progress, view analytics, and track projects offline. Built with Flutter for cross-platform support and Supabase for data storage.",
     features: [
       {
         icon: Workflow,
-        title: "Automated Workflow Engine",
-        description: "State-based content lifecycle management with automated transitions and validation rules",
-      },
-      {
-        icon: Zap,
-        title: "Real-time Synchronization",
-        description: "Sub-100ms update propagation across all team members with conflict resolution",
-      },
-      {
-        icon: Database,
-        title: "Multi-tenant Architecture",
-        description: "Isolated data per organization with row-level security and tenant-specific configurations",
-      },
-      {
-        icon: Bot,
-        title: "AI Content Analysis",
-        description: "Automated content readiness scoring, structure extraction, and workflow recommendations",
+        title: "Project lifecycle management (Seed → Growing → Alive → Compost)",
+        description: "Projects move through defined stages from idea to completion",
       },
       {
         icon: BarChart3,
-        title: "Publishing Analytics",
-        description: "Real-time metrics on content throughput, workflow efficiency, and publication trends",
+        title: "Momentum scoring via Supabase database triggers",
+        description: "Calculates project health from check-in frequency and energy levels",
       },
       {
-        icon: Server,
-        title: "High Performance",
-        description: "Sub-200ms API response times, optimized queries, and efficient state management",
+        icon: Clock,
+        title: "Check-ins with energy level tracking",
+        description: "Users log progress with energy levels to track project momentum",
+      },
+      {
+        icon: BarChart3,
+        title: "Analytics dashboard showing project health over time",
+        description: "Visual insights into project activity and momentum trends",
+      },
+      {
+        icon: Database,
+        title: "Offline functionality with local caching",
+        description: "Full app functionality available without internet connection",
       },
       {
         icon: Shield,
-        title: "Enterprise Reliability",
-        description: "99.9% uptime SLA, automated backups, transaction logging, and health monitoring",
+        title: "GDPR-compliant data export",
+        description: "Users can export all their data in JSON format",
       },
       {
-        icon: Globe,
-        title: "Data Compliance",
-        description: "GDPR-compliant data export, audit logging, and secure multi-region deployment",
+        icon: Smartphone,
+        title: "Cross-platform (iOS, Android) with single codebase",
+        description: "Flutter enables deployment to both platforms from one codebase",
       },
     ],
     techStack: [
       { name: "Flutter", category: "Framework", icon: Smartphone },
-      { name: "Python", category: "Backend", icon: Code2 },
-      { name: "Supabase", category: "Database", icon: Database },
-      { name: "AI Integration", category: "AI", icon: Sparkles },
+      { name: "Supabase", category: "Backend", icon: Database },
+      { name: "Dart", category: "Language", icon: Code2 },
+      { name: "PostgreSQL", category: "Database", icon: Database },
     ],
     architecture:
-      "Creative Garden uses a Flutter frontend with Material Design 3 for a modern, responsive UI. The backend is built with Python, handling business logic and AI-powered insights. Supabase provides real-time database synchronization, authentication, and storage. The system follows a clean architecture pattern with clear separation between presentation, business logic, and data layers, ensuring scalability and maintainability.",
+      "Frontend: Flutter cross-platform application built with Provider for state management\nBackend / DB: Supabase PostgreSQL with database triggers for momentum scoring\nCaching: Local storage layer for offline functionality\nInfrastructure: Single Dart codebase deployed to iOS and Android",
+    technicalImplementation: [
+      "Supabase triggers calculate momentum scores automatically when check-ins are logged",
+      "Local caching layer enables full offline functionality",
+      "Flutter state management using Provider pattern",
+      "PostgreSQL database with optimized queries for analytics",
+      "GDPR export functionality generates JSON of all user data",
+      "Cross-platform deployment from single Dart codebase"
+    ],
     metrics: null,
     screenshots: [
-      "/images/projects/creative-garden-1.jpg",
-      "/images/projects/creative-garden-2.jpg",
-      "/images/projects/creative-garden-3.jpg",
+      "[Insert screenshots here]",
     ],
+    cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:
-      "Creative Garden demonstrates that production-grade content workflow systems require robust real-time synchronization, multi-tenant data isolation, and reliable AI processing pipelines. The architecture prioritizes performance, reliability, and scalability—ensuring the system handles concurrent team operations and maintains data consistency across distributed environments.",
+      "Creative Garden demonstrates that database triggers can handle complex scoring logic efficiently. The project proves that offline-first mobile apps require careful state management and local caching strategies. Building for cross-platform deployment from day one allows reaching both iOS and Android users without maintaining separate codebases. The architecture prioritizes user data ownership with GDPR-compliant export functionality.",
     codeSnippet: `// Example: Project lifecycle state management
 class ProjectLifecycleService {
   final SupabaseClient _supabase;
@@ -139,88 +137,102 @@ class ProjectLifecycleService {
   },
   flowcircle: {
     title: "FlowCircle",
-    description: "Multi-tenant project management platform with real-time synchronization and cross-platform deployment",
+    description: "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase, focusing on simplicity and clean architecture.",
     status: "Live",
     statusColor: "green",
-    tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
+    tech: ["Next.js 14", "TypeScript", "Supabase", "PostgreSQL"],
     github: "https://github.com/ar10000",
     demo: "https://flowcircle.app",
+    heroSummary: "Minimalist project management app built with Next.js 14 and Supabase. Features authentication, profile management, and reflection engine structure. Early build focusing on core foundations.",
+    roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Supabase, PostgreSQL",
     problem:
-      "Teams require project management systems that maintain real-time data consistency across devices, support concurrent user operations, and scale with organizational growth. Existing solutions lack reliable synchronization, proper multi-tenant isolation, and performance optimization for mobile-first workflows.",
+      "• Individual creatives need simple project tracking without cognitive overload\n• Existing tools are too complex with features most solo creators don't need\n• No good options for minimal, distraction-free project management\n• Need for clean data architecture that can scale to team features later",
     solution:
-      "FlowCircle is a production-grade project management platform built with real-time synchronization, multi-tenant architecture, and optimized mobile performance. The system ensures data consistency across all devices, supports concurrent editing with conflict resolution, and provides isolated tenant environments with scalable infrastructure.",
-    overview:
-      "FlowCircle is an enterprise project management platform that delivers real-time synchronization, multi-tenant data isolation, and cross-platform deployment. The system handles concurrent operations, maintains data consistency, and provides reliable performance across web and mobile clients. Built for teams that require production-grade infrastructure with scalable architecture.",
-    whyItMatters:
-      "Project management systems must maintain data integrity, support real-time collaboration, and scale reliably. FlowCircle provides enterprise-grade infrastructure that ensures consistent data across all clients, handles concurrent operations without conflicts, and scales with organizational needs through proper multi-tenant architecture.",
-    technicalDeepDive:
-      "Architecture: Flutter cross-platform frontend, Supabase backend with PostgreSQL, real-time subscriptions via WebSocket connections. Multi-tenant architecture with row-level security policies and tenant-specific database schemas.\n\nReal-time Sync: Supabase real-time engine with PostgreSQL logical replication. Changes broadcast to all connected clients within 50ms. Operational transformation for conflict resolution on concurrent edits. Optimistic UI updates with server reconciliation.\n\nMulti-tenant Isolation: Row-level security policies enforce tenant data separation. Each tenant has isolated database schema with shared infrastructure. Tenant-specific configuration and feature flags.\n\nPerformance: Optimized database queries with composite indexes, connection pooling, and query result caching. Lazy loading for large project lists, efficient state management with Riverpod, and minimal re-renders through proper memoization.\n\nReliability: Automated database backups, transaction logging, error recovery with retry mechanisms, and comprehensive health monitoring. Database replication for high availability and disaster recovery.",
+      "The app provides minimal project management focused on clarity and simplicity. Users can create projects, track progress, and reflect on work without unnecessary features. Built with Supabase for authentication and data storage. Architecture designed with future team features in mind, but currently focused on individual creators.",
     features: [
       {
-        icon: Zap,
-        title: "Real-time Synchronization",
-        description: "Sub-50ms update propagation across all devices with conflict resolution for concurrent edits",
-      },
-      {
-        icon: Database,
-        title: "Multi-tenant Architecture",
-        description: "Isolated tenant data with row-level security, shared infrastructure, and tenant-specific configurations",
-      },
-      {
-        icon: Server,
-        title: "High Performance",
-        description: "Optimized database queries, connection pooling, query caching, and efficient state management",
-      },
-      {
         icon: Shield,
-        title: "Enterprise Reliability",
-        description: "Automated backups, transaction logging, error recovery, and database replication for high availability",
-      },
-      {
-        icon: Smartphone,
-        title: "Cross-platform Deployment",
-        description: "Single codebase deployment to web, iOS, and Android with native performance",
+        title: "User authentication via Supabase",
+        description: "Secure authentication system using Supabase Auth",
       },
       {
         icon: Workflow,
-        title: "Concurrent Operations",
-        description: "Operational transformation for handling simultaneous edits without data loss",
+        title: "Project creation and management",
+        description: "Simple interface for creating and tracking projects",
+      },
+      {
+        icon: Database,
+        title: "Reflection engine data structure",
+        description: "Database schema designed for reflection and progress tracking",
+      },
+      {
+        icon: Sparkles,
+        title: "Clean, accessible UI with minimal cognitive load",
+        description: "Minimalist design focused on clarity and simplicity",
+      },
+      {
+        icon: Server,
+        title: "Database schema designed for future multi-user expansion",
+        description: "Architecture allows scaling to team features later",
+      },
+      {
+        icon: Zap,
+        title: "Next.js App Router for routing and data fetching",
+        description: "Modern routing with optimized performance patterns",
       },
     ],
     techStack: [
-      { name: "Flutter", category: "Framework", icon: Smartphone },
+      { name: "Next.js 14", category: "Framework", icon: Code2 },
+      { name: "TypeScript", category: "Language", icon: Code2 },
       { name: "Supabase", category: "Backend", icon: Database },
-      { name: "Dart", category: "Language", icon: Code2 },
       { name: "PostgreSQL", category: "Database", icon: Database },
     ],
     architecture:
-      "FlowCircle follows a clean architecture pattern with clear separation between presentation, business logic, and data layers. The Flutter frontend communicates with Supabase backend services through RESTful APIs. Real-time updates are handled via Supabase's real-time subscriptions, ensuring instant synchronization across devices.",
+      "Frontend: Next.js 14 App Router with TypeScript and Tailwind CSS\nBackend / DB: Supabase PostgreSQL for authentication and data storage\nStyling: Tailwind CSS with shadcn/ui components for consistent design\nInfrastructure: Clean architecture pattern designed for future team features",
+    technicalImplementation: [
+      "Authentication system using Supabase Auth",
+      "PostgreSQL database with optimized queries",
+      "Next.js 14 App Router for routing and data fetching",
+      "Tailwind CSS + shadcn/ui for consistent design",
+      "TypeScript for type safety",
+      "Clean architecture pattern allowing future team features"
+    ],
     metrics: null,
     screenshots: [
-      "/api/placeholder/800/600",
-      "/api/placeholder/800/600",
-      "/api/placeholder/800/600",
+      "[Insert screenshots here]",
     ],
+    cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:
-      "FlowCircle demonstrates that production-grade project management systems require robust real-time synchronization, proper multi-tenant data isolation, and optimized performance for concurrent operations. The architecture prioritizes data consistency, reliability, and scalability—ensuring the system handles distributed team workflows and maintains integrity across all client devices.",
-    codeSnippet: `// Example: Real-time project sync
-class ProjectSyncService {
-  final SupabaseClient _supabase;
+      "FlowCircle demonstrates the importance of starting with solid technical foundations. The project focuses on clean data architecture and simple user experience before adding complexity. Building for individual users first allows testing core concepts before scaling to team features. The architecture proves that starting simple doesn't mean building poorly—proper database design and authentication setup allow future expansion.",
+    codeSnippet: `// Example: Project creation with Supabase
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+
+export async function createProject(userId: string, projectData: {
+  title: string;
+  description: string;
+}) {
+  const { data, error } = await supabase
+    .from('projects')
+    .insert({
+      user_id: userId,
+      title: projectData.title,
+      description: projectData.description,
+      created_at: new Date().toISOString(),
+    })
+    .select()
+    .single();
   
-  Stream<List<Project>> watchProjects(String userId) {
-    return _supabase
-      .from('projects')
-      .stream(primaryKey: ['id'])
-      .eq('user_id', userId)
-      .map((data) => data.map((json) => Project.fromJson(json)).toList());
-  }
+  if (error) throw error;
+  return data;
 }`,
-    codeLanguage: "dart",
+    codeLanguage: "typescript",
   },
   autoleadcloser: {
     title: "AutoLeadCloser",
     tagline: "AI-Powered Sales Automation System",
-    description: "Enterprise-grade lead qualification and response automation that reduces sales cycle time and increases conversion rates",
+    description: "AI-powered lead qualification and response automation for service businesses. Processes inbound leads automatically and routes qualified prospects to calendar booking.",
     status: "Live",
     statusColor: "green",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
@@ -228,54 +240,42 @@ class ProjectSyncService {
     demo: null, // Internal use
     demoVideo: null, // No public demo video
     pricing: null, // Pricing not specified
+    heroSummary: "AI email qualification system that processes inbound leads automatically. Extracts qualification criteria from natural language and routes qualified leads to calendar booking. Production-ready prototype being tested.",
+    roleDuration: "Role: Full-stack AI Builder\nTimeline: 6 weeks\nTools: Python, Supabase, Claude AI, Gmail API",
     problem:
-      "Service businesses experience 40-60% lead response time delays, resulting in lost opportunities and reduced conversion rates. Manual qualification processes require 2-4 hours per lead, creating operational bottlenecks and inconsistent lead handling that directly impacts revenue.",
+      "• Service businesses receive leads via email but lack automated response systems\n• Manual qualification requires reading emails, assessing fit, and deciding next steps\n• Inconsistent response times and qualification criteria impact conversion\n• After-hours leads wait until business opens for response",
     solution:
-      "AutoLeadCloser is a production AI system that automates lead qualification and response workflows. The system processes inbound emails in real-time, extracts qualification criteria (budget, timeline, decision authority), maintains full conversation context, and automatically books qualified leads. Response time reduced from hours to under 2 minutes. Qualification cycle shortened from days to hours.",
-    overview:
-      "AutoLeadCloser is an AI-powered sales automation platform that processes lead inquiries, qualifies prospects through intelligent conversation, and routes qualified leads to booking. The system operates 24/7, maintains conversation memory across email threads, and integrates with existing CRM and calendar systems. Implementation reduces manual sales development work by 80% and increases lead response rates by 3-5x.",
-    whyItMatters:
-      "Faster lead response directly correlates with higher conversion rates. AutoLeadCloser delivers immediate responses, consistent qualification criteria, and 24/7 coverage—eliminating the revenue loss from delayed or missed lead responses. The system processes leads at a fraction of the cost of manual SDR teams while maintaining enterprise-grade reliability and data security.",
+      "The system processes inbound lead emails automatically. It extracts qualification criteria—budget, timeline, decision authority—from natural language using AI. The system maintains full conversation context across email threads, allowing it to ask follow-up questions and provide relevant information. When a lead meets qualification criteria, the system automatically books a meeting. The system processes leads automatically, handling them regardless of business hours.",
     features: [
       {
         icon: Clock,
-        title: "Sub-2-Minute Response Time",
-        description: "Automated email responses delivered within 2 minutes of lead inquiry, compared to 2-24 hour manual response times",
-      },
-      {
-        icon: BarChart3,
-        title: "Automated Lead Qualification",
-        description: "AI extracts budget, timeline, decision authority, and project scope without manual review",
-      },
-      {
-        icon: DollarSign,
-        title: "Revenue Impact",
-        description: "3-5x increase in lead conversion rates through faster response and consistent qualification",
+        title: "Automated Email Responses",
+        description: "System processes leads and generates responses automatically",
       },
       {
         icon: Bot,
-        title: "24/7 Automated Assistant",
-        description: "Continuous lead processing without manual intervention, handling inquiries outside business hours",
+        title: "Qualification Criteria Extraction",
+        description: "AI extracts budget, timeline, decision authority, and project scope from email content",
+      },
+      {
+        icon: MessageSquare,
+        title: "Conversation Context Preservation",
+        description: "Full email thread history maintained for context-aware responses",
+      },
+      {
+        icon: Calendar,
+        title: "Automatic Meeting Booking",
+        description: "Qualified leads are automatically routed to calendar booking",
       },
       {
         icon: Workflow,
-        title: "AI-Powered Workflows",
-        description: "Intelligent conversation routing, context preservation, and automatic booking for qualified leads",
-      },
-      {
-        icon: Zap,
-        title: "Faster Sales Cycles",
-        description: "Reduces qualification time from days to hours, shortening overall sales cycle by 40-60%",
-      },
-      {
-        icon: Database,
-        title: "Lower Operational Cost",
-        description: "Eliminates 80% of manual SDR work, reducing cost per qualified lead by 70-85%",
+        title: "Automated Lead Processing",
+        description: "Handles leads automatically outside business hours",
       },
       {
         icon: Shield,
-        title: "Enterprise Security",
-        description: "Multi-tenant architecture with data isolation, GDPR compliance, and secure email handling",
+        title: "Multi-tenant Data Isolation",
+        description: "Each client's lead data and conversations are isolated",
       },
     ],
     techStack: [
@@ -286,21 +286,48 @@ class ProjectSyncService {
     ],
     howItWorks: null, // No step-by-step flow provided
     architecture:
-      "AutoLeadCloser uses a Python-based backend that processes incoming emails via webhooks. Claude AI handles natural language understanding and generates context-aware responses. Supabase stores conversation history, lead data, and qualification signals. The Gmail API handles authenticated email sending, ensuring replies come from the client's domain. The system is designed with multi-tenant architecture, keeping data isolated per client while maintaining full conversation context.",
-    metrics: {
-      "Response Time Reduction": "From 2-24 hours to under 2 minutes (99% reduction)",
-      "Conversion Rate Increase": "3-5x improvement in lead-to-meeting conversion",
-      "Cost Per Qualified Lead": "70-85% reduction compared to manual SDR teams",
-      "Sales Cycle Time": "40-60% reduction in qualification-to-booking cycle",
-      "Operational Efficiency": "80% reduction in manual qualification work",
-      "24/7 Coverage": "100% uptime with automated lead processing",
-    },
-    screenshots: [
-      "/images/projects/autoleadcloser-1.jpg",
-      "/images/projects/autoleadcloser-2.jpg",
+      "Back-end: Python webhook handlers processing incoming emails\nAI layer: Claude AI for natural language understanding and response generation\nDatabase: Supabase PostgreSQL storing conversation history, lead data, and qualification signals\nEmail: Gmail API for authenticated email sending from client domain\nAutomations: Webhook-triggered processing pipeline with retry logic",
+    technicalImplementation: [
+      "Webhook handlers process incoming lead emails automatically",
+      "Claude AI extracts budget, timeline, and decision authority from email content",
+      "Full email thread history maintained for context-aware responses",
+      "Qualified leads routed to calendar booking automatically",
+      "Error handling and retry mechanisms ensure reliability",
+      "Gmail API used for authenticated email sending from client domain"
     ],
+    metrics: [
+      {
+        title: "99% Faster Response Time",
+        subtext: "Automated qualification reduces response time from ~24h to under 2 minutes.",
+        icon: Zap,
+      },
+      {
+        title: "3–5× Conversion Lift",
+        subtext: "Instant AI follow-ups eliminate SDR delays and increase conversions.",
+        icon: BarChart3,
+      },
+      {
+        title: "70–85% Lower CPL",
+        subtext: "Automation reduces reliance on manual SDR teams and drives down CPL.",
+        icon: DollarSign,
+      },
+      {
+        title: "40–60% Shorter Cycles",
+        subtext: "Automated sequences, scoring, and routing accelerate qualification cycles.",
+        icon: Workflow,
+      },
+      {
+        title: "80–90% Less Manual Work",
+        subtext: "Automated intake, Q&A, follow-ups, and booking eliminate manual tasks.",
+        icon: Bot,
+      },
+    ],
+    screenshots: [
+      "[Insert screenshots here]",
+    ],
+    cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:
-      "AutoLeadCloser demonstrates that AI automation delivers measurable ROI when focused on high-value, repetitive processes. The system proves that response time reduction directly impacts conversion rates, and that automated qualification maintains consistency while scaling beyond manual capacity. The architecture prioritizes reliability and data security, ensuring enterprise-grade deployment standards.",
+      "AutoLeadCloser demonstrates that AI can extract structured qualification data from natural language email content. The system shows how webhook-based processing enables automated lead handling without manual intervention. The architecture prioritizes reliability through error handling and retry logic, designed to prevent data loss during processing failures.",
     codeSnippet: `# Example: AI-powered email response generation
 from anthropic import Anthropic
 import supabase
@@ -340,60 +367,48 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
   },
   "portfolio-site": {
     title: "AI Product Builder Portfolio",
-    description: "A modern, production-ready portfolio website showcasing AI-powered products and automation solutions",
+    description: "Modern portfolio website showcasing AI-powered products and automation solutions. Demonstrates technical capabilities through interactive features and automated workflows.",
     status: "Live",
     statusColor: "green",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Claude AI", "GitHub API", "Vercel"],
     github: "https://github.com/ar10000/portfolio_site",
     demo: "https://andrewryan.dev",
+    heroSummary: "Portfolio website that demonstrates technical capabilities through its own implementation. Serves as both a showcase and working example of Next.js 14, AI integration, and automated content management.",
+    roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Tailwind CSS, Claude AI, GitHub API, Vercel",
     problem:
-      "Developers and product builders need a way to showcase their technical capabilities, AI integration skills, and production-ready applications. Traditional portfolios are static, don't demonstrate automation capabilities, and fail to showcase the full range of technical skills including AI integration, API development, and modern web architecture.",
+      "• Traditional portfolios are static and don't demonstrate automation capabilities\n• No way to showcase AI integration skills and modern web architecture\n• Static sites fail to showcase the full range of technical skills including API development\n• Need for dynamic content management without direct code changes",
     solution:
-      "I built a modern, production-ready portfolio that demonstrates technical expertise through its own implementation. It features an AI-powered chatbot, automated GitHub project syncing, dynamic content management, and showcases modern web development best practices. The portfolio itself serves as proof of capability in full-stack development, AI integration, and automated workflows.",
-    overview:
-      "This portfolio is a modern, production-ready website built with Next.js 14, TypeScript, and Tailwind CSS. It features an interactive AI chatbot powered by Claude AI, automated project synchronization from GitHub repositories, dynamic project pages with detailed case studies, and an admin dashboard for content management. The site demonstrates expertise in modern web development, AI integration, serverless architecture, and automated workflows—all while serving as a showcase of technical capabilities.",
-    whyItMatters:
-      "This portfolio demonstrates technical proficiency through its own implementation. It showcases the ability to build modern web applications, integrate AI capabilities, create automated workflows, and deploy production-ready systems. It serves as both a portfolio and a working example of the quality and capabilities I bring to every project.",
+      "The portfolio functions as a working demonstration of technical capabilities. Visitors can interact with an AI chatbot that answers questions about services and projects. Project information syncs automatically from GitHub repositories, keeping the portfolio current without manual updates. Content management happens through an admin interface, allowing updates without code changes. The portfolio itself proves the technical skills it describes.",
     features: [
       {
         icon: Bot,
-        title: "Interactive AI Chatbot",
-        description: "Voice-enabled assistant powered by Claude AI for engaging visitor interaction",
+        title: "AI Visitor Assistant",
+        description: "Chatbot answers questions about services, projects, and capabilities using Claude AI",
       },
       {
         icon: Workflow,
-        title: "Automated Project Management",
-        description: "Projects sync automatically from GitHub repositories, keeping the portfolio up-to-date",
+        title: "GitHub Repository Sync",
+        description: "Projects automatically sync from GitHub repositories, keeping portfolio current",
       },
       {
         icon: Sparkles,
-        title: "Smart Content Extraction",
-        description: "README files are parsed for project descriptions, automating content generation",
+        title: "README Content Extraction",
+        description: "Project descriptions extracted from repository README files",
       },
       {
         icon: Server,
-        title: "Dynamic Content Management",
-        description: "Admin dashboard allows content management without direct code changes",
+        title: "Admin Content Management",
+        description: "Dashboard interface for updating content without code changes",
       },
       {
         icon: Smartphone,
-        title: "Modern UI/UX",
-        description: "Smooth animations, dark mode, and responsive design for an exceptional user experience",
+        title: "Responsive Design",
+        description: "Optimized layouts for desktop, tablet, and mobile devices",
       },
       {
         icon: Zap,
         title: "Performance Optimization",
-        description: "Optimized loading, lazy loading, and caching for fast performance",
-      },
-      {
-        icon: Shield,
-        title: "SEO & Accessibility",
-        description: "Implemented SEO best practices and WCAG AA compliance for broad reach and usability",
-      },
-      {
-        icon: Globe,
-        title: "Production Deployment",
-        description: "Deployed, optimized, and maintained on Vercel with CI/CD automation",
+        description: "Image optimization, code splitting, and caching for optimized load times",
       },
     ],
     techStack: [
@@ -405,13 +420,20 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
       { name: "Vercel", category: "Infrastructure", icon: Globe },
     ],
     architecture:
-      "The architecture leverages Next.js 14 with App Router for server-side rendering and API routes for backend logic. TypeScript ensures type safety throughout the codebase. Integrations include Anthropic Claude AI for chatbot functionality, GitHub API for repository data synchronization, and Resend for email services. Deployment is handled via Vercel with GitHub Actions for CI/CD automation, utilizing a serverless architecture for scalability and cost-effectiveness. Performance is optimized through image optimization, code splitting, lazy loading, and caching strategies.",
+      "Front-end: Next.js 14 App Router with TypeScript and Tailwind CSS\nBack-end: Serverless API routes for backend logic and data processing\nAI layer: Claude AI API for chatbot functionality and content processing\nAutomations: GitHub API integration for repository data synchronization\nInfrastructure: Vercel serverless deployment with GitHub Actions CI/CD",
+    technicalImplementation: [
+      "GitHub API integration syncs project data automatically from repositories",
+      "AI chatbot built with Claude AI API for visitor interaction and questions",
+      "Serverless API routes handle backend logic and data processing",
+      "Next.js App Router provides optimized routing and data fetching",
+      "Vercel deployment with GitHub Actions for automated CI/CD",
+      "Content management through admin interface without code changes"
+    ],
     metrics: null,
     screenshots: [
-      "/images/projects/portfolio-site-1.jpg",
-      "/images/projects/portfolio-site-2.jpg",
-      "/images/projects/portfolio-site-3.jpg",
+      "[Insert screenshots here]",
     ],
+    cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:
       "Building this portfolio reinforced the importance of demonstrating capabilities through the product itself. I learned that a portfolio should be more than a showcase—it should be a working example of your skills. The integration of AI, automation, and modern web technologies in the portfolio itself proves technical proficiency better than any description could. Performance optimization and SEO were critical for ensuring the portfolio reaches its intended audience effectively.",
     codeSnippet: `// Example: AI chatbot integration with Claude
@@ -487,333 +509,30 @@ function SidebarNavigation({ sections }: { sections: string[] }) {
     <nav className="sticky top-24 space-y-2">
       <div className="text-sm font-bold text-gray-400 mb-4 uppercase tracking-wider">Quick Links</div>
       <div className="space-y-1">
-        {sections.map((section) => {
-          const sectionId = section.toLowerCase().replace(/\s+/g, "-");
-          const isActive = activeSection === sectionId;
-          return (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
+      {sections.map((section) => {
+        const sectionId = section.toLowerCase().replace(/\s+/g, "-");
+        const isActive = activeSection === sectionId;
+        return (
+          <button
+            key={section}
+            onClick={() => scrollToSection(section)}
               className={`w-full text-left px-4 py-2.5 rounded-lg transition-all duration-300 flex items-center gap-2 group ${
-                isActive
+              isActive
                   ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-400 border-l-2 border-purple-500 shadow-lg shadow-purple-500/10"
                   : "text-gray-400 hover:text-white hover:bg-gray-800/50 hover:border-l-2 hover:border-gray-700"
-              }`}
-            >
-              <ChevronRight
+            }`}
+          >
+            <ChevronRight
                 className={`h-4 w-4 transition-all duration-300 ${
                   isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-50 group-hover:translate-x-0"
-                }`}
-              />
+              }`}
+            />
               <span className="text-sm font-medium">{section}</span>
-            </button>
-          );
-        })}
+          </button>
+        );
+      })}
       </div>
     </nav>
-  );
-}
-
-// Code block component with syntax highlighting
-function CodeBlock({ code, language }: { code: string; language: string }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
-  // Simple syntax highlighting for common patterns
-  const highlightCode = (code: string, lang: string) => {
-    // Basic syntax highlighting patterns
-    const patterns = {
-      comment: /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm,
-      string: /(['"`])(?:(?=(\\?))\2.)*?\1/g,
-      keyword: /\b(const|let|var|function|class|interface|type|import|export|from|return|if|else|for|while|async|await|try|catch|finally|throw|new|this|super|extends|implements|static|public|private|protected|readonly|abstract|enum|namespace|module|declare|default|case|switch|break|continue|do|while|true|false|null|undefined|void|any|string|number|boolean|object|Array|Promise|Future|await|async|final|int|double|String|List|Map|Set|void|bool|var|val|def|return|if|else|elif|for|while|try|except|finally|raise|class|def|import|from|as|with|lambda|yield|pass|break|continue|global|nonlocal|assert|del|print|exec|eval|is|in|not|and|or|None|True|False)\b/g,
-      number: /\b\d+\.?\d*\b/g,
-      function: /\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*(?=\()/g,
-    };
-
-    let highlighted = code;
-    
-    // Apply highlighting based on language
-    if (lang === 'typescript' || lang === 'javascript' || lang === 'ts' || lang === 'js') {
-      // Comments
-      highlighted = highlighted.replace(patterns.comment, '<span class="text-gray-500">$1</span>');
-      // Strings
-      highlighted = highlighted.replace(patterns.string, '<span class="text-green-400">$&</span>');
-      // Keywords
-      highlighted = highlighted.replace(patterns.keyword, '<span class="text-purple-400">$&</span>');
-      // Numbers
-      highlighted = highlighted.replace(patterns.number, '<span class="text-blue-400">$&</span>');
-      // Functions
-      highlighted = highlighted.replace(patterns.function, '<span class="text-yellow-400">$1</span>');
-    } else if (lang === 'python' || lang === 'py') {
-      // Comments
-      highlighted = highlighted.replace(patterns.comment, '<span class="text-gray-500">$1</span>');
-      // Strings
-      highlighted = highlighted.replace(patterns.string, '<span class="text-green-400">$&</span>');
-      // Keywords
-      highlighted = highlighted.replace(patterns.keyword, '<span class="text-purple-400">$&</span>');
-      // Numbers
-      highlighted = highlighted.replace(patterns.number, '<span class="text-blue-400">$&</span>');
-    } else if (lang === 'dart') {
-      // Comments
-      highlighted = highlighted.replace(patterns.comment, '<span class="text-gray-500">$1</span>');
-      // Strings
-      highlighted = highlighted.replace(patterns.string, '<span class="text-green-400">$&</span>');
-      // Keywords
-      highlighted = highlighted.replace(patterns.keyword, '<span class="text-purple-400">$&</span>');
-      // Numbers
-      highlighted = highlighted.replace(patterns.number, '<span class="text-blue-400">$&</span>');
-    }
-
-    return highlighted;
-  };
-
-  return (
-    <div className="relative rounded-xl overflow-hidden border-2 border-gray-800 bg-gray-950 shadow-2xl">
-      {/* Header */}
-      <div className="flex items-center justify-between px-5 py-3 bg-gray-900/80 border-b border-gray-800 backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-          <div className="w-3 h-3 rounded-full bg-green-500/80" />
-          <span className="ml-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">{language}</span>
-        </div>
-        <button
-          onClick={handleCopy}
-          className="px-3 py-1.5 text-xs font-semibold text-gray-400 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 flex items-center gap-2"
-        >
-          {copied ? (
-            <>
-              <CheckCircle className="h-3.5 w-3.5 text-green-400" />
-              Copied
-            </>
-          ) : (
-            <>
-              <Send className="h-3.5 w-3.5" />
-              Copy
-            </>
-          )}
-        </button>
-      </div>
-      
-      {/* Code Content */}
-      <div className="relative">
-        <pre className="p-6 overflow-x-auto bg-gray-950 text-sm leading-relaxed">
-          <code 
-            className="font-mono text-gray-200"
-            dangerouslySetInnerHTML={{ __html: highlightCode(code, language) }}
-          />
-      </pre>
-        
-        {/* Gradient fade on right edge for long code */}
-        <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-l from-gray-950 to-transparent pointer-events-none" />
-      </div>
-    </div>
-  );
-}
-
-// Technical Deep Dive collapsible component
-function TechnicalDeepDive({ 
-  title, 
-  content, 
-  isAutoLeadCloser = false 
-}: { 
-  title: string; 
-  content: string; 
-  isAutoLeadCloser?: boolean;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="mt-6 border border-gray-800 rounded-lg overflow-hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors ${
-          isOpen
-            ? isAutoLeadCloser
-              ? "bg-blue-500/10 border-b border-blue-500/30"
-              : "bg-purple-500/10 border-b border-purple-500/30"
-            : "bg-gray-900/50 hover:bg-gray-900/70"
-        }`}
-      >
-        <span className="font-bold text-white">{title}</span>
-        {isOpen ? (
-          <ChevronUp className="h-5 w-5 text-gray-400" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-gray-400" />
-        )}
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="p-6 prose prose-invert max-w-none text-gray-300 leading-relaxed whitespace-pre-line">
-              {content}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-// Engineering Notes component - combines code snippets and technical deep dive
-function EngineeringNotes({ 
-  codeSnippet, 
-  codeLanguage, 
-  technicalDeepDive,
-  isAutoLeadCloser = false 
-}: { 
-  codeSnippet?: string;
-  codeLanguage?: string;
-  technicalDeepDive?: string;
-  isAutoLeadCloser?: boolean;
-}) {
-  // Parse technicalDeepDive into separate topics
-  const parseTechnicalTopics = (text: string) => {
-    const topics: { title: string; content: string; icon: any }[] = [];
-    const lines = text.split('\n\n');
-    
-    lines.forEach((line) => {
-      if (line.includes(':')) {
-        const [title, ...contentParts] = line.split(':');
-        const content = contentParts.join(':').trim();
-        if (content) {
-          let icon = Code2;
-          const titleLower = title.toLowerCase();
-          if (titleLower.includes('architecture') || titleLower.includes('structure')) {
-            icon = Server;
-          } else if (titleLower.includes('sync') || titleLower.includes('real-time') || titleLower.includes('realtime')) {
-            icon = Zap;
-          } else if (titleLower.includes('ai') || titleLower.includes('pipeline') || titleLower.includes('ml')) {
-            icon = Bot;
-          } else if (titleLower.includes('performance') || titleLower.includes('optimization') || titleLower.includes('speed')) {
-            icon = BarChart3;
-          } else if (titleLower.includes('reliability') || titleLower.includes('backup') || titleLower.includes('monitoring') || titleLower.includes('sla')) {
-            icon = Shield;
-          } else if (titleLower.includes('database') || titleLower.includes('data')) {
-            icon = Database;
-          } else if (titleLower.includes('security') || titleLower.includes('auth')) {
-            icon = Shield;
-          } else if (titleLower.includes('deployment') || titleLower.includes('infrastructure')) {
-            icon = Globe;
-          }
-          topics.push({ title: title.trim(), content, icon });
-        }
-      }
-    });
-    
-    return topics.length > 0 ? topics : [{ title: 'Technical Overview', content: text, icon: Code2 }];
-  };
-
-  const technicalTopics = technicalDeepDive ? parseTechnicalTopics(technicalDeepDive) : [];
-  const [openTopics, setOpenTopics] = useState<Record<number, boolean>>({});
-
-  const toggleTopic = (index: number) => {
-    setOpenTopics(prev => ({ ...prev, [index]: !prev[index] }));
-  };
-
-  if (!codeSnippet && !technicalDeepDive) {
-    return null;
-  }
-
-  return (
-    <div className="rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm overflow-hidden shadow-xl">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 pointer-events-none" />
-      
-      <div className="relative p-8 space-y-6">
-        {/* Technical Topics Accordions */}
-        {technicalTopics.length > 0 && (
-          <div className="space-y-4">
-            {technicalTopics.map((topic, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="border border-gray-800 rounded-lg overflow-hidden bg-gray-900/30 hover:border-purple-500/30 transition-all duration-300"
-              >
-      <button
-                  onClick={() => toggleTopic(index)}
-                  className={`w-full px-6 py-4 flex items-center justify-between text-left transition-all duration-300 ${
-                    openTopics[index]
-            ? isAutoLeadCloser
-              ? "bg-blue-500/10 border-b border-blue-500/30"
-              : "bg-purple-500/10 border-b border-purple-500/30"
-                      : "bg-transparent hover:bg-gray-900/50"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`relative flex-shrink-0 ${
-                      openTopics[index] ? 'text-purple-400' : 'text-gray-400'
-                    } transition-colors duration-300`}>
-                      <div className={`absolute inset-0 bg-purple-500/20 rounded-lg blur-sm ${
-                        openTopics[index] ? 'opacity-100' : 'opacity-0'
-                      } transition-opacity duration-300`} />
-                      <topic.icon className="h-5 w-5 relative" />
-                    </div>
-                    <span className="font-bold text-white text-lg">{topic.title}</span>
-                  </div>
-                  {openTopics[index] ? (
-          <ChevronUp className="h-5 w-5 text-gray-400" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-gray-400" />
-        )}
-      </button>
-      <AnimatePresence>
-                  {openTopics[index] && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-                      <div className="px-6 py-4 text-gray-300 leading-[1.6] font-normal">
-                        {topic.content}
-                  </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-                </div>
-              )}
-
-        {/* Code Snippet */}
-              {codeSnippet && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: technicalTopics.length * 0.1 }}
-            className="mt-6"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-sm" />
-                <Terminal className="h-6 w-6 text-purple-400 relative" />
-                </div>
-              <h4 className="text-xl font-bold text-white">Code Example</h4>
-            </div>
-            <CodeBlock code={codeSnippet} language={codeLanguage || "typescript"} />
-          </motion.div>
-        )}
-      </div>
-    </div>
   );
 }
 
@@ -831,24 +550,29 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
 
   const imageCaptions = captions || defaultCaptions;
 
-  if (!images || images.length === 0) {
-    return (
+  // Filter out placeholder strings
+  const validImages = images?.filter((img: string) => 
+    img && !img.includes("[Insert screenshots here]") && !img.includes("placeholder")
+  ) || [];
+
+  if (!validImages || validImages.length === 0) {
+  return (
       <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-800 bg-gray-900 flex items-center justify-center shadow-2xl">
         <div className="text-center">
           <ImageIcon className="h-16 w-16 text-gray-700 mx-auto mb-2" />
-          <p className="text-gray-500 text-sm">No screenshots available</p>
-        </div>
+          <p className="text-gray-500 text-sm">[Insert screenshots here]</p>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
     <div className="space-y-8">
       {/* View Mode Toggle */}
-      {images.length > 1 && (
+      {validImages.length > 1 && (
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 bg-gray-900/50 rounded-lg p-1 border border-gray-800">
-            <button
+      <button
               onClick={() => setViewMode('carousel')}
               className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 ${
                 viewMode === 'carousel'
@@ -857,8 +581,8 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
               }`}
             >
               Carousel
-            </button>
-            <button
+      </button>
+      <button
               onClick={() => setViewMode('grid')}
               className={`px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 ${
                 viewMode === 'grid'
@@ -867,16 +591,16 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
               }`}
             >
               Grid
-            </button>
-          </div>
-        </div>
-      )}
+      </button>
+                  </div>
+                </div>
+              )}
 
       {/* Carousel View */}
       {viewMode === 'carousel' && (
         <div className="space-y-6">
           {/* Main large image with caption */}
-          <motion.div
+            <motion.div
             key={selectedImage}
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -885,7 +609,7 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
           >
             <div className="relative aspect-[16/10] rounded-xl overflow-hidden border-2 border-gray-800 bg-gray-900 shadow-2xl shadow-purple-500/10 group-hover:border-purple-500/50 transition-all duration-300">
               <Image
-          src={images[selectedImage]}
+          src={validImages[selectedImage]}
           alt={`Screenshot ${selectedImage + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
@@ -897,7 +621,7 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
         />
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
+                </div>
             
             {/* Caption */}
             <motion.div
@@ -910,37 +634,37 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
                 {imageCaptions[selectedImage] || `Screenshot ${selectedImage + 1}`}
               </p>
               <div className="mt-2 text-sm text-gray-500">
-                {selectedImage + 1} of {images.length}
-              </div>
-            </motion.div>
+                {selectedImage + 1} of {validImages.length}
+            </div>
+          </motion.div>
           </motion.div>
 
           {/* Navigation arrows and thumbnail strip */}
-      {images.length > 1 && (
+      {validImages.length > 1 && (
             <div className="relative">
               {/* Previous/Next buttons */}
               <div className="absolute inset-y-0 left-0 flex items-center z-10">
                 <button
-                  onClick={() => setSelectedImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
+                  onClick={() => setSelectedImage((prev) => (prev === 0 ? validImages.length - 1 : prev - 1))}
                   className="p-2 rounded-full bg-gray-900/80 border border-gray-800 hover:border-purple-500/50 hover:bg-gray-900 transition-all duration-300 shadow-lg"
                   aria-label="Previous image"
                 >
                   <ArrowLeft className="h-5 w-5 text-gray-300 hover:text-purple-400 transition-colors" />
                 </button>
-              </div>
+        </div>
               <div className="absolute inset-y-0 right-0 flex items-center z-10">
                 <button
-                  onClick={() => setSelectedImage((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
+                  onClick={() => setSelectedImage((prev) => (prev === validImages.length - 1 ? 0 : prev + 1))}
                   className="p-2 rounded-full bg-gray-900/80 border border-gray-800 hover:border-purple-500/50 hover:bg-gray-900 transition-all duration-300 shadow-lg"
                   aria-label="Next image"
                 >
                   <ArrowRight className="h-5 w-5 text-gray-300 hover:text-purple-400 transition-colors" />
                 </button>
-              </div>
+      </div>
 
               {/* Thumbnail strip */}
               <div className="flex gap-3 overflow-x-auto pb-2 px-12 scrollbar-hide">
-          {images.map((image, index) => (
+          {validImages.map((image, index) => (
             <button
               key={index}
               onClick={() => setSelectedImage(index)}
@@ -974,7 +698,7 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
       {/* Grid View */}
       {viewMode === 'grid' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {images.map((image, index) => (
+          {validImages.map((image, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -1156,28 +880,35 @@ function HeroSection({ project }: { project: any }) {
             />
           </div>
         </motion.div>
-      ) : project.screenshots && project.screenshots.length > 0 ? (
+      ) : (() => {
+        // Filter out placeholder strings
+        const validScreenshots = project.screenshots?.filter((img: string) => 
+          img && !img.includes("[Insert screenshots here]") && !img.includes("placeholder")
+        ) || [];
+        
+        return validScreenshots.length > 0 ? (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-8 rounded-xl overflow-hidden border border-gray-800 shadow-2xl"
-        >
-          <div className="relative w-full aspect-[16/9] bg-gray-900">
-            <Image
-              src={project.screenshots[0]}
-              alt={`${project.title} hero screenshot`}
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
+            className="mb-8 rounded-xl overflow-hidden border border-gray-800 shadow-2xl"
+          >
+            <div className="relative w-full aspect-[16/9] bg-gray-900">
+              <Image
+                src={validScreenshots[0]}
+                alt={`${project.title} hero screenshot`}
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
       </motion.div>
-      ) : null}
+        ) : null;
+      })()}
     </section>
   );
 }
@@ -1313,14 +1044,13 @@ export default function ProjectDetailPage({
   const sections = [
     "Overview",
     "Key Features",
-    "Tech Stack",
     ...(project.howItWorks ? ["How It Works"] : []),
     "Architecture",
     ...(project.metrics ? ["Results"] : []),
+          ...(project.technicalImplementation ? ["Technical Implementation"] : []),
     "Screenshots",
     ...(project.pricing ? ["Pricing"] : []),
     "Lessons Learned",
-    ...((project.codeSnippet || project.technicalDeepDive) ? ["Engineering Notes"] : []),
   ];
 
   const StatusBadge = ({ status, color }: { status: string; color: string }) => {
@@ -1366,7 +1096,7 @@ export default function ProjectDetailPage({
           >
             <ArrowLeft className="h-4 w-4 text-purple-400 group-hover:text-purple-300 transition-colors" />
             <span className="text-sm font-semibold text-gray-300 group-hover:text-white transition-colors">
-              Back to Projects
+            Back to Projects
             </span>
           </Link>
         </motion.div>
@@ -1538,70 +1268,112 @@ export default function ProjectDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-3 space-y-24">
-            {/* Overview */}
+            {/* Hero Summary */}
+            {project.heroSummary && (
             <section id="overview" className="scroll-mt-24">
-              {/* Gradient Divider */}
-              <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
-              
+                {/* Gradient Divider */}
+                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
+                
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="space-y-6"
+                >
+                  <p className="text-gray-300 leading-relaxed text-lg">
+                    {project.heroSummary}
+                  </p>
+                </motion.div>
+              </section>
+            )}
+
+            {/* Role & Duration */}
+            {project.roleDuration && (
+              <section className="scroll-mt-24">
+                {/* Gradient Divider */}
+                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
+                
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                  className="space-y-2"
+                >
+                  {project.roleDuration.split('\n').map((line: string, index: number) => (
+                    <p key={index} className="text-gray-300 leading-relaxed">
+                      {line}
+                    </p>
+                  ))}
+                </motion.div>
+              </section>
+            )}
+
+            {/* Client Problem */}
+            {project.problem && (
+              <section className="scroll-mt-24">
+                {/* Gradient Divider */}
+                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
+                
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl font-bold mb-8 flex items-center gap-3"
+                  className="text-4xl font-bold mb-8 flex items-center gap-3"
               >
-                <FileText className="h-8 w-8 text-purple-400" />
-                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                The Story
-                </span>
+                  <FileText className="h-8 w-8 text-purple-400" />
+                  <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
+                    Client Problem
+                  </span>
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="prose prose-invert max-w-none space-y-6"
-              >
-                {project.problem && (
-                  <div className="p-6 rounded-lg border border-red-500/20 bg-red-500/5">
-                    <h3 className="text-xl font-semibold mb-3 text-red-400">
-                      The problem was...
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed text-lg">
-                      {project.problem}
+                  className="space-y-3"
+                >
+                  {project.problem.split('\n').filter((line: string) => line.trim().startsWith('•')).map((line: string, index: number) => (
+                    <p key={index} className="text-gray-300 leading-relaxed">
+                      {line.trim()}
                     </p>
-                  </div>
-                )}
-                
+                  ))}
+              </motion.div>
+            </section>
+            )}
+
+            {/* Solution Overview */}
                 {project.solution && (
-                  <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
-                    <h3 className="text-xl font-semibold mb-3 text-green-400">
-                      The solution...
-                    </h3>
+              <section className="scroll-mt-24">
+                {/* Gradient Divider */}
+                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
+                
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                  className="text-4xl font-bold mb-8 flex items-center gap-3"
+              >
+                  <FileText className="h-8 w-8 text-purple-400" />
+                  <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
+                    Solution Overview
+                  </span>
+              </motion.h2>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
                     <p className="text-gray-300 leading-relaxed text-lg">
                       {project.solution}
                     </p>
-                  </div>
-                )}
-                
-                {project.overview && (
-                  <p className="text-gray-300 leading-relaxed text-lg">
-                    {project.overview}
-                  </p>
-                )}
-                
-                {project.whyItMatters && (
-                  <div className="p-6 rounded-lg border border-purple-500/20 bg-purple-500/5">
-                    <h3 className="text-xl font-semibold mb-2 text-purple-400">
-                      Why it matters
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {project.whyItMatters}
-                    </p>
-                  </div>
-                )}
               </motion.div>
             </section>
+            )}
 
             {/* Key Features */}
             <section id="key-features" className="scroll-mt-24">
@@ -1658,137 +1430,6 @@ export default function ProjectDetailPage({
               </div>
             </section>
 
-            {/* Tech Stack */}
-            <section id="tech-stack" className="scroll-mt-24">
-              {/* Gradient Divider */}
-              <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
-              
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-4xl font-bold mb-12 flex items-center gap-3"
-              >
-                <Code2 className="h-8 w-8 text-purple-400" />
-                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                Tech Stack
-                </span>
-              </motion.h2>
-              
-              {/* Group technologies by category */}
-              {(() => {
-                // Group tech by category
-                const groupedTech: Record<string, any[]> = {};
-                project.techStack.forEach((tech: any) => {
-                  const category = tech.category || "Other";
-                  if (!groupedTech[category]) {
-                    groupedTech[category] = [];
-                  }
-                  groupedTech[category].push(tech);
-                });
-
-                // Category display order and mapping
-                const categoryOrder = ["Framework", "Frontend", "Backend", "Language", "Database", "AI", "AI/ML", "Infrastructure", "Integration", "Styling", "Email", "Other"];
-                const categoryLabels: Record<string, string> = {
-                  "Framework": "Frontend",
-                  "Frontend": "Frontend",
-                  "Backend": "Backend",
-                  "Language": "Backend",
-                  "Database": "Infrastructure",
-                  "AI": "AI/ML",
-                  "AI/ML": "AI/ML",
-                  "Infrastructure": "Infrastructure",
-                  "Integration": "Infrastructure",
-                  "Styling": "Frontend",
-                  "Email": "Backend",
-                  "Other": "Other",
-                };
-
-                // Re-group by display categories
-                const displayGroups: Record<string, any[]> = {
-                  "Frontend": [],
-                  "Backend": [],
-                  "AI/ML": [],
-                  "Infrastructure": [],
-                  "Other": [],
-                };
-
-                Object.entries(groupedTech).forEach(([category, techs]) => {
-                  const displayCategory = categoryLabels[category] || "Other";
-                  if (displayGroups[displayCategory]) {
-                    displayGroups[displayCategory].push(...techs);
-                  } else {
-                    displayGroups["Other"].push(...techs);
-                  }
-                });
-
-                // Filter out empty groups
-                const activeGroups = Object.entries(displayGroups).filter(([_, techs]) => techs.length > 0);
-
-                return (
-                  <div className="space-y-12">
-                    {activeGroups.map(([categoryName, techs], groupIndex) => (
-                  <motion.div
-                        key={categoryName}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-                      >
-                        {/* Category Header */}
-                        <h3 className="text-xl font-bold text-gray-300 mb-6 flex items-center gap-2">
-                          <span className="w-1 h-6 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full" />
-                          {categoryName}
-                        </h3>
-                        
-                        {/* Tech Pills Grid */}
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                          {techs.map((tech: any, index: number) => (
-                            <motion.div
-                              key={`${categoryName}-${index}`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: (groupIndex * 0.1) + (index * 0.05) }}
-                              whileHover={{ scale: 1.05, y: -2 }}
-                              className="group relative"
-                            >
-                              <div className="relative p-4 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer">
-                                {/* Purple glow on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl pointer-events-none rounded-xl -z-10" />
-                                
-                                {/* Icon */}
-                                <div className="flex justify-center mb-3">
-                                  <div className="relative">
-                                    <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                                    <div className="relative">
-                                      <tech.icon className="h-8 w-8 text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.6)] group-hover:drop-shadow-[0_0_12px_rgba(168,85,247,0.8)] transition-all duration-300" />
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                {/* Tech Name */}
-                                <div className="text-center">
-                                  <div className="font-bold text-white text-sm mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                                    {tech.name}
-                                  </div>
-                                  {/* Additional info on hover */}
-                                  <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors duration-300">
-                                    {tech.category}
-                                  </div>
-                                </div>
-                              </div>
-                  </motion.div>
-                ))}
-              </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                );
-              })()}
-            </section>
-
             {/* How It Works */}
             {project.howItWorks && (
               <HowItWorks steps={project.howItWorks} />
@@ -1799,7 +1440,8 @@ export default function ProjectDetailPage({
               // Parse architecture text to extract components
               const parseArchitecture = (text: string) => {
                 const sections: { title: string; content: string; icon: any }[] = [];
-                const lines = text.split('\n\n');
+                // Handle both single line breaks (new format) and double line breaks (old format)
+                const lines = text.includes('\n\n') ? text.split('\n\n') : text.split('\n');
                 
                 lines.forEach((line) => {
                   if (line.includes(':')) {
@@ -1808,21 +1450,23 @@ export default function ProjectDetailPage({
                     if (content) {
                       let icon = Server;
                       const titleLower = title.toLowerCase();
-                      if (titleLower.includes('frontend') || titleLower.includes('ui') || titleLower.includes('flutter')) {
+                      if (titleLower.includes('front-end') || titleLower.includes('frontend') || titleLower.includes('ui') || titleLower.includes('flutter')) {
                         icon = Smartphone;
-                      } else if (titleLower.includes('backend') || titleLower.includes('api') || titleLower.includes('python')) {
+                      } else if (titleLower.includes('back-end') || titleLower.includes('backend') || titleLower.includes('api') || titleLower.includes('python')) {
                         icon = Server;
-                      } else if (titleLower.includes('database') || titleLower.includes('supabase') || titleLower.includes('postgres')) {
+                      } else if (titleLower.includes('database') || titleLower.includes('supabase') || titleLower.includes('postgres') || titleLower.includes('db')) {
                         icon = Database;
                       } else if (titleLower.includes('ai') || titleLower.includes('claude') || titleLower.includes('ml')) {
                         icon = Bot;
+                      } else if (titleLower.includes('automation') || titleLower.includes('make') || titleLower.includes('workflow')) {
+                        icon = Workflow;
                       } else if (titleLower.includes('sync') || titleLower.includes('real-time') || titleLower.includes('realtime')) {
                         icon = Zap;
                       } else if (titleLower.includes('performance') || titleLower.includes('optimization')) {
                         icon = BarChart3;
                       } else if (titleLower.includes('reliability') || titleLower.includes('backup') || titleLower.includes('monitoring')) {
                         icon = Shield;
-                      } else if (titleLower.includes('pipeline') || titleLower.includes('workflow')) {
+                      } else if (titleLower.includes('pipeline')) {
                         icon = Workflow;
                       }
                       sections.push({ title: title.trim(), content, icon });
@@ -1834,327 +1478,194 @@ export default function ProjectDetailPage({
               };
 
               const architectureSections = parseArchitecture(project.architecture);
-              const [activeTab, setActiveTab] = useState(0);
+
+              // Map architecture sections to tech stack items
+              const getArchitectureDescription = (category: string) => {
+                const categoryLower = category.toLowerCase();
+                return architectureSections.find((section: any) => {
+                  const titleLower = section.title.toLowerCase();
+                  if (categoryLower.includes('frontend') || categoryLower.includes('framework') || categoryLower.includes('styling')) {
+                    return titleLower.includes('front') || titleLower.includes('ui') || titleLower.includes('flutter');
+                  } else if (categoryLower.includes('backend') || categoryLower.includes('language') || categoryLower.includes('email')) {
+                    return titleLower.includes('back') || titleLower.includes('api') || titleLower.includes('python');
+                  } else if (categoryLower.includes('infrastructure') || categoryLower.includes('database') || categoryLower.includes('integration')) {
+                    return titleLower.includes('database') || titleLower.includes('infrastructure') || titleLower.includes('supabase') || titleLower.includes('db');
+                  } else if (categoryLower.includes('ai') || categoryLower.includes('ml')) {
+                    return titleLower.includes('ai') || titleLower.includes('claude') || titleLower.includes('ml');
+                  }
+                  return false;
+                });
+              };
+
+              // Group tech stack by display category
+              const categoryMapping: Record<string, string> = {
+                Framework: "Frontend",
+                Frontend: "Frontend",
+                Styling: "Frontend",
+                Backend: "Backend",
+                Language: "Backend",
+                Email: "Backend",
+                Database: "Infrastructure",
+                Infrastructure: "Infrastructure",
+                Integration: "Infrastructure",
+                AI: "AI/ML",
+                "AI/ML": "AI/ML",
+                Other: "Other",
+              };
+
+              const groupedTech: Record<string, any[]> = {
+                Frontend: [],
+                Backend: [],
+                "AI/ML": [],
+                Infrastructure: [],
+                Other: [],
+              };
+
+              project.techStack?.forEach((tech: any) => {
+                const displayCategory = categoryMapping[tech.category] || "Other";
+                if (groupedTech[displayCategory]) {
+                  groupedTech[displayCategory].push(tech);
+                } else {
+                  groupedTech["Other"].push(tech);
+                }
+              });
+
+              const activeCategories = Object.entries(groupedTech).filter(
+                ([_, techs]) => techs.length > 0
+              );
 
               return (
               <section id="architecture" className="scroll-mt-24">
                   {/* Gradient Divider */}
                   <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
                   
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
                     className="text-4xl font-bold mb-12 flex items-center gap-3"
-                >
-                    <Server className="h-8 w-8 text-purple-400" />
+              >
+                    <Code2 className="h-8 w-8 text-purple-400" />
                     <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                  Architecture
+                Tech Stack
                     </span>
-                </motion.h2>
+              </motion.h2>
 
-                  {/* Visual Architecture Diagram - System Components Flow */}
-                  {project.techStack && project.techStack.length > 0 && (
+                  {/* Horizontal Tech Stack Cards */}
+                  {activeCategories.length > 0 && (
+                  <div className="space-y-6">
+                    {activeCategories.map(([category, techs], categoryIndex) => {
+                      const archDescription = getArchitectureDescription(category);
+                      const CategoryIcon = techs[0]?.icon || Server;
+                      
+                      return (
                 <motion.div
+                          key={category}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                      className="mb-12 p-8 rounded-xl border border-gray-800 bg-gray-900/50"
-                    >
-                      <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                        <Workflow className="h-7 w-7 text-purple-400" />
-                        <span>System Architecture</span>
-                      </h3>
-                      
-                      {/* Visual Flow Diagram with connecting lines */}
-                      <div className="relative">
-                        {/* Frontend Layer */}
-                        <div className="mb-8">
-                          <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide">Frontend</h4>
-                          <div className="flex flex-wrap gap-4">
-                            {project.techStack.filter((tech: any) => 
-                              ['Framework', 'Frontend', 'Styling'].includes(tech.category)
-                            ).map((tech: any, index: number) => (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.1, y: -4 }}
-                                className="group relative p-5 rounded-xl border border-gray-800 bg-gray-950/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
-                              >
-                                <div className="flex flex-col items-center gap-3">
-                                  <div className="relative">
-                                    <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                                    <tech.icon className="h-10 w-10 text-purple-400 relative drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
-                                  </div>
-                                  <div className="text-center">
-                                    <div className="font-bold text-white text-sm">{tech.name}</div>
-                                    <div className="text-xs text-gray-400 mt-1">{tech.category}</div>
-                                  </div>
-                                </div>
-                </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Connecting Arrow */}
-                        {(project.techStack.some((tech: any) => ['Backend', 'Language'].includes(tech.category))) && (
-                          <div className="flex justify-center mb-8">
-                            <div className="w-0.5 h-8 bg-gradient-to-b from-purple-500 to-blue-500" />
-                          </div>
-                        )}
-
-                        {/* Backend Layer */}
-                        <div className="mb-8">
-                          <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide">Backend</h4>
-                          <div className="flex flex-wrap gap-4">
-                            {project.techStack.filter((tech: any) => 
-                              ['Backend', 'Language', 'Email'].includes(tech.category)
-                            ).map((tech: any, index: number) => (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.1, y: -4 }}
-                                className="group relative p-5 rounded-xl border border-gray-800 bg-gray-950/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
-                              >
-                                <div className="flex flex-col items-center gap-3">
-                                  <div className="relative">
-                                    <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                                    <tech.icon className="h-10 w-10 text-purple-400 relative drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
-                                  </div>
-                                  <div className="text-center">
-                                    <div className="font-bold text-white text-sm">{tech.name}</div>
-                                    <div className="text-xs text-gray-400 mt-1">{tech.category}</div>
-                                  </div>
-                                </div>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Connecting Arrow */}
-                        {(project.techStack.some((tech: any) => ['Database', 'Infrastructure', 'Integration'].includes(tech.category))) && (
-                          <div className="flex justify-center mb-8">
-                            <div className="w-0.5 h-8 bg-gradient-to-b from-purple-500 to-blue-500" />
-                          </div>
-                        )}
-
-                        {/* Infrastructure Layer */}
-                        <div className="mb-8">
-                          <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide">Infrastructure</h4>
-                          <div className="flex flex-wrap gap-4">
-                            {project.techStack.filter((tech: any) => 
-                              ['Database', 'Infrastructure', 'Integration'].includes(tech.category)
-                            ).map((tech: any, index: number) => (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.1, y: -4 }}
-                                className="group relative p-5 rounded-xl border border-gray-800 bg-gray-950/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
-                              >
-                                <div className="flex flex-col items-center gap-3">
-                                  <div className="relative">
-                                    <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                                    <tech.icon className="h-10 w-10 text-purple-400 relative drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
-                                  </div>
-                                  <div className="text-center">
-                                    <div className="font-bold text-white text-sm">{tech.name}</div>
-                                    <div className="text-xs text-gray-400 mt-1">{tech.category}</div>
-                                  </div>
-                                </div>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* AI/ML Layer */}
-                        {project.techStack.some((tech: any) => ['AI', 'AI/ML'].includes(tech.category)) && (
-                          <>
-                            <div className="flex justify-center mb-8">
-                              <div className="w-0.5 h-8 bg-gradient-to-b from-purple-500 to-blue-500" />
-                            </div>
-                            <div>
-                              <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wide">AI/ML</h4>
-                              <div className="flex flex-wrap gap-4">
-                                {project.techStack.filter((tech: any) => 
-                                  ['AI', 'AI/ML'].includes(tech.category)
-                                ).map((tech: any, index: number) => (
-                                  <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                                    whileHover={{ scale: 1.1, y: -4 }}
-                                    className="group relative p-5 rounded-xl border border-gray-800 bg-gray-950/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
-                                  >
-                                    <div className="flex flex-col items-center gap-3">
-                                      <div className="relative">
-                                        <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-md group-hover:blur-lg transition-all duration-300" />
-                                        <tech.icon className="h-10 w-10 text-purple-400 relative drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
-                                      </div>
-                                      <div className="text-center">
-                                        <div className="font-bold text-white text-sm">{tech.name}</div>
-                                        <div className="text-xs text-gray-400 mt-1">{tech.category}</div>
-                                      </div>
-                                    </div>
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Tabbed Interface for Architecture Details */}
-                  {architectureSections.length > 1 && (
-                    <div className="mb-8 border-b border-gray-800">
-                      <div className="flex flex-wrap gap-2">
-                        {architectureSections.map((section, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setActiveTab(index)}
-                            className={`px-6 py-3 font-semibold text-sm transition-all duration-300 border-b-2 ${
-                              activeTab === index
-                                ? 'border-purple-500 text-purple-400'
-                                : 'border-transparent text-gray-400 hover:text-gray-300'
-                            }`}
-                          >
-                            {section.title}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Architecture Content with Icons */}
-                  <div className="space-y-10">
-                    {architectureSections.map((section, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className={`${architectureSections.length > 1 && activeTab !== index ? 'hidden' : ''}`}
-                      >
-                        {/* Component Card with Icon */}
-                        <div className="p-10 rounded-xl border border-gray-800 bg-gray-900/50 mb-8">
-                          <div className="flex items-start gap-6 mb-8">
+                          transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                          className="p-6 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300"
+                        >
+                          <div className="flex items-start gap-6">
+                            {/* Icon */}
                             <div className="relative flex-shrink-0">
                               <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-xl" />
-                              <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30 shadow-lg shadow-purple-500/20">
-                                <section.icon className="h-8 w-8 text-purple-400 drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
+                              <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30 shadow-lg shadow-purple-500/20">
+                                <CategoryIcon className="h-7 w-7 text-purple-400 drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
                               </div>
                             </div>
-                            <div className="flex-1">
-                              <h3 className="text-2xl font-bold text-white mb-6">{section.title}</h3>
-                              <p className="text-gray-300 leading-[1.6] font-normal text-base">
-                                {section.content}
-                              </p>
+                            
+                            {/* Content */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-4 mb-3 flex-wrap">
+                                <h3 className="text-xl font-bold text-white">{category}</h3>
+                                <div className="flex flex-wrap gap-2">
+                                  {techs.map((tech: any, techIndex: number) => (
+                                    <span
+                                      key={techIndex}
+                                      className="px-3 py-1 rounded-lg bg-gray-800/50 text-gray-300 text-sm font-medium border border-gray-700"
+                                    >
+                                      {tech.name}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                              {archDescription && (
+                                <p className="text-gray-300 leading-[1.6] font-normal text-sm">
+                                  {archDescription.content}
+                                </p>
+                              )}
                             </div>
                           </div>
-                        </div>
-
-                        {/* Code Block for Technical Details */}
-                        {section.content.length > 150 && (
-                          <div className="mt-8 rounded-xl border border-gray-800 bg-gray-950/50 overflow-hidden">
-                            <div className="px-4 py-3 bg-gray-900/50 border-b border-gray-800 flex items-center gap-2">
-                              <Terminal className="h-4 w-4 text-purple-400" />
-                              <span className="text-xs font-semibold text-gray-400">Technical Details</span>
-                            </div>
-                            <pre className="p-6 overflow-x-auto bg-gray-950">
-                              <code className="text-sm text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
-                                {section.content}
-                              </code>
-                            </pre>
-                          </div>
-                        )}
-                      </motion.div>
-                    ))}
+                </motion.div>
+                      );
+                    })}
                   </div>
-                </section>
+            )}
+              </section>
               );
             })()}
 
             {/* Results/Metrics */}
             {project.metrics && (() => {
-              // Helper function to get icon for metric
-              const getMetricIcon = (label: string): any => {
-                const labelLower = label.toLowerCase();
-                if (labelLower.includes('response') || labelLower.includes('time') || labelLower.includes('speed')) {
-                  return Zap;
-                } else if (labelLower.includes('conversion') || labelLower.includes('rate') || labelLower.includes('improvement')) {
-                  return BarChart3;
-                } else if (labelLower.includes('cost') || labelLower.includes('reduction') || labelLower.includes('efficiency')) {
-                  return DollarSign;
-                } else if (labelLower.includes('coverage') || labelLower.includes('uptime') || labelLower.includes('availability')) {
-                  return Shield;
-                } else if (labelLower.includes('cycle') || labelLower.includes('process') || labelLower.includes('workflow')) {
-                  return Workflow;
-                } else if (labelLower.includes('email') || labelLower.includes('classification') || labelLower.includes('routing')) {
-                  return Mail;
-                } else if (labelLower.includes('automated') || labelLower.includes('automation')) {
-                  return Bot;
-                }
-                return BarChart3;
-              };
-
               // Convert metrics to array format for consistent rendering
+              // Support both new format (array with title/subtext/icon) and old format (object)
               const metricsArray = Array.isArray(project.metrics)
                 ? project.metrics
                 : Object.entries(project.metrics).map(([label, value]) => ({
-                    label,
-                    value: value as string,
-                    icon: getMetricIcon(label),
+                    title: label,
+                    subtext: value as string,
+                    icon: BarChart3,
                   }));
+
+              // Check if this is the new format (has title/subtext) for AutoLeadCloser
+              const isNewFormat = metricsArray.length > 0 && metricsArray[0].title && metricsArray[0].subtext;
 
               return (
               <section id="results" className="scroll-mt-24">
                   {/* Gradient Divider */}
                   <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
                   
-                <motion.h2
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                    className="text-4xl font-bold mb-12 flex items-center gap-3"
+                  className="mb-8"
                 >
-                    <BarChart3 className="h-8 w-8 text-purple-400" />
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-4xl font-bold mb-3 flex items-center gap-3"
+                  >
+                    <Sparkles className="h-8 w-8 text-purple-400" />
                     <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                  Results
+                      {isNewFormat ? "Expected Impact (Modeled Benchmarks)" : "Results"}
                     </span>
-                </motion.h2>
+                  </motion.h2>
                   
-                  {/* 3-Column Grid of Large Metric Cards */}
+                </motion.div>
+                  
+                  {/* 3-Column Grid of Large Metric Cards (3 top, 2 below) */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {metricsArray.map((metric: any, index: number) => {
-                      const MetricIcon = metric.icon || getMetricIcon(metric.label);
-                      // Extract number from value if it exists
-                      const numberMatch = (metric.value || metric.label).match(/(\d+(?:\.\d+)?)/);
-                      const displayNumber = numberMatch ? numberMatch[1] : null;
-                      const displayText = metric.value || metric.label;
+                      const MetricIcon = metric.icon || BarChart3;
+                      
+                      // Handle both new format (title/subtext) and old format (label/value)
+                      const title = metric.title || metric.label || '';
+                      const subtext = metric.subtext || metric.value || '';
                       
                       return (
-                      <motion.div
-                        key={index}
+                  <motion.div
+                    key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                           whileHover={{ y: -4, scale: 1.02 }}
                           className="group relative p-8 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20"
                         >
@@ -2171,44 +1682,73 @@ export default function ProjectDetailPage({
                             </div>
                           </div>
                           
-                          {/* Gradient Number or Value */}
-                          <div className="text-center mb-4">
-                            {displayNumber ? (
-                              <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', backgroundSize: '200% 100%' }}>
-                                {displayNumber}
-                                {displayText.includes('%') && '%'}
-                                {displayText.includes('x') && 'x'}
-                              </div>
-                            ) : (
-                              <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                                {displayText}
-                        </div>
-                            )}
-                        </div>
-                          
-                          {/* Metric Label/Title */}
+                          {/* Metric Title */}
                           <h3 className="text-xl font-bold text-white mb-3 text-center group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                            {metric.label || displayText}
+                            {title}
                           </h3>
                           
-                          {/* Brief Description */}
-                          {metric.description && (
-                            <p className="text-gray-300 leading-[1.6] font-normal text-sm text-center">
-                              {metric.description}
-                            </p>
-                          )}
-                          {!metric.description && displayNumber && (
-                            <p className="text-gray-300 leading-[1.6] font-normal text-sm text-center">
-                              {displayText.replace(displayNumber, '').trim() || 'Key performance metric'}
-                            </p>
-                          )}
+                          {/* Subtext Description */}
+                          <p className="text-gray-300 leading-[1.6] font-normal text-sm text-center">
+                            {subtext}
+                          </p>
                         </motion.div>
                       );
                     })}
-                </div>
-              </section>
+              </div>
+              
+              {/* Footnote - only show for new format */}
+              {isNewFormat && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="text-xs text-gray-500 leading-relaxed font-normal mt-8 text-center"
+                  style={{ fontSize: '12px' }}
+                >
+                  Benchmarks are modeled estimates based on industry-standard performance ranges for AI-driven qualification systems. Not client results.
+                </motion.p>
+              )}
+            </section>
               );
             })()}
+
+            {/* Technical Implementation */}
+            {project.technicalImplementation && (
+              <section id="technical-implementation" className="scroll-mt-24">
+                {/* Gradient Divider */}
+                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
+                
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="text-4xl font-bold mb-8 flex items-center gap-3"
+                >
+                  <Code2 className="h-8 w-8 text-purple-400" />
+                  <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
+                    Technical Implementation
+                  </span>
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="p-6 rounded-lg border border-purple-500/20 bg-purple-500/5"
+                >
+                  <ul className="space-y-3">
+                    {project.technicalImplementation.map((item: string, index: number) => (
+                      <li key={index} className="text-gray-300 leading-relaxed flex items-start gap-3">
+                        <span className="text-purple-400 mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </section>
+            )}
 
             {/* Screenshots */}
             {project.screenshots && project.screenshots.length > 0 && (
@@ -2241,6 +1781,35 @@ export default function ProjectDetailPage({
                   />
               </motion.div>
             </section>
+            )}
+
+            {/* Call-to-Action */}
+            {project.cta && (
+              <section className="scroll-mt-24">
+                {/* Gradient Divider */}
+                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="text-center p-8 rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-blue-500/10"
+                >
+                  <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                    {project.cta}
+                  </p>
+                  <Link href="/contact">
+                    <motion.button
+                      whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
+                    >
+                      Book Free Fit Check
+                    </motion.button>
+                  </Link>
+                </motion.div>
+              </section>
             )}
 
             {/* Pricing Teaser */}
@@ -2329,39 +1898,6 @@ export default function ProjectDetailPage({
             </section>
             )}
 
-            {/* Engineering Notes */}
-            {(project.codeSnippet || project.technicalDeepDive) && (
-              <section id="engineering-notes" className="scroll-mt-24">
-                {/* Gradient Divider */}
-                <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
-                
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="text-4xl font-bold mb-8 flex items-center gap-3"
-                >
-                  <Terminal className="h-8 w-8 text-purple-400" />
-                  <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                  Engineering Notes
-                  </span>
-                </motion.h2>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <EngineeringNotes
-                    codeSnippet={project.codeSnippet}
-                    codeLanguage={project.codeLanguage}
-                    technicalDeepDive={project.technicalDeepDive}
-                    isAutoLeadCloser={isAutoLeadCloser}
-                  />
-                </motion.div>
-              </section>
-            )}
           </div>
 
           {/* Sticky Sidebar */}
@@ -2383,10 +1919,10 @@ export default function ProjectDetailPage({
 
           return (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
               className="mt-24 pt-12 border-t border-gray-800"
             >
               <div className="flex flex-col sm:flex-row items-stretch gap-4">
@@ -2399,7 +1935,7 @@ export default function ProjectDetailPage({
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30 group-hover:border-purple-500/50 transition-all duration-300">
                         <ArrowLeft className="h-6 w-6 text-purple-400" />
-                      </div>
+          </div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Previous Project</div>
@@ -2422,8 +1958,8 @@ export default function ProjectDetailPage({
                       <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Next Project</div>
                       <div className="text-lg font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300 truncate">
                         {nextProject.title}
-                      </div>
-                    </div>
+          </div>
+        </div>
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30 group-hover:border-purple-500/50 transition-all duration-300">
                         <ArrowRight className="h-6 w-6 text-purple-400" />

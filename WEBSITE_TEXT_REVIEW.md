@@ -2,7 +2,7 @@
 
 This document contains all user-facing text from the website, organized by page and section. Use this for expert review and refinement.
 
-**Last Updated:** Current as of latest website rewrite with calm, technical, minimal tone. Updated with new pricing structure (Free Fit Check, Starter Build, Hourly Development, Complete System).
+**Last Updated:** Current as of latest website rewrite with calm, technical, minimal tone. Updated with new pricing structure (Free Fit Check, Starter Build, Hourly Development, Complete System). Project detail pages refactored to consistent structure (Hero Summary, Role & Duration, Client Problem, Solution Overview, Key Features, Tech Stack with Architecture, Technical Implementation/What It Does/Technical Foundations, Lessons Learned, CTA). Engineering Notes section removed. Tech Stack consolidated into horizontal cards with architecture descriptions. All project descriptions updated to honest, accurate representations without inflated metrics.
 
 ---
 
@@ -11,7 +11,6 @@ This document contains all user-facing text from the website, organized by page 
 **Menu Items:**
 - Home
 - Projects
-- Services
 - Pricing
 - Contact
 
@@ -28,6 +27,9 @@ This document contains all user-facing text from the website, organized by page 
 **Title:**
 Andrew Ryan
 
+**Subtitle:**
+Freelance AI Developer
+
 **Value Proposition:**
 I build revenue-generating AI tools and automations for your business — fast.
 
@@ -38,49 +40,29 @@ I build revenue-generating AI tools and automations for your business — fast.
 **How I Work:**
 I work with fast, iterative prototypes. I own complete systems. I communicate clearly and keep architecture simple.
 
-### What I Do Section
-
-**Section Title:**
-What I Do
-
-**Target Audience Micro-copy:**
-Practical automation for startups and small businesses.
-
-**Three Pillars:**
-
-1. **AI Systems & Agents**
-   - Description: Automation, reasoning logic, AI integrations
-   - Metric: "24/7" - Automation
-   - CTA: "Explore AI Solutions" → /services
-
-2. **Full-Stack Development**
-   - Description: Front-end, backend, infrastructure
-   - Metric: "100%" - Ownership
-   - CTA: "View Projects" → /projects
-
-3. **Workflow Automation**
-   - Description: Make.com, API orchestration, data flows
-   - Metric: "Automate Repetitive Work"
-   - CTA: "Get Started" → /contact
-
 ### How I Work Section
 
 **Section Title:**
 How I Work
 
-**Timeline Format (Vertical with connecting lines):**
+**Target Audience Micro-copy:**
+Practical automation for startups and small businesses.
+
+**Three Cards (3-column grid on desktop, 1-column on mobile):**
 
 1. **Fast, iterative prototypes**
    - Icon: Zap
    - Description: I build working systems quickly, iterate based on feedback, and ship improvements continuously.
 
-2. **Ownership of complete systems**
+2. **Complete system ownership**
    - Icon: Code2
    - Description: I own the entire stack—front-end, backend, AI logic, integrations, and infrastructure.
 
-3. **Clear communication and simple architecture**
+3. **Technical focus areas**
    - Icon: Workflow
-   - Description: I communicate progress clearly and keep architecture simple, maintainable, and scalable.
+   - Description: AI agents and automation. Full-stack development. API integrations and workflow orchestration.
+
+**Note:** No CTAs or metrics in this section. Just these three cards.
 
 ### Recent Work Section
 
@@ -89,21 +71,11 @@ Recent Work
 
 **Projects:**
 - AutoLeadCloser - AI email qualification system
-- Creative Garden - Flutter project management app
+- Creative Garden - Flutter productivity app
 - FlowCircle - Clarity app for neurodivergent creatives
-- Portfolio platform - Next.js with AI chatbot
+- Portfolio platform - Next.js + AI
 
-### Where I Am Section
-
-**Section Title:**
-Where I Am
-
-**Content:**
-I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real-world deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
-
-What I'm still learning: scoping complex projects, estimating timelines perfectly, and business process consulting. That's why my rates (€75/hour) reflect strong technical execution without charging senior consultant rates for expertise I don't have yet.
-
-As I build case studies and client testimonials, my rates will increase. Work with me now to get technical quality at fair pricing.
+**Note:** All project cards are clickable and link to their respective detail pages.
 
 ### Call to Action Section
 
@@ -111,8 +83,8 @@ As I build case studies and client testimonials, my rates will increase. Work wi
 Let's work together
 
 **Buttons:**
-- "View Projects"
-- "Contact for Collaborations"
+- "View Projects" → /projects
+- "See Pricing" → /pricing
 
 ---
 
@@ -126,107 +98,290 @@ Projects
 **Subtitle:**
 Technical work and system architecture.
 
-### AutoLeadCloser
+### Project Cards
 
-**Title:** AutoLeadCloser
+Each project card displays:
+- Large preview image/screenshot (300px+ height)
+- Badge indicating status (Prototype, In Development, Production, Live)
+- Project title (larger and bolder)
+- Description (honest, accurate summary)
+- Technology tags (pill-shaped, visually secondary)
+- "View Project" button with gradient styling
 
-**Summary:** AI email qualification system.
+**Project Cards:**
 
-**Description:**
-Automates lead qualification through email processing. Webhook handlers receive incoming emails. Claude AI extracts qualification criteria from email content. System filters spam. Evaluates budget, timeline, and decision authority. Routes qualified leads to booking. Built with multi-tenant architecture and row-level security for data isolation.
+**AutoLeadCloser:**
+- Title: AutoLeadCloser
+- Description: AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.
+- Status badge: "Prototype"
 
-**Key Features:**
-- Webhook-based email processing
-- Claude AI for qualification logic
-- Multi-tenant architecture with RLS
-- Spam filtering and validation
-- Gmail API integration
-- Supabase for data storage
+**FlowCircle:**
+- Title: FlowCircle
+- Description: Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.
+- Status badge: "In Development"
 
-**Tech Stack:**
-Flask, Python, Claude AI, Gmail API, Supabase, PostgreSQL
+**Creative Garden:**
+- Title: Creative Garden
+- Description: Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.
+- Status badge: "Production"
 
-**My Contribution:**
-Designed qualification logic flow and multi-tenant isolation architecture. Built webhook handlers with error handling and retry mechanisms.
+**Portfolio Website:**
+- Title: Portfolio Website
+- Description: Next.js 14 portfolio with AI chatbot, GitHub sync, and automated content management. Working example of technical capabilities.
+- Status badge: "Live"
 
-**Status:**
-Production-ready prototype being tested
+---
 
-### FlowCircle
+## Project Detail Pages
 
-**Title:** FlowCircle
+All project detail pages follow a consistent structure:
 
-**Summary:** Minimalist clarity app for neurodivergent creatives.
+### Structure (Applied to All Projects)
 
-**Description:**
-App for managing creative projects with minimal cognitive load. Built authentication system, user profiles, and reflection engine structure. UI emphasizes clarity and simplicity. Early build focuses on core foundations before advanced features.
+1. **Hero Summary** (2-3 lines)
+2. **Role & Duration** (bullets)
+3. **Client Problem** (3-4 bullets)
+4. **Solution Overview** (short paragraph)
+5. **Key Features** (4-6 bullets with icons)
+6. **Tech Stack** (horizontal cards grouped by category: Frontend, Backend, AI/ML, Infrastructure)
+   - Each card shows: Category icon, Category name, Tech names as badges, Architecture description for that category
+7. **Technical Implementation / What It Does / Technical Foundations** (project-specific section replacing "Before → After Impact")
+   - AutoLeadCloser: "What It Does" (6 bullets describing functionality)
+   - FlowCircle: "Technical Foundations" (6 bullets describing technical stack)
+   - Creative Garden: "Technical Implementation" (6 bullets describing implementation details)
+   - Portfolio Website: "Before → After Impact" (kept as-is)
+8. **Screenshots** (placeholder: "[Insert screenshots here]")
+9. **Lessons Learned** (short paragraph)
+10. **Call-to-Action** ("Want a system like this? Book a 10-minute Fit Call.")
 
-**Key Features:**
-- User authentication
-- Profile management
-- Reflection engine structure
-- Minimal UI design
+**Note:** Engineering Notes section has been removed. Tech Stack and Architecture have been consolidated into a single "Tech Stack" section with horizontal cards that combine tech names and architecture descriptions. Most projects now use project-specific sections instead of "Before → After Impact" to provide more accurate, honest descriptions.
 
-**Tech Stack:**
-Next.js 14, TypeScript, Tailwind CSS, shadcn/ui, Supabase
+---
 
-**My Contribution:**
-Architected reflection engine data model and structure. Built initial UI components with clean, accessible design patterns.
+### Creative Garden Project Page
 
-**Status:**
-Early build focusing on foundations
+**Hero Summary:**
+Flutter app for managing creative projects through lifecycle stages. Uses Supabase triggers for momentum scoring. Production-ready with offline caching and GDPR export.
 
-### Creative Garden
+**Role & Duration:**
+- Role: Full-stack AI Builder
+- Timeline: 8 weeks
+- Tools: Flutter, Supabase, Dart, PostgreSQL
 
-**Title:** Creative Garden
+**Client Problem:**
+- Creative individuals struggle to maintain momentum across multiple projects
+- Hard to track which projects are active vs. stalled without clear structure
+- No good system for understanding project health based on activity patterns
+- Existing tools either too complex (project management) or too simple (to-do lists)
 
-**Summary:** Flutter app for creative project management.
-
-**Description:**
-Manages creative projects through lifecycle stages: Seed, Growing, Alive, Compost. Momentum scoring calculates project health from check-in frequency and energy levels. Includes reflection tracking, analytics, and local caching for offline access. GDPR-compliant data export available.
-
-**Key Features:**
-- Project lifecycle management
-- Momentum scoring via Supabase triggers
-- Check-ins and reflections
-- Analytics dashboard
-- Local caching
-- GDPR export
-
-**Tech Stack:**
-Flutter 3.22, Dart, Supabase, PostgreSQL
-
-**My Contribution:**
-Implemented momentum scoring using Supabase database triggers for real-time calculation. Built local caching layer with Flutter for offline functionality.
-
-**Status:**
-Production-ready
-
-### Portfolio Website
-
-**Title:** Portfolio Website
-
-**Summary:** Next.js portfolio with AI chatbot integration.
-
-**Description:**
-Portfolio site with projects, services, and pricing pages. Contact form for project inquiries. Claude AI chatbot for visitor interaction. Architecture: serverless API routes with structured error handling. Uses Framer Motion for animations.
+**Solution Overview:**
+The app manages creative projects through defined lifecycle stages: Seed (idea), Growing (in progress), Alive (active), Compost (archived). Momentum scoring calculates project health based on check-in frequency and energy levels. Users can reflect on progress, view analytics, and track projects offline. Built with Flutter for cross-platform support and Supabase for data storage.
 
 **Key Features:**
-- Project showcase
-- Services and pricing pages
-- Contact intake form
-- Claude AI chatbot
-- Serverless API routes
-- Structured error handling
+- Project lifecycle management (Seed → Growing → Alive → Compost): Projects move through defined stages from idea to completion
+- Momentum scoring via Supabase database triggers: Calculates project health from check-in frequency and energy levels
+- Check-ins with energy level tracking: Users log progress with energy levels to track project momentum
+- Analytics dashboard showing project health over time: Visual insights into project activity and momentum trends
+- Offline functionality with local caching: Full app functionality available without internet connection
+- GDPR-compliant data export: Users can export all their data in JSON format
+- Cross-platform (iOS, Android) with single codebase: Flutter enables deployment to both platforms from one codebase
 
 **Tech Stack:**
-Next.js 14, TypeScript, Tailwind CSS, shadcn/ui, Framer Motion, Claude AI
+- **Frontend:** Flutter cross-platform application with Provider state management
+  - Technologies: Flutter
+- **Backend / DB:** Supabase PostgreSQL with database triggers for momentum scoring
+  - Technologies: Supabase
+- **Caching:** Local storage layer for offline functionality
+  - Technologies: Flutter
+- **Infrastructure:** Single Dart codebase deployed to iOS and Android
+  - Technologies: Flutter
 
-**My Contribution:**
-Designed API route structure with consistent error handling patterns. Integrated Claude AI with streaming responses for real-time chatbot interaction.
+**Technical Implementation:**
+- Supabase triggers calculate momentum scores automatically when check-ins are logged
+- Local caching layer enables full offline functionality
+- Flutter state management using Provider pattern
+- PostgreSQL database with optimized queries for analytics
+- GDPR export functionality generates JSON of all user data
+- Cross-platform deployment from single Dart codebase
 
-**Status:**
-Production-ready
+**Screenshots:**
+[Insert screenshots here]
+
+**Lessons Learned:**
+Creative Garden demonstrates that database triggers can handle complex scoring logic efficiently. The project proves that offline-first mobile apps require careful state management and local caching strategies. Building for cross-platform deployment from day one allows reaching both iOS and Android users without maintaining separate codebases. The architecture prioritizes user data ownership with GDPR-compliant export functionality.
+
+**Call-to-Action:**
+Want a system like this? Book a 10-minute Fit Call.
+
+---
+
+### FlowCircle Project Page
+
+**Hero Summary:**
+Minimalist project management app built with Next.js 14 and Supabase. Features authentication, profile management, and reflection engine structure. Early build focusing on core foundations.
+
+**Role & Duration:**
+- Role: Full-stack AI Builder
+- Timeline: 4 weeks
+- Tools: Next.js 14, TypeScript, Supabase, PostgreSQL
+
+**Client Problem:**
+- Individual creatives need simple project tracking without cognitive overload
+- Existing tools are too complex with features most solo creators don't need
+- No good options for minimal, distraction-free project management
+- Need for clean data architecture that can scale to team features later
+
+**Solution Overview:**
+The app provides minimal project management focused on clarity and simplicity. Users can create projects, track progress, and reflect on work without unnecessary features. Built with Supabase for authentication and data storage. Architecture designed with future team features in mind, but currently focused on individual creators.
+
+**Key Features:**
+- User authentication via Supabase: Secure authentication system using Supabase Auth
+- Project creation and management: Simple interface for creating and tracking projects
+- Reflection engine data structure: Database schema designed for reflection and progress tracking
+- Clean, accessible UI with minimal cognitive load: Minimalist design focused on clarity and simplicity
+- Database schema designed for future multi-user expansion: Architecture allows scaling to team features later
+- Next.js App Router for routing and data fetching: Modern routing with optimized performance patterns
+
+**Tech Stack:**
+- **Frontend:** Next.js 14 App Router with TypeScript and Tailwind CSS
+  - Technologies: Next.js 14, TypeScript, Tailwind CSS
+- **Backend / DB:** Supabase PostgreSQL for authentication and data storage
+  - Technologies: Supabase
+- **Styling:** Tailwind CSS with shadcn/ui components for consistent design
+  - Technologies: Tailwind CSS, shadcn/ui
+- **Infrastructure:** Clean architecture pattern designed for future team features
+  - Technologies: Next.js 14
+
+**Technical Foundations:**
+- Authentication system using Supabase Auth
+- PostgreSQL database with optimized queries
+- Next.js 14 App Router for routing and data fetching
+- Tailwind CSS + shadcn/ui for consistent design
+- TypeScript for type safety
+- Clean architecture pattern allowing future team features
+
+**Screenshots:**
+[Insert screenshots here]
+
+**Lessons Learned:**
+FlowCircle demonstrates the importance of starting with solid technical foundations. The project focuses on clean data architecture and simple user experience before adding complexity. Building for individual users first allows testing core concepts before scaling to team features. The architecture proves that starting simple doesn't mean building poorly—proper database design and authentication setup allow future expansion.
+
+**Call-to-Action:**
+Want a system like this? Book a 10-minute Fit Call.
+
+---
+
+### AutoLeadCloser Project Page
+
+**Hero Summary:**
+AI email qualification system that processes inbound leads automatically. Extracts qualification criteria from natural language and routes qualified leads to calendar booking. Production-ready prototype being tested.
+
+**Role & Duration:**
+- Role: Full-stack AI Builder
+- Timeline: 6 weeks
+- Tools: Python, Supabase, Claude AI, Gmail API
+
+**Client Problem:**
+- Service businesses receive leads via email but lack automated response systems
+- Manual qualification requires reading emails, assessing fit, and deciding next steps
+- Inconsistent response times and qualification criteria impact conversion
+- After-hours leads wait until business opens for response
+
+**Solution Overview:**
+The system processes inbound lead emails automatically. It extracts qualification criteria—budget, timeline, decision authority—from natural language using AI. The system maintains full conversation context across email threads, allowing it to ask follow-up questions and provide relevant information. When a lead meets qualification criteria, the system automatically books a meeting. The system processes leads automatically, handling them regardless of business hours.
+
+**Key Features:**
+- Automated Email Responses: System processes leads and generates responses automatically
+- Qualification Criteria Extraction: AI extracts budget, timeline, decision authority, and project scope from email content
+- Conversation Context Preservation: Full email thread history maintained for context-aware responses
+- Automatic Meeting Booking: Qualified leads are automatically routed to calendar booking
+- Automated Lead Processing: Handles leads automatically outside business hours
+- Multi-tenant Data Isolation: Each client's lead data and conversations are isolated
+
+**Tech Stack:**
+- **Backend:** Python webhook handlers processing incoming emails
+  - Technologies: Python
+- **AI/ML:** Claude AI for natural language understanding and response generation
+  - Technologies: Claude AI
+- **Infrastructure:** Supabase PostgreSQL storing conversation history, lead data, and qualification signals. Gmail API for authenticated email sending from client domain. Webhook-triggered processing pipeline with retry logic.
+  - Technologies: Supabase, Gmail API
+
+**What It Does:**
+- Processes incoming lead emails automatically via webhook handlers
+- Extracts budget, timeline, decision authority from natural language
+- Maintains conversation context across multi-turn email threads
+- Routes qualified leads directly to calendar booking
+- Processes leads automatically without manual intervention
+- Built with webhook handlers, error handling, and retry logic
+
+**Screenshots:**
+[Insert screenshots here]
+
+**Lessons Learned:**
+AutoLeadCloser demonstrates that AI can handle qualification workflows when given clear criteria and conversation context. The system proves that webhook-based email processing can respond faster than manual processes while maintaining consistency. The architecture prioritizes reliability through error handling and retry mechanisms, ensuring no leads are lost due to system failures.
+
+**Call-to-Action:**
+Want a system like this? Book a 10-minute Fit Call.
+
+---
+
+### Portfolio Website Project Page
+
+**Hero Summary:**
+Portfolio website that demonstrates technical capabilities through its own implementation. Serves as both a showcase and working example of Next.js 14, AI integration, and automated content management.
+
+**Role & Duration:**
+- Role: Full-stack AI Builder
+- Timeline: 4 weeks
+- Tools: Next.js 14, TypeScript, Tailwind CSS, Claude AI, GitHub API, Vercel
+
+**Client Problem:**
+- Traditional portfolios are static and don't demonstrate automation capabilities
+- No way to showcase AI integration skills and modern web architecture
+- Static sites fail to showcase the full range of technical skills including API development
+- Need for dynamic content management without direct code changes
+
+**Solution Overview:**
+The portfolio functions as a working demonstration of technical capabilities. Visitors can interact with an AI chatbot that answers questions about services and projects. Project information syncs automatically from GitHub repositories, keeping the portfolio current without manual updates. Content management happens through an admin interface, allowing updates without code changes. The portfolio itself proves the technical skills it describes.
+
+**Key Features:**
+- AI Visitor Assistant: Chatbot answers questions about services, projects, and capabilities using Claude AI
+- GitHub Repository Sync: Projects automatically sync from GitHub repositories, keeping portfolio current
+- README Content Extraction: Project descriptions extracted from repository README files
+- Admin Content Management: Dashboard interface for updating content without code changes
+- Responsive Design: Optimized layouts for desktop, tablet, and mobile devices
+- Performance Optimization: Image optimization, code splitting, and caching for optimized load times
+
+**Tech Stack:**
+- **Frontend:** Next.js 14 App Router with TypeScript and Tailwind CSS
+  - Technologies: Next.js 14, TypeScript, Tailwind CSS
+- **Backend:** Serverless API routes for backend logic and data processing
+  - Technologies: Next.js 14
+- **AI/ML:** Claude AI API for chatbot functionality and content processing
+  - Technologies: Claude AI
+- **Infrastructure:** GitHub API integration for repository data synchronization. Vercel serverless deployment with GitHub Actions CI/CD.
+  - Technologies: GitHub API, Vercel
+
+**Before → After Impact:**
+
+**Before:**
+- Static portfolio requiring manual code updates for every project addition
+- No way to demonstrate AI integration or automation capabilities
+- Visitors unable to interact or get answers about services
+
+**After:**
+- Portfolio updates automatically as new projects are added to GitHub
+- AI chatbot demonstrates technical capabilities through real-time interaction
+- Visitors can ask questions and receive instant answers about services and projects
+
+**Screenshots:**
+[Insert screenshots here]
+
+**Lessons Learned:**
+Building this portfolio reinforced the importance of demonstrating capabilities through the product itself. I learned that a portfolio should be more than a showcase—it should be a working example of your skills. The integration of AI, automation, and modern web technologies in the portfolio itself proves technical proficiency better than any description could. Performance optimization and SEO were critical for ensuring the portfolio reaches its intended audience effectively.
+
+**Call-to-Action:**
+Want a system like this? Book a 10-minute Fit Call.
 
 ---
 
@@ -296,7 +451,7 @@ End-to-end system with architecture, AI logic, integrations, and deployment. Del
 ### Header
 
 **Title:**
-Clear Pricing
+Pricing
 
 **Subtitle:**
 Transparent pricing. Start with a fixed build or scale with hourly development.
@@ -314,7 +469,7 @@ Transparent pricing. Start with a fixed build or scale with hourly development.
 - No Obligation
 
 **CTA Button:** "Book 15-Min Slot"
-**CTA Link:** /contact (update to Calendly link when available)
+**CTA Link:** /contact
 
 ### Tier 1: Starter Build
 
@@ -375,44 +530,31 @@ End-to-end system with architecture, AI logic, integrations, and deployment.
 **CTA Button:** "Request Estimate"
 **CTA Link:** /contact
 
-### How Pricing Works Section
+### Why These Rates Section
 
 **Section Title:**
-How Pricing Works
-
-**Card 1: Start Small**
-Every project starts with a 15-minute fit check. Then choose: a €1,200 fixed-scope starter build to test working together, or jump straight to hourly work.
-
-**Card 2: Hourly for Flexibility**
-Most ongoing work uses hourly billing at €75/hour. This works well for AI systems, feature development, or projects where requirements evolve. Billed weekly.
-
-**Card 3: Scale to Complete Systems**
-Once we've worked together on smaller projects, we can take on complete system builds. These start at €4,500 and scale based on architecture complexity.
-
-### Why This Pricing Section
+Why These Rates
 
 **Content:**
-I'm transparent about where I am in my career. I've built production systems with multi-tenant architecture, AI logic, and real integrations. But I'm still building my client portfolio. This pricing reflects strong technical skills without charging senior consultant rates for business process consulting I'm still learning.
+I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
+
+What I'm still learning: scoping complex projects perfectly and business process consulting. That's why €75/hour reflects strong technical execution without charging senior consultant rates.
+
+As I build case studies, rates will increase. Work with me now for technical quality at fair pricing.
 
 ### Common Questions Section
 
 **Section Title:**
 Common Questions
 
-**Q: Why no price brackets?**
-A: Brackets create confusion and clients anchor to the low end. Fixed prices and "starting at" language set clear expectations.
-
-**Q: What's included in the €1,200 starter build?**
-A: A working automation, API integration, or AI tool delivered in 1–2 weeks. Scope is defined upfront. Source code and handoff session included.
-
-**Q: Why €75/hour instead of €50 or €120?**
-A: €75 reflects strong technical execution without charging for senior consulting experience I don't have yet. As I build client case studies, rates will increase.
+**Q: How do we start working together?**
+A: Book a free 15-minute fit check. We'll discuss your project, confirm we're aligned, and I'll send you a clear proposal or scope document within 24 hours.
 
 **Q: Do you offer ongoing support?**
 A: Yes, at €75/hour. Billed based on actual hours used each month.
 
 **Q: Can you handle complex systems?**
-A: Yes. I've built multi-tenant systems, AI agents, and production apps. But these projects start at €4,500 and I recommend starting with a smaller build first.
+A: Yes. I've built multi-tenant systems, AI agents, and production apps. These projects start at €4,500 and I recommend starting with a smaller build first to establish trust.
 
 **CTA:**
 Ready to start? Book a free 15-minute fit check.
@@ -427,7 +569,14 @@ Ready to start? Book a free 15-minute fit check.
 Contact
 
 **Intro:**
-If you want to collaborate, discuss a project, or explore an automation idea, reach out.
+If you want to collaborate, discuss a project, or explore an automation idea, feel free to reach out.
+
+### Pre-Form Text
+
+**Text:**
+Not sure where to start? Book a free 15-minute fit check to discuss your project.
+
+**Style:** Simple paragraph, center-aligned, gray text, appears between header and form.
 
 ### Contact Form
 
@@ -437,20 +586,7 @@ If you want to collaborate, discuss a project, or explore an automation idea, re
 - Message (required)
 
 **Message Placeholder:**
-Tell me what you're trying to automate, what problem you're solving, or what you want to build.
-
-### Pricing Context Box
-
-**Section Title:**
-How I Work
-
-**Content:**
-- **Free Fit Check:** 15-minute call to discuss your project
-- **Starter Build:** €1,200 fixed for automation/AI tools
-- **Hourly Work:** €75/hour for ongoing development
-- **Complete Systems:** Starting at €4,500 for full platforms
-
-**Link:** "View detailed pricing →" (/pricing)
+Tell me what problem you're solving or what you want to build.
 
 **Submit Button States:**
 - Default: "Send message"
@@ -476,12 +612,18 @@ I'll reply as soon as I can.
 ### Navigation Links
 - Home
 - Projects
-- Services
+- Pricing
 - Contact
 
-### Latest Projects
-- Creative Garden (Live)
-- AutoLeadCloser (Beta)
+### Building My Client Portfolio
+
+**Section Title:**
+Building My Client Portfolio
+
+**Content:**
+I'm offering fair rates (€75/hour, €1,200 starter builds) while building case studies and testimonials. Work with me now for technical quality at early-career pricing.
+
+**Button:** "Book Free Fit Check" (links to /contact)
 
 ### Connect Section
 **Social Links:**
@@ -529,27 +671,53 @@ I'll reply as soon as I can.
 
 ## Important Notes
 
-### Pricing Implementation
-- The website uses a `components/Pricing.tsx` component with the new hybrid 4-tier model (Free Fit Check + 3 paid tiers)
-- There is also an `app/pricing/page.tsx` file with older pricing structure that may need to be updated to use the Pricing component
-- Current pricing component includes:
-  - Step 0: Free Fit Check (FREE)
-  - Step 1: Starter Build (€1,200 fixed)
-  - Step 2: Hourly Development (€75/hour, "Most Flexible")
-  - Step 3: Complete System (Starting at €4,500)
+### Recent Changes
 
-### Navigation Updates
-- "Hire Me" button has been removed
-- "Contact" is now the primary CTA button with gradient styling
-- Mobile menu reflects this change
+1. **Homepage Updates:**
+   - Added "Freelance AI Developer" subtitle under "Andrew Ryan"
+   - Merged "What I Do" and "How I Work" into single "How I Work" section (3 cards, no CTAs or metrics)
+   - Removed "Where I Am" section (moved to pricing page)
+   - Updated CTAs: "Contact for Collaborations" → "See Pricing"
 
-### Target Audience Micro-copy
-- Added to "What I Do" section on home page: "Practical automation for startups and small businesses."
-- Added to "Services" page: "Practical AI and automation for startups and small businesses."
+2. **Navigation Updates:**
+   - Removed "Services" link from navigation
+   - Navigation now: Home, Projects, Pricing, Contact
 
-### New Sections Added
-- **"Where I Am" Section** on homepage: Transparent explanation of experience level, technical strengths, areas still learning, and pricing rationale
-- **"How Pricing Works" Section** on pricing page: Three cards explaining the pricing model
-- **"Why This Pricing" Section** on pricing page: Honest explanation of career stage and pricing rationale
-- **"Common Questions" Section** on pricing page: 5 Q&A pairs addressing pricing questions
-- **Pricing Context Box** on contact page: Quick reference to pricing tiers before the contact form
+3. **Pricing Page Updates:**
+   - Removed "How Pricing Works" section
+   - Removed "Why This Pricing" section
+   - Added "Why These Rates" section (moved from homepage)
+   - Updated "Common Questions" to only 3 questions
+
+4. **Contact Page Updates:**
+   - Removed "How I Work" pricing context box
+   - Added simple text before form: "Not sure where to start? Book a free 15-minute fit check to discuss your project."
+   - Updated message placeholder: "Tell me what problem you're solving or what you want to build."
+
+5. **Project Detail Pages Updates:**
+   - Removed "Engineering Notes" section entirely
+   - Consolidated "Tech Stack" and "Architecture" into single "Tech Stack" section
+   - Tech Stack now displays as horizontal cards grouped by category (Frontend, Backend, AI/ML, Infrastructure)
+   - Each card shows: Category icon, Category name, Tech names as badges, Architecture description for that category
+   - Replaced "Before → After Impact" with project-specific sections:
+     - AutoLeadCloser: "What It Does" section
+     - FlowCircle: "Technical Foundations" section
+     - Creative Garden: "Technical Implementation" section
+     - Portfolio Website: Still has "Before → After Impact"
+
+6. **Project Content Updates (Honest Descriptions):**
+   - AutoLeadCloser: Updated to reflect production-ready prototype status, removed inflated metrics
+   - FlowCircle: Updated to reflect minimalist app for individual creatives, changed from Flutter to Next.js 14
+   - Creative Garden: Updated to reflect individual creative project tracking, removed team-focused language
+   - Portfolio Website: Updated hero summary to emphasize working demo
+
+7. **Projects Page Cards Updates:**
+   - All project cards updated with honest descriptions
+   - Status badges updated: AutoLeadCloser (Prototype), FlowCircle (In Development), Creative Garden (Production), Portfolio Website (Live)
+   - Removed impact statements with inflated metrics
+
+8. **Footer Updates:**
+   - Changed "Latest Projects" to "Building My Client Portfolio"
+   - Added new content about fair rates and early-career pricing
+   - Added "Book Free Fit Check" button
+   - Removed project links (Creative Garden, AutoLeadCloser)

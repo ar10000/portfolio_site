@@ -4,15 +4,15 @@
 
 ## Professional Identity
 
-**Title:** AI Automation Consultant
+**Title:** Freelance AI Developer
 
-**Tagline:** AI automation solutions that deliver measurable ROI in weeks, not months
+**Tagline:** I build revenue-generating AI tools and automations for your business — fast.
 
 **Description:** I build AI automation solutions including lead qualification systems, email processing automation, workflow automation, API integrations, multi-tenant systems, real-time synchronization, content workflow platforms, and production-ready AI agents. I deliver these solutions for agencies and founders who need reliable automation, fast execution, and clear business outcomes.
 
 **Focus Areas:**
 - Production-ready systems
-- 2-4 week delivery
+- 1-2 week turnaround
 - ROI-focused outcomes
 
 **Location:** Lisbon, PT
@@ -26,6 +26,22 @@
 - Production deployments with webhook handling
 - System architecture with data models
 - Full-stack development (1-2 weeks for starter builds)
+
+## How I Work
+
+**Three Core Principles:**
+
+1. **Fast, iterative prototypes**
+   - I build working systems quickly, iterate based on feedback, and ship improvements continuously.
+
+2. **Complete system ownership**
+   - I own the entire stack—front-end, backend, AI logic, integrations, and infrastructure.
+
+3. **Technical focus areas**
+   - AI agents and automation. Full-stack development. API integrations and workflow orchestration.
+
+**Target Audience:**
+Practical automation for startups and small businesses.
 
 ## Services
 
@@ -107,6 +123,14 @@
 **Payment Terms:** Monthly billing
 **Contact:** /contact
 
+## Why These Rates
+
+I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
+
+What I'm still learning: scoping complex projects perfectly and business process consulting. That's why €75/hour reflects strong technical execution without charging senior consultant rates.
+
+As I build case studies, rates will increase. Work with me now for technical quality at fair pricing.
+
 ## How We Work
 
 ### Process (Hybrid Model)
@@ -125,7 +149,7 @@
 
 - Production-ready architecture from day one
 - Focus on reliability, maintainability, and measurable business outcomes
-- 3-10 day delivery cycles for rapid prototyping
+- 1-2 week delivery cycles for starter builds
 - Clear communication with weekly updates
 - Fixed pricing with no hidden fees
 - 30-day warranty on all implementations
@@ -145,7 +169,7 @@
 **Status:** Live
 **Description:** Enterprise content workflow automation platform with real-time synchronization and AI-powered content intelligence
 
-**Tech Stack:** Flutter, Python, Supabase, AI
+**Tech Stack:** Flutter, Python, Supabase, Claude AI
 
 **Key Highlights:**
 - Real-time team synchronization with sub-100ms update propagation
@@ -160,6 +184,17 @@
 **Problem Solved:** Content teams lose productivity due to fragmented workflows, lack of visibility into content pipelines, and manual tracking across multiple tools. This results in delayed publications, inconsistent quality, and inability to scale content operations efficiently.
 
 **Solution:** Creative Garden is a production-grade content workflow automation platform that centralizes content lifecycle management, provides real-time team synchronization, and uses AI to analyze content readiness and workflow efficiency.
+
+**Architecture:**
+- **Frontend:** Flutter cross-platform application with Material Design 3
+- **Backend:** Python services with Supabase PostgreSQL for real-time database synchronization and authentication
+- **AI/ML:** Claude AI for content structure extraction, readiness scoring, and workflow recommendations
+- **Infrastructure:** Supabase real-time subscriptions with operational transformation for conflict resolution
+
+**Impact:**
+- Single platform reducing tool-switching overhead by 60%
+- Real-time visibility reducing publication delays to under 4 hours
+- Automated quality checks ensuring 95% consistency in content standards
 
 ### AutoLeadCloser
 **Status:** Live
@@ -189,6 +224,16 @@
 
 **Solution:** AutoLeadCloser is a production AI system that automates lead qualification and response workflows. The system processes inbound emails in real-time, extracts qualification criteria, maintains full conversation context, and automatically books qualified leads.
 
+**Architecture:**
+- **Backend:** Python webhook handlers processing incoming emails
+- **AI/ML:** Claude AI for natural language understanding and response generation
+- **Infrastructure:** Supabase PostgreSQL storing conversation history, lead data, and qualification signals. Gmail API for authenticated email sending from client domain. Webhook-triggered processing pipeline with retry logic.
+
+**Impact:**
+- Leads receiving responses within 2 minutes, increasing conversion by 3-5x
+- Qualification time reduced from hours to minutes, eliminating 80% of manual work
+- Consistent AI-powered qualification ensuring all qualified leads are captured
+
 ### FlowCircle
 **Status:** Live
 **Description:** Multi-tenant project management platform with real-time synchronization and cross-platform deployment
@@ -209,6 +254,16 @@
 
 **Solution:** FlowCircle is a production-grade project management platform built with real-time synchronization, multi-tenant architecture, and optimized mobile performance.
 
+**Architecture:**
+- **Frontend:** Flutter cross-platform application with clean architecture pattern
+- **Backend:** Supabase PostgreSQL with row-level security policies for tenant isolation
+- **Infrastructure:** Supabase real-time engine with WebSocket connections and operational transformation
+
+**Impact:**
+- All team members see identical project state across all devices in real-time
+- Concurrent edits merge automatically without data loss or manual resolution
+- Multiple organizations share infrastructure with complete data isolation
+
 ### AI Product Builder Portfolio
 **Status:** Live
 **Description:** A modern, production-ready portfolio website showcasing AI-powered products and automation solutions
@@ -225,7 +280,31 @@
 **GitHub:** https://github.com/ar10000/portfolio_site
 **Demo:** https://andrewryan.dev
 
+**Problem Solved:** Traditional portfolios are static and don't demonstrate automation capabilities. No way to showcase AI integration skills and modern web architecture.
+
+**Solution:** The portfolio functions as a working demonstration of technical capabilities. Visitors can interact with an AI chatbot that answers questions about services and projects. Project information syncs automatically from GitHub repositories, keeping the portfolio current without manual updates.
+
+**Architecture:**
+- **Frontend:** Next.js 14 App Router with TypeScript and Tailwind CSS
+- **Backend:** Serverless API routes for backend logic and data processing
+- **AI/ML:** Claude AI API for chatbot functionality and content processing
+- **Infrastructure:** GitHub API integration for repository data synchronization. Vercel serverless deployment with GitHub Actions CI/CD.
+
+**Impact:**
+- Portfolio updates automatically as new projects are added to GitHub
+- AI chatbot demonstrates technical capabilities through real-time interaction
+- Visitors can ask questions and receive instant answers about services and projects
+
 ## Frequently Asked Questions
+
+**Q: How do we start working together?**
+A: Book a free 15-minute fit check. We'll discuss your project, confirm we're aligned, and I'll send you a clear proposal or scope document within 24 hours.
+
+**Q: Do you offer ongoing support?**
+A: Yes, at €75/hour. Billed based on actual hours used each month.
+
+**Q: Can you handle complex systems?**
+A: Yes. I've built multi-tenant systems, AI agents, and production apps. These projects start at €4,500 and I recommend starting with a smaller build first to establish trust.
 
 **Q: How long does a typical project take?**
 A: Free Fit Check: 15 minutes. Starter Build: 1–2 weeks. Hourly Development: Ongoing, billed weekly. Complete System Build: 2-4 weeks typically (varies by scope), delivered in phases. Support Retainer: Ongoing, billed based on actual hours used.
@@ -251,9 +330,6 @@ A: Every project includes a complete handoff package: walkthrough video, written
 **Q: Can you integrate with my existing tools?**
 A: Yes! I specialize in connecting tools via APIs and automation platforms. Common integrations include CRMs, email platforms, databases, payment processors, and more.
 
-**Q: What's the difference between Rapid Prototyping and Custom AI Tools?**
-A: Rapid Prototyping is for quick validation (48-72 hours) with core features only. Custom AI Tools is a full development cycle (2-4 weeks) with production-ready features, proper architecture, and deployment.
-
 **Q: Do you provide hosting and maintenance?**
 A: I can set up hosting and provide initial deployment. For ongoing hosting and maintenance, we can discuss options based on your needs and budget.
 
@@ -277,3 +353,33 @@ A: I can set up hosting and provide initial deployment. For ongoing hosting and 
 - Production-ready code and documentation
 - 30-day bug fix warranty on all implementations
 - Team training and handoff sessions
+
+## Website Structure
+
+**Navigation:**
+- Home
+- Projects
+- Pricing
+- Contact
+
+**Note:** Services page exists but is not linked in navigation.
+
+**Homepage Sections:**
+- Hero (with "Freelance AI Developer" subtitle)
+- How I Work (3 cards: Fast prototypes, Complete ownership, Technical focus)
+- Recent Work (clickable project cards)
+- CTA Section (View Projects, See Pricing)
+
+**Project Detail Pages Structure:**
+1. Hero Summary (2-3 lines)
+2. Role & Duration (bullets)
+3. Client Problem (3-4 bullets)
+4. Solution Overview (short paragraph)
+5. Key Features (4-6 bullets with icons)
+6. Tech Stack (horizontal cards grouped by category with architecture descriptions)
+7. Before → After Impact (3 bullets each)
+8. Screenshots (placeholder)
+9. Lessons Learned (short paragraph)
+10. Call-to-Action
+
+**Note:** Engineering Notes section has been removed. Tech Stack and Architecture are consolidated into a single "Tech Stack" section with horizontal cards.

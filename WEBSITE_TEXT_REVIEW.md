@@ -2,7 +2,7 @@
 
 This document contains all user-facing text from the website, organized by page and section. Use this for expert review and refinement.
 
-**Last Updated:** Current as of latest website rewrite with calm, technical, minimal tone. Updated with new pricing structure (Free Fit Check, Starter Build, Hourly Development, Complete System). Project detail pages refactored to consistent structure (Hero Summary, Role & Duration, Client Problem, Solution Overview, Key Features, Tech Stack with Architecture, Technical Implementation/What It Does/Technical Foundations, Lessons Learned, CTA). Engineering Notes section removed. Tech Stack consolidated into horizontal cards with architecture descriptions. All project descriptions updated to honest, accurate representations without inflated metrics.
+**Last Updated:** Current as of latest website rewrite with calm, technical, minimal tone. Updated with new pricing structure (Free Fit Check, Starter Build, Hourly Development, Complete System). Project detail pages standardized to consistent structure (Hero Summary, Role & Duration, Client Problem, Solution Overview, Key Features, Tech Stack with Architecture, Technical Implementation section for all projects, Expected Impact section for AutoLeadCloser, Lessons Learned, CTA). Engineering Notes section removed. Tech Stack consolidated into horizontal cards with architecture descriptions. All projects now use standardized "Technical Implementation" section. AutoLeadCloser includes "Expected Impact (Modeled Benchmarks)" with 5 metric cards. All project descriptions updated to honest, accurate representations without inflated metrics.
 
 ---
 
@@ -145,16 +145,13 @@ All project detail pages follow a consistent structure:
 5. **Key Features** (4-6 bullets with icons)
 6. **Tech Stack** (horizontal cards grouped by category: Frontend, Backend, AI/ML, Infrastructure)
    - Each card shows: Category icon, Category name, Tech names as badges, Architecture description for that category
-7. **Technical Implementation / What It Does / Technical Foundations** (project-specific section replacing "Before → After Impact")
-   - AutoLeadCloser: "What It Does" (6 bullets describing functionality)
-   - FlowCircle: "Technical Foundations" (6 bullets describing technical stack)
-   - Creative Garden: "Technical Implementation" (6 bullets describing implementation details)
-   - Portfolio Website: "Before → After Impact" (kept as-is)
+7. **Technical Implementation** (standardized section for all projects - 6 bullets describing technical implementation details)
+8. **Expected Impact (Modeled Benchmarks)** (AutoLeadCloser only - 5 metric cards with modeled estimates)
 8. **Screenshots** (placeholder: "[Insert screenshots here]")
 9. **Lessons Learned** (short paragraph)
 10. **Call-to-Action** ("Want a system like this? Book a 10-minute Fit Call.")
 
-**Note:** Engineering Notes section has been removed. Tech Stack and Architecture have been consolidated into a single "Tech Stack" section with horizontal cards that combine tech names and architecture descriptions. Most projects now use project-specific sections instead of "Before → After Impact" to provide more accurate, honest descriptions.
+**Note:** Engineering Notes section has been removed. Tech Stack and Architecture have been consolidated into a single "Tech Stack" section with horizontal cards that combine tech names and architecture descriptions. All projects now use the standardized "Technical Implementation" section (6 bullets) for consistency. AutoLeadCloser includes an additional "Expected Impact (Modeled Benchmarks)" section with 5 metric cards showing modeled estimates.
 
 ---
 
@@ -252,7 +249,7 @@ The app provides minimal project management focused on clarity and simplicity. U
 - **Infrastructure:** Clean architecture pattern designed for future team features
   - Technologies: Next.js 14
 
-**Technical Foundations:**
+**Technical Implementation:**
 - Authentication system using Supabase Auth
 - PostgreSQL database with optimized queries
 - Next.js 14 App Router for routing and data fetching
@@ -306,13 +303,32 @@ The system processes inbound lead emails automatically. It extracts qualificatio
 - **Infrastructure:** Supabase PostgreSQL storing conversation history, lead data, and qualification signals. Gmail API for authenticated email sending from client domain. Webhook-triggered processing pipeline with retry logic.
   - Technologies: Supabase, Gmail API
 
-**What It Does:**
-- Processes incoming lead emails automatically via webhook handlers
-- Extracts budget, timeline, decision authority from natural language
-- Maintains conversation context across multi-turn email threads
-- Routes qualified leads directly to calendar booking
-- Processes leads automatically without manual intervention
-- Built with webhook handlers, error handling, and retry logic
+**Technical Implementation:**
+- Webhook handlers process incoming lead emails automatically
+- Claude AI extracts budget, timeline, and decision authority from email content
+- Full email thread history maintained for context-aware responses
+- Qualified leads routed to calendar booking automatically
+- Error handling and retry mechanisms ensure reliability
+- Gmail API used for authenticated email sending from client domain
+
+**Expected Impact (Modeled Benchmarks):**
+
+*Note: These are modeled estimates based on industry-standard performance ranges for AI-driven qualification systems. Not client results.*
+
+1. **99% Faster Response Time**
+   - Automated qualification reduces response time from ~24h to under 2 minutes.
+
+2. **3–5× Conversion Lift**
+   - Instant AI follow-ups eliminate SDR delays and increase conversions.
+
+3. **70–85% Lower CPL**
+   - Automation reduces reliance on manual SDR teams and drives down CPL.
+
+4. **40–60% Shorter Cycles**
+   - Automated sequences, scoring, and routing accelerate qualification cycles.
+
+5. **80–90% Less Manual Work**
+   - Automated intake, Q&A, follow-ups, and booking eliminate manual tasks.
 
 **Screenshots:**
 [Insert screenshots here]
@@ -362,17 +378,13 @@ The portfolio functions as a working demonstration of technical capabilities. Vi
 - **Infrastructure:** GitHub API integration for repository data synchronization. Vercel serverless deployment with GitHub Actions CI/CD.
   - Technologies: GitHub API, Vercel
 
-**Before → After Impact:**
-
-**Before:**
-- Static portfolio requiring manual code updates for every project addition
-- No way to demonstrate AI integration or automation capabilities
-- Visitors unable to interact or get answers about services
-
-**After:**
-- Portfolio updates automatically as new projects are added to GitHub
-- AI chatbot demonstrates technical capabilities through real-time interaction
-- Visitors can ask questions and receive instant answers about services and projects
+**Technical Implementation:**
+- GitHub API integration syncs project data automatically from repositories
+- AI chatbot built with Claude AI API for visitor interaction and questions
+- Serverless API routes handle backend logic and data processing
+- Next.js App Router provides optimized routing and data fetching
+- Vercel deployment with GitHub Actions for automated CI/CD
+- Content management through admin interface without code changes
 
 **Screenshots:**
 [Insert screenshots here]
@@ -699,11 +711,10 @@ I'm offering fair rates (€75/hour, €1,200 starter builds) while building cas
    - Consolidated "Tech Stack" and "Architecture" into single "Tech Stack" section
    - Tech Stack now displays as horizontal cards grouped by category (Frontend, Backend, AI/ML, Infrastructure)
    - Each card shows: Category icon, Category name, Tech names as badges, Architecture description for that category
-   - Replaced "Before → After Impact" with project-specific sections:
-     - AutoLeadCloser: "What It Does" section
-     - FlowCircle: "Technical Foundations" section
-     - Creative Garden: "Technical Implementation" section
-     - Portfolio Website: Still has "Before → After Impact"
+   - Standardized all projects to use "Technical Implementation" section (6 bullets)
+   - AutoLeadCloser: Added "Expected Impact (Modeled Benchmarks)" section with 5 metric cards
+   - FlowCircle: Added TypeScript code snippet for consistency
+   - Portfolio Website: Converted "Before → After Impact" to "Technical Implementation" format
 
 6. **Project Content Updates (Honest Descriptions):**
    - AutoLeadCloser: Updated to reflect production-ready prototype status, removed inflated metrics

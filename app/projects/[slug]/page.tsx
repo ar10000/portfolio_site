@@ -459,6 +459,79 @@ export async function POST(request: Request) {
 }`,
     codeLanguage: "typescript",
   },
+  launchlens: {
+    title: "LaunchLens",
+    description: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+    status: "In Development",
+    statusColor: "blue",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    github: "https://github.com/ar10000/LaunchLens",
+    demo: null,
+    heroSummary: "Product launch analytics platform providing real-time dashboards and automated insights. Tracks launch performance metrics and provides actionable data for product teams.",
+    roleDuration: "Role: Full-stack Developer\nTimeline: In progress\nTools: Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL",
+    problem:
+      "• Product teams lack visibility into launch performance metrics\n• Manual tracking of launch data is time-consuming and error-prone\n• No centralized platform for tracking launch analytics across multiple products\n• Difficult to compare launch performance across different products or time periods",
+    solution:
+      "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
+    features: [
+      {
+        icon: BarChart3,
+        title: "Real-time Launch Dashboards",
+        description: "Live dashboards showing launch performance metrics and KPIs",
+      },
+      {
+        icon: Zap,
+        title: "Automated Analytics",
+        description: "Automated insights and performance tracking without manual setup",
+      },
+      {
+        icon: Filter,
+        title: "Multi-Product Tracking",
+        description: "Track and compare launches across multiple products",
+      },
+      {
+        icon: Database,
+        title: "Data Aggregation",
+        description: "Centralized platform aggregating launch data from multiple sources",
+      },
+      {
+        icon: BarChart3,
+        title: "Performance Comparison",
+        description: "Compare launch performance across different products and time periods",
+      },
+      {
+        icon: Sparkles,
+        title: "Actionable Insights",
+        description: "Automated recommendations based on launch performance data",
+      },
+    ],
+    techStack: [
+      { name: "Next.js", category: "Framework", icon: Code2 },
+      { name: "TypeScript", category: "Language", icon: Code2 },
+      { name: "Tailwind CSS", category: "Styling", icon: Sparkles },
+      { name: "Supabase", category: "Backend", icon: Database },
+      { name: "PostgreSQL", category: "Database", icon: Database },
+    ],
+    architecture:
+      "Frontend: Next.js application with TypeScript and Tailwind CSS\nBackend: Supabase for authentication and data storage\nDatabase: PostgreSQL for storing launch metrics and analytics data\nInfrastructure: Serverless deployment with real-time data processing",
+    technicalImplementation: [
+      "Next.js App Router for optimized routing and data fetching",
+      "Supabase integration for authentication and real-time data",
+      "PostgreSQL database optimized for analytics queries",
+      "Real-time dashboard updates using Supabase subscriptions",
+      "Automated data aggregation from multiple sources",
+      "Performance comparison algorithms for cross-launch analysis"
+    ],
+    metrics: null,
+    screenshots: [
+      "[Insert screenshots here]",
+    ],
+    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    lessonsLearned:
+      "LaunchLens demonstrates the importance of real-time data visualization for product teams. Building analytics platforms requires careful consideration of data aggregation, query optimization, and user experience. The project shows how modern web technologies can create powerful analytics tools that provide actionable insights.",
+    codeSnippet: null,
+    codeLanguage: null,
+  },
 };
 
 // Sidebar navigation component

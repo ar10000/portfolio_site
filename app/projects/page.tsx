@@ -63,6 +63,20 @@ const projects = [
     githubUrl: null,
     status: "Live",
   },
+  {
+    id: "launchlens",
+    title: "LaunchLens",
+    summary: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+    description:
+      "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+    impact: null,
+    image: null, // No image available yet
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    badge: { type: "case-study", label: "In Development" },
+    demoUrl: null,
+    githubUrl: "https://github.com/ar10000/LaunchLens",
+    status: "In Development",
+  },
 ];
 
 // Separate component for project image with error handling

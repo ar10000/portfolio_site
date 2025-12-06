@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -112,6 +113,7 @@ export default function RootLayout({
         <Footer />
         {/* Floating Chat Assistant - Available on all pages */}
         <ChatAssistant variant="floating" />
+        <SpeedInsights />
       </body>
     </html>
   );

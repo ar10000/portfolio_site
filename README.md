@@ -100,7 +100,9 @@ This portfolio website demonstrates modern web development practices with server
 
 This project is private and proprietary. All rights reserved.
 
-Unauthorized copying, modification, distribution, or use of this codebase is prohibited.
+See [LICENSE](LICENSE) for full terms and restrictions.
+
+Unauthorized copying, modification, distribution, or use of this codebase is strictly prohibited.
 
 ---
 

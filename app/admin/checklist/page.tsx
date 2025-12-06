@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Circle, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+// Note: This is a simple client-side password for a non-sensitive checklist page.
+// For production, consider implementing proper server-side authentication.
 const ADMIN_PASSWORD = "ship-it";
 
 interface ChecklistItem {

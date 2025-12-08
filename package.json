@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "embed": "npx tsx scripts/embed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",

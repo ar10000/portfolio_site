@@ -14,7 +14,7 @@ const projects = [
     description:
       "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
     impact: null,
-    image: "/images/projects/autoleadcloser-thumb.jpg",
+    image: "/images/projects/autoleadcloser-1.jpg",
     tech: ["Flask", "Python", "Claude AI", "Gmail API", "Supabase", "PostgreSQL"],
     badge: { type: "case-study", label: "Prototype" },
     demoUrl: null,
@@ -28,7 +28,7 @@ const projects = [
     description:
       "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
     impact: null,
-    image: "/images/projects/creative-garden-thumb.jpg",
+    image: "/images/projects/creative-garden-1.jpg",
     tech: ["Flutter 3.22", "Dart", "Supabase", "PostgreSQL"],
     badge: { type: "demo", label: "Production" },
     demoUrl: "https://creativegarden.app",
@@ -42,7 +42,7 @@ const projects = [
     description:
       "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
     impact: null,
-    image: null, // No image available yet
+    image: "/images/projects/flowcircle-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
     badge: { type: "case-study", label: "In Development" },
     demoUrl: null,
@@ -56,7 +56,7 @@ const projects = [
     description:
       "Next.js 14 portfolio with AI chatbot, GitHub sync, and automated content management. Working example of technical capabilities.",
     impact: null,
-    image: null, // No image available yet
+    image: "/images/projects/portfolio-website-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Claude AI"],
     badge: { type: "demo", label: "Live" },
     demoUrl: null,
@@ -70,7 +70,7 @@ const projects = [
     description:
       "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
     impact: null,
-    image: "/images/projects/launchlens-thumb.jpg",
+    image: "/images/projects/launchlens-1.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     badge: { type: "case-study", label: "In Development" },
     demoUrl: null,

@@ -201,7 +201,9 @@ class ProjectLifecycleService {
     ],
     metrics: null,
     screenshots: [
-      "[Insert screenshots here]",
+      "/images/projects/flowcircle-1.jpg",
+      "/images/projects/flowcircle-2.jpg",
+      "/images/projects/flowcircle-3.jpg",
     ],
     cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:

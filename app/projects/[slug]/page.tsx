@@ -109,7 +109,9 @@ const projectData: Record<string, any> = {
     ],
     metrics: null,
     screenshots: [
-      "[Insert screenshots here]",
+      "/images/projects/creative-garden-1.jpg",
+      "/images/projects/creative-garden-2.jpg",
+      "/images/projects/creative-garden-3.jpg",
     ],
     cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:
@@ -323,7 +325,8 @@ export async function createProject(userId: string, projectData: {
       },
     ],
     screenshots: [
-      "[Insert screenshots here]",
+      "/images/projects/autoleadcloser-1.jpg",
+      "/images/projects/autoleadcloser-2.jpg",
     ],
     cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:
@@ -431,7 +434,9 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
     ],
     metrics: null,
     screenshots: [
-      "[Insert screenshots here]",
+      "/images/projects/portfolio-website-1.jpg",
+      "/images/projects/portfolio-website-2.jpg",
+      "/images/projects/portfolio-website-3.jpg",
     ],
     cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:

@@ -524,7 +524,9 @@ export async function POST(request: Request) {
     ],
     metrics: null,
     screenshots: [
-      "[Insert screenshots here]",
+      "/images/projects/launchlens-1.jpg",
+      "/images/projects/launchlens-2.jpg",
+      "/images/projects/launchlens-3.jpg",
     ],
     cta: "Want a system like this? Book a 10-minute Fit Call.",
     lessonsLearned:

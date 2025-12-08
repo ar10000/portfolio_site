@@ -70,7 +70,7 @@ const projects = [
     description:
       "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
     impact: null,
-    image: null, // No image available yet
+    image: "/images/projects/launchlens-thumb.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     badge: { type: "case-study", label: "In Development" },
     demoUrl: null,

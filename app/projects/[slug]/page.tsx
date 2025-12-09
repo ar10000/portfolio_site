@@ -538,35 +538,56 @@ function SidebarNavigation({ sections }: { sections: string[] }) {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -70% 0px",
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+    const updateActiveSection = () => {
+      const sectionElements: { id: string; element: HTMLElement; top: number }[] = [];
+      
+      sections.forEach((section) => {
+        const sectionId = section.toLowerCase().replace(/\s+/g, "-");
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          sectionElements.push({ 
+            id: sectionId, 
+            element,
+            top: rect.top + window.scrollY // Use absolute position
+          });
         }
       });
+
+      if (sectionElements.length === 0) return;
+
+      // Sort by position (top to bottom)
+      sectionElements.sort((a, b) => a.top - b.top);
+
+      // Find the section that's currently in view
+      const scrollPosition = window.scrollY + window.innerHeight * 0.3; // 30% from top of viewport
+      let activeId = sectionElements[0].id; // Default to first section
+
+      // Find the last section whose top is above the scroll position
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        if (sectionElements[i].top <= scrollPosition) {
+          activeId = sectionElements[i].id;
+          break;
+        }
+      }
+
+      setActiveSection(activeId);
     };
 
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
+    // Initial check
+    updateActiveSection();
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.toLowerCase().replace(/\s+/g, "-"));
-      if (element) observer.observe(element);
-    });
+    // Update on scroll
+    const handleScroll = () => {
+      updateActiveSection();
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
 
     return () => {
-      sections.forEach((section) => {
-        const element = document.getElementById(section.toLowerCase().replace(/\s+/g, "-"));
-        if (element) observer.unobserve(element);
-      });
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, [sections]);
 
@@ -960,9 +981,6 @@ function HeroSection({ project }: { project: any }) {
 function HowItWorks({ steps }: { steps: any[] }) {
   return (
     <section id="how-it-works" className="scroll-mt-24">
-      {/* Gradient Divider */}
-      <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
-      
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -1014,9 +1032,6 @@ function HowItWorks({ steps }: { steps: any[] }) {
 function PricingTeaser({ pricing, ctaText, ctaLink }: { pricing: string; ctaText: string; ctaLink: string }) {
   return (
     <section id="pricing" className="scroll-mt-24">
-      {/* Gradient Divider */}
-      <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
-      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

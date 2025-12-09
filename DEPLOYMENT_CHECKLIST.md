@@ -78,6 +78,7 @@ EMAIL_USER=andrewryan763@gmail.com  # For nodemailer
 EMAIL_PASSWORD=your-app-password  # Gmail app password
 # OR
 RESEND_API_KEY=re_...  # For Resend email service
+ADMIN_PASSWORD=your-secure-password  # Password for /admin/checklist page
 ```
 
 ### 4. Custom Domain (Optional)

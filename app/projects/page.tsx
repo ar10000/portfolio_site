@@ -16,10 +16,8 @@ const projects = [
     impact: null,
     image: "/images/projects/autoleadcloser-1.jpg",
     tech: ["Flask", "Python", "Claude AI", "Gmail API", "Supabase", "PostgreSQL"],
-    badge: { type: "case-study", label: "Prototype" },
     demoUrl: null,
-    githubUrl: null,
-    status: "Production-ready prototype",
+    githubUrl: "https://github.com/ar10000/AutoLeadCloser",
   },
   {
     id: "creative-garden",
@@ -30,10 +28,8 @@ const projects = [
     impact: null,
     image: "/images/projects/creative-garden-1.jpg",
     tech: ["Flutter 3.22", "Dart", "Supabase", "PostgreSQL"],
-    badge: { type: "demo", label: "Production" },
-    demoUrl: "https://creativegarden.app",
+    demoUrl: null,
     githubUrl: "https://github.com/ar10000/creative-garden",
-    status: "Production",
   },
   {
     id: "flowcircle",
@@ -44,10 +40,8 @@ const projects = [
     impact: null,
     image: "/images/projects/flowcircle-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
-    badge: { type: "case-study", label: "In Development" },
     demoUrl: null,
-    githubUrl: null,
-    status: "In Development",
+    githubUrl: "https://github.com/ar10000/flowcircle",
   },
   {
     id: "portfolio-site",
@@ -58,10 +52,8 @@ const projects = [
     impact: null,
     image: "/images/projects/portfolio-website-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Claude AI"],
-    badge: { type: "demo", label: "Live" },
     demoUrl: null,
-    githubUrl: null,
-    status: "Live",
+    githubUrl: "https://github.com/ar10000/portfolio_site",
   },
   {
     id: "launchlens",
@@ -72,10 +64,8 @@ const projects = [
     impact: null,
     image: "/images/projects/launchlens-1.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
-    badge: { type: "case-study", label: "In Development" },
     demoUrl: null,
     githubUrl: "https://github.com/ar10000/LaunchLens",
-    status: "In Development",
   },
 ];
 
@@ -151,25 +141,6 @@ export default function ProjectsPage() {
               {/* Project Image - Large and prominent (300px+ height) */}
               <div className="relative">
                 <ProjectImage project={project} />
-                {/* Badge in top-right corner */}
-                {project.badge && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-full border backdrop-blur-sm ${
-                        project.badge.type === "demo"
-                          ? "bg-green-500/20 text-green-400 border-green-500/30"
-                          : project.badge.type === "github"
-                          ? "bg-gray-800/80 text-gray-300 border-gray-700"
-                          : "bg-blue-500/20 text-blue-400 border-blue-500/30"
-                      }`}
-                    >
-                      {project.badge.type === "github" && <Github className="h-3 w-3" />}
-                      {project.badge.type === "demo" && <CheckCircle2 className="h-3 w-3" />}
-                      {project.badge.type === "case-study" && <FileText className="h-3 w-3" />}
-                      {project.badge.label}
-                    </span>
-                  </div>
-                )}
               </div>
 
               {/* Card Content */}
@@ -216,43 +187,23 @@ export default function ProjectsPage() {
                   </motion.button>
                 </Link>
 
-                {/* Optional: Demo/GitHub links */}
-                {(project.demoUrl || project.githubUrl) && (
-                  <div className="flex gap-3 mt-3">
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
+                {/* GitHub link */}
+                {project.githubUrl && (
+                  <div className="mt-3">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
                       >
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                          Demo
-                        </motion.button>
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
-                        >
-                          <Github className="h-4 w-4" />
-                          Code
-                        </motion.button>
-                      </a>
-                    )}
+                        <Github className="h-4 w-4" />
+                        View on GitHub
+                      </motion.button>
+                    </a>
                   </div>
                 )}
               </div>

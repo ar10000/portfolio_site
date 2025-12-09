@@ -5,9 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Circle, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-// Note: This is a simple client-side password for a non-sensitive checklist page.
-// For production, consider implementing proper server-side authentication.
-const ADMIN_PASSWORD = "ship-it";
+// Admin authentication is handled server-side via API routes
+// Password is stored in ADMIN_PASSWORD environment variable
 
 interface ChecklistItem {
   id: string;
@@ -136,15 +135,24 @@ export default function PreLaunchChecklist() {
   const [error, setError] = useState("");
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
 
-  // Load from localStorage on mount
+  // Check authentication status on mount
   useEffect(() => {
-    const savedAuth = localStorage.getItem("admin-authenticated");
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/admin/verify");
+        const data = await response.json();
+        if (data.authenticated) {
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        console.error("Error checking authentication:", error);
+      }
+    };
+
+    checkAuth();
+
+    // Load checklist from localStorage
     const savedChecked = localStorage.getItem("admin-checklist");
-    
-    if (savedAuth === "true") {
-      setIsAuthenticated(true);
-    }
-    
     if (savedChecked) {
       try {
         const parsed = JSON.parse(savedChecked);
@@ -165,23 +173,50 @@ export default function PreLaunchChecklist() {
     }
   }, [checkedItems, isAuthenticated]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
-    if (password === ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      localStorage.setItem("admin-authenticated", "true");
-      setPassword("");
-    } else {
-      setError("Incorrect password. Try again.");
+    try {
+      const response = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success && data.authenticated) {
+        setIsAuthenticated(true);
+        setPassword("");
+      } else {
+        setError(data.error || "Incorrect password. Try again.");
+        setPassword("");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("An error occurred. Please try again.");
       setPassword("");
     }
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("admin-authenticated");
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ action: "logout" }),
+      });
+      setIsAuthenticated(false);
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Still set authenticated to false even if API call fails
+      setIsAuthenticated(false);
+    }
   };
 
   const toggleItem = (id: string) => {

@@ -43,8 +43,6 @@ const projectData: Record<string, any> = {
   "creative-garden": {
     title: "Creative Garden",
     description: "Flutter app for managing creative projects through lifecycle stages. Features momentum scoring, offline caching, and GDPR-compliant data export.",
-    status: "Live",
-    statusColor: "green",
     tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
     github: "https://github.com/ar10000/creative-garden",
     demo: "https://creativegarden.app",
@@ -140,10 +138,8 @@ class ProjectLifecycleService {
   flowcircle: {
     title: "FlowCircle",
     description: "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase, focusing on simplicity and clean architecture.",
-    status: "Live",
-    statusColor: "green",
     tech: ["Next.js 14", "TypeScript", "Supabase", "PostgreSQL"],
-    github: "https://github.com/ar10000",
+    github: "https://github.com/ar10000/flowcircle",
     demo: "https://flowcircle.app",
     heroSummary: "Minimalist project management app built with Next.js 14 and Supabase. Features authentication, profile management, and reflection engine structure. Early build focusing on core foundations.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Supabase, PostgreSQL",
@@ -218,7 +214,7 @@ export async function createProject(userId: string, projectData: {
   description: string;
 }) {
   const { data, error } = await supabase
-    .from('projects')
+      .from('projects')
     .insert({
       user_id: userId,
       title: projectData.title,
@@ -237,8 +233,6 @@ export async function createProject(userId: string, projectData: {
     title: "AutoLeadCloser",
     tagline: "AI-Powered Sales Automation System",
     description: "AI-powered lead qualification and response automation for service businesses. Processes inbound leads automatically and routes qualified prospects to calendar booking.",
-    status: "Live",
-    statusColor: "green",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
     github: "https://github.com/ar10000/AutoLeadCloser",
     demo: null, // Internal use
@@ -373,11 +367,9 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
   "portfolio-site": {
     title: "AI Product Builder Portfolio",
     description: "Modern portfolio website showcasing AI-powered products and automation solutions. Demonstrates technical capabilities through interactive features and automated workflows.",
-    status: "Live",
-    statusColor: "green",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Claude AI", "GitHub API", "Vercel"],
     github: "https://github.com/ar10000/portfolio_site",
-    demo: "https://andrewryan.dev",
+    demo: null,
     heroSummary: "Portfolio website that demonstrates technical capabilities through its own implementation. Serves as both a showcase and working example of Next.js 14, AI integration, and automated content management.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Tailwind CSS, Claude AI, GitHub API, Vercel",
     problem:
@@ -469,8 +461,6 @@ export async function POST(request: Request) {
   launchlens: {
     title: "LaunchLens",
     description: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
-    status: "In Development",
-    statusColor: "blue",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     github: "https://github.com/ar10000/LaunchLens",
     demo: null,
@@ -889,19 +879,19 @@ function HeroSection({ project }: { project: any }) {
         )}
       </motion.div>
 
-      {/* GitHub and Demo Buttons - Horizontal Side-by-Side */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-      >
-        {project.github && (
+      {/* GitHub Button */}
+      {project.github && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mb-12"
+        >
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="sm:flex-1 max-w-xs"
+            className="max-w-xs"
           >
             <motion.button
               whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
@@ -912,37 +902,8 @@ function HeroSection({ project }: { project: any }) {
               View on GitHub
             </motion.button>
           </a>
-        )}
-        {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sm:flex-1 max-w-xs"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/60 transition-all duration-300"
-            >
-              <ExternalLink className="h-5 w-5" />
-              Live Demo
-            </motion.button>
-          </a>
-        )}
-        {!project.github && !project.demo && (
-          <a href="/contact" className="sm:flex-1 max-w-xs">
-            <motion.button
-              whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
-            >
-              <Calendar className="h-5 w-5" />
-              Book Demo Call
-            </motion.button>
-          </a>
-        )}
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Large Hero Image or Demo Screenshot - Full Width */}
       {project.demoVideo ? (
@@ -1135,24 +1096,6 @@ export default function ProjectDetailPage({
     "Lessons Learned",
   ];
 
-  const StatusBadge = ({ status, color }: { status: string; color: string }) => {
-    const colors = {
-      green: "bg-green-500/20 text-green-400 border-green-500/30",
-      yellow: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-      blue: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-    };
-    const Icon = status === "Live" ? CheckCircle2 : Clock;
-
-    return (
-      <span
-        className={`inline-flex items-center gap-1.5 px-3 py-1 text-sm font-semibold rounded-full border ${colors[color as keyof typeof colors]}`}
-      >
-        <Icon className="h-4 w-4" />
-        {status}
-      </span>
-    );
-  };
-
   // Determine if this is AutoLeadCloser for special styling
   const isAutoLeadCloser = slug === "autoleadcloser";
   const gradientColors = isAutoLeadCloser
@@ -1201,7 +1144,6 @@ export default function ProjectDetailPage({
                 </h1>
                 <p className="text-xl text-gray-400 mb-4">{project.description}</p>
                 <div className="flex flex-wrap items-center gap-4">
-                  <StatusBadge status={project.status} color={project.statusColor} />
                   {project.tech.slice(0, 4).map((tech: string) => (
                     <span
                       key={tech}
@@ -1213,19 +1155,6 @@ export default function ProjectDetailPage({
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                {project.demo && (
-                <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                  <motion.button
-                    whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white flex items-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300 group"
-                  >
-                    <Play className="h-5 w-5" />
-                    <span className="group-hover:hidden">Try Demo</span>
-                    <span className="hidden group-hover:inline">Let's build something</span>
-                  </motion.button>
-                </a>
-                )}
                 {/* Always show GitHub button - either link or "Private Repository" */}
                 {project.github ? (
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -1261,28 +1190,8 @@ export default function ProjectDetailPage({
         >
           <div className="rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 shadow-xl">
             <div className="flex flex-wrap items-center justify-between gap-6">
-              {/* Left Side: Status and Tech */}
+              {/* Left Side: Tech Stack */}
               <div className="flex flex-wrap items-center gap-6">
-                {/* Project Status */}
-                <div className="flex items-center gap-3">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-sm" />
-                    <div className="relative w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30">
-                      {project.status === "Live" ? (
-                        <CheckCircle2 className="h-5 w-5 text-green-400" />
-                      ) : project.status === "In Development" ? (
-                        <Clock className="h-5 w-5 text-yellow-400" />
-                      ) : (
-                        <CheckCircle2 className="h-5 w-5 text-blue-400" />
-                      )}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Status</div>
-                    <div className="text-sm font-bold text-white">{project.status}</div>
-                  </div>
-                </div>
-
                 {/* Technologies - Icon Badges */}
                 {project.techStack && project.techStack.length > 0 && (
                   <>
@@ -1328,17 +1237,6 @@ export default function ProjectDetailPage({
                   >
                     <Github className="h-4 w-4 text-gray-400 group-hover:text-purple-400 transition-colors" />
                     <span className="text-sm font-semibold text-gray-300 group-hover:text-white">GitHub</span>
-                  </a>
-                )}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-purple-500/20 to-blue-500/20 hover:from-purple-500/30 hover:to-blue-500/30 border border-purple-500/30 hover:border-purple-500/50 transition-all duration-300 group"
-                  >
-                    <ExternalLink className="h-4 w-4 text-purple-400" />
-                    <span className="text-sm font-semibold text-white">Live Demo</span>
                   </a>
                 )}
               </div>
@@ -1453,7 +1351,7 @@ export default function ProjectDetailPage({
                     <p className="text-gray-300 leading-relaxed text-lg">
                       {project.solution}
                     </p>
-              </motion.div>
+                  </motion.div>
             </section>
             )}
 
@@ -1621,18 +1519,18 @@ export default function ProjectDetailPage({
                   {/* Gradient Divider */}
                   <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
                   
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
                     className="text-4xl font-bold mb-12 flex items-center gap-3"
-              >
+                >
                     <Code2 className="h-8 w-8 text-purple-400" />
                     <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
                 Tech Stack
                     </span>
-              </motion.h2>
+                </motion.h2>
 
                   {/* Horizontal Tech Stack Cards */}
                   {activeCategories.length > 0 && (
@@ -1717,18 +1615,18 @@ export default function ProjectDetailPage({
                   transition={{ duration: 0.5 }}
                   className="mb-8"
                 >
-                  <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
                     className="text-4xl font-bold mb-3 flex items-center gap-3"
-                  >
+                >
                     <Sparkles className="h-8 w-8 text-purple-400" />
                     <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
                       {isNewFormat ? "Expected Impact (Modeled Benchmarks)" : "Results"}
                     </span>
-                  </motion.h2>
+                </motion.h2>
                   
                 </motion.div>
                   
@@ -1742,12 +1640,12 @@ export default function ProjectDetailPage({
                       const subtext = metric.subtext || metric.value || '';
                       
                       return (
-                  <motion.div
-                    key={index}
+                      <motion.div
+                        key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
                           whileHover={{ y: -4, scale: 1.02 }}
                           className="group relative p-8 rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20"
                         >
@@ -1773,7 +1671,7 @@ export default function ProjectDetailPage({
                           <p className="text-gray-300 leading-[1.6] font-normal text-sm text-center">
                             {subtext}
                           </p>
-                        </motion.div>
+                      </motion.div>
                       );
                     })}
               </div>
@@ -1813,10 +1711,10 @@ export default function ProjectDetailPage({
                     Technical Implementation
                   </span>
                 </motion.h2>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="p-6 rounded-lg border border-purple-500/20 bg-purple-500/5"
                 >
@@ -1828,7 +1726,7 @@ export default function ProjectDetailPage({
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                      </motion.div>
               </section>
             )}
 
@@ -1859,7 +1757,7 @@ export default function ProjectDetailPage({
                   <ImageGallery 
                     images={project.screenshots} 
                     captions={project.screenshotCaptions}
-                    demoLink={project.demo}
+                    demoLink={null}
                   />
               </motion.div>
             </section>

@@ -16,7 +16,6 @@ const projects = [
     impact: null,
     image: "/images/projects/autoleadcloser-1.jpg",
     tech: ["Flask", "Python", "Claude AI", "Gmail API", "Supabase", "PostgreSQL"],
-    demoUrl: null,
     githubUrl: "https://github.com/ar10000/AutoLeadCloser",
   },
   {
@@ -28,7 +27,6 @@ const projects = [
     impact: null,
     image: "/images/projects/creative-garden-1.jpg",
     tech: ["Flutter 3.22", "Dart", "Supabase", "PostgreSQL"],
-    demoUrl: null,
     githubUrl: "https://github.com/ar10000/creative-garden",
   },
   {
@@ -40,7 +38,6 @@ const projects = [
     impact: null,
     image: "/images/projects/flowcircle-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
-    demoUrl: null,
     githubUrl: "https://github.com/ar10000/flowcircle",
   },
   {
@@ -52,7 +49,6 @@ const projects = [
     impact: null,
     image: "/images/projects/portfolio-website-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Claude AI"],
-    demoUrl: null,
     githubUrl: "https://github.com/ar10000/portfolio_site",
   },
   {
@@ -64,7 +60,6 @@ const projects = [
     impact: null,
     image: "/images/projects/launchlens-1.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
-    demoUrl: null,
     githubUrl: "https://github.com/ar10000/LaunchLens",
   },
 ];

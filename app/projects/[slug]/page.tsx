@@ -6,12 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowLeft,
-  ExternalLink,
   Github,
   CheckCircle2,
   Clock,
   Code2,
-  Play,
   Image as ImageIcon,
   ChevronRight,
   Sparkles,
@@ -45,7 +43,6 @@ const projectData: Record<string, any> = {
     description: "Flutter app for managing creative projects through lifecycle stages. Features momentum scoring, offline caching, and GDPR-compliant data export.",
     tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
     github: "https://github.com/ar10000/creative-garden",
-    demo: "https://creativegarden.app",
     heroSummary: "Flutter app for managing creative projects through lifecycle stages. Uses Supabase triggers for momentum scoring. Production-ready with offline caching and GDPR export.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 8 weeks\nTools: Flutter, Supabase, Dart, PostgreSQL",
     problem:
@@ -140,7 +137,6 @@ class ProjectLifecycleService {
     description: "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase, focusing on simplicity and clean architecture.",
     tech: ["Next.js 14", "TypeScript", "Supabase", "PostgreSQL"],
     github: "https://github.com/ar10000/flowcircle",
-    demo: "https://flowcircle.app",
     heroSummary: "Minimalist project management app built with Next.js 14 and Supabase. Features authentication, profile management, and reflection engine structure. Early build focusing on core foundations.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Supabase, PostgreSQL",
     problem:
@@ -235,8 +231,6 @@ export async function createProject(userId: string, projectData: {
     description: "AI-powered lead qualification and response automation for service businesses. Processes inbound leads automatically and routes qualified prospects to calendar booking.",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
     github: "https://github.com/ar10000/AutoLeadCloser",
-    demo: null, // Internal use
-    demoVideo: null, // No public demo video
     pricing: null, // Pricing not specified
     heroSummary: "AI email qualification system that processes inbound leads automatically. Extracts qualification criteria from natural language and routes qualified leads to calendar booking. Production-ready prototype being tested.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 6 weeks\nTools: Python, Supabase, Claude AI, Gmail API",
@@ -369,7 +363,6 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
     description: "Modern portfolio website showcasing AI-powered products and automation solutions. Demonstrates technical capabilities through interactive features and automated workflows.",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Claude AI", "GitHub API", "Vercel"],
     github: "https://github.com/ar10000/portfolio_site",
-    demo: null,
     heroSummary: "Portfolio website that demonstrates technical capabilities through its own implementation. Serves as both a showcase and working example of Next.js 14, AI integration, and automated content management.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Tailwind CSS, Claude AI, GitHub API, Vercel",
     problem:
@@ -463,7 +456,6 @@ export async function POST(request: Request) {
     description: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     github: "https://github.com/ar10000/LaunchLens",
-    demo: null,
     heroSummary: "Product launch analytics platform providing real-time dashboards and automated insights. Tracks launch performance metrics and provides actionable data for product teams.",
     roleDuration: "Role: Full-stack Developer\nTimeline: In progress\nTools: Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL",
     problem:
@@ -630,7 +622,7 @@ function SidebarNavigation({ sections }: { sections: string[] }) {
 }
 
 // Image gallery component
-function ImageGallery({ images, captions, demoLink }: { images: string[], captions?: string[], demoLink?: string | null }) {
+function ImageGallery({ images, captions }: { images: string[], captions?: string[] }) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [viewMode, setViewMode] = useState<'carousel' | 'grid'>('carousel');
 
@@ -826,156 +818,11 @@ function ImageGallery({ images, captions, demoLink }: { images: string[], captio
         </div>
       )}
 
-      {/* Prominent Try Live Demo CTA */}
-      {demoLink && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex justify-center pt-4"
-        >
-          <a
-            href={demoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-              whileTap={{ scale: 0.98 }}
-              className="px-10 py-5 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 rounded-xl font-bold text-white text-lg flex items-center justify-center gap-3 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/70 transition-all duration-300 relative overflow-hidden"
-              style={{ backgroundSize: '200% 100%' }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundSize: '200% 100%' }} />
-              <ExternalLink className="h-6 w-6 relative z-10" />
-              <span className="relative z-10">Try Live Demo</span>
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.button>
-          </a>
-        </motion.div>
-      )}
     </div>
   );
 }
 
-// Hero section with video embed
-function HeroSection({ project }: { project: any }) {
-  if (!project.tagline && !project.demoVideo) return null;
-
-  return (
-    <section className="mb-16">
-      {/* Title and Subtitle Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-12"
-      >
-        {/* Large Title with Gradient on Key Words */}
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-6">
-          {project.title.split(' ').map((word: string, index: number) => {
-            // Apply gradient to key words (first word, or words with specific patterns)
-            const isKeyWord = index === 0 || word.length > 5 || ['AI', 'Auto', 'Creative', 'Flow', 'Portfolio'].some((key: string) => word.includes(key));
-            return (
-              <span key={index}>
-                {isKeyWord ? (
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                    {word}
-                  </span>
-                ) : (
-                  <span className="text-white">{word}</span>
-                )}
-                {index < project.title.split(' ').length - 1 && ' '}
-              </span>
-            );
-          })}
-        </h1>
-        
-        {/* Subtitle on Separate Line with Better Spacing */}
-        {(project.tagline || project.description) && (
-          <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 max-w-4xl mx-auto leading-[1.6] font-normal mt-8">
-            {project.tagline || project.description}
-          </p>
-        )}
-      </motion.div>
-
-      {/* GitHub Button */}
-      {project.github && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center mb-12"
-        >
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="max-w-xs"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
-            >
-              <Github className="h-5 w-5" />
-              View on GitHub
-            </motion.button>
-          </a>
-        </motion.div>
-      )}
-
-      {/* Large Hero Image or Demo Screenshot - Full Width */}
-      {project.demoVideo ? (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-8 rounded-xl overflow-hidden border border-gray-800 shadow-2xl"
-        >
-          <div className="relative aspect-video bg-gray-900">
-            <iframe
-              src={project.demoVideo}
-              className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Demo Video"
-            />
-          </div>
-        </motion.div>
-      ) : (() => {
-        // Filter out placeholder strings
-        const validScreenshots = project.screenshots?.filter((img: string) => 
-          img && !img.includes("[Insert screenshots here]") && !img.includes("placeholder")
-        ) || [];
-        
-        return validScreenshots.length > 0 ? (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-8 rounded-xl overflow-hidden border border-gray-800 shadow-2xl"
-          >
-            <div className="relative w-full aspect-[16/9] bg-gray-900">
-              <Image
-                src={validScreenshots[0]}
-                alt={`${project.title} hero screenshot`}
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            </div>
-      </motion.div>
-        ) : null;
-      })()}
-    </section>
-  );
-}
+// Hero section removed - all projects now use standardized header
 
 // How It Works flow diagram
 function HowItWorks({ steps }: { steps: any[] }) {
@@ -1141,60 +988,55 @@ export default function ProjectDetailPage({
           </Link>
         </motion.div>
 
-        {/* Hero Section (for AutoLeadCloser) */}
-        {project.tagline && <HeroSection project={project} />}
-
-        {/* Standard Header Section (if no hero) */}
-        {!project.tagline && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-12"
-          >
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
-              <div>
-                <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r ${gradientText} bg-clip-text text-transparent`}>
-                  {project.title}
-                </h1>
-                <p className="text-xl text-gray-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap items-center gap-4">
-                  {project.tech.slice(0, 4).map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full border border-gray-700"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                {/* Always show GitHub button - either link or "Private Repository" */}
-                {project.github ? (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-6 py-3 bg-gray-800/80 text-gray-300 rounded-xl font-semibold border border-gray-700 hover:bg-gray-700 hover:border-purple-500/50 hover:text-white transition-all duration-300 flex items-center gap-2"
-                    >
-                      <Github className="h-5 w-5" />
-                      View Code
-                    </motion.button>
-                  </a>
-                ) : (
-                  <motion.div
-                    className="px-6 py-3 bg-gray-800/50 text-gray-500 rounded-lg font-semibold border border-gray-700/50 flex items-center gap-2 cursor-not-allowed"
-                    title="This repository is private"
+        {/* Standardized Header Section for All Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-12"
+        >
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+            <div>
+              <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r ${gradientText} bg-clip-text text-transparent`}>
+                {project.title}
+              </h1>
+              <p className="text-xl text-gray-400 mb-4">{project.tagline || project.description}</p>
+              <div className="flex flex-wrap items-center gap-4">
+                {project.tech.slice(0, 4).map((tech: string) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full border border-gray-700"
                   >
-                    <Github className="h-5 w-5" />
-                    Private Repository
-                  </motion.div>
-                )}
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-          </motion.div>
-        )}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* Always show GitHub button - either link or "Private Repository" */}
+              {project.github ? (
+                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-gray-800/80 text-gray-300 rounded-xl font-semibold border border-gray-700 hover:bg-gray-700 hover:border-purple-500/50 hover:text-white transition-all duration-300 flex items-center gap-2"
+                  >
+                    <Github className="h-5 w-5" />
+                    View Code
+                  </motion.button>
+                </a>
+              ) : (
+                <motion.div
+                  className="px-6 py-3 bg-gray-800/50 text-gray-500 rounded-lg font-semibold border border-gray-700/50 flex items-center gap-2 cursor-not-allowed"
+                  title="This repository is private"
+                >
+                  <Github className="h-5 w-5" />
+                  Private Repository
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </motion.div>
 
         {/* Visual Stats Bar */}
         <motion.div
@@ -1760,7 +1602,7 @@ export default function ProjectDetailPage({
               >
                   <ImageIcon className="h-8 w-8 text-purple-400" />
                   <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>
-                Screenshots & Demo
+                Screenshots
                   </span>
               </motion.h2>
               <motion.div
@@ -1772,7 +1614,6 @@ export default function ProjectDetailPage({
                   <ImageGallery 
                     images={project.screenshots} 
                     captions={project.screenshotCaptions}
-                    demoLink={null}
                   />
               </motion.div>
             </section>

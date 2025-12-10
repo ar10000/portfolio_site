@@ -62,6 +62,17 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     githubUrl: "https://github.com/ar10000/LaunchLens",
   },
+  {
+    id: "adaptive-resume",
+    title: "Adaptive Resume",
+    summary: "Dynamic resume builder that adapts content based on job requirements and applicant tracking system optimization.",
+    description:
+      "Dynamic resume builder that adapts content based on job requirements and applicant tracking system optimization.",
+    impact: null,
+    image: "/images/projects/adaptive-resume-1.jpg",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    githubUrl: "https://github.com/ar10000/adaptive-resume",
+  },
 ];
 
 // Separate component for project image with error handling

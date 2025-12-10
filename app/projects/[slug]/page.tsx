@@ -523,6 +523,78 @@ export async function POST(request: Request) {
     codeSnippet: null,
     codeLanguage: null,
   },
+  "adaptive-resume": {
+    title: "Adaptive Resume",
+    description: "Dynamic resume builder that adapts content based on job requirements and applicant tracking system optimization.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    github: "https://github.com/ar10000/adaptive-resume",
+    heroSummary: "Dynamic resume builder that adapts content based on job requirements. Features ATS optimization, multiple resume versions, and intelligent content customization.",
+    roleDuration: "Role: Full-stack Developer\nTimeline: In progress\nTools: Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL",
+    problem:
+      "• Job seekers need to customize resumes for each application but lack efficient tools\n• Applicant Tracking Systems (ATS) require specific formatting and keyword optimization\n• Managing multiple resume versions for different job types is time-consuming\n• No intelligent system to adapt resume content based on job descriptions",
+    solution:
+      "Adaptive Resume provides a dynamic resume builder that automatically adapts content based on job requirements. The system analyzes job descriptions, optimizes content for ATS compatibility, and generates tailored resume versions. Users can maintain a master resume and generate customized versions for specific applications with intelligent keyword matching and formatting optimization.",
+    features: [
+      {
+        icon: FileText,
+        title: "Dynamic Content Adaptation",
+        description: "Automatically adapts resume content based on job description requirements",
+      },
+      {
+        icon: Shield,
+        title: "ATS Optimization",
+        description: "Optimizes formatting and keywords for Applicant Tracking System compatibility",
+      },
+      {
+        icon: Workflow,
+        title: "Multiple Resume Versions",
+        description: "Generate and manage multiple resume versions from a single master template",
+      },
+      {
+        icon: Sparkles,
+        title: "Intelligent Keyword Matching",
+        description: "Analyzes job descriptions and suggests relevant keywords and skills",
+      },
+      {
+        icon: Database,
+        title: "Resume Version Management",
+        description: "Store and organize multiple resume versions for different job applications",
+      },
+      {
+        icon: Zap,
+        title: "Export Options",
+        description: "Export resumes in multiple formats optimized for ATS systems",
+      },
+    ],
+    techStack: [
+      { name: "Next.js", category: "Framework", icon: Code2 },
+      { name: "TypeScript", category: "Language", icon: Code2 },
+      { name: "Tailwind CSS", category: "Styling", icon: Sparkles },
+      { name: "Supabase", category: "Backend", icon: Database },
+      { name: "PostgreSQL", category: "Database", icon: Database },
+    ],
+    architecture:
+      "Frontend: Next.js application with TypeScript and Tailwind CSS\nBackend: Supabase for authentication and data storage\nDatabase: PostgreSQL for storing resume templates and versions\nAI/Processing: Job description analysis and content adaptation logic",
+    technicalImplementation: [
+      "Next.js App Router for optimized routing and data fetching",
+      "Supabase integration for authentication and resume data storage",
+      "PostgreSQL database for managing resume versions and templates",
+      "Job description parsing and keyword extraction algorithms",
+      "ATS-optimized resume formatting and structure",
+      "Dynamic content generation based on job requirements"
+    ],
+    metrics: null,
+    screenshots: [
+      "/images/projects/adaptive-resume-1.jpg",
+      "/images/projects/adaptive-resume-2.jpg",
+      "/images/projects/adaptive-resume-3.jpg",
+    ],
+    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    lessonsLearned:
+      "Adaptive Resume demonstrates the importance of intelligent content adaptation for job seekers. Building ATS-optimized systems requires understanding of resume parsing algorithms and keyword matching strategies. The project shows how modern web technologies can create powerful tools that adapt content dynamically based on user needs.",
+    codeSnippet: null,
+    codeLanguage: null,
+  },
 };
 
 // Sidebar navigation component

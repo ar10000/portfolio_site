@@ -295,6 +295,66 @@ As I build case studies, rates will increase. Work with me now for technical qua
 - AI chatbot demonstrates technical capabilities through real-time interaction
 - Visitors can ask questions and receive instant answers about services and projects
 
+### LaunchLens
+**Status:** In progress
+**Description:** Product launch analytics and tracking platform with real-time dashboards and automated insights
+
+**Tech Stack:** Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL
+
+**Key Highlights:**
+- Real-time launch dashboards
+- Automated analytics and insights
+- Multi-product tracking and comparison
+- Centralized data aggregation
+
+**Link:** /projects/launchlens
+**GitHub:** https://github.com/ar10000/LaunchLens
+
+**Problem Solved:** Product teams lack visibility into launch performance metrics. Manual tracking is time-consuming and error-prone. No centralized platform for tracking launch analytics across multiple products.
+
+**Solution:** LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.
+
+**Architecture:**
+- **Frontend:** Next.js application with TypeScript and Tailwind CSS
+- **Backend:** Supabase for authentication and data storage
+- **Database:** PostgreSQL for storing launch metrics and analytics data
+- **Infrastructure:** Serverless deployment with real-time data processing
+
+**Impact:**
+- Real-time visibility into launch performance metrics
+- Automated insights reduce manual tracking time
+- Centralized platform for multi-product launch comparison
+
+### Adaptive Resume
+**Status:** In progress
+**Description:** Dynamic resume builder that adapts content based on job requirements and applicant tracking system optimization
+
+**Tech Stack:** Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL
+
+**Key Highlights:**
+- Dynamic content adaptation based on job descriptions
+- ATS optimization for applicant tracking systems
+- Multiple resume version management
+- Intelligent keyword matching
+
+**Link:** /projects/adaptive-resume
+**GitHub:** https://github.com/ar10000/adaptive-resume
+
+**Problem Solved:** Job seekers need to customize resumes for each application but lack efficient tools. Applicant Tracking Systems (ATS) require specific formatting and keyword optimization. Managing multiple resume versions for different job types is time-consuming.
+
+**Solution:** Adaptive Resume provides a dynamic resume builder that automatically adapts content based on job requirements. The system analyzes job descriptions, optimizes content for ATS compatibility, and generates tailored resume versions. Users can maintain a master resume and generate customized versions for specific applications with intelligent keyword matching and formatting optimization.
+
+**Architecture:**
+- **Frontend:** Next.js application with TypeScript and Tailwind CSS
+- **Backend:** Supabase for authentication and data storage
+- **Database:** PostgreSQL for storing resume templates and versions
+- **AI/Processing:** Job description analysis and content adaptation logic
+
+**Impact:**
+- Automated resume customization saves time for job seekers
+- ATS optimization increases resume parsing success rates
+- Intelligent keyword matching improves application relevance
+
 ## Frequently Asked Questions
 
 **Q: How do we start working together?**

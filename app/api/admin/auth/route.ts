@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
 
     // Handle logout
     if (action === "logout") {
-      cookies().delete("admin-authenticated");
+      (await cookies()).delete("admin-authenticated");
       return NextResponse.json({ success: true, authenticated: false });
     }
 
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     // Verify password
     if (password === adminPassword) {
       // Set httpOnly cookie for secure session
-      cookies().set("admin-authenticated", "true", {
+      (await cookies()).set("admin-authenticated", "true", {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",

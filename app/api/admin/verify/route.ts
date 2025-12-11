@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 // Verify if user is authenticated
 export async function GET(request: NextRequest) {
   try {
-    const authCookie = cookies().get("admin-authenticated");
+    const authCookie = (await cookies()).get("admin-authenticated");
     const isAuthenticated = authCookie?.value === "true";
 
     return NextResponse.json({ authenticated: isAuthenticated });

@@ -1050,6 +1050,31 @@ export default function ProjectDetailPage({
   // Handle both hyphen and underscore versions of slugs
   const project = projectData[slug] || projectData[slug.replace(/_/g, '-')] || projectData[slug.replace(/-/g, '_')];
 
+  // State for GitHub activity duration
+  const [githubDuration, setGithubDuration] = useState<string | null>(null);
+  const [isLoadingDuration, setIsLoadingDuration] = useState(true);
+
+  // Fetch GitHub activity on mount
+  useEffect(() => {
+    if (project?.github) {
+      setIsLoadingDuration(true);
+      fetch(`/api/github/activity?repo=${encodeURIComponent(project.github)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.duration) {
+            setGithubDuration(data.duration);
+          }
+          setIsLoadingDuration(false);
+        })
+        .catch((error) => {
+          console.error("Failed to fetch GitHub activity:", error);
+          setIsLoadingDuration(false);
+        });
+    } else {
+      setIsLoadingDuration(false);
+    }
+  }, [project?.github]);
+
   // Debug: Log slug and project lookup
   if (typeof window !== 'undefined') {
     console.log('Slug:', slug);
@@ -1072,6 +1097,32 @@ export default function ProjectDetailPage({
       </div>
     );
   }
+
+  // Parse roleDuration and replace timeline with GitHub data
+  const getRoleDurationDisplay = () => {
+    if (!project.roleDuration) return null;
+    
+    const lines = project.roleDuration.split('\n');
+    const roleLine = lines.find((line) => line.startsWith('Role:'));
+    const toolsLine = lines.find((line) => line.startsWith('Tools:'));
+    
+    const result: string[] = [];
+    if (roleLine) result.push(roleLine);
+    
+    if (isLoadingDuration) {
+      result.push('Timeline: Loading...');
+    } else if (githubDuration) {
+      result.push(`Timeline: ${githubDuration}`);
+    } else {
+      // Fallback to original timeline if GitHub data unavailable
+      const timelineLine = lines.find((line) => line.startsWith('Timeline:'));
+      if (timelineLine) result.push(timelineLine);
+    }
+    
+    if (toolsLine) result.push(toolsLine);
+    
+    return result.join('\n');
+  };
 
   const sections = [
     "Overview",
@@ -1260,7 +1311,7 @@ export default function ProjectDetailPage({
             )}
 
             {/* Role & Duration */}
-            {project.roleDuration && (
+            {getRoleDurationDisplay() && (
               <section className="scroll-mt-24">
                 {/* Gradient Divider */}
                 <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-12 -mt-4" />
@@ -1272,7 +1323,7 @@ export default function ProjectDetailPage({
                 transition={{ duration: 0.5, delay: 0.1 }}
                   className="space-y-2"
                 >
-                  {project.roleDuration.split('\n').map((line: string, index: number) => (
+                  {getRoleDurationDisplay()?.split('\n').map((line: string, index: number) => (
                     <p key={index} className="text-gray-300 leading-relaxed">
                       {line}
                     </p>

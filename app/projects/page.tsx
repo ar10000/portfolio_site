@@ -49,7 +49,7 @@ const projects: Project[] = [
     problem: "Product teams lack visibility into launch performance metrics. Manual tracking of launch data is time-consuming and error-prone. No centralized platform for tracking launch analytics across multiple products. Difficult to compare launch performance across different products or time periods.",
     solution: "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
     impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
-    image: "/images/projects/launchlens-1.png",
+    image: "/images/projects/launchlens-1.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     githubUrl: "https://github.com/ar10000/LaunchLens",
   },
@@ -136,12 +136,10 @@ function ProjectImage({ project }: { project: typeof projects[0] }) {
 
   return (
     <div className="relative h-[300px] overflow-hidden bg-gray-800">
-      <Image
+      <img
         src={project.image}
         alt={`${project.title} project preview`}
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
         onError={() => {
           setImageError(true);
         }}

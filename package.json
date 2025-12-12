@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run embed",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "embed": "npx tsx scripts/embed.ts"
+    "embed": "tsx scripts/embed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",
@@ -27,6 +28,7 @@
     "dotenv": "^17.2.3",
     "postcss": "^8.4.40",
     "tailwindcss": "^3.4.7",
+    "tsx": "^4.21.0",
     "typescript": "^5.5.4"
   }
 }

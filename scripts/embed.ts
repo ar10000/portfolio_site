@@ -6,8 +6,12 @@ import path from 'path';
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
 
-// Load environment variables from .env.local
-dotenv.config({ path: path.join(process.cwd(), '.env.local') });
+// Load environment variables from .env.local (if it exists)
+// In production (Vercel), environment variables are already available via process.env
+const envPath = path.join(process.cwd(), '.env.local');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
 
 interface EmbeddingChunk {
   content: string;

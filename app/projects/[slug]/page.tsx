@@ -44,6 +44,8 @@ interface Project {
   github: string;
   heroSummary: string;
   roleDuration: string;
+  role: string;
+  context: string;
   problem: string;
   solution: string;
   impact: string;
@@ -80,6 +82,8 @@ const projectData: Record<string, Project> = {
     github: "https://github.com/ar10000/creative-garden",
     heroSummary: "Flutter app for managing creative projects through lifecycle stages. Uses Supabase triggers for momentum scoring. Production-ready with offline caching and GDPR export.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 8 weeks\nTools: Flutter, Supabase, Dart, PostgreSQL",
+    role: "Mobile Developer (Flutter)",
+    context: "Creative insights are often lost due to friction in standard note-taking apps.",
     problem:
       "Creatives lose track of ideas due to friction and slow load times in standard note apps.",
     solution:
@@ -175,6 +179,8 @@ class ProjectLifecycleService {
     github: "https://github.com/ar10000/flowcircle",
     heroSummary: "Minimalist project management app built with Next.js 14 and Supabase. Features authentication, profile management, and reflection engine structure. Early build focusing on core foundations.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Supabase, PostgreSQL",
+    role: "Full-Stack Developer (Next.js)",
+    context: "Standard productivity tools often overwhelm neurodivergent users with visual clutter.",
     problem:
       "Standard productivity tools often overwhelm neurodivergent users with visual clutter.",
     solution:
@@ -271,6 +277,8 @@ export async function createProject(userId: string, projectData: {
     pricing: null, // Pricing not specified
     heroSummary: "AI email qualification system that processes inbound leads automatically. Extracts qualification criteria from natural language and routes qualified leads to calendar booking. Production-ready prototype being tested.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 6 weeks\nTools: Python, Supabase, Claude AI, Gmail API",
+    role: "Full-Stack Developer & AI Engineer",
+    context: "Sales teams often waste hours manually filtering spam and low-quality leads.",
     problem:
       "Small business owners lose ~10 hours/week manually filtering spam and unqualified leads.",
     solution:
@@ -403,6 +411,8 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
     github: "https://github.com/ar10000/portfolio_site",
     heroSummary: "Portfolio website that demonstrates technical capabilities through its own implementation. Serves as both a showcase and working example of Next.js 14, AI integration, and automated content management.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Next.js 14, TypeScript, Tailwind CSS, Claude AI, GitHub API, Vercel",
+    role: "Full-Stack Developer (Next.js)",
+    context: "Traditional portfolios are static and don't demonstrate automation capabilities.",
     problem:
       "• Traditional portfolios are static and don't demonstrate automation capabilities\n• No way to showcase AI integration skills and modern web architecture\n• Static sites fail to showcase the full range of technical skills including API development\n• Need for dynamic content management without direct code changes",
     solution:
@@ -497,6 +507,8 @@ export async function POST(request: Request) {
     github: "https://github.com/ar10000/LaunchLens",
     heroSummary: "Product launch analytics platform providing real-time dashboards and automated insights. Tracks launch performance metrics and provides actionable data for product teams.",
     roleDuration: "Role: Full-stack Developer\nTimeline: In progress\nTools: Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL",
+    role: "Frontend Engineer (Next.js)",
+    context: "Product managers struggle to track metrics across disconnected tools.",
     problem:
       "• Product teams lack visibility into launch performance metrics\n• Manual tracking of launch data is time-consuming and error-prone\n• No centralized platform for tracking launch analytics across multiple products\n• Difficult to compare launch performance across different products or time periods",
     solution:
@@ -570,6 +582,8 @@ export async function POST(request: Request) {
     github: "https://github.com/ar10000/adaptive-resume",
     heroSummary: "Dynamic resume builder that adapts content based on job requirements. Features ATS optimization, multiple resume versions, and intelligent content customization.",
     roleDuration: "Role: Full-stack Developer\nTimeline: In progress\nTools: Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL",
+    role: "Full-Stack Developer (Next.js)",
+    context: "Job seekers need to customize resumes for each application but lack efficient tools.",
     problem:
       "• Job seekers need to customize resumes for each application but lack efficient tools\n• Applicant Tracking Systems (ATS) require specific formatting and keyword optimization\n• Managing multiple resume versions for different job types is time-consuming\n• No intelligent system to adapt resume content based on job descriptions",
     solution:
@@ -1113,6 +1127,13 @@ export default function ProjectDetailPage({
               <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r ${gradientText} bg-clip-text text-transparent`}>
                   {project.title}
                 </h1>
+              {project.role && (
+                <div className="mb-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                    {project.role}
+                  </span>
+                </div>
+              )}
               <p className="text-xl text-gray-400 mb-4">{project.tagline || project.description}</p>
                 <div className="flex flex-wrap items-center gap-4">
                   {project.tech.slice(0, 4).map((tech: string) => (
@@ -1278,6 +1299,17 @@ export default function ProjectDetailPage({
                     Client Problem
                   </span>
               </motion.h2>
+              {project.context && (
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.05 }}
+                  className="text-lg text-gray-400 italic mb-6 leading-relaxed"
+                >
+                  {project.context}
+                </motion.p>
+              )}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

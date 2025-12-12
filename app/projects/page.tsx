@@ -13,6 +13,8 @@ interface Project {
   summary: string;
   description: string;
   impact: string | null;
+  role: string;
+  context: string;
   problem: string;
   solution: string;
   image: string;
@@ -27,6 +29,8 @@ const projects: Project[] = [
     summary: "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
     description:
       "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
+    role: "Full-Stack Developer & AI Engineer",
+    context: "Sales teams often waste hours manually filtering spam and low-quality leads.",
     problem: "Small business owners lose ~10 hours/week manually filtering spam and unqualified leads.",
     solution: "Built an autonomous AI agent using Claude API that parses emails, scores lead quality, and drafts replies.",
     impact: "Engineered to replace manual data entry, reducing a typical 15-minute lead qualification process to a 3-second API call.",
@@ -40,6 +44,8 @@ const projects: Project[] = [
     summary: "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
     description:
       "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
+    role: "Mobile Developer (Flutter)",
+    context: "Creative insights are often lost due to friction in standard note-taking apps.",
     problem: "Creatives lose track of ideas due to friction and slow load times in standard note apps.",
     solution: "Developed a high-performance cross-platform Flutter app designed for instant, frictionless idea capture.",
     impact: "Optimized Flutter rendering engine to achieve 60fps performance, ensuring zero-latency input for rapid idea capture.",
@@ -53,6 +59,8 @@ const projects: Project[] = [
     summary: "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
     description:
       "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
+    role: "Full-Stack Developer (Next.js)",
+    context: "Standard productivity tools often overwhelm neurodivergent users with visual clutter.",
     problem: "Standard productivity tools often overwhelm neurodivergent users with visual clutter.",
     solution: "Designed a 'visual-first' workflow app focusing on cognitive accessibility and reduced decision fatigue.",
     impact: "Implements a proprietary 'visual-first' navigation system designed to reduce cognitive load compared to standard list views.",
@@ -66,6 +74,8 @@ const projects: Project[] = [
     summary: "Next.js 14 portfolio with AI chatbot, GitHub sync, and automated content management. Working example of technical capabilities.",
     description:
       "Next.js 14 portfolio with AI chatbot, GitHub sync, and automated content management. Working example of technical capabilities.",
+    role: "Full-Stack Developer (Next.js)",
+    context: "Traditional portfolios are static and don't demonstrate automation capabilities.",
     problem: "Traditional portfolios are static and don't demonstrate automation capabilities. No way to showcase AI integration skills and modern web architecture. Static sites fail to showcase the full range of technical skills including API development. Need for dynamic content management without direct code changes.",
     solution: "The portfolio functions as a working demonstration of technical capabilities. Visitors can interact with an AI chatbot that answers questions about services and projects. Project information syncs automatically from GitHub repositories, keeping the portfolio current without manual updates. Content management happens through an admin interface, allowing updates without code changes. The portfolio itself proves the technical skills it describes.",
     impact: "The Portfolio Website serves as a living demonstration of technical capabilities, showcasing AI integration, automated content management, and modern web architecture. It provides visitors with an interactive experience while automatically staying current through GitHub integration.",
@@ -79,6 +89,8 @@ const projects: Project[] = [
     summary: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
     description:
       "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+    role: "Frontend Engineer (Next.js)",
+    context: "Product managers struggle to track metrics across disconnected tools.",
     problem: "Product teams lack visibility into launch performance metrics. Manual tracking of launch data is time-consuming and error-prone. No centralized platform for tracking launch analytics across multiple products. Difficult to compare launch performance across different products or time periods.",
     solution: "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
     impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
@@ -92,6 +104,8 @@ const projects: Project[] = [
     summary: "Dynamic resume builder that adapts content based on job requirements and applicant tracking system optimization.",
     description:
       "Dynamic resume builder that adapts content based on job requirements and applicant tracking system optimization.",
+    role: "Full-Stack Developer (Next.js)",
+    context: "Job seekers need to customize resumes for each application but lack efficient tools.",
     problem: "Job seekers need to customize resumes for each application but lack efficient tools. Applicant Tracking Systems (ATS) require specific formatting and keyword optimization. Managing multiple resume versions for different job types is time-consuming. No intelligent system to adapt resume content based on job descriptions.",
     solution: "Adaptive Resume provides a dynamic resume builder that automatically adapts content based on job requirements. The system analyzes job descriptions, optimizes content for ATS compatibility, and generates tailored resume versions. Users can maintain a master resume and generate customized versions for specific applications with intelligent keyword matching and formatting optimization.",
     impact: "Parses and reformats complex PDF structures dynamically, removing the need for manual layout adjustments.",

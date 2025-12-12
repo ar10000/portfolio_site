@@ -22,6 +22,8 @@ const featuredProjects = [
     id: "autoleadcloser",
     title: "AutoLeadCloser",
     summary: "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
+    role: "Full-Stack Developer & AI Engineer",
+    context: "Sales teams often waste hours manually filtering spam and low-quality leads.",
     problem: "Small business owners lose ~10 hours/week manually filtering spam and unqualified leads.",
     solution: "Built an autonomous AI agent using Claude API that parses emails, scores lead quality, and drafts replies.",
     impact: "Engineered to replace manual data entry, reducing a typical 15-minute lead qualification process to a 3-second API call.",
@@ -32,6 +34,8 @@ const featuredProjects = [
     id: "creative-garden",
     title: "Creative Garden",
     summary: "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
+    role: "Mobile Developer (Flutter)",
+    context: "Creative insights are often lost due to friction in standard note-taking apps.",
     problem: "Creatives lose track of ideas due to friction and slow load times in standard note apps.",
     solution: "Developed a high-performance cross-platform Flutter app designed for instant, frictionless idea capture.",
     impact: "Optimized Flutter rendering engine to achieve 60fps performance, ensuring zero-latency input for rapid idea capture.",
@@ -267,10 +271,22 @@ export default function Home() {
 
                 {/* Card Content */}
                 <div className="flex flex-col flex-grow p-6">
+                  {/* Role Badge */}
+                  <div className="mb-3">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                      {project.role}
+                    </span>
+                  </div>
+
                   {/* Title */}
                   <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
                     {project.title}
                   </h3>
+
+                  {/* Context */}
+                  <p className="text-sm text-gray-400 italic mb-4 leading-relaxed">
+                    {project.context}
+                  </p>
 
                   {/* Case Study Fields Grid */}
                   <div className="space-y-4 mb-6 flex-grow">

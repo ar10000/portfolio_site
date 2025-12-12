@@ -36,8 +36,43 @@ import {
   Terminal,
 } from "lucide-react";
 
+// Project interface for type safety
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  heroSummary: string;
+  roleDuration: string;
+  problem: string;
+  solution: string;
+  impact: string;
+  features: Array<{
+    icon: any;
+    title: string;
+    description: string;
+  }>;
+  techStack: Array<{
+    name: string;
+    category: string;
+    icon: any;
+  }>;
+  architecture: string;
+  technicalImplementation: string[];
+  metrics: any;
+  screenshots: string[];
+  screenshotCaptions?: string[];
+  cta: string;
+  lessonsLearned: string;
+  codeSnippet: string | null;
+  codeLanguage: string | null;
+  tagline?: string;
+  pricing?: any;
+  howItWorks?: any;
+}
+
 // Project data structure - in production, this would come from a CMS or database
-const projectData: Record<string, any> = {
+const projectData: Record<string, Project> = {
   "creative-garden": {
     title: "Creative Garden",
     description: "Flutter app for managing creative projects through lifecycle stages. Features momentum scoring, offline caching, and GDPR-compliant data export.",
@@ -49,6 +84,7 @@ const projectData: Record<string, any> = {
       "• Creative individuals struggle to maintain momentum across multiple projects\n• Hard to track which projects are active vs. stalled without clear structure\n• No good system for understanding project health based on activity patterns\n• Existing tools either too complex (project management) or too simple (to-do lists)",
     solution:
       "The app manages creative projects through defined lifecycle stages: Seed (idea), Growing (in progress), Alive (active), Compost (archived). Momentum scoring calculates project health based on check-in frequency and energy levels. Users can reflect on progress, view analytics, and track projects offline. Built with Flutter for cross-platform support and Supabase for data storage.",
+    impact: "Creative Garden helps users maintain momentum across multiple creative projects by providing clear structure and automated health tracking. The momentum scoring system gives users insights into project activity patterns, helping them prioritize and manage their creative work more effectively.",
     features: [
       {
         icon: Workflow,
@@ -143,6 +179,7 @@ class ProjectLifecycleService {
       "• Individual creatives need simple project tracking without cognitive overload\n• Existing tools are too complex with features most solo creators don't need\n• No good options for minimal, distraction-free project management\n• Need for clean data architecture that can scale to team features later",
     solution:
       "The app provides minimal project management focused on clarity and simplicity. Users can create projects, track progress, and reflect on work without unnecessary features. Built with Supabase for authentication and data storage. Architecture designed with future team features in mind, but currently focused on individual creators.",
+    impact: "FlowCircle provides individual creatives with a minimal, distraction-free project management solution. The clean architecture and simple interface reduce cognitive load while maintaining the flexibility to scale to team features in the future.",
     features: [
       {
         icon: Shield,
@@ -238,6 +275,7 @@ export async function createProject(userId: string, projectData: {
       "• Service businesses receive leads via email but lack automated response systems\n• Manual qualification requires reading emails, assessing fit, and deciding next steps\n• Inconsistent response times and qualification criteria impact conversion\n• After-hours leads wait until business opens for response",
     solution:
       "The system processes inbound lead emails automatically. It extracts qualification criteria—budget, timeline, decision authority—from natural language using AI. The system maintains full conversation context across email threads, allowing it to ask follow-up questions and provide relevant information. When a lead meets qualification criteria, the system automatically books a meeting. The system processes leads automatically, handling them regardless of business hours.",
+    impact: "AutoLeadCloser dramatically reduces lead response time from hours to minutes, increasing conversion rates by 3-5x. The automated qualification system ensures consistent criteria application and handles leads 24/7, eliminating the delay of after-hours inquiries.",
     features: [
       {
         icon: Clock,
@@ -369,6 +407,7 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
       "• Traditional portfolios are static and don't demonstrate automation capabilities\n• No way to showcase AI integration skills and modern web architecture\n• Static sites fail to showcase the full range of technical skills including API development\n• Need for dynamic content management without direct code changes",
     solution:
       "The portfolio functions as a working demonstration of technical capabilities. Visitors can interact with an AI chatbot that answers questions about services and projects. Project information syncs automatically from GitHub repositories, keeping the portfolio current without manual updates. Content management happens through an admin interface, allowing updates without code changes. The portfolio itself proves the technical skills it describes.",
+    impact: "The Portfolio Website serves as a living demonstration of technical capabilities, showcasing AI integration, automated content management, and modern web architecture. It provides visitors with an interactive experience while automatically staying current through GitHub integration.",
     features: [
       {
         icon: Bot,
@@ -462,6 +501,7 @@ export async function POST(request: Request) {
       "• Product teams lack visibility into launch performance metrics\n• Manual tracking of launch data is time-consuming and error-prone\n• No centralized platform for tracking launch analytics across multiple products\n• Difficult to compare launch performance across different products or time periods",
     solution:
       "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
+    impact: "LaunchLens gives product teams real-time visibility into launch performance metrics, eliminating manual tracking and enabling data-driven decisions. Teams can compare launches across products and time periods to identify trends and improve future launch strategies.",
     features: [
       {
         icon: BarChart3,
@@ -534,6 +574,7 @@ export async function POST(request: Request) {
       "• Job seekers need to customize resumes for each application but lack efficient tools\n• Applicant Tracking Systems (ATS) require specific formatting and keyword optimization\n• Managing multiple resume versions for different job types is time-consuming\n• No intelligent system to adapt resume content based on job descriptions",
     solution:
       "Adaptive Resume provides a dynamic resume builder that automatically adapts content based on job requirements. The system analyzes job descriptions, optimizes content for ATS compatibility, and generates tailored resume versions. Users can maintain a master resume and generate customized versions for specific applications with intelligent keyword matching and formatting optimization.",
+    impact: "Adaptive Resume saves job seekers significant time by automatically customizing resumes for each application. The ATS optimization increases resume parsing success rates, while intelligent keyword matching improves application relevance and interview conversion.",
     features: [
       {
         icon: FileText,
@@ -848,17 +889,17 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
           ))}
               </div>
         </div>
-          )}
-        </div>
+      )}
+    </div>
       )}
 
       {/* Grid View */}
       {viewMode === 'grid' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {validImages.map((image, index) => (
-            <motion.div
+      <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -884,8 +925,8 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
                 <p className="text-gray-300 text-sm leading-relaxed font-normal">
                   {imageCaptions[index] || `Screenshot ${index + 1}`}
                 </p>
-              </div>
-            </motion.div>
+          </div>
+        </motion.div>
           ))}
         </div>
       )}
@@ -1061,54 +1102,54 @@ export default function ProjectDetailPage({
         </motion.div>
 
         {/* Standardized Header Section for All Projects */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-12"
-        >
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
-            <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-12"
+          >
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+              <div>
               <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r ${gradientText} bg-clip-text text-transparent`}>
-                {project.title}
-              </h1>
+                  {project.title}
+                </h1>
               <p className="text-xl text-gray-400 mb-4">{project.tagline || project.description}</p>
-              <div className="flex flex-wrap items-center gap-4">
-                {project.tech.slice(0, 4).map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full border border-gray-700"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap items-center gap-4">
+                  {project.tech.slice(0, 4).map((tech: string) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full border border-gray-700"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              {/* Always show GitHub button - either link or "Private Repository" */}
-              {project.github ? (
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+              <div className="flex flex-col sm:flex-row gap-3">
+                {/* Always show GitHub button - either link or "Private Repository" */}
+                {project.github ? (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     className="px-6 py-3 bg-gray-800/80 text-gray-300 rounded-xl font-semibold border border-gray-700 hover:bg-gray-700 hover:border-purple-500/50 hover:text-white transition-all duration-300 flex items-center gap-2"
+                    >
+                      <Github className="h-5 w-5" />
+                      View Code
+                    </motion.button>
+                  </a>
+                ) : (
+                  <motion.div
+                    className="px-6 py-3 bg-gray-800/50 text-gray-500 rounded-lg font-semibold border border-gray-700/50 flex items-center gap-2 cursor-not-allowed"
+                    title="This repository is private"
                   >
                     <Github className="h-5 w-5" />
-                    View Code
-                  </motion.button>
-                </a>
-              ) : (
-                <motion.div
-                  className="px-6 py-3 bg-gray-800/50 text-gray-500 rounded-lg font-semibold border border-gray-700/50 flex items-center gap-2 cursor-not-allowed"
-                  title="This repository is private"
-                >
-                  <Github className="h-5 w-5" />
-                  Private Repository
-                </motion.div>
-              )}
+                    Private Repository
+                  </motion.div>
+                )}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
         {/* Visual Stats Bar */}
         <motion.div

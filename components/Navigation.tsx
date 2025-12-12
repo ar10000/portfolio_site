@@ -103,7 +103,10 @@ export default function Navigation() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item) => {
-                const isActive = pathname === item.href;
+                // More robust pathname matching - handle trailing slashes and exact matches
+                const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+                const normalizedHref = item.href.replace(/\/$/, '') || '/';
+                const isActive = normalizedPathname === normalizedHref;
                 const isContact = item.name === "Contact";
                 
                 // Render Contact as a primary button
@@ -217,7 +220,10 @@ export default function Navigation() {
                 {/* Mobile Navigation Links */}
                 <nav className="flex-1 p-6 space-y-2">
                   {navItems.map((item) => {
-                    const isActive = pathname === item.href;
+                    // More robust pathname matching - handle trailing slashes and exact matches
+                    const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+                    const normalizedHref = item.href.replace(/\/$/, '') || '/';
+                    const isActive = normalizedPathname === normalizedHref;
                     const isContact = item.name === "Contact";
                     
                     // Render Contact as a primary button

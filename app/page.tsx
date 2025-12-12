@@ -7,9 +7,38 @@ import {
   Zap,
   Building2,
   Clock,
+  AlertCircle,
+  Lightbulb,
+  TrendingUp,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedWords from "@/components/AnimatedWords";
+
+// Import projects data - using top 2 for featured case studies
+const featuredProjects = [
+  {
+    id: "autoleadcloser",
+    title: "AutoLeadCloser",
+    summary: "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
+    problem: "Service businesses receive leads via email but lack automated response systems. Manual qualification requires reading emails, assessing fit, and deciding next steps. Inconsistent response times and qualification criteria impact conversion.",
+    solution: "The system processes inbound lead emails automatically. It extracts qualification criteria—budget, timeline, decision authority—from natural language using AI. The system maintains full conversation context across email threads, allowing it to ask follow-up questions and provide relevant information. When a lead meets qualification criteria, the system automatically books a meeting.",
+    impact: "AutoLeadCloser dramatically reduces lead response time from hours to minutes, increasing conversion rates by 3-5x. The automated qualification system ensures consistent criteria application and handles leads 24/7, eliminating the delay of after-hours inquiries.",
+    image: "/images/projects/autoleadcloser-1.jpg",
+    slug: "autoleadcloser",
+  },
+  {
+    id: "creative-garden",
+    title: "Creative Garden",
+    summary: "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
+    problem: "Creative individuals struggle to maintain momentum across multiple projects. Hard to track which projects are active vs. stalled without clear structure. No good system for understanding project health based on activity patterns. Existing tools either too complex (project management) or too simple (to-do lists).",
+    solution: "The app manages creative projects through defined lifecycle stages: Seed (idea), Growing (in progress), Alive (active), Compost (archived). Momentum scoring calculates project health based on check-in frequency and energy levels. Users can reflect on progress, view analytics, and track projects offline. Built with Flutter for cross-platform support and Supabase for data storage.",
+    impact: "Creative Garden helps users maintain momentum across multiple creative projects by providing clear structure and automated health tracking. The momentum scoring system gives users insights into project activity patterns, helping them prioritize and manage their creative work more effectively.",
+    image: "/images/projects/creative-garden-1.jpg",
+    slug: "creative-garden",
+  },
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,29 +61,6 @@ const itemVariants = {
     },
   },
 };
-
-const projects = [
-  {
-    name: "AutoLeadCloser",
-    description: "AI email qualification system",
-    slug: "autoleadcloser",
-  },
-  {
-    name: "Creative Garden",
-    description: "Flutter productivity app",
-    slug: "creative-garden",
-  },
-  {
-    name: "FlowCircle",
-    description: "Clarity app for neurodivergent creatives",
-    slug: "flowcircle",
-  },
-  {
-    name: "Portfolio platform",
-    description: "Next.js + AI",
-    slug: "portfolio-site",
-  },
-];
 
 export default function Home() {
   return (
@@ -188,10 +194,10 @@ export default function Home() {
                 description: "AI agents and automation. Full-stack development. API integrations and workflow orchestration.",
               },
             ].map((item, index) => (
-              <motion.div
+            <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
@@ -202,7 +208,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
                   <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30 shadow-lg shadow-purple-500/20 group-hover:shadow-xl group-hover:shadow-purple-500/30 transition-all duration-300">
                     <item.icon className="h-8 w-8 text-purple-400 drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]" />
-                  </div>
+                </div>
                 </div>
 
                 {/* Title */}
@@ -214,14 +220,14 @@ export default function Home() {
                 <p className="text-gray-300 leading-[1.6] font-normal flex-grow">{item.description}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
+                </div>
+              </div>
       </section>
 
       {/* Gradient Divider */}
       <div className="relative h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mx-auto max-w-6xl" />
 
-      {/* Quick Credibility Block */}
+      {/* Featured Case Studies Section */}
       <section className="py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.h2
@@ -231,29 +237,117 @@ export default function Home() {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="text-4xl font-bold text-center mb-12 text-white"
           >
-            Recent <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Work</span>
+            Featured <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Case Studies</span>
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <Link key={index} href={`/projects/${project.slug}`}>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
-                  whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
-                  className="group relative p-6 rounded-lg border border-gray-800 bg-gray-900/30 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer"
-                >
-                  {/* Purple glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl pointer-events-none rounded-lg -z-10" />
-                  
-                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                    {project.name}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {featuredProjects.map((project, index) => (
+            <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                className="group relative flex flex-col h-full rounded-xl border border-gray-800 bg-gray-900/30 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 overflow-hidden"
+              >
+                {/* Purple glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl pointer-events-none -z-10" />
+                
+                {/* Project Image */}
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
+                </div>
+
+                {/* Card Content */}
+                <div className="flex flex-col flex-grow p-6">
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
+                    {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300 leading-[1.6] font-normal">{project.description}</p>
-                </motion.div>
-              </Link>
+
+                  {/* Case Study Fields Grid */}
+                  <div className="space-y-4 mb-6 flex-grow">
+                    {/* Problem */}
+                    <div className="relative">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-red-500/20 rounded-full blur-md" />
+                            <div className="relative w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center border border-red-500/30">
+                              <AlertCircle className="h-4 w-4 text-red-400" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-red-500/10 border border-red-500/20 mb-2">
+                            <span className="text-xs font-semibold text-red-400 uppercase tracking-wide">Problem</span>
+                          </div>
+                          <p className="text-sm text-gray-300 leading-relaxed">{project.problem}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Solution */}
+                    <div className="relative">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-md" />
+                            <div className="relative w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+                              <Lightbulb className="h-4 w-4 text-blue-400" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 mb-2">
+                            <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">Solution</span>
+                          </div>
+                          <p className="text-sm text-gray-300 leading-relaxed">{project.solution}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Impact */}
+                    <div className="relative">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-md" />
+                            <div className="relative w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
+                              <TrendingUp className="h-4 w-4 text-purple-400" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 mb-2">
+                            <span className="text-xs font-semibold text-purple-400 uppercase tracking-wide">Impact</span>
+                          </div>
+                          <p className="text-sm text-gray-300 leading-relaxed">{project.impact}</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                  {/* Read Full Case Study Button */}
+                  <Link href={`/projects/${project.slug}`} className="mt-auto">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300 group/btn"
+                    >
+                      <span>Read Full Case Study</span>
+                      <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </Link>
+              </div>
+            </motion.div>
             ))}
           </div>
         </div>
@@ -280,7 +374,7 @@ export default function Home() {
               className="text-4xl font-bold mb-6 text-white"
             >
               Let's work together
-            </motion.h2>
+          </motion.h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/projects">
                 <motion.button

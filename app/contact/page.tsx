@@ -238,7 +238,7 @@ export default function ContactPage() {
         >
           <h1 className="text-5xl font-bold mb-4 text-white">Contact</h1>
           <p className="text-lg text-gray-300 leading-[1.6] font-normal">
-            If you want to collaborate, discuss a project, or explore an automation idea, feel free to reach out.
+            For project discussions or automation requirements, contact me below.
           </p>
         </motion.div>
 
@@ -249,7 +249,7 @@ export default function ContactPage() {
           transition={{ duration: 0.35, ease: "easeOut" }}
           className="text-center text-gray-400 mb-12 leading-[1.6] font-normal"
         >
-          Not sure where to start? Book a free 15-minute fit check to discuss your project.
+          Schedule a 15-minute call to discuss scope and requirements.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

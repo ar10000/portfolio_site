@@ -20,13 +20,13 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
-    title: "Free Fit Check",
+    title: "Initial Call",
     price: "FREE",
-    description: "15-minute call to discuss your project, confirm alignment, and verify we're a good fit.",
-    features: ["Quick project discussion", "Alignment check", "No free consulting"],
+    description: "15-minute call to discuss project scope and technical requirements.",
+    features: ["Project discussion", "Scope review", "Technical alignment"],
     icon: Phone,
     recommended: false,
-    ctaText: "Book 15-Min Call",
+    ctaText: "Schedule Call",
     ctaLink: "/contact",
     isFree: true,
   },
@@ -82,7 +82,7 @@ export default function Pricing() {
             Clear <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text' }}>Pricing</span>
           </h2>
           <p className="text-gray-400 text-lg leading-[1.6] font-normal max-w-2xl mx-auto">
-            Transparent pricing for every stage of your automation journey
+            Transparent pricing for automation and AI systems
           </p>
         </motion.div>
 
@@ -205,7 +205,7 @@ export default function Pricing() {
                         : "bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:border-purple-500/50"
                     }`}
                   >
-                    {tier.ctaText || "Book Free Fit Check"}
+                    {tier.ctaText || "Schedule Call"}
                   </motion.button>
                 </Link>
               </div>

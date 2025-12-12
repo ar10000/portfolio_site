@@ -173,7 +173,7 @@ export default function Navigation() {
                         className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white text-sm shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 min-h-[44px] transition-all duration-300"
                         aria-label="Contact - Go to contact page"
                       >
-                        {item.name}
+                        Get Started
                       </motion.button>
                     </Link>
                   );
@@ -287,7 +287,7 @@ export default function Navigation() {
                             className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 min-h-[44px] transition-all duration-300"
                             aria-label="Contact - Go to contact page"
                           >
-                            {item.name}
+                            Get Started
                           </motion.button>
                         </Link>
                       );

@@ -106,21 +106,21 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2 - Building My Client Portfolio */}
+          {/* Column 2 - Pricing */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">
-              Building My Client Portfolio
+              Pricing
             </h3>
             <p className="text-gray-300 text-sm mb-6 leading-[1.6] font-normal">
-              I'm offering fair rates (€75/hour, €1,200 starter builds) while building case studies and testimonials. Work with me now for technical quality at early-career pricing.
+              €75/hour or €1,200 fixed builds. Rates reflect current experience level and will increase as case studies accumulate.
             </p>
             <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.02, filter: "brightness(1.1)" }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
+                className="w-full px-6 py-3 min-h-[44px] bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
               >
-                Book Free Fit Check
+                Get Started
               </motion.button>
             </Link>
           </div>

@@ -10,19 +10,19 @@ export default function PricingPage() {
     <div className="pt-24 pb-20">
       {/* Hero Section */}
       <div className="px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
+      <div className="max-w-7xl mx-auto">
+        <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="text-center mb-16"
-          >
+          className="text-center mb-16"
+        >
             <h1 className="text-5xl font-bold mb-4 text-white">Pricing</h1>
             <p className="text-gray-400 text-lg leading-[1.6] font-normal max-w-2xl mx-auto">
               Transparent pricing. Start with a fixed build or scale with hourly development.
-            </p>
-          </motion.div>
+          </p>
+        </motion.div>
         </div>
       </div>
 
@@ -44,13 +44,10 @@ export default function PricingPage() {
             </h2>
             <div className="space-y-4 text-gray-300 leading-[1.6] font-normal">
               <p>
-                I'm transparent about my experience level. I've built production systems with multi-tenant architecture, AI integrations, and real deployments. I know how to design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
+                I've built production systems with multi-tenant architecture, AI integrations, and deployments. I design data models, handle webhooks with retry logic, and integrate Claude AI with streaming responses.
               </p>
               <p>
-                What I'm still learning: scoping complex projects perfectly and business process consulting. That's why €75/hour reflects strong technical execution without charging senior consultant rates.
-              </p>
-              <p>
-                As I build case studies, rates will increase. Work with me now for technical quality at fair pricing.
+                €75/hour reflects technical execution without senior consultant rates. Rates will increase as case studies accumulate.
               </p>
             </div>
           </motion.div>
@@ -75,7 +72,7 @@ export default function PricingPage() {
             {[
               {
                 question: "How do we start working together?",
-                answer: "Book a free 15-minute fit check. We'll discuss your project, confirm we're aligned, and I'll send you a clear proposal or scope document within 24 hours.",
+                answer: "Schedule a 15-minute call. We'll discuss your project, confirm alignment, and I'll send you a proposal or scope document within 24 hours.",
               },
               {
                 question: "Do you offer ongoing support?",
@@ -99,20 +96,20 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </div>
-        </div>
+              </div>
       </section>
 
-      {/* CTA Section */}
+        {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           >
             <p className="text-xl text-gray-300 mb-8 leading-[1.6] font-normal">
-              Ready to start? Book a free 15-minute fit check.
+              Schedule a 15-minute call to discuss scope.
             </p>
             <Link href="/contact">
               <motion.button
@@ -120,12 +117,12 @@ export default function PricingPage() {
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
               >
-                Book 15-Min Call
+                Schedule Call
                 <ArrowRight className="h-5 w-5" />
               </motion.button>
             </Link>
-          </motion.div>
-        </div>
+        </motion.div>
+      </div>
       </section>
     </div>
   );

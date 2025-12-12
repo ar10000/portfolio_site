@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Github, CheckCircle2, FileText } from "lucide-react";
+import { ArrowRight, Github, FileText, AlertCircle, Lightbulb, TrendingUp } from "lucide-react";
 import { useState } from "react";
 
 // Project interface for type safety
@@ -25,9 +25,9 @@ const projects: Project[] = [
   {
     id: "autoleadcloser",
     title: "AutoLeadCloser",
-    summary: "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
+    summary: "Eliminates manual lead qualification by automatically processing inbound emails, extracting qualification criteria, and responding within minutes. Reduces a 15-minute manual process to a 3-second API call.",
     description:
-      "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
+      "Eliminates manual lead qualification by automatically processing inbound emails, extracting qualification criteria, and responding within minutes. Reduces a 15-minute manual process to a 3-second API call, ensuring faster response times and consistent follow-up without manual intervention.",
     role: "Full-Stack Developer & AI Engineer",
     context: "Sales teams often waste hours manually filtering spam and low-quality leads.",
     problem: "Small business owners lose ~10 hours/week manually filtering spam and unqualified leads.",
@@ -40,13 +40,13 @@ const projects: Project[] = [
   {
     id: "launchlens",
     title: "LaunchLens",
-    summary: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+    summary: "Unifies scattered launch data from multiple tools into a single dashboard, eliminating hours of manual tracking each week. Product managers gain clear performance signals and make faster decisions.",
     description:
-      "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+      "Unifies scattered launch data from multiple tools into a single dashboard, eliminating hours of manual tracking each week. Product managers gain clear performance signals and make faster decisions without switching between systems.",
     role: "Frontend Engineer (Next.js)",
     context: "Product managers struggle to track metrics across disconnected tools.",
-    problem: "Product teams lack visibility into launch performance metrics. Manual tracking of launch data is time-consuming and error-prone. No centralized platform for tracking launch analytics across multiple products. Difficult to compare launch performance across different products or time periods.",
-    solution: "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
+    problem: "Launch data scattered across multiple tools forces product managers to spend hours each week manually compiling metrics. Unclear performance signals delay decisions and make it difficult to identify what's working.",
+    solution: "Central dashboard that unifies metrics from all systems into a single view. Real-time aggregation eliminates manual tracking, providing clear performance signals and enabling faster, data-driven decisions.",
     impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
     image: "/images/projects/launchlens-1.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
@@ -120,7 +120,7 @@ function ProjectImage({ project }: { project: typeof projects[0] }) {
 
   if (!project.image || imageError) {
     return (
-      <div className="relative h-[300px] overflow-hidden bg-gray-800">
+      <div className="relative h-64 overflow-hidden bg-gray-800">
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
@@ -134,25 +134,25 @@ function ProjectImage({ project }: { project: typeof projects[0] }) {
   }
 
   return (
-    <div className="relative h-[300px] overflow-hidden bg-gray-800">
+    <div className="relative h-64 overflow-hidden bg-gray-800">
       <img
         src={project.image}
         alt={`${project.title} project preview`}
-        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         onError={() => {
           setImageError(true);
         }}
       />
-      {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
     </div>
   );
 }
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-24 px-4 sm:px-6 lg:px-8 pb-20">
+    <div className="pt-24 px-6 sm:px-6 lg:px-8 pb-24">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,96 +160,162 @@ export default function ProjectsPage() {
           transition={{ duration: 0.35, ease: "easeOut" }}
           className="mb-16"
         >
-          <h1 className="text-5xl font-bold mb-4 text-white">Projects</h1>
-          <p className="text-gray-400 leading-[1.6] font-normal">
-            Technical work and system architecture.
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white">Case Studies</h1>
+          <p className="text-lg text-gray-400 leading-[1.6] font-normal max-w-3xl">
+            Technical solutions built for real problems. Each case study documents the problem, solution, and measurable outcomes.
           </p>
         </motion.div>
 
-        {/* Grid Layout: 2 columns on desktop, 1 on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Case Studies Grid */}
+        <div className="space-y-16">
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              className="group"
             >
-              {/* Purple glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl pointer-events-none -z-10" />
-
-              {/* Project Image - Large and prominent (300px+ height) */}
-              <div className="relative">
-                <ProjectImage project={project} />
-              </div>
-
-              {/* Card Content */}
-              <div className="p-6">
-                {/* Impact Statement - Prominently displayed above title */}
-                {project.impact && (
-                  <div className="mb-3">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 backdrop-blur-sm">
-                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      <span className="text-sm font-bold text-green-400 leading-tight">
-                        {project.impact}
-                    </span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Title - Larger and bolder */}
-                <h2 className="text-2xl font-bold mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                  {project.title}
-                </h2>
-                <p className="text-gray-400 mb-4 leading-[1.6] font-normal">{project.summary}</p>
-
-                {/* Tech Tags - Visually secondary, smaller and more subdued */}
-                <div className="flex flex-wrap gap-1.5 mb-6 opacity-70">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs font-normal bg-gray-800/50 text-gray-500 rounded-full border border-gray-800/50"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                {/* Left: Image */}
+                <div className="relative">
+                  <ProjectImage project={project} />
                 </div>
 
-                {/* View Project Button - Gradient styling */}
-                <Link href={`/projects/${project.id}`}>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 hover:from-purple-400 hover:to-blue-400 transition-all duration-300"
-                  >
-                    View Project
-                    <ArrowRight className="h-4 w-4" />
-                  </motion.button>
-                  </Link>
+                {/* Right: Content */}
+                <div className="flex flex-col">
+                  {/* Role Badge */}
+                  <div className="mb-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                      {project.role}
+                    </span>
+                  </div>
 
-                {/* GitHub link */}
-                {project.githubUrl && (
-                  <div className="mt-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                  {/* Title */}
+                  <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    {project.title}
+                  </h2>
+
+                  {/* Problem → Solution → Outcome Flow */}
+                  <div className="space-y-6 mb-8">
+                    {/* Problem */}
+                    <div className="relative">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-red-500/20 rounded-full blur-md" />
+                            <div className="relative w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/30">
+                              <AlertCircle className="h-5 w-5 text-red-400" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-sm font-semibold text-red-400 uppercase tracking-wide mb-2">
+                            Problem
+                          </h3>
+                          <p className="text-gray-300 leading-relaxed">{project.problem}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Solution */}
+                    <div className="relative">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-md" />
+                            <div className="relative w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/30">
+                              <Lightbulb className="h-5 w-5 text-blue-400" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wide mb-2">
+                            Solution
+                          </h3>
+                          <p className="text-gray-300 leading-relaxed">{project.solution}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Outcome */}
+                    {project.impact && (
+                      <div className="relative">
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-green-500/20 rounded-full blur-md" />
+                              <div className="relative w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/30">
+                                <TrendingUp className="h-5 w-5 text-green-400" />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-sm font-semibold text-green-400 uppercase tracking-wide mb-2">
+                              Outcome
+                            </h3>
+                            <p className="text-gray-300 leading-relaxed">{project.impact}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Tech Stack Pills */}
+                  <div className="mb-8">
+                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                      Tech Stack
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1.5 text-sm font-medium bg-gray-800/50 text-gray-300 rounded-md border border-gray-700/50 hover:border-gray-600 hover:bg-gray-800 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link href={`/projects/${project.id}`} className="flex-1">
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      <Github className="h-4 w-4" />
-                        View on GitHub
+                        className="w-full px-6 py-3 min-h-[44px] bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg font-semibold text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-all duration-300"
+                      >
+                        View Full Case Study
+                        <ArrowRight className="h-4 w-4" />
                       </motion.button>
-                    </a>
+                    </Link>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-shrink-0"
+                      >
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="px-6 py-3 min-h-[44px] bg-gray-800/50 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <Github className="h-4 w-4" />
+                          <span className="hidden sm:inline">Code</span>
+                        </motion.button>
+                      </a>
+                    )}
                   </div>
-                  )}
+                </div>
               </div>
+
+              {/* Divider between case studies */}
+              {index < projects.length - 1 && (
+                <div className="mt-16 pt-16 border-t border-gray-800" />
+              )}
             </motion.article>
           ))}
         </div>
@@ -257,4 +323,3 @@ export default function ProjectsPage() {
     </div>
   );
 }
-

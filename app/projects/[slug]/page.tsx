@@ -148,7 +148,7 @@ const projectData: Record<string, Project> = {
       "/images/projects/creative-garden-2.jpg",
       "/images/projects/creative-garden-3.jpg",
     ],
-    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    cta: "Build something similar? Let's discuss your requirements.",
     lessonsLearned:
       "Creative Garden demonstrates that database triggers can handle complex scoring logic efficiently. The project proves that offline-first mobile apps require careful state management and local caching strategies. Building for cross-platform deployment from day one allows reaching both iOS and Android users without maintaining separate codebases. The architecture prioritizes user data ownership with GDPR-compliant export functionality.",
     codeSnippet: `// Example: Project lifecycle state management
@@ -240,7 +240,7 @@ class ProjectLifecycleService {
       "/images/projects/flowcircle-2.jpg",
       "/images/projects/flowcircle-3.jpg",
     ],
-    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    cta: "Build something similar? Let's discuss your requirements.",
     lessonsLearned:
       "FlowCircle demonstrates the importance of starting with solid technical foundations. The project focuses on clean data architecture and simple user experience before adding complexity. Building for individual users first allows testing core concepts before scaling to team features. The architecture proves that starting simple doesn't mean building poorly—proper database design and authentication setup allow future expansion.",
     codeSnippet: `// Example: Project creation with Supabase
@@ -271,11 +271,11 @@ export async function createProject(userId: string, projectData: {
   autoleadcloser: {
     title: "AutoLeadCloser",
     tagline: "AI-Powered Sales Automation System",
-    description: "AI-powered lead qualification and response automation for service businesses. Processes inbound leads automatically and routes qualified prospects to calendar booking.",
+    description: "Eliminates manual lead qualification by automatically processing inbound emails, extracting qualification criteria, and responding within minutes. Reduces a 15-minute manual process to a 3-second API call, ensuring faster response times and consistent follow-up without manual intervention.",
     tech: ["Python", "Supabase", "Claude AI", "Gmail API"],
     github: "https://github.com/ar10000/AutoLeadCloser",
     pricing: null, // Pricing not specified
-    heroSummary: "AI email qualification system that processes inbound leads automatically. Extracts qualification criteria from natural language and routes qualified leads to calendar booking. Production-ready prototype being tested.",
+    heroSummary: "Automated lead qualification system that processes inbound emails, extracts budget and timeline from natural language, and routes qualified prospects to calendar booking. Built with Python, Claude AI, and Supabase to eliminate manual lead processing and ensure consistent, fast responses.",
     roleDuration: "Role: Full-stack AI Builder\nTimeline: 6 weeks\nTools: Python, Supabase, Claude AI, Gmail API",
     role: "Full-Stack Developer & AI Engineer",
     context: "Sales teams often waste hours manually filtering spam and low-quality leads.",
@@ -364,7 +364,7 @@ export async function createProject(userId: string, projectData: {
       "/images/projects/autoleadcloser-1.jpg",
       "/images/projects/autoleadcloser-2.jpg",
     ],
-    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    cta: "Build something similar? Let's discuss your requirements.",
     lessonsLearned:
       "AutoLeadCloser demonstrates that AI can extract structured qualification data from natural language email content. The system shows how webhook-based processing enables automated lead handling without manual intervention. The architecture prioritizes reliability through error handling and retry logic, designed to prevent data loss during processing failures.",
     codeSnippet: `# Example: AI-powered email response generation
@@ -474,7 +474,7 @@ def generate_lead_response(lead_email: str, conversation_history: list) -> str:
       "/images/projects/portfolio-website-2.jpg",
       "/images/projects/portfolio-website-3.jpg",
     ],
-    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    cta: "Build something similar? Let's discuss your requirements.",
     lessonsLearned:
       "Building this portfolio reinforced the importance of demonstrating capabilities through the product itself. I learned that a portfolio should be more than a showcase—it should be a working example of your skills. The integration of AI, automation, and modern web technologies in the portfolio itself proves technical proficiency better than any description could. Performance optimization and SEO were critical for ensuring the portfolio reaches its intended audience effectively.",
     codeSnippet: `// Example: AI chatbot integration with Claude
@@ -502,17 +502,17 @@ export async function POST(request: Request) {
   },
   launchlens: {
     title: "LaunchLens",
-    description: "Product launch analytics and tracking platform. Real-time dashboards and automated insights for launch performance.",
+    description: "Unifies scattered launch data from multiple tools into a single dashboard, eliminating hours of manual tracking each week. Product managers gain clear performance signals and make faster decisions without switching between systems.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
     github: "https://github.com/ar10000/LaunchLens",
-    heroSummary: "Product launch analytics platform providing real-time dashboards and automated insights. Tracks launch performance metrics and provides actionable data for product teams.",
+    heroSummary: "Central dashboard that aggregates launch metrics from disconnected tools, replacing manual spreadsheet updates with real-time visibility. Built with Next.js and Supabase to give product teams clarity and speed in launch decision-making.",
     roleDuration: "Role: Full-stack Developer\nTimeline: In progress\nTools: Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL",
     role: "Frontend Engineer (Next.js)",
     context: "Product managers struggle to track metrics across disconnected tools.",
     problem:
-      "• Product teams lack visibility into launch performance metrics\n• Manual tracking of launch data is time-consuming and error-prone\n• No centralized platform for tracking launch analytics across multiple products\n• Difficult to compare launch performance across different products or time periods",
+      "Launch data scattered across multiple tools forces product managers to spend hours each week manually compiling metrics. Unclear performance signals delay decisions and make it difficult to identify what's working.",
     solution:
-      "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
+      "Central dashboard that unifies metrics from all systems into a single view. Real-time aggregation eliminates manual tracking, providing clear performance signals and enabling faster, data-driven decisions.",
     impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
     features: [
       {
@@ -569,7 +569,7 @@ export async function POST(request: Request) {
       "/images/projects/launchlens-2.jpg",
       "/images/projects/launchlens-3.jpg",
     ],
-    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    cta: "Build something similar? Let's discuss your requirements.",
     lessonsLearned:
       "LaunchLens demonstrates the importance of real-time data visualization for product teams. Building analytics platforms requires careful consideration of data aggregation, query optimization, and user experience. The project shows how modern web technologies can create powerful analytics tools that provide actionable insights.",
     codeSnippet: null,
@@ -644,7 +644,7 @@ export async function POST(request: Request) {
       "/images/projects/adaptive-resume-2.jpg",
       "/images/projects/adaptive-resume-3.jpg",
     ],
-    cta: "Want a system like this? Book a 10-minute Fit Call.",
+    cta: "Build something similar? Let's discuss your requirements.",
     lessonsLearned:
       "Adaptive Resume demonstrates the importance of intelligent content adaptation for job seekers. Building ATS-optimized systems requires understanding of resume parsing algorithms and keyword matching strategies. The project shows how modern web technologies can create powerful tools that adapt content dynamically based on user needs.",
     codeSnippet: null,

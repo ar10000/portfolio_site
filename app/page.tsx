@@ -39,7 +39,7 @@ const featuredProjects = [
     problem: "Product teams lack visibility into launch performance metrics. Manual tracking of launch data is time-consuming and error-prone. No centralized platform for tracking launch analytics across multiple products. Difficult to compare launch performance across different products or time periods.",
     solution: "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
     impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
-    image: "/images/projects/launchlens-1.png",
+    image: "/images/projects/launchlens-1.jpg",
     slug: "launchlens",
   },
 ];

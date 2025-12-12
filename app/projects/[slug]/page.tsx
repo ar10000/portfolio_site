@@ -565,7 +565,7 @@ export async function POST(request: Request) {
     ],
     metrics: null,
     screenshots: [
-      "/images/projects/launchlens-1.jpg",
+      "/images/projects/launchlens-1.png",
       "/images/projects/launchlens-2.jpg",
       "/images/projects/launchlens-3.jpg",
     ],

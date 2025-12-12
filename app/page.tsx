@@ -39,7 +39,7 @@ const featuredProjects = [
     problem: "Product teams lack visibility into launch performance metrics. Manual tracking of launch data is time-consuming and error-prone. No centralized platform for tracking launch analytics across multiple products. Difficult to compare launch performance across different products or time periods.",
     solution: "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
     impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
-    image: "/images/projects/launchlens-1.jpg",
+    image: "/images/projects/launchlens-1.png",
     slug: "launchlens",
   },
 ];
@@ -275,8 +275,8 @@ export default function Home() {
                   <div className="mb-3">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-400">
                       {project.role}
-                    </span>
-                  </div>
+                  </span>
+                </div>
 
                   {/* Title */}
                   <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">

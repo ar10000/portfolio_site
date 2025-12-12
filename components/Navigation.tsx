@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -18,6 +18,8 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const navRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   // Handle scroll detection
   useEffect(() => {
@@ -28,6 +30,40 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Update indicator position based on active nav item
+  useEffect(() => {
+    const updateIndicatorPosition = () => {
+      const activeItem = navItems.find((item) => {
+        const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+        const normalizedHref = item.href.replace(/\/$/, '') || '/';
+        return normalizedPathname === normalizedHref && item.name !== "Contact";
+      });
+
+      if (activeItem && navRefs.current[activeItem.href]) {
+        const element = navRefs.current[activeItem.href];
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const parentRect = element.parentElement?.getBoundingClientRect();
+          if (parentRect) {
+            setIndicatorStyle({
+              left: rect.left - parentRect.left,
+              width: rect.width,
+            });
+          }
+        }
+      } else {
+        setIndicatorStyle({ left: 0, width: 0 });
+      }
+    };
+
+    // Update on pathname change
+    updateIndicatorPosition();
+
+    // Also update on resize
+    window.addEventListener('resize', updateIndicatorPosition);
+    return () => window.removeEventListener('resize', updateIndicatorPosition);
+  }, [pathname]);
 
   // Intersection Observer for active section highlighting
   useEffect(() => {
@@ -101,7 +137,21 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-6 relative">
+              {/* Active indicator bar - positioned absolutely */}
+              {indicatorStyle.width > 0 && (
+                <motion.div
+                  className="absolute -bottom-1 bg-gradient-to-r from-purple-400 to-blue-500"
+                  style={{ 
+                    height: "2px",
+                    left: indicatorStyle.left,
+                    width: indicatorStyle.width,
+                  }}
+                  initial={false}
+                  transition={{ duration: 300, ease: "easeInOut" }}
+                />
+              )}
+              
               {navItems.map((item) => {
                 // More robust pathname matching - handle trailing slashes and exact matches
                 const normalizedPathname = pathname.replace(/\/$/, '') || '/';
@@ -134,6 +184,9 @@ export default function Navigation() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    ref={(el) => {
+                      navRefs.current[item.href] = el;
+                    }}
                     onClick={(e) => handleSmoothScroll(e, item.href)}
                     className="relative group py-2 px-1"
                     aria-current={isActive ? "page" : undefined}
@@ -147,15 +200,6 @@ export default function Navigation() {
                     >
                       {item.name}
                     </span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute -bottom-1 left-0 right-0 bg-gradient-to-r from-purple-400 to-blue-500"
-                        style={{ height: "2px" }}
-                        initial={false}
-                        transition={{ duration: 300, ease: "easeInOut" }}
-                      />
-                    )}
                   </Link>
                 );
               })}

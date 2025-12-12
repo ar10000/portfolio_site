@@ -81,7 +81,7 @@ const projectData: Record<string, Project> = {
     tech: ["Flutter", "Supabase", "Dart", "PostgreSQL"],
     github: "https://github.com/ar10000/creative-garden",
     heroSummary: "Flutter app for managing creative projects through lifecycle stages. Uses Supabase triggers for momentum scoring. Production-ready with offline caching and GDPR export.",
-    roleDuration: "Role: Full-stack AI Builder\nTimeline: 8 weeks\nTools: Flutter, Supabase, Dart, PostgreSQL",
+    roleDuration: "Role: Full-stack AI Builder\nTimeline: 4 weeks\nTools: Flutter, Supabase, Dart, PostgreSQL",
     role: "Mobile Developer (Flutter)",
     context: "Creative insights are often lost due to friction in standard note-taking apps.",
     problem:

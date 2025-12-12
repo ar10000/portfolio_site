@@ -13,7 +13,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import AnimatedWords from "@/components/AnimatedWords";
 
 // Import projects data - using top 2 for featured case studies

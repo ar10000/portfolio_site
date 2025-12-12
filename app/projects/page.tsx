@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, ExternalLink, Github, CheckCircle2, FileText } from "lucide-react";
 import { useState } from "react";
 

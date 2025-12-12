@@ -820,14 +820,10 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
             className="relative group"
           >
             <div className="relative aspect-[16/10] rounded-xl overflow-hidden border-2 border-gray-800 bg-gray-900 shadow-2xl shadow-purple-500/10 group-hover:border-purple-500/50 transition-all duration-300">
-              <Image
+              <img
           src={validImages[selectedImage]}
           alt={`Screenshot ${selectedImage + 1}`}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                className="object-cover"
-                priority={selectedImage === 0}
-                unoptimized
+          className="w-full h-full object-cover"
           onError={(e) => {
                   console.error('Image load error:', validImages[selectedImage]);
                   e.currentTarget.style.display = 'none';
@@ -835,7 +831,7 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
         />
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+      </div>
             
             {/* Caption */}
             <motion.div
@@ -923,13 +919,10 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
               className="group"
             >
               <div className="relative aspect-[16/10] rounded-xl overflow-hidden border-2 border-gray-800 bg-gray-900 shadow-xl shadow-purple-500/5 group-hover:border-purple-500/50 group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-300">
-                <Image
+                <img
                   src={image}
                   alt={`Screenshot ${index + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  className="object-cover"
-                  unoptimized
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     console.error('Image load error:', image);
                     e.currentTarget.style.display = 'none';

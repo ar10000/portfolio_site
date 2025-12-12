@@ -827,7 +827,9 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 className="object-cover"
                 priority={selectedImage === 0}
+                unoptimized
           onError={(e) => {
+                  console.error('Image load error:', validImages[selectedImage]);
                   e.currentTarget.style.display = 'none';
           }}
         />
@@ -927,7 +929,9 @@ function ImageGallery({ images, captions }: { images: string[], captions?: strin
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   className="object-cover"
+                  unoptimized
                   onError={(e) => {
+                    console.error('Image load error:', image);
                     e.currentTarget.style.display = 'none';
                   }}
                 />

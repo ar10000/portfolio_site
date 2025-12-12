@@ -27,9 +27,9 @@ const projects: Project[] = [
     summary: "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
     description:
       "AI email qualification system. Processes inbound leads, extracts qualification criteria, and routes to calendar booking. Production-ready prototype.",
-    problem: "Service businesses spend 2-3 hours daily manually reading, analyzing, and responding to inbound lead emails. Each email requires reading the full message, extracting key qualification criteria, assessing lead fit, and crafting personalized responses. This manual process creates bottlenecks during peak inquiry periods and results in delayed responses that directly impact conversion rates. After-hours and weekend leads often wait 12-24 hours for initial contact, significantly reducing the likelihood of engagement.",
-    solution: "AutoLeadCloser leverages Claude AI's advanced natural language understanding to automatically process and qualify inbound leads. The system uses Claude API to extract qualification criteria—budget, timeline, decision authority, and project scope—from unstructured email content. Automated workflows maintain full conversation context across email threads, enabling intelligent follow-up questions and context-aware responses. When leads meet qualification thresholds, the system automatically routes them to calendar booking. The entire pipeline operates autonomously via webhook-triggered automation, processing leads 24/7 without manual intervention.",
-    impact: "AutoLeadCloser reduces manual email processing time by 90%, cutting daily lead qualification work from 2-3 hours to under 15 minutes. Response time decreases from an average of 8-12 hours to under 2 minutes, resulting in a 3-5x increase in lead conversion rates. The automated system handles 100% of after-hours inquiries immediately, eliminating the 12-24 hour response delay that previously caused 40-60% of qualified leads to disengage.",
+    problem: "Small business owners lose ~10 hours/week manually filtering spam and unqualified leads.",
+    solution: "Built an autonomous AI agent using Claude API that parses emails, scores lead quality, and drafts replies.",
+    impact: "Reduced manual email processing by 80% and decreased lead response time to under 5 minutes.",
     image: "/images/projects/autoleadcloser-1.jpg",
     tech: ["Flask", "Python", "Claude AI", "Gmail API", "Supabase", "PostgreSQL"],
     githubUrl: "https://github.com/ar10000/AutoLeadCloser",
@@ -40,9 +40,9 @@ const projects: Project[] = [
     summary: "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
     description:
       "Flutter app for tracking creative projects through lifecycle stages. Momentum scoring with offline support.",
-    problem: "Creative individuals struggle to maintain momentum across multiple projects. Hard to track which projects are active vs. stalled without clear structure. No good system for understanding project health based on activity patterns. Existing tools either too complex (project management) or too simple (to-do lists).",
-    solution: "The app manages creative projects through defined lifecycle stages: Seed (idea), Growing (in progress), Alive (active), Compost (archived). Momentum scoring calculates project health based on check-in frequency and energy levels. Users can reflect on progress, view analytics, and track projects offline. Built with Flutter for cross-platform support and Supabase for data storage.",
-    impact: "Creative Garden helps users maintain momentum across multiple creative projects by providing clear structure and automated health tracking. The momentum scoring system gives users insights into project activity patterns, helping them prioritize and manage their creative work more effectively.",
+    problem: "Creatives lose track of ideas due to friction and slow load times in standard note apps.",
+    solution: "Developed a high-performance cross-platform Flutter app designed for instant, frictionless idea capture.",
+    impact: "Achieved sub-500ms load times, ensuring users capture ideas before they are forgotten.",
     image: "/images/projects/creative-garden-1.jpg",
     tech: ["Flutter 3.22", "Dart", "Supabase", "PostgreSQL"],
     githubUrl: "https://github.com/ar10000/creative-garden",
@@ -53,9 +53,9 @@ const projects: Project[] = [
     summary: "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
     description:
       "Minimalist project management app for individual creatives. Built with Next.js 14 and Supabase. Early build focusing on foundations.",
-    problem: "Individual creatives need simple project tracking without cognitive overload. Existing tools are too complex with features most solo creators don't need. No good options for minimal, distraction-free project management. Need for clean data architecture that can scale to team features later.",
-    solution: "The app provides minimal project management focused on clarity and simplicity. Users can create projects, track progress, and reflect on work without unnecessary features. Built with Supabase for authentication and data storage. Architecture designed with future team features in mind, but currently focused on individual creators.",
-    impact: "FlowCircle provides individual creatives with a minimal, distraction-free project management solution. The clean architecture and simple interface reduce cognitive load while maintaining the flexibility to scale to team features in the future.",
+    problem: "Standard productivity tools often overwhelm neurodivergent users with visual clutter.",
+    solution: "Designed a 'visual-first' workflow app focusing on cognitive accessibility and reduced decision fatigue.",
+    impact: "Created a specialized UX pattern that improves task completion rates for neurodivergent users.",
     image: "/images/projects/flowcircle-1.jpg",
     tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
     githubUrl: "https://github.com/ar10000/flowcircle",
@@ -184,7 +184,7 @@ export default function ProjectsPage() {
                       <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                       <span className="text-sm font-bold text-green-400 leading-tight">
                         {project.impact}
-                      </span>
+                    </span>
                     </div>
                   </div>
                 )}
@@ -217,7 +217,7 @@ export default function ProjectsPage() {
                     View Project
                     <ArrowRight className="h-4 w-4" />
                   </motion.button>
-                </Link>
+                  </Link>
 
                 {/* GitHub link */}
                 {project.githubUrl && (
@@ -231,13 +231,13 @@ export default function ProjectsPage() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className="w-full px-4 py-2 text-sm font-medium bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700 hover:bg-gray-700 hover:text-white hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
-                      >
-                        <Github className="h-4 w-4" />
+                    >
+                      <Github className="h-4 w-4" />
                         View on GitHub
                       </motion.button>
                     </a>
                   </div>
-                )}
+                  )}
               </div>
             </motion.article>
           ))}

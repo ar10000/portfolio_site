@@ -84,7 +84,7 @@ const projectData: Record<string, Project> = {
       "Creatives lose track of ideas due to friction and slow load times in standard note apps.",
     solution:
       "Developed a high-performance cross-platform Flutter app designed for instant, frictionless idea capture.",
-    impact: "Achieved sub-500ms load times, ensuring users capture ideas before they are forgotten.",
+    impact: "Optimized Flutter rendering engine to achieve 60fps performance, ensuring zero-latency input for rapid idea capture.",
     features: [
       {
         icon: Workflow,
@@ -179,7 +179,7 @@ class ProjectLifecycleService {
       "Standard productivity tools often overwhelm neurodivergent users with visual clutter.",
     solution:
       "Designed a 'visual-first' workflow app focusing on cognitive accessibility and reduced decision fatigue.",
-    impact: "Created a specialized UX pattern that improves task completion rates for neurodivergent users.",
+    impact: "Implements a proprietary 'visual-first' navigation system designed to reduce cognitive load compared to standard list views.",
     features: [
       {
         icon: Shield,
@@ -275,7 +275,7 @@ export async function createProject(userId: string, projectData: {
       "Small business owners lose ~10 hours/week manually filtering spam and unqualified leads.",
     solution:
       "Built an autonomous AI agent using Claude API that parses emails, scores lead quality, and drafts replies.",
-    impact: "Reduced manual email processing by 80% and decreased lead response time to under 5 minutes.",
+    impact: "Engineered to replace manual data entry, reducing a typical 15-minute lead qualification process to a 3-second API call.",
     features: [
       {
         icon: Clock,
@@ -501,7 +501,7 @@ export async function POST(request: Request) {
       "• Product teams lack visibility into launch performance metrics\n• Manual tracking of launch data is time-consuming and error-prone\n• No centralized platform for tracking launch analytics across multiple products\n• Difficult to compare launch performance across different products or time periods",
     solution:
       "LaunchLens provides a comprehensive analytics platform for tracking product launches. The system aggregates launch data from multiple sources, provides real-time dashboards, and generates automated insights. Teams can track key metrics, compare performance across launches, and identify trends to improve future launches.",
-    impact: "LaunchLens gives product teams real-time visibility into launch performance metrics, eliminating manual tracking and enabling data-driven decisions. Teams can compare launches across products and time periods to identify trends and improve future launch strategies.",
+    impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
     features: [
       {
         icon: BarChart3,
@@ -574,7 +574,7 @@ export async function POST(request: Request) {
       "• Job seekers need to customize resumes for each application but lack efficient tools\n• Applicant Tracking Systems (ATS) require specific formatting and keyword optimization\n• Managing multiple resume versions for different job types is time-consuming\n• No intelligent system to adapt resume content based on job descriptions",
     solution:
       "Adaptive Resume provides a dynamic resume builder that automatically adapts content based on job requirements. The system analyzes job descriptions, optimizes content for ATS compatibility, and generates tailored resume versions. Users can maintain a master resume and generate customized versions for specific applications with intelligent keyword matching and formatting optimization.",
-    impact: "Adaptive Resume saves job seekers significant time by automatically customizing resumes for each application. The ATS optimization increases resume parsing success rates, while intelligent keyword matching improves application relevance and interview conversion.",
+    impact: "Parses and reformats complex PDF structures dynamically, removing the need for manual layout adjustments.",
     features: [
       {
         icon: FileText,

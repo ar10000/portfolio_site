@@ -40,16 +40,16 @@ const projects: Project[] = [
   {
     id: "launchlens",
     title: "LaunchLens",
-    summary: "Unifies scattered launch data from multiple tools into a single dashboard, eliminating hours of manual tracking each week. Product managers gain clear performance signals and make faster decisions.",
+    summary: "AI-powered marketing strategy generator for indie builders. Generates honest, actionable marketing strategies without fluff, with optional GitHub repository analysis for deeper insights.",
     description:
-      "Unifies scattered launch data from multiple tools into a single dashboard, eliminating hours of manual tracking each week. Product managers gain clear performance signals and make faster decisions without switching between systems.",
+      "AI-powered marketing strategy generator for indie builders. Uses Google Gemini 2.0 Flash to generate comprehensive marketing strategies. Includes GitHub integration for repository analysis, editable block-based editor, voice customization, and export options.",
     role: "Frontend Engineer (Next.js)",
-    context: "Product managers struggle to track metrics across disconnected tools.",
-    problem: "Launch data scattered across multiple tools forces product managers to spend hours each week manually compiling metrics. Unclear performance signals delay decisions and make it difficult to identify what's working.",
-    solution: "Central dashboard that unifies metrics from all systems into a single view. Real-time aggregation eliminates manual tracking, providing clear performance signals and enabling faster, data-driven decisions.",
-    impact: "Centralizes fragmented data sources into a real-time dashboard, eliminating the need for manual spreadsheet updates.",
+    context: "Indie builders need actionable marketing strategies but lack access to marketing expertise.",
+    problem: "Indie builders struggle to create effective marketing strategies. Generic advice lacks specificity, and hiring marketing consultants is expensive. No tool generates honest, actionable strategies tailored to their projects.",
+    solution: "AI-powered marketing strategy generator using Google Gemini 2.0 Flash. Optionally analyzes GitHub repositories for deeper insights. Generates editable strategies with customizable tone and personality, exportable as Markdown or JSON.",
+    impact: "Generates comprehensive marketing strategies in minutes, eliminating the need for expensive consultants or generic templates.",
     image: "/images/projects/launchlens-1.jpg",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Google Gemini 2.0 Flash", "Supabase", "PostgreSQL"],
     githubUrl: "https://github.com/ar10000/LaunchLens",
   },
   {
